@@ -15,7 +15,7 @@ class LockConfig
     private $resources;
     
     /**
-     * @default false
+     * @default true
      */
     public function setEnabled(bool $value): self
     {
