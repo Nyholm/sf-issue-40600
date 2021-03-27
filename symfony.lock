@@ -1,4 +1,99 @@
 {
+    "composer/package-versions-deprecated": {
+        "version": "1.x-dev"
+    },
+    "doctrine/annotations": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "a2759dd6123694c8d901d0ec80006e044c2e6457"
+        },
+        "files": [
+            "config/routes/annotations.yaml"
+        ]
+    },
+    "doctrine/cache": {
+        "version": "1.11.x-dev"
+    },
+    "doctrine/collections": {
+        "version": "1.7.x-dev"
+    },
+    "doctrine/common": {
+        "version": "3.1.x-dev"
+    },
+    "doctrine/dbal": {
+        "version": "2.13.x-dev"
+    },
+    "doctrine/deprecations": {
+        "version": "v0.5.3"
+    },
+    "doctrine/doctrine-bundle": {
+        "version": "2.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.3",
+            "ref": "9777bf185961283a450b6237281132935025fe04"
+        },
+        "files": [
+            "config/packages/doctrine.yaml",
+            "config/packages/prod/doctrine.yaml",
+            "config/packages/test/doctrine.yaml",
+            "src/Entity/.gitignore",
+            "src/Repository/.gitignore"
+        ]
+    },
+    "doctrine/doctrine-migrations-bundle": {
+        "version": "2.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.2",
+            "ref": "baaa439e3e3179e69e3da84b671f0a3e4a2f56ad"
+        },
+        "files": [
+            "config/packages/doctrine_migrations.yaml",
+            "migrations/.gitignore"
+        ]
+    },
+    "doctrine/event-manager": {
+        "version": "1.2.x-dev"
+    },
+    "doctrine/inflector": {
+        "version": "2.1.x-dev"
+    },
+    "doctrine/instantiator": {
+        "version": "1.5.x-dev"
+    },
+    "doctrine/lexer": {
+        "version": "1.3.x-dev"
+    },
+    "doctrine/migrations": {
+        "version": "3.2.x-dev"
+    },
+    "doctrine/orm": {
+        "version": "3.0.x-dev"
+    },
+    "doctrine/persistence": {
+        "version": "2.2.x-dev"
+    },
+    "doctrine/sql-formatter": {
+        "version": "1.x-dev"
+    },
+    "friendsofphp/proxy-manager-lts": {
+        "version": "1.x-dev"
+    },
+    "laminas/laminas-code": {
+        "version": "4.2.x-dev"
+    },
+    "laminas/laminas-eventmanager": {
+        "version": "3.4.x-dev"
+    },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.3.x-dev"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -37,6 +132,9 @@
     },
     "symfony/deprecation-contracts": {
         "version": "2.4-dev"
+    },
+    "symfony/doctrine-bridge": {
+        "version": "5.x-dev"
     },
     "symfony/dotenv": {
         "version": "5.x-dev"
@@ -97,6 +195,12 @@
     "symfony/http-kernel": {
         "version": "5.x-dev"
     },
+    "symfony/orm-pack": {
+        "version": "dev-main"
+    },
+    "symfony/password-hasher": {
+        "version": "5.x-dev"
+    },
     "symfony/polyfill-intl-grapheme": {
         "version": "1.22-dev"
     },
@@ -111,6 +215,15 @@
     },
     "symfony/polyfill-php80": {
         "version": "1.22-dev"
+    },
+    "symfony/property-access": {
+        "version": "5.x-dev"
+    },
+    "symfony/property-info": {
+        "version": "5.x-dev"
+    },
+    "symfony/proxy-manager-bridge": {
+        "version": "5.x-dev"
     },
     "symfony/routing": {
         "version": "5.1",
@@ -129,8 +242,35 @@
     "symfony/runtime": {
         "version": "5.x-dev"
     },
+    "symfony/security-bundle": {
+        "version": "5.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.1",
+            "ref": "0a4bae19389d3b9cba1ca0102e3b2bccea724603"
+        },
+        "files": [
+            "config/packages/security.yaml"
+        ]
+    },
+    "symfony/security-core": {
+        "version": "5.x-dev"
+    },
+    "symfony/security-csrf": {
+        "version": "5.x-dev"
+    },
+    "symfony/security-guard": {
+        "version": "5.x-dev"
+    },
+    "symfony/security-http": {
+        "version": "5.x-dev"
+    },
     "symfony/service-contracts": {
         "version": "2.4-dev"
+    },
+    "symfony/stopwatch": {
+        "version": "5.x-dev"
     },
     "symfony/string": {
         "version": "5.x-dev"
