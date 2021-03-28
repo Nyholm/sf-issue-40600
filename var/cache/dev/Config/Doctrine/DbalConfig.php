@@ -37,23 +37,6 @@ class DbalConfig
         return $this->connections[$name] = new \Config\Doctrine\DbalConfig\ConnectionConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->defaultConnection) {
-            $output["default_connection"] = $this->defaultConnection;
-        }
-        if (null !== $this->types) {
-            $output["types"] = array_map(function($v) { return $v->toArray(); }, $this->types);
-        }
-        if (null !== $this->connections) {
-            $output["connections"] = array_map(function($v) { return $v->toArray(); }, $this->connections);
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -75,6 +58,23 @@ class DbalConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->defaultConnection) {
+            $output["default_connection"] = $this->defaultConnection;
+        }
+        if (null !== $this->types) {
+            $output["types"] = array_map(function($v) { return $v->toArray(); }, $this->types);
+        }
+        if (null !== $this->connections) {
+            $output["connections"] = array_map(function($v) { return $v->toArray(); }, $this->connections);
+        }
+    
+        return $output;
     }
     
 

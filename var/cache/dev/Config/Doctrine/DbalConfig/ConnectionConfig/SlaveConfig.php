@@ -355,101 +355,6 @@ class SlaveConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->url) {
-            $output["url"] = $this->url;
-        }
-        if (null !== $this->dbname) {
-            $output["dbname"] = $this->dbname;
-        }
-        if (null !== $this->host) {
-            $output["host"] = $this->host;
-        }
-        if (null !== $this->port) {
-            $output["port"] = $this->port;
-        }
-        if (null !== $this->user) {
-            $output["user"] = $this->user;
-        }
-        if (null !== $this->password) {
-            $output["password"] = $this->password;
-        }
-        if (null !== $this->overrideUrl) {
-            $output["override_url"] = $this->overrideUrl;
-        }
-        if (null !== $this->applicationName) {
-            $output["application_name"] = $this->applicationName;
-        }
-        if (null !== $this->charset) {
-            $output["charset"] = $this->charset;
-        }
-        if (null !== $this->path) {
-            $output["path"] = $this->path;
-        }
-        if (null !== $this->memory) {
-            $output["memory"] = $this->memory;
-        }
-        if (null !== $this->unixSocket) {
-            $output["unix_socket"] = $this->unixSocket;
-        }
-        if (null !== $this->persistent) {
-            $output["persistent"] = $this->persistent;
-        }
-        if (null !== $this->protocol) {
-            $output["protocol"] = $this->protocol;
-        }
-        if (null !== $this->service) {
-            $output["service"] = $this->service;
-        }
-        if (null !== $this->servicename) {
-            $output["servicename"] = $this->servicename;
-        }
-        if (null !== $this->sessionMode) {
-            $output["sessionMode"] = $this->sessionMode;
-        }
-        if (null !== $this->server) {
-            $output["server"] = $this->server;
-        }
-        if (null !== $this->defaultDbname) {
-            $output["default_dbname"] = $this->defaultDbname;
-        }
-        if (null !== $this->sslmode) {
-            $output["sslmode"] = $this->sslmode;
-        }
-        if (null !== $this->sslrootcert) {
-            $output["sslrootcert"] = $this->sslrootcert;
-        }
-        if (null !== $this->sslcert) {
-            $output["sslcert"] = $this->sslcert;
-        }
-        if (null !== $this->sslkey) {
-            $output["sslkey"] = $this->sslkey;
-        }
-        if (null !== $this->sslcrl) {
-            $output["sslcrl"] = $this->sslcrl;
-        }
-        if (null !== $this->pooled) {
-            $output["pooled"] = $this->pooled;
-        }
-        if (null !== $this->multipleActiveResultSets) {
-            $output["MultipleActiveResultSets"] = $this->multipleActiveResultSets;
-        }
-        if (null !== $this->useSavepoints) {
-            $output["use_savepoints"] = $this->useSavepoints;
-        }
-        if (null !== $this->instancename) {
-            $output["instancename"] = $this->instancename;
-        }
-        if (null !== $this->connectstring) {
-            $output["connectstring"] = $this->connectstring;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -601,6 +506,101 @@ class SlaveConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->url) {
+            $output["url"] = $this->url;
+        }
+        if (null !== $this->dbname) {
+            $output["dbname"] = $this->dbname;
+        }
+        if (null !== $this->host) {
+            $output["host"] = $this->host;
+        }
+        if (null !== $this->port) {
+            $output["port"] = $this->port;
+        }
+        if (null !== $this->user) {
+            $output["user"] = $this->user;
+        }
+        if (null !== $this->password) {
+            $output["password"] = $this->password;
+        }
+        if (null !== $this->overrideUrl) {
+            $output["override_url"] = $this->overrideUrl;
+        }
+        if (null !== $this->applicationName) {
+            $output["application_name"] = $this->applicationName;
+        }
+        if (null !== $this->charset) {
+            $output["charset"] = $this->charset;
+        }
+        if (null !== $this->path) {
+            $output["path"] = $this->path;
+        }
+        if (null !== $this->memory) {
+            $output["memory"] = $this->memory;
+        }
+        if (null !== $this->unixSocket) {
+            $output["unix_socket"] = $this->unixSocket;
+        }
+        if (null !== $this->persistent) {
+            $output["persistent"] = $this->persistent;
+        }
+        if (null !== $this->protocol) {
+            $output["protocol"] = $this->protocol;
+        }
+        if (null !== $this->service) {
+            $output["service"] = $this->service;
+        }
+        if (null !== $this->servicename) {
+            $output["servicename"] = $this->servicename;
+        }
+        if (null !== $this->sessionMode) {
+            $output["sessionMode"] = $this->sessionMode;
+        }
+        if (null !== $this->server) {
+            $output["server"] = $this->server;
+        }
+        if (null !== $this->defaultDbname) {
+            $output["default_dbname"] = $this->defaultDbname;
+        }
+        if (null !== $this->sslmode) {
+            $output["sslmode"] = $this->sslmode;
+        }
+        if (null !== $this->sslrootcert) {
+            $output["sslrootcert"] = $this->sslrootcert;
+        }
+        if (null !== $this->sslcert) {
+            $output["sslcert"] = $this->sslcert;
+        }
+        if (null !== $this->sslkey) {
+            $output["sslkey"] = $this->sslkey;
+        }
+        if (null !== $this->sslcrl) {
+            $output["sslcrl"] = $this->sslcrl;
+        }
+        if (null !== $this->pooled) {
+            $output["pooled"] = $this->pooled;
+        }
+        if (null !== $this->multipleActiveResultSets) {
+            $output["MultipleActiveResultSets"] = $this->multipleActiveResultSets;
+        }
+        if (null !== $this->useSavepoints) {
+            $output["use_savepoints"] = $this->useSavepoints;
+        }
+        if (null !== $this->instancename) {
+            $output["instancename"] = $this->instancename;
+        }
+        if (null !== $this->connectstring) {
+            $output["connectstring"] = $this->connectstring;
+        }
+    
+        return $output;
     }
     
 

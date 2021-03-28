@@ -88,38 +88,6 @@ class SecondLevelCacheConfig
         return $this->loggers[$name] = new \Config\Doctrine\OrmConfig\EntityManagerConfig\SecondLevelCacheConfig\LoggerConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->regionCacheDriver) {
-            $output["region_cache_driver"] = $this->regionCacheDriver->toArray();
-        }
-        if (null !== $this->regionLockLifetime) {
-            $output["region_lock_lifetime"] = $this->regionLockLifetime;
-        }
-        if (null !== $this->logEnabled) {
-            $output["log_enabled"] = $this->logEnabled;
-        }
-        if (null !== $this->regionLifetime) {
-            $output["region_lifetime"] = $this->regionLifetime;
-        }
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->factory) {
-            $output["factory"] = $this->factory;
-        }
-        if (null !== $this->regions) {
-            $output["regions"] = array_map(function($v) { return $v->toArray(); }, $this->regions);
-        }
-        if (null !== $this->loggers) {
-            $output["loggers"] = array_map(function($v) { return $v->toArray(); }, $this->loggers);
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -166,6 +134,38 @@ class SecondLevelCacheConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->regionCacheDriver) {
+            $output["region_cache_driver"] = $this->regionCacheDriver->toArray();
+        }
+        if (null !== $this->regionLockLifetime) {
+            $output["region_lock_lifetime"] = $this->regionLockLifetime;
+        }
+        if (null !== $this->logEnabled) {
+            $output["log_enabled"] = $this->logEnabled;
+        }
+        if (null !== $this->regionLifetime) {
+            $output["region_lifetime"] = $this->regionLifetime;
+        }
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->factory) {
+            $output["factory"] = $this->factory;
+        }
+        if (null !== $this->regions) {
+            $output["regions"] = array_map(function($v) { return $v->toArray(); }, $this->regions);
+        }
+        if (null !== $this->loggers) {
+            $output["loggers"] = array_map(function($v) { return $v->toArray(); }, $this->loggers);
+        }
+    
+        return $output;
     }
     
 

@@ -131,53 +131,6 @@ class SecurityConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->accessDeniedUrl) {
-            $output["access_denied_url"] = $this->accessDeniedUrl;
-        }
-        if (null !== $this->sessionFixationStrategy) {
-            $output["session_fixation_strategy"] = $this->sessionFixationStrategy;
-        }
-        if (null !== $this->hideUserNotFound) {
-            $output["hide_user_not_found"] = $this->hideUserNotFound;
-        }
-        if (null !== $this->alwaysAuthenticateBeforeGranting) {
-            $output["always_authenticate_before_granting"] = $this->alwaysAuthenticateBeforeGranting;
-        }
-        if (null !== $this->eraseCredentials) {
-            $output["erase_credentials"] = $this->eraseCredentials;
-        }
-        if (null !== $this->enableAuthenticatorManager) {
-            $output["enable_authenticator_manager"] = $this->enableAuthenticatorManager;
-        }
-        if (null !== $this->accessDecisionManager) {
-            $output["access_decision_manager"] = $this->accessDecisionManager->toArray();
-        }
-        if (null !== $this->encoders) {
-            $output["encoders"] = array_map(function($v) { return $v->toArray(); }, $this->encoders);
-        }
-        if (null !== $this->passwordHashers) {
-            $output["password_hashers"] = array_map(function($v) { return $v->toArray(); }, $this->passwordHashers);
-        }
-        if (null !== $this->providers) {
-            $output["providers"] = array_map(function($v) { return $v->toArray(); }, $this->providers);
-        }
-        if (null !== $this->firewalls) {
-            $output["firewalls"] = array_map(function($v) { return $v->toArray(); }, $this->firewalls);
-        }
-        if (null !== $this->accessControl) {
-            $output["access_control"] = array_map(function($v) { return $v->toArray(); }, $this->accessControl);
-        }
-        if (null !== $this->roleHierarchy) {
-            $output["role_hierarchy"] = $this->roleHierarchy;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -249,6 +202,53 @@ class SecurityConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->accessDeniedUrl) {
+            $output["access_denied_url"] = $this->accessDeniedUrl;
+        }
+        if (null !== $this->sessionFixationStrategy) {
+            $output["session_fixation_strategy"] = $this->sessionFixationStrategy;
+        }
+        if (null !== $this->hideUserNotFound) {
+            $output["hide_user_not_found"] = $this->hideUserNotFound;
+        }
+        if (null !== $this->alwaysAuthenticateBeforeGranting) {
+            $output["always_authenticate_before_granting"] = $this->alwaysAuthenticateBeforeGranting;
+        }
+        if (null !== $this->eraseCredentials) {
+            $output["erase_credentials"] = $this->eraseCredentials;
+        }
+        if (null !== $this->enableAuthenticatorManager) {
+            $output["enable_authenticator_manager"] = $this->enableAuthenticatorManager;
+        }
+        if (null !== $this->accessDecisionManager) {
+            $output["access_decision_manager"] = $this->accessDecisionManager->toArray();
+        }
+        if (null !== $this->encoders) {
+            $output["encoders"] = array_map(function($v) { return $v->toArray(); }, $this->encoders);
+        }
+        if (null !== $this->passwordHashers) {
+            $output["password_hashers"] = array_map(function($v) { return $v->toArray(); }, $this->passwordHashers);
+        }
+        if (null !== $this->providers) {
+            $output["providers"] = array_map(function($v) { return $v->toArray(); }, $this->providers);
+        }
+        if (null !== $this->firewalls) {
+            $output["firewalls"] = array_map(function($v) { return $v->toArray(); }, $this->firewalls);
+        }
+        if (null !== $this->accessControl) {
+            $output["access_control"] = array_map(function($v) { return $v->toArray(); }, $this->accessControl);
+        }
+        if (null !== $this->roleHierarchy) {
+            $output["role_hierarchy"] = $this->roleHierarchy;
+        }
+    
+        return $output;
     }
     
 

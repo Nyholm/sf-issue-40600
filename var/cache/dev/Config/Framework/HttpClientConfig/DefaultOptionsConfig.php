@@ -222,71 +222,6 @@ class DefaultOptionsConfig
         return $this->retryFailed = new \Config\Framework\HttpClientConfig\DefaultOptionsConfig\RetryFailedConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->headers) {
-            $output["headers"] = $this->headers;
-        }
-        if (null !== $this->maxRedirects) {
-            $output["max_redirects"] = $this->maxRedirects;
-        }
-        if (null !== $this->httpVersion) {
-            $output["http_version"] = $this->httpVersion;
-        }
-        if (null !== $this->resolve) {
-            $output["resolve"] = $this->resolve;
-        }
-        if (null !== $this->proxy) {
-            $output["proxy"] = $this->proxy;
-        }
-        if (null !== $this->noProxy) {
-            $output["no_proxy"] = $this->noProxy;
-        }
-        if (null !== $this->timeout) {
-            $output["timeout"] = $this->timeout;
-        }
-        if (null !== $this->maxDuration) {
-            $output["max_duration"] = $this->maxDuration;
-        }
-        if (null !== $this->bindto) {
-            $output["bindto"] = $this->bindto;
-        }
-        if (null !== $this->verifyPeer) {
-            $output["verify_peer"] = $this->verifyPeer;
-        }
-        if (null !== $this->verifyHost) {
-            $output["verify_host"] = $this->verifyHost;
-        }
-        if (null !== $this->cafile) {
-            $output["cafile"] = $this->cafile;
-        }
-        if (null !== $this->capath) {
-            $output["capath"] = $this->capath;
-        }
-        if (null !== $this->localCert) {
-            $output["local_cert"] = $this->localCert;
-        }
-        if (null !== $this->localPk) {
-            $output["local_pk"] = $this->localPk;
-        }
-        if (null !== $this->passphrase) {
-            $output["passphrase"] = $this->passphrase;
-        }
-        if (null !== $this->ciphers) {
-            $output["ciphers"] = $this->ciphers;
-        }
-        if (null !== $this->peerFingerprint) {
-            $output["peer_fingerprint"] = $this->peerFingerprint->toArray();
-        }
-        if (null !== $this->retryFailed) {
-            $output["retry_failed"] = $this->retryFailed->toArray();
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -388,6 +323,71 @@ class DefaultOptionsConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->headers) {
+            $output["headers"] = $this->headers;
+        }
+        if (null !== $this->maxRedirects) {
+            $output["max_redirects"] = $this->maxRedirects;
+        }
+        if (null !== $this->httpVersion) {
+            $output["http_version"] = $this->httpVersion;
+        }
+        if (null !== $this->resolve) {
+            $output["resolve"] = $this->resolve;
+        }
+        if (null !== $this->proxy) {
+            $output["proxy"] = $this->proxy;
+        }
+        if (null !== $this->noProxy) {
+            $output["no_proxy"] = $this->noProxy;
+        }
+        if (null !== $this->timeout) {
+            $output["timeout"] = $this->timeout;
+        }
+        if (null !== $this->maxDuration) {
+            $output["max_duration"] = $this->maxDuration;
+        }
+        if (null !== $this->bindto) {
+            $output["bindto"] = $this->bindto;
+        }
+        if (null !== $this->verifyPeer) {
+            $output["verify_peer"] = $this->verifyPeer;
+        }
+        if (null !== $this->verifyHost) {
+            $output["verify_host"] = $this->verifyHost;
+        }
+        if (null !== $this->cafile) {
+            $output["cafile"] = $this->cafile;
+        }
+        if (null !== $this->capath) {
+            $output["capath"] = $this->capath;
+        }
+        if (null !== $this->localCert) {
+            $output["local_cert"] = $this->localCert;
+        }
+        if (null !== $this->localPk) {
+            $output["local_pk"] = $this->localPk;
+        }
+        if (null !== $this->passphrase) {
+            $output["passphrase"] = $this->passphrase;
+        }
+        if (null !== $this->ciphers) {
+            $output["ciphers"] = $this->ciphers;
+        }
+        if (null !== $this->peerFingerprint) {
+            $output["peer_fingerprint"] = $this->peerFingerprint->toArray();
+        }
+        if (null !== $this->retryFailed) {
+            $output["retry_failed"] = $this->retryFailed->toArray();
+        }
+    
+        return $output;
     }
     
 

@@ -46,23 +46,6 @@ class EntityConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->class) {
-            $output["class"] = $this->class;
-        }
-        if (null !== $this->property) {
-            $output["property"] = $this->property;
-        }
-        if (null !== $this->managerName) {
-            $output["manager_name"] = $this->managerName;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -84,6 +67,23 @@ class EntityConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->class) {
+            $output["class"] = $this->class;
+        }
+        if (null !== $this->property) {
+            $output["property"] = $this->property;
+        }
+        if (null !== $this->managerName) {
+            $output["manager_name"] = $this->managerName;
+        }
+    
+        return $output;
     }
     
 

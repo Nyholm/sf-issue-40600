@@ -224,71 +224,6 @@ class SessionConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->storageId) {
-            $output["storage_id"] = $this->storageId;
-        }
-        if (null !== $this->storageFactoryId) {
-            $output["storage_factory_id"] = $this->storageFactoryId;
-        }
-        if (null !== $this->handlerId) {
-            $output["handler_id"] = $this->handlerId;
-        }
-        if (null !== $this->name) {
-            $output["name"] = $this->name;
-        }
-        if (null !== $this->cookieLifetime) {
-            $output["cookie_lifetime"] = $this->cookieLifetime;
-        }
-        if (null !== $this->cookiePath) {
-            $output["cookie_path"] = $this->cookiePath;
-        }
-        if (null !== $this->cookieDomain) {
-            $output["cookie_domain"] = $this->cookieDomain;
-        }
-        if (null !== $this->cookieSecure) {
-            $output["cookie_secure"] = $this->cookieSecure;
-        }
-        if (null !== $this->cookieHttponly) {
-            $output["cookie_httponly"] = $this->cookieHttponly;
-        }
-        if (null !== $this->cookieSamesite) {
-            $output["cookie_samesite"] = $this->cookieSamesite;
-        }
-        if (null !== $this->useCookies) {
-            $output["use_cookies"] = $this->useCookies;
-        }
-        if (null !== $this->gcDivisor) {
-            $output["gc_divisor"] = $this->gcDivisor;
-        }
-        if (null !== $this->gcProbability) {
-            $output["gc_probability"] = $this->gcProbability;
-        }
-        if (null !== $this->gcMaxlifetime) {
-            $output["gc_maxlifetime"] = $this->gcMaxlifetime;
-        }
-        if (null !== $this->savePath) {
-            $output["save_path"] = $this->savePath;
-        }
-        if (null !== $this->metadataUpdateThreshold) {
-            $output["metadata_update_threshold"] = $this->metadataUpdateThreshold;
-        }
-        if (null !== $this->sidLength) {
-            $output["sid_length"] = $this->sidLength;
-        }
-        if (null !== $this->sidBitsPerCharacter) {
-            $output["sid_bits_per_character"] = $this->sidBitsPerCharacter;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -390,6 +325,71 @@ class SessionConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->storageId) {
+            $output["storage_id"] = $this->storageId;
+        }
+        if (null !== $this->storageFactoryId) {
+            $output["storage_factory_id"] = $this->storageFactoryId;
+        }
+        if (null !== $this->handlerId) {
+            $output["handler_id"] = $this->handlerId;
+        }
+        if (null !== $this->name) {
+            $output["name"] = $this->name;
+        }
+        if (null !== $this->cookieLifetime) {
+            $output["cookie_lifetime"] = $this->cookieLifetime;
+        }
+        if (null !== $this->cookiePath) {
+            $output["cookie_path"] = $this->cookiePath;
+        }
+        if (null !== $this->cookieDomain) {
+            $output["cookie_domain"] = $this->cookieDomain;
+        }
+        if (null !== $this->cookieSecure) {
+            $output["cookie_secure"] = $this->cookieSecure;
+        }
+        if (null !== $this->cookieHttponly) {
+            $output["cookie_httponly"] = $this->cookieHttponly;
+        }
+        if (null !== $this->cookieSamesite) {
+            $output["cookie_samesite"] = $this->cookieSamesite;
+        }
+        if (null !== $this->useCookies) {
+            $output["use_cookies"] = $this->useCookies;
+        }
+        if (null !== $this->gcDivisor) {
+            $output["gc_divisor"] = $this->gcDivisor;
+        }
+        if (null !== $this->gcProbability) {
+            $output["gc_probability"] = $this->gcProbability;
+        }
+        if (null !== $this->gcMaxlifetime) {
+            $output["gc_maxlifetime"] = $this->gcMaxlifetime;
+        }
+        if (null !== $this->savePath) {
+            $output["save_path"] = $this->savePath;
+        }
+        if (null !== $this->metadataUpdateThreshold) {
+            $output["metadata_update_threshold"] = $this->metadataUpdateThreshold;
+        }
+        if (null !== $this->sidLength) {
+            $output["sid_length"] = $this->sidLength;
+        }
+        if (null !== $this->sidBitsPerCharacter) {
+            $output["sid_bits_per_character"] = $this->sidBitsPerCharacter;
+        }
+    
+        return $output;
     }
     
 

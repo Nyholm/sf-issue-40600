@@ -31,20 +31,6 @@ class BusConfig
         return $this->middleware[] = new \Config\Framework\MessengerConfig\BusConfig\MiddlewareConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->defaultMiddleware) {
-            $output["default_middleware"] = $this->defaultMiddleware;
-        }
-        if (null !== $this->middleware) {
-            $output["middleware"] = array_map(function($v) { return $v->toArray(); }, $this->middleware);
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -61,6 +47,20 @@ class BusConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->defaultMiddleware) {
+            $output["default_middleware"] = $this->defaultMiddleware;
+        }
+        if (null !== $this->middleware) {
+            $output["middleware"] = array_map(function($v) { return $v->toArray(); }, $this->middleware);
+        }
+    
+        return $output;
     }
     
 

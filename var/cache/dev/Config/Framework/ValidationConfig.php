@@ -97,41 +97,6 @@ class ValidationConfig
         return $this->autoMapping[$namespace] = new \Config\Framework\ValidationConfig\AutoMappingConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->cache) {
-            $output["cache"] = $this->cache;
-        }
-        if (null !== $this->enableAnnotations) {
-            $output["enable_annotations"] = $this->enableAnnotations;
-        }
-        if (null !== $this->staticMethod) {
-            $output["static_method"] = $this->staticMethod;
-        }
-        if (null !== $this->translationDomain) {
-            $output["translation_domain"] = $this->translationDomain;
-        }
-        if (null !== $this->emailValidationMode) {
-            $output["email_validation_mode"] = $this->emailValidationMode;
-        }
-        if (null !== $this->mapping) {
-            $output["mapping"] = $this->mapping->toArray();
-        }
-        if (null !== $this->notCompromisedPassword) {
-            $output["not_compromised_password"] = $this->notCompromisedPassword->toArray();
-        }
-        if (null !== $this->autoMapping) {
-            $output["auto_mapping"] = array_map(function($v) { return $v->toArray(); }, $this->autoMapping);
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -183,6 +148,41 @@ class ValidationConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->cache) {
+            $output["cache"] = $this->cache;
+        }
+        if (null !== $this->enableAnnotations) {
+            $output["enable_annotations"] = $this->enableAnnotations;
+        }
+        if (null !== $this->staticMethod) {
+            $output["static_method"] = $this->staticMethod;
+        }
+        if (null !== $this->translationDomain) {
+            $output["translation_domain"] = $this->translationDomain;
+        }
+        if (null !== $this->emailValidationMode) {
+            $output["email_validation_mode"] = $this->emailValidationMode;
+        }
+        if (null !== $this->mapping) {
+            $output["mapping"] = $this->mapping->toArray();
+        }
+        if (null !== $this->notCompromisedPassword) {
+            $output["not_compromised_password"] = $this->notCompromisedPassword->toArray();
+        }
+        if (null !== $this->autoMapping) {
+            $output["auto_mapping"] = array_map(function($v) { return $v->toArray(); }, $this->autoMapping);
+        }
+    
+        return $output;
     }
     
 

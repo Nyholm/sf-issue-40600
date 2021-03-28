@@ -36,23 +36,6 @@ class DqlConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->stringFunctions) {
-            $output["string_functions"] = $this->stringFunctions;
-        }
-        if (null !== $this->numericFunctions) {
-            $output["numeric_functions"] = $this->numericFunctions;
-        }
-        if (null !== $this->datetimeFunctions) {
-            $output["datetime_functions"] = $this->datetimeFunctions;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -74,6 +57,23 @@ class DqlConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->stringFunctions) {
+            $output["string_functions"] = $this->stringFunctions;
+        }
+        if (null !== $this->numericFunctions) {
+            $output["numeric_functions"] = $this->numericFunctions;
+        }
+        if (null !== $this->datetimeFunctions) {
+            $output["datetime_functions"] = $this->datetimeFunctions;
+        }
+    
+        return $output;
     }
     
 

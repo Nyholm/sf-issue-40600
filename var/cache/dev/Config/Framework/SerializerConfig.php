@@ -74,32 +74,6 @@ class SerializerConfig
         return $this->mapping = new \Config\Framework\SerializerConfig\MappingConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->enableAnnotations) {
-            $output["enable_annotations"] = $this->enableAnnotations;
-        }
-        if (null !== $this->nameConverter) {
-            $output["name_converter"] = $this->nameConverter;
-        }
-        if (null !== $this->circularReferenceHandler) {
-            $output["circular_reference_handler"] = $this->circularReferenceHandler;
-        }
-        if (null !== $this->maxDepthHandler) {
-            $output["max_depth_handler"] = $this->maxDepthHandler;
-        }
-        if (null !== $this->mapping) {
-            $output["mapping"] = $this->mapping->toArray();
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -136,6 +110,32 @@ class SerializerConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->enableAnnotations) {
+            $output["enable_annotations"] = $this->enableAnnotations;
+        }
+        if (null !== $this->nameConverter) {
+            $output["name_converter"] = $this->nameConverter;
+        }
+        if (null !== $this->circularReferenceHandler) {
+            $output["circular_reference_handler"] = $this->circularReferenceHandler;
+        }
+        if (null !== $this->maxDepthHandler) {
+            $output["max_depth_handler"] = $this->maxDepthHandler;
+        }
+        if (null !== $this->mapping) {
+            $output["mapping"] = $this->mapping->toArray();
+        }
+    
+        return $output;
     }
     
 

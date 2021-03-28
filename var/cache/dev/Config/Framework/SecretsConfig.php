@@ -56,26 +56,6 @@ class SecretsConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->vaultDirectory) {
-            $output["vault_directory"] = $this->vaultDirectory;
-        }
-        if (null !== $this->localDotenvFile) {
-            $output["local_dotenv_file"] = $this->localDotenvFile;
-        }
-        if (null !== $this->decryptionEnvVar) {
-            $output["decryption_env_var"] = $this->decryptionEnvVar;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -102,6 +82,26 @@ class SecretsConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->vaultDirectory) {
+            $output["vault_directory"] = $this->vaultDirectory;
+        }
+        if (null !== $this->localDotenvFile) {
+            $output["local_dotenv_file"] = $this->localDotenvFile;
+        }
+        if (null !== $this->decryptionEnvVar) {
+            $output["decryption_env_var"] = $this->decryptionEnvVar;
+        }
+    
+        return $output;
     }
     
 

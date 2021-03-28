@@ -65,32 +65,6 @@ class NotifierConfig
         return $this->adminRecipients[] = new \Config\Framework\NotifierConfig\AdminRecipientConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->chatterTransports) {
-            $output["chatter_transports"] = $this->chatterTransports;
-        }
-        if (null !== $this->texterTransports) {
-            $output["texter_transports"] = $this->texterTransports;
-        }
-        if (null !== $this->notificationOnFailedMessages) {
-            $output["notification_on_failed_messages"] = $this->notificationOnFailedMessages;
-        }
-        if (null !== $this->channelPolicy) {
-            $output["channel_policy"] = $this->channelPolicy;
-        }
-        if (null !== $this->adminRecipients) {
-            $output["admin_recipients"] = array_map(function($v) { return $v->toArray(); }, $this->adminRecipients);
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -127,6 +101,32 @@ class NotifierConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->chatterTransports) {
+            $output["chatter_transports"] = $this->chatterTransports;
+        }
+        if (null !== $this->texterTransports) {
+            $output["texter_transports"] = $this->texterTransports;
+        }
+        if (null !== $this->notificationOnFailedMessages) {
+            $output["notification_on_failed_messages"] = $this->notificationOnFailedMessages;
+        }
+        if (null !== $this->channelPolicy) {
+            $output["channel_policy"] = $this->channelPolicy;
+        }
+        if (null !== $this->adminRecipients) {
+            $output["admin_recipients"] = array_map(function($v) { return $v->toArray(); }, $this->adminRecipients);
+        }
+    
+        return $output;
     }
     
 

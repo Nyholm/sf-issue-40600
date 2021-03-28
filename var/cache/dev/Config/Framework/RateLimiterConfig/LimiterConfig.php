@@ -92,35 +92,6 @@ class LimiterConfig
         return $this->rate = new \Config\Framework\RateLimiterConfig\LimiterConfig\RateConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->lockFactory) {
-            $output["lock_factory"] = $this->lockFactory;
-        }
-        if (null !== $this->cachePool) {
-            $output["cache_pool"] = $this->cachePool;
-        }
-        if (null !== $this->storageService) {
-            $output["storage_service"] = $this->storageService;
-        }
-        if (null !== $this->policy) {
-            $output["policy"] = $this->policy;
-        }
-        if (null !== $this->limit) {
-            $output["limit"] = $this->limit;
-        }
-        if (null !== $this->interval) {
-            $output["interval"] = $this->interval;
-        }
-        if (null !== $this->rate) {
-            $output["rate"] = $this->rate->toArray();
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -162,6 +133,35 @@ class LimiterConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->lockFactory) {
+            $output["lock_factory"] = $this->lockFactory;
+        }
+        if (null !== $this->cachePool) {
+            $output["cache_pool"] = $this->cachePool;
+        }
+        if (null !== $this->storageService) {
+            $output["storage_service"] = $this->storageService;
+        }
+        if (null !== $this->policy) {
+            $output["policy"] = $this->policy;
+        }
+        if (null !== $this->limit) {
+            $output["limit"] = $this->limit;
+        }
+        if (null !== $this->interval) {
+            $output["interval"] = $this->interval;
+        }
+        if (null !== $this->rate) {
+            $output["rate"] = $this->rate->toArray();
+        }
+    
+        return $output;
     }
     
 

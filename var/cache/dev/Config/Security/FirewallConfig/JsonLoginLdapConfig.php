@@ -175,59 +175,6 @@ class JsonLoginLdapConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->provider) {
-            $output["provider"] = $this->provider;
-        }
-        if (null !== $this->rememberMe) {
-            $output["remember_me"] = $this->rememberMe;
-        }
-        if (null !== $this->successHandler) {
-            $output["success_handler"] = $this->successHandler;
-        }
-        if (null !== $this->failureHandler) {
-            $output["failure_handler"] = $this->failureHandler;
-        }
-        if (null !== $this->checkPath) {
-            $output["check_path"] = $this->checkPath;
-        }
-        if (null !== $this->useForward) {
-            $output["use_forward"] = $this->useForward;
-        }
-        if (null !== $this->requirePreviousSession) {
-            $output["require_previous_session"] = $this->requirePreviousSession;
-        }
-        if (null !== $this->loginPath) {
-            $output["login_path"] = $this->loginPath;
-        }
-        if (null !== $this->usernamePath) {
-            $output["username_path"] = $this->usernamePath;
-        }
-        if (null !== $this->passwordPath) {
-            $output["password_path"] = $this->passwordPath;
-        }
-        if (null !== $this->service) {
-            $output["service"] = $this->service;
-        }
-        if (null !== $this->dnString) {
-            $output["dn_string"] = $this->dnString;
-        }
-        if (null !== $this->queryString) {
-            $output["query_string"] = $this->queryString;
-        }
-        if (null !== $this->searchDn) {
-            $output["search_dn"] = $this->searchDn;
-        }
-        if (null !== $this->searchPassword) {
-            $output["search_password"] = $this->searchPassword;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -309,6 +256,59 @@ class JsonLoginLdapConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->provider) {
+            $output["provider"] = $this->provider;
+        }
+        if (null !== $this->rememberMe) {
+            $output["remember_me"] = $this->rememberMe;
+        }
+        if (null !== $this->successHandler) {
+            $output["success_handler"] = $this->successHandler;
+        }
+        if (null !== $this->failureHandler) {
+            $output["failure_handler"] = $this->failureHandler;
+        }
+        if (null !== $this->checkPath) {
+            $output["check_path"] = $this->checkPath;
+        }
+        if (null !== $this->useForward) {
+            $output["use_forward"] = $this->useForward;
+        }
+        if (null !== $this->requirePreviousSession) {
+            $output["require_previous_session"] = $this->requirePreviousSession;
+        }
+        if (null !== $this->loginPath) {
+            $output["login_path"] = $this->loginPath;
+        }
+        if (null !== $this->usernamePath) {
+            $output["username_path"] = $this->usernamePath;
+        }
+        if (null !== $this->passwordPath) {
+            $output["password_path"] = $this->passwordPath;
+        }
+        if (null !== $this->service) {
+            $output["service"] = $this->service;
+        }
+        if (null !== $this->dnString) {
+            $output["dn_string"] = $this->dnString;
+        }
+        if (null !== $this->queryString) {
+            $output["query_string"] = $this->queryString;
+        }
+        if (null !== $this->searchDn) {
+            $output["search_dn"] = $this->searchDn;
+        }
+        if (null !== $this->searchPassword) {
+            $output["search_password"] = $this->searchPassword;
+        }
+    
+        return $output;
     }
     
 

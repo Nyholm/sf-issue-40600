@@ -122,44 +122,6 @@ class CacheConfig
         return $this->pools[$name] = new \Config\Framework\CacheConfig\PoolConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->prefixSeed) {
-            $output["prefix_seed"] = $this->prefixSeed;
-        }
-        if (null !== $this->app) {
-            $output["app"] = $this->app;
-        }
-        if (null !== $this->system) {
-            $output["system"] = $this->system;
-        }
-        if (null !== $this->directory) {
-            $output["directory"] = $this->directory;
-        }
-        if (null !== $this->defaultDoctrineProvider) {
-            $output["default_doctrine_provider"] = $this->defaultDoctrineProvider;
-        }
-        if (null !== $this->defaultPsr6Provider) {
-            $output["default_psr6_provider"] = $this->defaultPsr6Provider;
-        }
-        if (null !== $this->defaultRedisProvider) {
-            $output["default_redis_provider"] = $this->defaultRedisProvider;
-        }
-        if (null !== $this->defaultMemcachedProvider) {
-            $output["default_memcached_provider"] = $this->defaultMemcachedProvider;
-        }
-        if (null !== $this->defaultPdoProvider) {
-            $output["default_pdo_provider"] = $this->defaultPdoProvider;
-        }
-        if (null !== $this->pools) {
-            $output["pools"] = array_map(function($v) { return $v->toArray(); }, $this->pools);
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -216,6 +178,44 @@ class CacheConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->prefixSeed) {
+            $output["prefix_seed"] = $this->prefixSeed;
+        }
+        if (null !== $this->app) {
+            $output["app"] = $this->app;
+        }
+        if (null !== $this->system) {
+            $output["system"] = $this->system;
+        }
+        if (null !== $this->directory) {
+            $output["directory"] = $this->directory;
+        }
+        if (null !== $this->defaultDoctrineProvider) {
+            $output["default_doctrine_provider"] = $this->defaultDoctrineProvider;
+        }
+        if (null !== $this->defaultPsr6Provider) {
+            $output["default_psr6_provider"] = $this->defaultPsr6Provider;
+        }
+        if (null !== $this->defaultRedisProvider) {
+            $output["default_redis_provider"] = $this->defaultRedisProvider;
+        }
+        if (null !== $this->defaultMemcachedProvider) {
+            $output["default_memcached_provider"] = $this->defaultMemcachedProvider;
+        }
+        if (null !== $this->defaultPdoProvider) {
+            $output["default_pdo_provider"] = $this->defaultPdoProvider;
+        }
+        if (null !== $this->pools) {
+            $output["pools"] = array_map(function($v) { return $v->toArray(); }, $this->pools);
+        }
+    
+        return $output;
     }
     
 

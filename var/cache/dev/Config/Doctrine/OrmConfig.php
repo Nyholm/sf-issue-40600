@@ -72,32 +72,6 @@ class OrmConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->defaultEntityManager) {
-            $output["default_entity_manager"] = $this->defaultEntityManager;
-        }
-        if (null !== $this->autoGenerateProxyClasses) {
-            $output["auto_generate_proxy_classes"] = $this->autoGenerateProxyClasses;
-        }
-        if (null !== $this->proxyDir) {
-            $output["proxy_dir"] = $this->proxyDir;
-        }
-        if (null !== $this->proxyNamespace) {
-            $output["proxy_namespace"] = $this->proxyNamespace;
-        }
-        if (null !== $this->entityManagers) {
-            $output["entity_managers"] = array_map(function($v) { return $v->toArray(); }, $this->entityManagers);
-        }
-        if (null !== $this->resolveTargetEntities) {
-            $output["resolve_target_entities"] = $this->resolveTargetEntities;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -134,6 +108,32 @@ class OrmConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->defaultEntityManager) {
+            $output["default_entity_manager"] = $this->defaultEntityManager;
+        }
+        if (null !== $this->autoGenerateProxyClasses) {
+            $output["auto_generate_proxy_classes"] = $this->autoGenerateProxyClasses;
+        }
+        if (null !== $this->proxyDir) {
+            $output["proxy_dir"] = $this->proxyDir;
+        }
+        if (null !== $this->proxyNamespace) {
+            $output["proxy_namespace"] = $this->proxyNamespace;
+        }
+        if (null !== $this->entityManagers) {
+            $output["entity_managers"] = array_map(function($v) { return $v->toArray(); }, $this->entityManagers);
+        }
+        if (null !== $this->resolveTargetEntities) {
+            $output["resolve_target_entities"] = $this->resolveTargetEntities;
+        }
+    
+        return $output;
     }
     
 

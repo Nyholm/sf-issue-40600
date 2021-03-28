@@ -51,29 +51,6 @@ class ProviderConfig
         return $this->entity = new \Config\Security\ProviderConfig\EntityConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->id) {
-            $output["id"] = $this->id;
-        }
-        if (null !== $this->chain) {
-            $output["chain"] = $this->chain->toArray();
-        }
-        if (null !== $this->memory) {
-            $output["memory"] = $this->memory->toArray();
-        }
-        if (null !== $this->ldap) {
-            $output["ldap"] = $this->ldap->toArray();
-        }
-        if (null !== $this->entity) {
-            $output["entity"] = $this->entity->toArray();
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -105,6 +82,29 @@ class ProviderConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->id) {
+            $output["id"] = $this->id;
+        }
+        if (null !== $this->chain) {
+            $output["chain"] = $this->chain->toArray();
+        }
+        if (null !== $this->memory) {
+            $output["memory"] = $this->memory->toArray();
+        }
+        if (null !== $this->ldap) {
+            $output["ldap"] = $this->ldap->toArray();
+        }
+        if (null !== $this->entity) {
+            $output["entity"] = $this->entity->toArray();
+        }
+    
+        return $output;
     }
     
 

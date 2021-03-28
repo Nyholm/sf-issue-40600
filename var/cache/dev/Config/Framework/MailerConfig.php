@@ -68,32 +68,6 @@ class MailerConfig
         return $this->headers[$name] = new \Config\Framework\MailerConfig\HeaderConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->messageBus) {
-            $output["message_bus"] = $this->messageBus;
-        }
-        if (null !== $this->dsn) {
-            $output["dsn"] = $this->dsn;
-        }
-        if (null !== $this->transports) {
-            $output["transports"] = $this->transports;
-        }
-        if (null !== $this->envelope) {
-            $output["envelope"] = $this->envelope->toArray();
-        }
-        if (null !== $this->headers) {
-            $output["headers"] = array_map(function($v) { return $v->toArray(); }, $this->headers);
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -130,6 +104,32 @@ class MailerConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->messageBus) {
+            $output["message_bus"] = $this->messageBus;
+        }
+        if (null !== $this->dsn) {
+            $output["dsn"] = $this->dsn;
+        }
+        if (null !== $this->transports) {
+            $output["transports"] = $this->transports;
+        }
+        if (null !== $this->envelope) {
+            $output["envelope"] = $this->envelope->toArray();
+        }
+        if (null !== $this->headers) {
+            $output["headers"] = array_map(function($v) { return $v->toArray(); }, $this->headers);
+        }
+    
+        return $output;
     }
     
 

@@ -45,23 +45,6 @@ class X509Config
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->provider) {
-            $output["provider"] = $this->provider;
-        }
-        if (null !== $this->user) {
-            $output["user"] = $this->user;
-        }
-        if (null !== $this->credentials) {
-            $output["credentials"] = $this->credentials;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -83,6 +66,23 @@ class X509Config
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->provider) {
+            $output["provider"] = $this->provider;
+        }
+        if (null !== $this->user) {
+            $output["user"] = $this->user;
+        }
+        if (null !== $this->credentials) {
+            $output["credentials"] = $this->credentials;
+        }
+    
+        return $output;
     }
     
 

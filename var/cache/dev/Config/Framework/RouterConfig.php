@@ -105,38 +105,6 @@ class RouterConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->resource) {
-            $output["resource"] = $this->resource;
-        }
-        if (null !== $this->type) {
-            $output["type"] = $this->type;
-        }
-        if (null !== $this->defaultUri) {
-            $output["default_uri"] = $this->defaultUri;
-        }
-        if (null !== $this->httpPort) {
-            $output["http_port"] = $this->httpPort;
-        }
-        if (null !== $this->httpsPort) {
-            $output["https_port"] = $this->httpsPort;
-        }
-        if (null !== $this->strictRequirements) {
-            $output["strict_requirements"] = $this->strictRequirements;
-        }
-        if (null !== $this->utf8) {
-            $output["utf8"] = $this->utf8;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -183,6 +151,38 @@ class RouterConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->resource) {
+            $output["resource"] = $this->resource;
+        }
+        if (null !== $this->type) {
+            $output["type"] = $this->type;
+        }
+        if (null !== $this->defaultUri) {
+            $output["default_uri"] = $this->defaultUri;
+        }
+        if (null !== $this->httpPort) {
+            $output["http_port"] = $this->httpPort;
+        }
+        if (null !== $this->httpsPort) {
+            $output["https_port"] = $this->httpsPort;
+        }
+        if (null !== $this->strictRequirements) {
+            $output["strict_requirements"] = $this->strictRequirements;
+        }
+        if (null !== $this->utf8) {
+            $output["utf8"] = $this->utf8;
+        }
+    
+        return $output;
     }
     
 

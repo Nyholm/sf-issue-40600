@@ -74,35 +74,6 @@ class MessengerConfig
         return $this->buses[$name] = new \Config\Framework\MessengerConfig\BusConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->routing) {
-            $output["routing"] = array_map(function($v) { return $v->toArray(); }, $this->routing);
-        }
-        if (null !== $this->serializer) {
-            $output["serializer"] = $this->serializer->toArray();
-        }
-        if (null !== $this->transports) {
-            $output["transports"] = array_map(function($v) { return $v->toArray(); }, $this->transports);
-        }
-        if (null !== $this->failureTransport) {
-            $output["failure_transport"] = $this->failureTransport;
-        }
-        if (null !== $this->defaultBus) {
-            $output["default_bus"] = $this->defaultBus;
-        }
-        if (null !== $this->buses) {
-            $output["buses"] = array_map(function($v) { return $v->toArray(); }, $this->buses);
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -144,6 +115,35 @@ class MessengerConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->routing) {
+            $output["routing"] = array_map(function($v) { return $v->toArray(); }, $this->routing);
+        }
+        if (null !== $this->serializer) {
+            $output["serializer"] = $this->serializer->toArray();
+        }
+        if (null !== $this->transports) {
+            $output["transports"] = array_map(function($v) { return $v->toArray(); }, $this->transports);
+        }
+        if (null !== $this->failureTransport) {
+            $output["failure_transport"] = $this->failureTransport;
+        }
+        if (null !== $this->defaultBus) {
+            $output["default_bus"] = $this->defaultBus;
+        }
+        if (null !== $this->buses) {
+            $output["buses"] = array_map(function($v) { return $v->toArray(); }, $this->buses);
+        }
+    
+        return $output;
     }
     
 

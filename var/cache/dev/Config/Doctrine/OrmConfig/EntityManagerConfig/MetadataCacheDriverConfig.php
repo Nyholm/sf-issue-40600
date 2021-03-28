@@ -45,23 +45,6 @@ class MetadataCacheDriverConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->type) {
-            $output["type"] = $this->type;
-        }
-        if (null !== $this->id) {
-            $output["id"] = $this->id;
-        }
-        if (null !== $this->pool) {
-            $output["pool"] = $this->pool;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -83,6 +66,23 @@ class MetadataCacheDriverConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->type) {
+            $output["type"] = $this->type;
+        }
+        if (null !== $this->id) {
+            $output["id"] = $this->id;
+        }
+        if (null !== $this->pool) {
+            $output["pool"] = $this->pool;
+        }
+    
+        return $output;
     }
     
 

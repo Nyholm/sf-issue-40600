@@ -45,23 +45,6 @@ class FragmentsConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->hincludeDefaultTemplate) {
-            $output["hinclude_default_template"] = $this->hincludeDefaultTemplate;
-        }
-        if (null !== $this->path) {
-            $output["path"] = $this->path;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -83,6 +66,23 @@ class FragmentsConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->hincludeDefaultTemplate) {
+            $output["hinclude_default_template"] = $this->hincludeDefaultTemplate;
+        }
+        if (null !== $this->path) {
+            $output["path"] = $this->path;
+        }
+    
+        return $output;
     }
     
 

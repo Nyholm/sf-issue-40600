@@ -78,32 +78,6 @@ class PropertyAccessConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->magicCall) {
-            $output["magic_call"] = $this->magicCall;
-        }
-        if (null !== $this->magicGet) {
-            $output["magic_get"] = $this->magicGet;
-        }
-        if (null !== $this->magicSet) {
-            $output["magic_set"] = $this->magicSet;
-        }
-        if (null !== $this->throwExceptionOnInvalidIndex) {
-            $output["throw_exception_on_invalid_index"] = $this->throwExceptionOnInvalidIndex;
-        }
-        if (null !== $this->throwExceptionOnInvalidPropertyPath) {
-            $output["throw_exception_on_invalid_property_path"] = $this->throwExceptionOnInvalidPropertyPath;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -140,6 +114,32 @@ class PropertyAccessConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->magicCall) {
+            $output["magic_call"] = $this->magicCall;
+        }
+        if (null !== $this->magicGet) {
+            $output["magic_get"] = $this->magicGet;
+        }
+        if (null !== $this->magicSet) {
+            $output["magic_set"] = $this->magicSet;
+        }
+        if (null !== $this->throwExceptionOnInvalidIndex) {
+            $output["throw_exception_on_invalid_index"] = $this->throwExceptionOnInvalidIndex;
+        }
+        if (null !== $this->throwExceptionOnInvalidPropertyPath) {
+            $output["throw_exception_on_invalid_property_path"] = $this->throwExceptionOnInvalidPropertyPath;
+        }
+    
+        return $output;
     }
     
 

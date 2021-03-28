@@ -74,32 +74,6 @@ class PackageConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->versionStrategy) {
-            $output["version_strategy"] = $this->versionStrategy;
-        }
-        if (null !== $this->version) {
-            $output["version"] = $this->version;
-        }
-        if (null !== $this->versionFormat) {
-            $output["version_format"] = $this->versionFormat;
-        }
-        if (null !== $this->jsonManifestPath) {
-            $output["json_manifest_path"] = $this->jsonManifestPath;
-        }
-        if (null !== $this->basePath) {
-            $output["base_path"] = $this->basePath;
-        }
-        if (null !== $this->baseUrls) {
-            $output["base_urls"] = $this->baseUrls;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -136,6 +110,32 @@ class PackageConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->versionStrategy) {
+            $output["version_strategy"] = $this->versionStrategy;
+        }
+        if (null !== $this->version) {
+            $output["version"] = $this->version;
+        }
+        if (null !== $this->versionFormat) {
+            $output["version_format"] = $this->versionFormat;
+        }
+        if (null !== $this->jsonManifestPath) {
+            $output["json_manifest_path"] = $this->jsonManifestPath;
+        }
+        if (null !== $this->basePath) {
+            $output["base_path"] = $this->basePath;
+        }
+        if (null !== $this->baseUrls) {
+            $output["base_urls"] = $this->baseUrls;
+        }
+    
+        return $output;
     }
     
 

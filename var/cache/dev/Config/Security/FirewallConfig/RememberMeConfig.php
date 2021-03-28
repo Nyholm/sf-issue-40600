@@ -165,56 +165,6 @@ class RememberMeConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->secret) {
-            $output["secret"] = $this->secret;
-        }
-        if (null !== $this->service) {
-            $output["service"] = $this->service;
-        }
-        if (null !== $this->tokenProvider) {
-            $output["token_provider"] = $this->tokenProvider;
-        }
-        if (null !== $this->userProviders) {
-            $output["user_providers"] = $this->userProviders;
-        }
-        if (null !== $this->catchExceptions) {
-            $output["catch_exceptions"] = $this->catchExceptions;
-        }
-        if (null !== $this->name) {
-            $output["name"] = $this->name;
-        }
-        if (null !== $this->lifetime) {
-            $output["lifetime"] = $this->lifetime;
-        }
-        if (null !== $this->path) {
-            $output["path"] = $this->path;
-        }
-        if (null !== $this->domain) {
-            $output["domain"] = $this->domain;
-        }
-        if (null !== $this->secure) {
-            $output["secure"] = $this->secure;
-        }
-        if (null !== $this->httponly) {
-            $output["httponly"] = $this->httponly;
-        }
-        if (null !== $this->samesite) {
-            $output["samesite"] = $this->samesite;
-        }
-        if (null !== $this->alwaysRememberMe) {
-            $output["always_remember_me"] = $this->alwaysRememberMe;
-        }
-        if (null !== $this->rememberMeParameter) {
-            $output["remember_me_parameter"] = $this->rememberMeParameter;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -291,6 +241,56 @@ class RememberMeConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->secret) {
+            $output["secret"] = $this->secret;
+        }
+        if (null !== $this->service) {
+            $output["service"] = $this->service;
+        }
+        if (null !== $this->tokenProvider) {
+            $output["token_provider"] = $this->tokenProvider;
+        }
+        if (null !== $this->userProviders) {
+            $output["user_providers"] = $this->userProviders;
+        }
+        if (null !== $this->catchExceptions) {
+            $output["catch_exceptions"] = $this->catchExceptions;
+        }
+        if (null !== $this->name) {
+            $output["name"] = $this->name;
+        }
+        if (null !== $this->lifetime) {
+            $output["lifetime"] = $this->lifetime;
+        }
+        if (null !== $this->path) {
+            $output["path"] = $this->path;
+        }
+        if (null !== $this->domain) {
+            $output["domain"] = $this->domain;
+        }
+        if (null !== $this->secure) {
+            $output["secure"] = $this->secure;
+        }
+        if (null !== $this->httponly) {
+            $output["httponly"] = $this->httponly;
+        }
+        if (null !== $this->samesite) {
+            $output["samesite"] = $this->samesite;
+        }
+        if (null !== $this->alwaysRememberMe) {
+            $output["always_remember_me"] = $this->alwaysRememberMe;
+        }
+        if (null !== $this->rememberMeParameter) {
+            $output["remember_me_parameter"] = $this->rememberMeParameter;
+        }
+    
+        return $output;
     }
     
 

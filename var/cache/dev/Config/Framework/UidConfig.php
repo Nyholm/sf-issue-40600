@@ -81,32 +81,6 @@ class UidConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->defaultUuidVersion) {
-            $output["default_uuid_version"] = $this->defaultUuidVersion;
-        }
-        if (null !== $this->nameBasedUuidVersion) {
-            $output["name_based_uuid_version"] = $this->nameBasedUuidVersion;
-        }
-        if (null !== $this->nameBasedUuidNamespace) {
-            $output["name_based_uuid_namespace"] = $this->nameBasedUuidNamespace;
-        }
-        if (null !== $this->timeBasedUuidVersion) {
-            $output["time_based_uuid_version"] = $this->timeBasedUuidVersion;
-        }
-        if (null !== $this->timeBasedUuidNode) {
-            $output["time_based_uuid_node"] = $this->timeBasedUuidNode;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -143,6 +117,32 @@ class UidConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->defaultUuidVersion) {
+            $output["default_uuid_version"] = $this->defaultUuidVersion;
+        }
+        if (null !== $this->nameBasedUuidVersion) {
+            $output["name_based_uuid_version"] = $this->nameBasedUuidVersion;
+        }
+        if (null !== $this->nameBasedUuidNamespace) {
+            $output["name_based_uuid_namespace"] = $this->nameBasedUuidNamespace;
+        }
+        if (null !== $this->timeBasedUuidVersion) {
+            $output["time_based_uuid_version"] = $this->timeBasedUuidVersion;
+        }
+        if (null !== $this->timeBasedUuidNode) {
+            $output["time_based_uuid_node"] = $this->timeBasedUuidNode;
+        }
+    
+        return $output;
     }
     
 

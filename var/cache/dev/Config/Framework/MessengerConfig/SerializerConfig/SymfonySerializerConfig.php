@@ -32,20 +32,6 @@ class SymfonySerializerConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->format) {
-            $output["format"] = $this->format;
-        }
-        if (null !== $this->context) {
-            $output["context"] = $this->context;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -62,6 +48,20 @@ class SymfonySerializerConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->format) {
+            $output["format"] = $this->format;
+        }
+        if (null !== $this->context) {
+            $output["context"] = $this->context;
+        }
+    
+        return $output;
     }
     
 

@@ -61,29 +61,6 @@ class HttpClientConfig
         return $this->scopedClients[$name] = new \Config\Framework\HttpClientConfig\ScopedClientConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->maxHostConnections) {
-            $output["max_host_connections"] = $this->maxHostConnections;
-        }
-        if (null !== $this->defaultOptions) {
-            $output["default_options"] = $this->defaultOptions->toArray();
-        }
-        if (null !== $this->mockResponseFactory) {
-            $output["mock_response_factory"] = $this->mockResponseFactory;
-        }
-        if (null !== $this->scopedClients) {
-            $output["scoped_clients"] = array_map(function($v) { return $v->toArray(); }, $this->scopedClients);
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -115,6 +92,29 @@ class HttpClientConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->maxHostConnections) {
+            $output["max_host_connections"] = $this->maxHostConnections;
+        }
+        if (null !== $this->defaultOptions) {
+            $output["default_options"] = $this->defaultOptions->toArray();
+        }
+        if (null !== $this->mockResponseFactory) {
+            $output["mock_response_factory"] = $this->mockResponseFactory;
+        }
+        if (null !== $this->scopedClients) {
+            $output["scoped_clients"] = array_map(function($v) { return $v->toArray(); }, $this->scopedClients);
+        }
+    
+        return $output;
     }
     
 

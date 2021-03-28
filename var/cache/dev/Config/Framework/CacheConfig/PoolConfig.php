@@ -90,35 +90,6 @@ class PoolConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->adapters) {
-            $output["adapters"] = $this->adapters;
-        }
-        if (null !== $this->tags) {
-            $output["tags"] = $this->tags;
-        }
-        if (null !== $this->public) {
-            $output["public"] = $this->public;
-        }
-        if (null !== $this->defaultLifetime) {
-            $output["default_lifetime"] = $this->defaultLifetime;
-        }
-        if (null !== $this->provider) {
-            $output["provider"] = $this->provider;
-        }
-        if (null !== $this->earlyExpirationMessageBus) {
-            $output["early_expiration_message_bus"] = $this->earlyExpirationMessageBus;
-        }
-        if (null !== $this->clearer) {
-            $output["clearer"] = $this->clearer;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -160,6 +131,35 @@ class PoolConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->adapters) {
+            $output["adapters"] = $this->adapters;
+        }
+        if (null !== $this->tags) {
+            $output["tags"] = $this->tags;
+        }
+        if (null !== $this->public) {
+            $output["public"] = $this->public;
+        }
+        if (null !== $this->defaultLifetime) {
+            $output["default_lifetime"] = $this->defaultLifetime;
+        }
+        if (null !== $this->provider) {
+            $output["provider"] = $this->provider;
+        }
+        if (null !== $this->earlyExpirationMessageBus) {
+            $output["early_expiration_message_bus"] = $this->earlyExpirationMessageBus;
+        }
+        if (null !== $this->clearer) {
+            $output["clearer"] = $this->clearer;
+        }
+    
+        return $output;
     }
     
 

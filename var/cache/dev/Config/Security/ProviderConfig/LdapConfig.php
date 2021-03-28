@@ -105,41 +105,6 @@ class LdapConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->service) {
-            $output["service"] = $this->service;
-        }
-        if (null !== $this->baseDn) {
-            $output["base_dn"] = $this->baseDn;
-        }
-        if (null !== $this->searchDn) {
-            $output["search_dn"] = $this->searchDn;
-        }
-        if (null !== $this->searchPassword) {
-            $output["search_password"] = $this->searchPassword;
-        }
-        if (null !== $this->extraFields) {
-            $output["extra_fields"] = $this->extraFields;
-        }
-        if (null !== $this->defaultRoles) {
-            $output["default_roles"] = $this->defaultRoles;
-        }
-        if (null !== $this->uidKey) {
-            $output["uid_key"] = $this->uidKey;
-        }
-        if (null !== $this->filter) {
-            $output["filter"] = $this->filter;
-        }
-        if (null !== $this->passwordAttribute) {
-            $output["password_attribute"] = $this->passwordAttribute;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -191,6 +156,41 @@ class LdapConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->service) {
+            $output["service"] = $this->service;
+        }
+        if (null !== $this->baseDn) {
+            $output["base_dn"] = $this->baseDn;
+        }
+        if (null !== $this->searchDn) {
+            $output["search_dn"] = $this->searchDn;
+        }
+        if (null !== $this->searchPassword) {
+            $output["search_password"] = $this->searchPassword;
+        }
+        if (null !== $this->extraFields) {
+            $output["extra_fields"] = $this->extraFields;
+        }
+        if (null !== $this->defaultRoles) {
+            $output["default_roles"] = $this->defaultRoles;
+        }
+        if (null !== $this->uidKey) {
+            $output["uid_key"] = $this->uidKey;
+        }
+        if (null !== $this->filter) {
+            $output["filter"] = $this->filter;
+        }
+        if (null !== $this->passwordAttribute) {
+            $output["password_attribute"] = $this->passwordAttribute;
+        }
+    
+        return $output;
     }
     
 

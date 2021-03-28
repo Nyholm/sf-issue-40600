@@ -104,41 +104,6 @@ class LogoutConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->csrfParameter) {
-            $output["csrf_parameter"] = $this->csrfParameter;
-        }
-        if (null !== $this->csrfTokenGenerator) {
-            $output["csrf_token_generator"] = $this->csrfTokenGenerator;
-        }
-        if (null !== $this->csrfTokenId) {
-            $output["csrf_token_id"] = $this->csrfTokenId;
-        }
-        if (null !== $this->path) {
-            $output["path"] = $this->path;
-        }
-        if (null !== $this->target) {
-            $output["target"] = $this->target;
-        }
-        if (null !== $this->successHandler) {
-            $output["success_handler"] = $this->successHandler;
-        }
-        if (null !== $this->invalidateSession) {
-            $output["invalidate_session"] = $this->invalidateSession;
-        }
-        if (null !== $this->deleteCookies) {
-            $output["delete_cookies"] = array_map(function($v) { return $v->toArray(); }, $this->deleteCookies);
-        }
-        if (null !== $this->handlers) {
-            $output["handlers"] = $this->handlers;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -190,6 +155,41 @@ class LogoutConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->csrfParameter) {
+            $output["csrf_parameter"] = $this->csrfParameter;
+        }
+        if (null !== $this->csrfTokenGenerator) {
+            $output["csrf_token_generator"] = $this->csrfTokenGenerator;
+        }
+        if (null !== $this->csrfTokenId) {
+            $output["csrf_token_id"] = $this->csrfTokenId;
+        }
+        if (null !== $this->path) {
+            $output["path"] = $this->path;
+        }
+        if (null !== $this->target) {
+            $output["target"] = $this->target;
+        }
+        if (null !== $this->successHandler) {
+            $output["success_handler"] = $this->successHandler;
+        }
+        if (null !== $this->invalidateSession) {
+            $output["invalidate_session"] = $this->invalidateSession;
+        }
+        if (null !== $this->deleteCookies) {
+            $output["delete_cookies"] = array_map(function($v) { return $v->toArray(); }, $this->deleteCookies);
+        }
+        if (null !== $this->handlers) {
+            $output["handlers"] = $this->handlers;
+        }
+    
+        return $output;
     }
     
 

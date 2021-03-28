@@ -45,23 +45,6 @@ class PeerFingerprintConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->sha1) {
-            $output["sha1"] = $this->sha1;
-        }
-        if (null !== $this->pinsha256) {
-            $output["pin-sha256"] = $this->pinsha256;
-        }
-        if (null !== $this->md5) {
-            $output["md5"] = $this->md5;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -83,6 +66,23 @@ class PeerFingerprintConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->sha1) {
+            $output["sha1"] = $this->sha1;
+        }
+        if (null !== $this->pinsha256) {
+            $output["pin-sha256"] = $this->pinsha256;
+        }
+        if (null !== $this->md5) {
+            $output["md5"] = $this->md5;
+        }
+    
+        return $output;
     }
     
 

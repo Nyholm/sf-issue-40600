@@ -267,101 +267,6 @@ class FirewallConfig
         return $this->anonymous = new \Config\Security\FirewallConfig\AnonymousConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->pattern) {
-            $output["pattern"] = $this->pattern;
-        }
-        if (null !== $this->host) {
-            $output["host"] = $this->host;
-        }
-        if (null !== $this->methods) {
-            $output["methods"] = $this->methods;
-        }
-        if (null !== $this->security) {
-            $output["security"] = $this->security;
-        }
-        if (null !== $this->userChecker) {
-            $output["user_checker"] = $this->userChecker;
-        }
-        if (null !== $this->requestMatcher) {
-            $output["request_matcher"] = $this->requestMatcher;
-        }
-        if (null !== $this->accessDeniedUrl) {
-            $output["access_denied_url"] = $this->accessDeniedUrl;
-        }
-        if (null !== $this->accessDeniedHandler) {
-            $output["access_denied_handler"] = $this->accessDeniedHandler;
-        }
-        if (null !== $this->entryPoint) {
-            $output["entry_point"] = $this->entryPoint;
-        }
-        if (null !== $this->provider) {
-            $output["provider"] = $this->provider;
-        }
-        if (null !== $this->stateless) {
-            $output["stateless"] = $this->stateless;
-        }
-        if (null !== $this->lazy) {
-            $output["lazy"] = $this->lazy;
-        }
-        if (null !== $this->context) {
-            $output["context"] = $this->context;
-        }
-        if (null !== $this->logout) {
-            $output["logout"] = $this->logout->toArray();
-        }
-        if (null !== $this->switchUser) {
-            $output["switch_user"] = $this->switchUser->toArray();
-        }
-        if (null !== $this->x509) {
-            $output["x509"] = $this->x509->toArray();
-        }
-        if (null !== $this->remoteUser) {
-            $output["remote_user"] = $this->remoteUser->toArray();
-        }
-        if (null !== $this->guard) {
-            $output["guard"] = $this->guard->toArray();
-        }
-        if (null !== $this->customAuthenticators) {
-            $output["custom_authenticators"] = $this->customAuthenticators;
-        }
-        if (null !== $this->loginThrottling) {
-            $output["login_throttling"] = $this->loginThrottling->toArray();
-        }
-        if (null !== $this->formLogin) {
-            $output["form_login"] = $this->formLogin->toArray();
-        }
-        if (null !== $this->formLoginLdap) {
-            $output["form_login_ldap"] = $this->formLoginLdap->toArray();
-        }
-        if (null !== $this->jsonLogin) {
-            $output["json_login"] = $this->jsonLogin->toArray();
-        }
-        if (null !== $this->jsonLoginLdap) {
-            $output["json_login_ldap"] = $this->jsonLoginLdap->toArray();
-        }
-        if (null !== $this->loginLink) {
-            $output["login_link"] = $this->loginLink->toArray();
-        }
-        if (null !== $this->httpBasic) {
-            $output["http_basic"] = $this->httpBasic->toArray();
-        }
-        if (null !== $this->httpBasicLdap) {
-            $output["http_basic_ldap"] = $this->httpBasicLdap->toArray();
-        }
-        if (null !== $this->rememberMe) {
-            $output["remember_me"] = $this->rememberMe->toArray();
-        }
-        if (null !== $this->anonymous) {
-            $output["anonymous"] = $this->anonymous->toArray();
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -513,6 +418,101 @@ class FirewallConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->pattern) {
+            $output["pattern"] = $this->pattern;
+        }
+        if (null !== $this->host) {
+            $output["host"] = $this->host;
+        }
+        if (null !== $this->methods) {
+            $output["methods"] = $this->methods;
+        }
+        if (null !== $this->security) {
+            $output["security"] = $this->security;
+        }
+        if (null !== $this->userChecker) {
+            $output["user_checker"] = $this->userChecker;
+        }
+        if (null !== $this->requestMatcher) {
+            $output["request_matcher"] = $this->requestMatcher;
+        }
+        if (null !== $this->accessDeniedUrl) {
+            $output["access_denied_url"] = $this->accessDeniedUrl;
+        }
+        if (null !== $this->accessDeniedHandler) {
+            $output["access_denied_handler"] = $this->accessDeniedHandler;
+        }
+        if (null !== $this->entryPoint) {
+            $output["entry_point"] = $this->entryPoint;
+        }
+        if (null !== $this->provider) {
+            $output["provider"] = $this->provider;
+        }
+        if (null !== $this->stateless) {
+            $output["stateless"] = $this->stateless;
+        }
+        if (null !== $this->lazy) {
+            $output["lazy"] = $this->lazy;
+        }
+        if (null !== $this->context) {
+            $output["context"] = $this->context;
+        }
+        if (null !== $this->logout) {
+            $output["logout"] = $this->logout->toArray();
+        }
+        if (null !== $this->switchUser) {
+            $output["switch_user"] = $this->switchUser->toArray();
+        }
+        if (null !== $this->x509) {
+            $output["x509"] = $this->x509->toArray();
+        }
+        if (null !== $this->remoteUser) {
+            $output["remote_user"] = $this->remoteUser->toArray();
+        }
+        if (null !== $this->guard) {
+            $output["guard"] = $this->guard->toArray();
+        }
+        if (null !== $this->customAuthenticators) {
+            $output["custom_authenticators"] = $this->customAuthenticators;
+        }
+        if (null !== $this->loginThrottling) {
+            $output["login_throttling"] = $this->loginThrottling->toArray();
+        }
+        if (null !== $this->formLogin) {
+            $output["form_login"] = $this->formLogin->toArray();
+        }
+        if (null !== $this->formLoginLdap) {
+            $output["form_login_ldap"] = $this->formLoginLdap->toArray();
+        }
+        if (null !== $this->jsonLogin) {
+            $output["json_login"] = $this->jsonLogin->toArray();
+        }
+        if (null !== $this->jsonLoginLdap) {
+            $output["json_login_ldap"] = $this->jsonLoginLdap->toArray();
+        }
+        if (null !== $this->loginLink) {
+            $output["login_link"] = $this->loginLink->toArray();
+        }
+        if (null !== $this->httpBasic) {
+            $output["http_basic"] = $this->httpBasic->toArray();
+        }
+        if (null !== $this->httpBasicLdap) {
+            $output["http_basic_ldap"] = $this->httpBasicLdap->toArray();
+        }
+        if (null !== $this->rememberMe) {
+            $output["remember_me"] = $this->rememberMe->toArray();
+        }
+        if (null !== $this->anonymous) {
+            $output["anonymous"] = $this->anonymous->toArray();
+        }
+    
+        return $output;
     }
     
 

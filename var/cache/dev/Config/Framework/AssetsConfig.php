@@ -92,38 +92,6 @@ class AssetsConfig
         return $this->packages[$name] = new \Config\Framework\AssetsConfig\PackageConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->versionStrategy) {
-            $output["version_strategy"] = $this->versionStrategy;
-        }
-        if (null !== $this->version) {
-            $output["version"] = $this->version;
-        }
-        if (null !== $this->versionFormat) {
-            $output["version_format"] = $this->versionFormat;
-        }
-        if (null !== $this->jsonManifestPath) {
-            $output["json_manifest_path"] = $this->jsonManifestPath;
-        }
-        if (null !== $this->basePath) {
-            $output["base_path"] = $this->basePath;
-        }
-        if (null !== $this->baseUrls) {
-            $output["base_urls"] = $this->baseUrls;
-        }
-        if (null !== $this->packages) {
-            $output["packages"] = array_map(function($v) { return $v->toArray(); }, $this->packages);
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -170,6 +138,38 @@ class AssetsConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->versionStrategy) {
+            $output["version_strategy"] = $this->versionStrategy;
+        }
+        if (null !== $this->version) {
+            $output["version"] = $this->version;
+        }
+        if (null !== $this->versionFormat) {
+            $output["version_format"] = $this->versionFormat;
+        }
+        if (null !== $this->jsonManifestPath) {
+            $output["json_manifest_path"] = $this->jsonManifestPath;
+        }
+        if (null !== $this->basePath) {
+            $output["base_path"] = $this->basePath;
+        }
+        if (null !== $this->baseUrls) {
+            $output["base_urls"] = $this->baseUrls;
+        }
+        if (null !== $this->packages) {
+            $output["packages"] = array_map(function($v) { return $v->toArray(); }, $this->packages);
+        }
+    
+        return $output;
     }
     
 

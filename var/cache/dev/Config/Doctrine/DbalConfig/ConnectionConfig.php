@@ -578,167 +578,6 @@ class ConnectionConfig
         return $this->shards[] = new \Config\Doctrine\DbalConfig\ConnectionConfig\ShardConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->url) {
-            $output["url"] = $this->url;
-        }
-        if (null !== $this->dbname) {
-            $output["dbname"] = $this->dbname;
-        }
-        if (null !== $this->host) {
-            $output["host"] = $this->host;
-        }
-        if (null !== $this->port) {
-            $output["port"] = $this->port;
-        }
-        if (null !== $this->user) {
-            $output["user"] = $this->user;
-        }
-        if (null !== $this->password) {
-            $output["password"] = $this->password;
-        }
-        if (null !== $this->overrideUrl) {
-            $output["override_url"] = $this->overrideUrl;
-        }
-        if (null !== $this->applicationName) {
-            $output["application_name"] = $this->applicationName;
-        }
-        if (null !== $this->charset) {
-            $output["charset"] = $this->charset;
-        }
-        if (null !== $this->path) {
-            $output["path"] = $this->path;
-        }
-        if (null !== $this->memory) {
-            $output["memory"] = $this->memory;
-        }
-        if (null !== $this->unixSocket) {
-            $output["unix_socket"] = $this->unixSocket;
-        }
-        if (null !== $this->persistent) {
-            $output["persistent"] = $this->persistent;
-        }
-        if (null !== $this->protocol) {
-            $output["protocol"] = $this->protocol;
-        }
-        if (null !== $this->service) {
-            $output["service"] = $this->service;
-        }
-        if (null !== $this->servicename) {
-            $output["servicename"] = $this->servicename;
-        }
-        if (null !== $this->sessionMode) {
-            $output["sessionMode"] = $this->sessionMode;
-        }
-        if (null !== $this->server) {
-            $output["server"] = $this->server;
-        }
-        if (null !== $this->defaultDbname) {
-            $output["default_dbname"] = $this->defaultDbname;
-        }
-        if (null !== $this->sslmode) {
-            $output["sslmode"] = $this->sslmode;
-        }
-        if (null !== $this->sslrootcert) {
-            $output["sslrootcert"] = $this->sslrootcert;
-        }
-        if (null !== $this->sslcert) {
-            $output["sslcert"] = $this->sslcert;
-        }
-        if (null !== $this->sslkey) {
-            $output["sslkey"] = $this->sslkey;
-        }
-        if (null !== $this->sslcrl) {
-            $output["sslcrl"] = $this->sslcrl;
-        }
-        if (null !== $this->pooled) {
-            $output["pooled"] = $this->pooled;
-        }
-        if (null !== $this->multipleActiveResultSets) {
-            $output["MultipleActiveResultSets"] = $this->multipleActiveResultSets;
-        }
-        if (null !== $this->useSavepoints) {
-            $output["use_savepoints"] = $this->useSavepoints;
-        }
-        if (null !== $this->instancename) {
-            $output["instancename"] = $this->instancename;
-        }
-        if (null !== $this->connectstring) {
-            $output["connectstring"] = $this->connectstring;
-        }
-        if (null !== $this->driver) {
-            $output["driver"] = $this->driver;
-        }
-        if (null !== $this->platformService) {
-            $output["platform_service"] = $this->platformService;
-        }
-        if (null !== $this->autoCommit) {
-            $output["auto_commit"] = $this->autoCommit;
-        }
-        if (null !== $this->schemaFilter) {
-            $output["schema_filter"] = $this->schemaFilter;
-        }
-        if (null !== $this->logging) {
-            $output["logging"] = $this->logging;
-        }
-        if (null !== $this->profiling) {
-            $output["profiling"] = $this->profiling;
-        }
-        if (null !== $this->profilingCollectBacktrace) {
-            $output["profiling_collect_backtrace"] = $this->profilingCollectBacktrace;
-        }
-        if (null !== $this->profilingCollectSchemaErrors) {
-            $output["profiling_collect_schema_errors"] = $this->profilingCollectSchemaErrors;
-        }
-        if (null !== $this->serverVersion) {
-            $output["server_version"] = $this->serverVersion;
-        }
-        if (null !== $this->driverClass) {
-            $output["driver_class"] = $this->driverClass;
-        }
-        if (null !== $this->wrapperClass) {
-            $output["wrapper_class"] = $this->wrapperClass;
-        }
-        if (null !== $this->shardManagerClass) {
-            $output["shard_manager_class"] = $this->shardManagerClass;
-        }
-        if (null !== $this->shardChoser) {
-            $output["shard_choser"] = $this->shardChoser;
-        }
-        if (null !== $this->shardChoserService) {
-            $output["shard_choser_service"] = $this->shardChoserService;
-        }
-        if (null !== $this->keepSlave) {
-            $output["keep_slave"] = $this->keepSlave;
-        }
-        if (null !== $this->keepReplica) {
-            $output["keep_replica"] = $this->keepReplica;
-        }
-        if (null !== $this->options) {
-            $output["options"] = $this->options;
-        }
-        if (null !== $this->mappingTypes) {
-            $output["mapping_types"] = $this->mappingTypes;
-        }
-        if (null !== $this->defaultTableOptions) {
-            $output["default_table_options"] = $this->defaultTableOptions;
-        }
-        if (null !== $this->slaves) {
-            $output["slaves"] = array_map(function($v) { return $v->toArray(); }, $this->slaves);
-        }
-        if (null !== $this->replicas) {
-            $output["replicas"] = array_map(function($v) { return $v->toArray(); }, $this->replicas);
-        }
-        if (null !== $this->shards) {
-            $output["shards"] = array_map(function($v) { return $v->toArray(); }, $this->shards);
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -1000,6 +839,167 @@ class ConnectionConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->url) {
+            $output["url"] = $this->url;
+        }
+        if (null !== $this->dbname) {
+            $output["dbname"] = $this->dbname;
+        }
+        if (null !== $this->host) {
+            $output["host"] = $this->host;
+        }
+        if (null !== $this->port) {
+            $output["port"] = $this->port;
+        }
+        if (null !== $this->user) {
+            $output["user"] = $this->user;
+        }
+        if (null !== $this->password) {
+            $output["password"] = $this->password;
+        }
+        if (null !== $this->overrideUrl) {
+            $output["override_url"] = $this->overrideUrl;
+        }
+        if (null !== $this->applicationName) {
+            $output["application_name"] = $this->applicationName;
+        }
+        if (null !== $this->charset) {
+            $output["charset"] = $this->charset;
+        }
+        if (null !== $this->path) {
+            $output["path"] = $this->path;
+        }
+        if (null !== $this->memory) {
+            $output["memory"] = $this->memory;
+        }
+        if (null !== $this->unixSocket) {
+            $output["unix_socket"] = $this->unixSocket;
+        }
+        if (null !== $this->persistent) {
+            $output["persistent"] = $this->persistent;
+        }
+        if (null !== $this->protocol) {
+            $output["protocol"] = $this->protocol;
+        }
+        if (null !== $this->service) {
+            $output["service"] = $this->service;
+        }
+        if (null !== $this->servicename) {
+            $output["servicename"] = $this->servicename;
+        }
+        if (null !== $this->sessionMode) {
+            $output["sessionMode"] = $this->sessionMode;
+        }
+        if (null !== $this->server) {
+            $output["server"] = $this->server;
+        }
+        if (null !== $this->defaultDbname) {
+            $output["default_dbname"] = $this->defaultDbname;
+        }
+        if (null !== $this->sslmode) {
+            $output["sslmode"] = $this->sslmode;
+        }
+        if (null !== $this->sslrootcert) {
+            $output["sslrootcert"] = $this->sslrootcert;
+        }
+        if (null !== $this->sslcert) {
+            $output["sslcert"] = $this->sslcert;
+        }
+        if (null !== $this->sslkey) {
+            $output["sslkey"] = $this->sslkey;
+        }
+        if (null !== $this->sslcrl) {
+            $output["sslcrl"] = $this->sslcrl;
+        }
+        if (null !== $this->pooled) {
+            $output["pooled"] = $this->pooled;
+        }
+        if (null !== $this->multipleActiveResultSets) {
+            $output["MultipleActiveResultSets"] = $this->multipleActiveResultSets;
+        }
+        if (null !== $this->useSavepoints) {
+            $output["use_savepoints"] = $this->useSavepoints;
+        }
+        if (null !== $this->instancename) {
+            $output["instancename"] = $this->instancename;
+        }
+        if (null !== $this->connectstring) {
+            $output["connectstring"] = $this->connectstring;
+        }
+        if (null !== $this->driver) {
+            $output["driver"] = $this->driver;
+        }
+        if (null !== $this->platformService) {
+            $output["platform_service"] = $this->platformService;
+        }
+        if (null !== $this->autoCommit) {
+            $output["auto_commit"] = $this->autoCommit;
+        }
+        if (null !== $this->schemaFilter) {
+            $output["schema_filter"] = $this->schemaFilter;
+        }
+        if (null !== $this->logging) {
+            $output["logging"] = $this->logging;
+        }
+        if (null !== $this->profiling) {
+            $output["profiling"] = $this->profiling;
+        }
+        if (null !== $this->profilingCollectBacktrace) {
+            $output["profiling_collect_backtrace"] = $this->profilingCollectBacktrace;
+        }
+        if (null !== $this->profilingCollectSchemaErrors) {
+            $output["profiling_collect_schema_errors"] = $this->profilingCollectSchemaErrors;
+        }
+        if (null !== $this->serverVersion) {
+            $output["server_version"] = $this->serverVersion;
+        }
+        if (null !== $this->driverClass) {
+            $output["driver_class"] = $this->driverClass;
+        }
+        if (null !== $this->wrapperClass) {
+            $output["wrapper_class"] = $this->wrapperClass;
+        }
+        if (null !== $this->shardManagerClass) {
+            $output["shard_manager_class"] = $this->shardManagerClass;
+        }
+        if (null !== $this->shardChoser) {
+            $output["shard_choser"] = $this->shardChoser;
+        }
+        if (null !== $this->shardChoserService) {
+            $output["shard_choser_service"] = $this->shardChoserService;
+        }
+        if (null !== $this->keepSlave) {
+            $output["keep_slave"] = $this->keepSlave;
+        }
+        if (null !== $this->keepReplica) {
+            $output["keep_replica"] = $this->keepReplica;
+        }
+        if (null !== $this->options) {
+            $output["options"] = $this->options;
+        }
+        if (null !== $this->mappingTypes) {
+            $output["mapping_types"] = $this->mappingTypes;
+        }
+        if (null !== $this->defaultTableOptions) {
+            $output["default_table_options"] = $this->defaultTableOptions;
+        }
+        if (null !== $this->slaves) {
+            $output["slaves"] = array_map(function($v) { return $v->toArray(); }, $this->slaves);
+        }
+        if (null !== $this->replicas) {
+            $output["replicas"] = array_map(function($v) { return $v->toArray(); }, $this->replicas);
+        }
+        if (null !== $this->shards) {
+            $output["shards"] = array_map(function($v) { return $v->toArray(); }, $this->shards);
+        }
+    
+        return $output;
     }
     
 

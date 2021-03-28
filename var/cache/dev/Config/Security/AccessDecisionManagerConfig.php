@@ -57,26 +57,6 @@ class AccessDecisionManagerConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->strategy) {
-            $output["strategy"] = $this->strategy;
-        }
-        if (null !== $this->service) {
-            $output["service"] = $this->service;
-        }
-        if (null !== $this->allowIfAllAbstain) {
-            $output["allow_if_all_abstain"] = $this->allowIfAllAbstain;
-        }
-        if (null !== $this->allowIfEqualGrantedDenied) {
-            $output["allow_if_equal_granted_denied"] = $this->allowIfEqualGrantedDenied;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -103,6 +83,26 @@ class AccessDecisionManagerConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->strategy) {
+            $output["strategy"] = $this->strategy;
+        }
+        if (null !== $this->service) {
+            $output["service"] = $this->service;
+        }
+        if (null !== $this->allowIfAllAbstain) {
+            $output["allow_if_all_abstain"] = $this->allowIfAllAbstain;
+        }
+        if (null !== $this->allowIfEqualGrantedDenied) {
+            $output["allow_if_equal_granted_denied"] = $this->allowIfEqualGrantedDenied;
+        }
+    
+        return $output;
     }
     
 

@@ -99,41 +99,6 @@ class TranslatorConfig
         return $this->pseudoLocalization = new \Config\Framework\TranslatorConfig\PseudoLocalizationConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->fallbacks) {
-            $output["fallbacks"] = $this->fallbacks;
-        }
-        if (null !== $this->logging) {
-            $output["logging"] = $this->logging;
-        }
-        if (null !== $this->formatter) {
-            $output["formatter"] = $this->formatter;
-        }
-        if (null !== $this->cacheDir) {
-            $output["cache_dir"] = $this->cacheDir;
-        }
-        if (null !== $this->defaultPath) {
-            $output["default_path"] = $this->defaultPath;
-        }
-        if (null !== $this->paths) {
-            $output["paths"] = $this->paths;
-        }
-        if (null !== $this->enabledLocales) {
-            $output["enabled_locales"] = $this->enabledLocales;
-        }
-        if (null !== $this->pseudoLocalization) {
-            $output["pseudo_localization"] = $this->pseudoLocalization->toArray();
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -185,6 +150,41 @@ class TranslatorConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->fallbacks) {
+            $output["fallbacks"] = $this->fallbacks;
+        }
+        if (null !== $this->logging) {
+            $output["logging"] = $this->logging;
+        }
+        if (null !== $this->formatter) {
+            $output["formatter"] = $this->formatter;
+        }
+        if (null !== $this->cacheDir) {
+            $output["cache_dir"] = $this->cacheDir;
+        }
+        if (null !== $this->defaultPath) {
+            $output["default_path"] = $this->defaultPath;
+        }
+        if (null !== $this->paths) {
+            $output["paths"] = $this->paths;
+        }
+        if (null !== $this->enabledLocales) {
+            $output["enabled_locales"] = $this->enabledLocales;
+        }
+        if (null !== $this->pseudoLocalization) {
+            $output["pseudo_localization"] = $this->pseudoLocalization->toArray();
+        }
+    
+        return $output;
     }
     
 

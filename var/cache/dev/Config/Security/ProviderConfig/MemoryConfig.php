@@ -19,17 +19,6 @@ class MemoryConfig
         return $this->users[$name] = new \Config\Security\ProviderConfig\MemoryConfig\UserConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->users) {
-            $output["users"] = array_map(function($v) { return $v->toArray(); }, $this->users);
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -41,6 +30,17 @@ class MemoryConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->users) {
+            $output["users"] = array_map(function($v) { return $v->toArray(); }, $this->users);
+        }
+    
+        return $output;
     }
     
 

@@ -75,32 +75,6 @@ class PseudoLocalizationConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->accents) {
-            $output["accents"] = $this->accents;
-        }
-        if (null !== $this->expansionFactor) {
-            $output["expansion_factor"] = $this->expansionFactor;
-        }
-        if (null !== $this->brackets) {
-            $output["brackets"] = $this->brackets;
-        }
-        if (null !== $this->parseHtml) {
-            $output["parse_html"] = $this->parseHtml;
-        }
-        if (null !== $this->localizableHtmlAttributes) {
-            $output["localizable_html_attributes"] = $this->localizableHtmlAttributes;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -137,6 +111,32 @@ class PseudoLocalizationConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->accents) {
+            $output["accents"] = $this->accents;
+        }
+        if (null !== $this->expansionFactor) {
+            $output["expansion_factor"] = $this->expansionFactor;
+        }
+        if (null !== $this->brackets) {
+            $output["brackets"] = $this->brackets;
+        }
+        if (null !== $this->parseHtml) {
+            $output["parse_html"] = $this->parseHtml;
+        }
+        if (null !== $this->localizableHtmlAttributes) {
+            $output["localizable_html_attributes"] = $this->localizableHtmlAttributes;
+        }
+    
+        return $output;
     }
     
 

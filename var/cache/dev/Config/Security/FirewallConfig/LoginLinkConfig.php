@@ -204,65 +204,6 @@ class LoginLinkConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->checkRoute) {
-            $output["check_route"] = $this->checkRoute;
-        }
-        if (null !== $this->checkPostOnly) {
-            $output["check_post_only"] = $this->checkPostOnly;
-        }
-        if (null !== $this->signatureProperties) {
-            $output["signature_properties"] = $this->signatureProperties;
-        }
-        if (null !== $this->lifetime) {
-            $output["lifetime"] = $this->lifetime;
-        }
-        if (null !== $this->maxUses) {
-            $output["max_uses"] = $this->maxUses;
-        }
-        if (null !== $this->usedLinkCache) {
-            $output["used_link_cache"] = $this->usedLinkCache;
-        }
-        if (null !== $this->successHandler) {
-            $output["success_handler"] = $this->successHandler;
-        }
-        if (null !== $this->failureHandler) {
-            $output["failure_handler"] = $this->failureHandler;
-        }
-        if (null !== $this->provider) {
-            $output["provider"] = $this->provider;
-        }
-        if (null !== $this->alwaysUseDefaultTargetPath) {
-            $output["always_use_default_target_path"] = $this->alwaysUseDefaultTargetPath;
-        }
-        if (null !== $this->defaultTargetPath) {
-            $output["default_target_path"] = $this->defaultTargetPath;
-        }
-        if (null !== $this->loginPath) {
-            $output["login_path"] = $this->loginPath;
-        }
-        if (null !== $this->targetPathParameter) {
-            $output["target_path_parameter"] = $this->targetPathParameter;
-        }
-        if (null !== $this->useReferer) {
-            $output["use_referer"] = $this->useReferer;
-        }
-        if (null !== $this->failurePath) {
-            $output["failure_path"] = $this->failurePath;
-        }
-        if (null !== $this->failureForward) {
-            $output["failure_forward"] = $this->failureForward;
-        }
-        if (null !== $this->failurePathParameter) {
-            $output["failure_path_parameter"] = $this->failurePathParameter;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -354,6 +295,65 @@ class LoginLinkConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->checkRoute) {
+            $output["check_route"] = $this->checkRoute;
+        }
+        if (null !== $this->checkPostOnly) {
+            $output["check_post_only"] = $this->checkPostOnly;
+        }
+        if (null !== $this->signatureProperties) {
+            $output["signature_properties"] = $this->signatureProperties;
+        }
+        if (null !== $this->lifetime) {
+            $output["lifetime"] = $this->lifetime;
+        }
+        if (null !== $this->maxUses) {
+            $output["max_uses"] = $this->maxUses;
+        }
+        if (null !== $this->usedLinkCache) {
+            $output["used_link_cache"] = $this->usedLinkCache;
+        }
+        if (null !== $this->successHandler) {
+            $output["success_handler"] = $this->successHandler;
+        }
+        if (null !== $this->failureHandler) {
+            $output["failure_handler"] = $this->failureHandler;
+        }
+        if (null !== $this->provider) {
+            $output["provider"] = $this->provider;
+        }
+        if (null !== $this->alwaysUseDefaultTargetPath) {
+            $output["always_use_default_target_path"] = $this->alwaysUseDefaultTargetPath;
+        }
+        if (null !== $this->defaultTargetPath) {
+            $output["default_target_path"] = $this->defaultTargetPath;
+        }
+        if (null !== $this->loginPath) {
+            $output["login_path"] = $this->loginPath;
+        }
+        if (null !== $this->targetPathParameter) {
+            $output["target_path_parameter"] = $this->targetPathParameter;
+        }
+        if (null !== $this->useReferer) {
+            $output["use_referer"] = $this->useReferer;
+        }
+        if (null !== $this->failurePath) {
+            $output["failure_path"] = $this->failurePath;
+        }
+        if (null !== $this->failureForward) {
+            $output["failure_forward"] = $this->failureForward;
+        }
+        if (null !== $this->failurePathParameter) {
+            $output["failure_path_parameter"] = $this->failurePathParameter;
+        }
+    
+        return $output;
     }
     
 

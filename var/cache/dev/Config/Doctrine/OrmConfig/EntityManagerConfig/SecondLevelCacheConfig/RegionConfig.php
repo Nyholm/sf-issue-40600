@@ -85,35 +85,6 @@ class RegionConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->cacheDriver) {
-            $output["cache_driver"] = $this->cacheDriver->toArray();
-        }
-        if (null !== $this->lockPath) {
-            $output["lock_path"] = $this->lockPath;
-        }
-        if (null !== $this->lockLifetime) {
-            $output["lock_lifetime"] = $this->lockLifetime;
-        }
-        if (null !== $this->type) {
-            $output["type"] = $this->type;
-        }
-        if (null !== $this->lifetime) {
-            $output["lifetime"] = $this->lifetime;
-        }
-        if (null !== $this->service) {
-            $output["service"] = $this->service;
-        }
-        if (null !== $this->name) {
-            $output["name"] = $this->name;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -155,6 +126,35 @@ class RegionConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->cacheDriver) {
+            $output["cache_driver"] = $this->cacheDriver->toArray();
+        }
+        if (null !== $this->lockPath) {
+            $output["lock_path"] = $this->lockPath;
+        }
+        if (null !== $this->lockLifetime) {
+            $output["lock_lifetime"] = $this->lockLifetime;
+        }
+        if (null !== $this->type) {
+            $output["type"] = $this->type;
+        }
+        if (null !== $this->lifetime) {
+            $output["lifetime"] = $this->lifetime;
+        }
+        if (null !== $this->service) {
+            $output["service"] = $this->service;
+        }
+        if (null !== $this->name) {
+            $output["name"] = $this->name;
+        }
+    
+        return $output;
     }
     
 

@@ -56,26 +56,6 @@ class DeleteCookieConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->path) {
-            $output["path"] = $this->path;
-        }
-        if (null !== $this->domain) {
-            $output["domain"] = $this->domain;
-        }
-        if (null !== $this->secure) {
-            $output["secure"] = $this->secure;
-        }
-        if (null !== $this->samesite) {
-            $output["samesite"] = $this->samesite;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -102,6 +82,26 @@ class DeleteCookieConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->path) {
+            $output["path"] = $this->path;
+        }
+        if (null !== $this->domain) {
+            $output["domain"] = $this->domain;
+        }
+        if (null !== $this->secure) {
+            $output["secure"] = $this->secure;
+        }
+        if (null !== $this->samesite) {
+            $output["samesite"] = $this->samesite;
+        }
+    
+        return $output;
     }
     
 

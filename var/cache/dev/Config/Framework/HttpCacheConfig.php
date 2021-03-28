@@ -120,44 +120,6 @@ class HttpCacheConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
-        }
-        if (null !== $this->debug) {
-            $output["debug"] = $this->debug;
-        }
-        if (null !== $this->traceLevel) {
-            $output["trace_level"] = $this->traceLevel;
-        }
-        if (null !== $this->traceHeader) {
-            $output["trace_header"] = $this->traceHeader;
-        }
-        if (null !== $this->defaultTtl) {
-            $output["default_ttl"] = $this->defaultTtl;
-        }
-        if (null !== $this->privateHeaders) {
-            $output["private_headers"] = $this->privateHeaders;
-        }
-        if (null !== $this->allowReload) {
-            $output["allow_reload"] = $this->allowReload;
-        }
-        if (null !== $this->allowRevalidate) {
-            $output["allow_revalidate"] = $this->allowRevalidate;
-        }
-        if (null !== $this->staleWhileRevalidate) {
-            $output["stale_while_revalidate"] = $this->staleWhileRevalidate;
-        }
-        if (null !== $this->staleIfError) {
-            $output["stale_if_error"] = $this->staleIfError;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -214,6 +176,44 @@ class HttpCacheConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->enabled) {
+            $output["enabled"] = $this->enabled;
+        }
+        if (null !== $this->debug) {
+            $output["debug"] = $this->debug;
+        }
+        if (null !== $this->traceLevel) {
+            $output["trace_level"] = $this->traceLevel;
+        }
+        if (null !== $this->traceHeader) {
+            $output["trace_header"] = $this->traceHeader;
+        }
+        if (null !== $this->defaultTtl) {
+            $output["default_ttl"] = $this->defaultTtl;
+        }
+        if (null !== $this->privateHeaders) {
+            $output["private_headers"] = $this->privateHeaders;
+        }
+        if (null !== $this->allowReload) {
+            $output["allow_reload"] = $this->allowReload;
+        }
+        if (null !== $this->allowRevalidate) {
+            $output["allow_revalidate"] = $this->allowRevalidate;
+        }
+        if (null !== $this->staleWhileRevalidate) {
+            $output["stale_while_revalidate"] = $this->staleWhileRevalidate;
+        }
+        if (null !== $this->staleIfError) {
+            $output["stale_if_error"] = $this->staleIfError;
+        }
+    
+        return $output;
     }
     
 

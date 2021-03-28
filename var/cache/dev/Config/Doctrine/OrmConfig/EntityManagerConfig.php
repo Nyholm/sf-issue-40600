@@ -164,65 +164,6 @@ class EntityManagerConfig
         return $this->filters[$name] = new \Config\Doctrine\OrmConfig\EntityManagerConfig\FilterConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->queryCacheDriver) {
-            $output["query_cache_driver"] = $this->queryCacheDriver->toArray();
-        }
-        if (null !== $this->metadataCacheDriver) {
-            $output["metadata_cache_driver"] = $this->metadataCacheDriver->toArray();
-        }
-        if (null !== $this->resultCacheDriver) {
-            $output["result_cache_driver"] = $this->resultCacheDriver->toArray();
-        }
-        if (null !== $this->entityListeners) {
-            $output["entity_listeners"] = $this->entityListeners->toArray();
-        }
-        if (null !== $this->connection) {
-            $output["connection"] = $this->connection;
-        }
-        if (null !== $this->classMetadataFactoryName) {
-            $output["class_metadata_factory_name"] = $this->classMetadataFactoryName;
-        }
-        if (null !== $this->defaultRepositoryClass) {
-            $output["default_repository_class"] = $this->defaultRepositoryClass;
-        }
-        if (null !== $this->autoMapping) {
-            $output["auto_mapping"] = $this->autoMapping;
-        }
-        if (null !== $this->namingStrategy) {
-            $output["naming_strategy"] = $this->namingStrategy;
-        }
-        if (null !== $this->quoteStrategy) {
-            $output["quote_strategy"] = $this->quoteStrategy;
-        }
-        if (null !== $this->entityListenerResolver) {
-            $output["entity_listener_resolver"] = $this->entityListenerResolver;
-        }
-        if (null !== $this->repositoryFactory) {
-            $output["repository_factory"] = $this->repositoryFactory;
-        }
-        if (null !== $this->secondLevelCache) {
-            $output["second_level_cache"] = $this->secondLevelCache->toArray();
-        }
-        if (null !== $this->hydrators) {
-            $output["hydrators"] = $this->hydrators;
-        }
-        if (null !== $this->mappings) {
-            $output["mappings"] = array_map(function($v) { return $v->toArray(); }, $this->mappings);
-        }
-        if (null !== $this->dql) {
-            $output["dql"] = $this->dql->toArray();
-        }
-        if (null !== $this->filters) {
-            $output["filters"] = array_map(function($v) { return $v->toArray(); }, $this->filters);
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -314,6 +255,65 @@ class EntityManagerConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->queryCacheDriver) {
+            $output["query_cache_driver"] = $this->queryCacheDriver->toArray();
+        }
+        if (null !== $this->metadataCacheDriver) {
+            $output["metadata_cache_driver"] = $this->metadataCacheDriver->toArray();
+        }
+        if (null !== $this->resultCacheDriver) {
+            $output["result_cache_driver"] = $this->resultCacheDriver->toArray();
+        }
+        if (null !== $this->entityListeners) {
+            $output["entity_listeners"] = $this->entityListeners->toArray();
+        }
+        if (null !== $this->connection) {
+            $output["connection"] = $this->connection;
+        }
+        if (null !== $this->classMetadataFactoryName) {
+            $output["class_metadata_factory_name"] = $this->classMetadataFactoryName;
+        }
+        if (null !== $this->defaultRepositoryClass) {
+            $output["default_repository_class"] = $this->defaultRepositoryClass;
+        }
+        if (null !== $this->autoMapping) {
+            $output["auto_mapping"] = $this->autoMapping;
+        }
+        if (null !== $this->namingStrategy) {
+            $output["naming_strategy"] = $this->namingStrategy;
+        }
+        if (null !== $this->quoteStrategy) {
+            $output["quote_strategy"] = $this->quoteStrategy;
+        }
+        if (null !== $this->entityListenerResolver) {
+            $output["entity_listener_resolver"] = $this->entityListenerResolver;
+        }
+        if (null !== $this->repositoryFactory) {
+            $output["repository_factory"] = $this->repositoryFactory;
+        }
+        if (null !== $this->secondLevelCache) {
+            $output["second_level_cache"] = $this->secondLevelCache->toArray();
+        }
+        if (null !== $this->hydrators) {
+            $output["hydrators"] = $this->hydrators;
+        }
+        if (null !== $this->mappings) {
+            $output["mappings"] = array_map(function($v) { return $v->toArray(); }, $this->mappings);
+        }
+        if (null !== $this->dql) {
+            $output["dql"] = $this->dql->toArray();
+        }
+        if (null !== $this->filters) {
+            $output["filters"] = array_map(function($v) { return $v->toArray(); }, $this->filters);
+        }
+    
+        return $output;
     }
     
 

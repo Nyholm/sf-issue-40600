@@ -321,131 +321,6 @@ class FrameworkConfig
         return $this->uid = new \Config\Framework\UidConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->secret) {
-            $output["secret"] = $this->secret;
-        }
-        if (null !== $this->httpMethodOverride) {
-            $output["http_method_override"] = $this->httpMethodOverride;
-        }
-        if (null !== $this->ide) {
-            $output["ide"] = $this->ide;
-        }
-        if (null !== $this->test) {
-            $output["test"] = $this->test;
-        }
-        if (null !== $this->defaultLocale) {
-            $output["default_locale"] = $this->defaultLocale;
-        }
-        if (null !== $this->trustedHosts) {
-            $output["trusted_hosts"] = $this->trustedHosts;
-        }
-        if (null !== $this->trustedProxies) {
-            $output["trusted_proxies"] = $this->trustedProxies;
-        }
-        if (null !== $this->trustedHeaders) {
-            $output["trusted_headers"] = $this->trustedHeaders;
-        }
-        if (null !== $this->errorController) {
-            $output["error_controller"] = $this->errorController;
-        }
-        if (null !== $this->csrfProtection) {
-            $output["csrf_protection"] = $this->csrfProtection->toArray();
-        }
-        if (null !== $this->form) {
-            $output["form"] = $this->form->toArray();
-        }
-        if (null !== $this->httpCache) {
-            $output["http_cache"] = $this->httpCache->toArray();
-        }
-        if (null !== $this->esi) {
-            $output["esi"] = $this->esi->toArray();
-        }
-        if (null !== $this->ssi) {
-            $output["ssi"] = $this->ssi->toArray();
-        }
-        if (null !== $this->fragments) {
-            $output["fragments"] = $this->fragments->toArray();
-        }
-        if (null !== $this->profiler) {
-            $output["profiler"] = $this->profiler->toArray();
-        }
-        if (null !== $this->workflows) {
-            $output["workflows"] = $this->workflows->toArray();
-        }
-        if (null !== $this->router) {
-            $output["router"] = $this->router->toArray();
-        }
-        if (null !== $this->session) {
-            $output["session"] = $this->session->toArray();
-        }
-        if (null !== $this->request) {
-            $output["request"] = $this->request->toArray();
-        }
-        if (null !== $this->assets) {
-            $output["assets"] = $this->assets->toArray();
-        }
-        if (null !== $this->translator) {
-            $output["translator"] = $this->translator->toArray();
-        }
-        if (null !== $this->validation) {
-            $output["validation"] = $this->validation->toArray();
-        }
-        if (null !== $this->annotations) {
-            $output["annotations"] = $this->annotations->toArray();
-        }
-        if (null !== $this->serializer) {
-            $output["serializer"] = $this->serializer->toArray();
-        }
-        if (null !== $this->propertyAccess) {
-            $output["property_access"] = $this->propertyAccess->toArray();
-        }
-        if (null !== $this->propertyInfo) {
-            $output["property_info"] = $this->propertyInfo->toArray();
-        }
-        if (null !== $this->cache) {
-            $output["cache"] = $this->cache->toArray();
-        }
-        if (null !== $this->phpErrors) {
-            $output["php_errors"] = $this->phpErrors->toArray();
-        }
-        if (null !== $this->webLink) {
-            $output["web_link"] = $this->webLink->toArray();
-        }
-        if (null !== $this->lock) {
-            $output["lock"] = $this->lock->toArray();
-        }
-        if (null !== $this->messenger) {
-            $output["messenger"] = $this->messenger->toArray();
-        }
-        if (null !== $this->disallowSearchEngineIndex) {
-            $output["disallow_search_engine_index"] = $this->disallowSearchEngineIndex;
-        }
-        if (null !== $this->httpClient) {
-            $output["http_client"] = $this->httpClient->toArray();
-        }
-        if (null !== $this->mailer) {
-            $output["mailer"] = $this->mailer->toArray();
-        }
-        if (null !== $this->secrets) {
-            $output["secrets"] = $this->secrets->toArray();
-        }
-        if (null !== $this->notifier) {
-            $output["notifier"] = $this->notifier->toArray();
-        }
-        if (null !== $this->rateLimiter) {
-            $output["rate_limiter"] = $this->rateLimiter->toArray();
-        }
-        if (null !== $this->uid) {
-            $output["uid"] = $this->uid->toArray();
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -647,6 +522,131 @@ class FrameworkConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->secret) {
+            $output["secret"] = $this->secret;
+        }
+        if (null !== $this->httpMethodOverride) {
+            $output["http_method_override"] = $this->httpMethodOverride;
+        }
+        if (null !== $this->ide) {
+            $output["ide"] = $this->ide;
+        }
+        if (null !== $this->test) {
+            $output["test"] = $this->test;
+        }
+        if (null !== $this->defaultLocale) {
+            $output["default_locale"] = $this->defaultLocale;
+        }
+        if (null !== $this->trustedHosts) {
+            $output["trusted_hosts"] = $this->trustedHosts;
+        }
+        if (null !== $this->trustedProxies) {
+            $output["trusted_proxies"] = $this->trustedProxies;
+        }
+        if (null !== $this->trustedHeaders) {
+            $output["trusted_headers"] = $this->trustedHeaders;
+        }
+        if (null !== $this->errorController) {
+            $output["error_controller"] = $this->errorController;
+        }
+        if (null !== $this->csrfProtection) {
+            $output["csrf_protection"] = $this->csrfProtection->toArray();
+        }
+        if (null !== $this->form) {
+            $output["form"] = $this->form->toArray();
+        }
+        if (null !== $this->httpCache) {
+            $output["http_cache"] = $this->httpCache->toArray();
+        }
+        if (null !== $this->esi) {
+            $output["esi"] = $this->esi->toArray();
+        }
+        if (null !== $this->ssi) {
+            $output["ssi"] = $this->ssi->toArray();
+        }
+        if (null !== $this->fragments) {
+            $output["fragments"] = $this->fragments->toArray();
+        }
+        if (null !== $this->profiler) {
+            $output["profiler"] = $this->profiler->toArray();
+        }
+        if (null !== $this->workflows) {
+            $output["workflows"] = $this->workflows->toArray();
+        }
+        if (null !== $this->router) {
+            $output["router"] = $this->router->toArray();
+        }
+        if (null !== $this->session) {
+            $output["session"] = $this->session->toArray();
+        }
+        if (null !== $this->request) {
+            $output["request"] = $this->request->toArray();
+        }
+        if (null !== $this->assets) {
+            $output["assets"] = $this->assets->toArray();
+        }
+        if (null !== $this->translator) {
+            $output["translator"] = $this->translator->toArray();
+        }
+        if (null !== $this->validation) {
+            $output["validation"] = $this->validation->toArray();
+        }
+        if (null !== $this->annotations) {
+            $output["annotations"] = $this->annotations->toArray();
+        }
+        if (null !== $this->serializer) {
+            $output["serializer"] = $this->serializer->toArray();
+        }
+        if (null !== $this->propertyAccess) {
+            $output["property_access"] = $this->propertyAccess->toArray();
+        }
+        if (null !== $this->propertyInfo) {
+            $output["property_info"] = $this->propertyInfo->toArray();
+        }
+        if (null !== $this->cache) {
+            $output["cache"] = $this->cache->toArray();
+        }
+        if (null !== $this->phpErrors) {
+            $output["php_errors"] = $this->phpErrors->toArray();
+        }
+        if (null !== $this->webLink) {
+            $output["web_link"] = $this->webLink->toArray();
+        }
+        if (null !== $this->lock) {
+            $output["lock"] = $this->lock->toArray();
+        }
+        if (null !== $this->messenger) {
+            $output["messenger"] = $this->messenger->toArray();
+        }
+        if (null !== $this->disallowSearchEngineIndex) {
+            $output["disallow_search_engine_index"] = $this->disallowSearchEngineIndex;
+        }
+        if (null !== $this->httpClient) {
+            $output["http_client"] = $this->httpClient->toArray();
+        }
+        if (null !== $this->mailer) {
+            $output["mailer"] = $this->mailer->toArray();
+        }
+        if (null !== $this->secrets) {
+            $output["secrets"] = $this->secrets->toArray();
+        }
+        if (null !== $this->notifier) {
+            $output["notifier"] = $this->notifier->toArray();
+        }
+        if (null !== $this->rateLimiter) {
+            $output["rate_limiter"] = $this->rateLimiter->toArray();
+        }
+        if (null !== $this->uid) {
+            $output["uid"] = $this->uid->toArray();
+        }
+    
+        return $output;
     }
     
 

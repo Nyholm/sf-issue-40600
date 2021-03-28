@@ -31,20 +31,6 @@ class UserConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->password) {
-            $output["password"] = $this->password;
-        }
-        if (null !== $this->roles) {
-            $output["roles"] = $this->roles;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -61,6 +47,20 @@ class UserConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->password) {
+            $output["password"] = $this->password;
+        }
+        if (null !== $this->roles) {
+            $output["roles"] = $this->roles;
+        }
+    
+        return $output;
     }
     
 

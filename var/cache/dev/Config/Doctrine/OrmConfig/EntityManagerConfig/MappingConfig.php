@@ -78,32 +78,6 @@ class MappingConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->mapping) {
-            $output["mapping"] = $this->mapping;
-        }
-        if (null !== $this->type) {
-            $output["type"] = $this->type;
-        }
-        if (null !== $this->dir) {
-            $output["dir"] = $this->dir;
-        }
-        if (null !== $this->alias) {
-            $output["alias"] = $this->alias;
-        }
-        if (null !== $this->prefix) {
-            $output["prefix"] = $this->prefix;
-        }
-        if (null !== $this->isBundle) {
-            $output["is_bundle"] = $this->isBundle;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -140,6 +114,32 @@ class MappingConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->mapping) {
+            $output["mapping"] = $this->mapping;
+        }
+        if (null !== $this->type) {
+            $output["type"] = $this->type;
+        }
+        if (null !== $this->dir) {
+            $output["dir"] = $this->dir;
+        }
+        if (null !== $this->alias) {
+            $output["alias"] = $this->alias;
+        }
+        if (null !== $this->prefix) {
+            $output["prefix"] = $this->prefix;
+        }
+        if (null !== $this->isBundle) {
+            $output["is_bundle"] = $this->isBundle;
+        }
+    
+        return $output;
     }
     
 

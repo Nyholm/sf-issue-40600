@@ -19,17 +19,6 @@ class ListenerConfig
         return $this->events[] = new \Config\Doctrine\OrmConfig\EntityManagerConfig\EntityListenersConfig\EntityConfig\ListenerConfig\EventConfig($value);
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->events) {
-            $output["events"] = array_map(function($v) { return $v->toArray(); }, $this->events);
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -41,6 +30,17 @@ class ListenerConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->events) {
+            $output["events"] = array_map(function($v) { return $v->toArray(); }, $this->events);
+        }
+    
+        return $output;
     }
     
 

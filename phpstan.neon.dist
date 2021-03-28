@@ -1,0 +1,13 @@
+includes:
+
+
+parameters:
+  level: 5
+  paths:
+    - config
+    - src
+
+  scanDirectories:
+      - %currentWorkingDirectory%/var/cache/dev/Config
+
+

@@ -307,95 +307,6 @@ class FormLoginLdapConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->provider) {
-            $output["provider"] = $this->provider;
-        }
-        if (null !== $this->rememberMe) {
-            $output["remember_me"] = $this->rememberMe;
-        }
-        if (null !== $this->successHandler) {
-            $output["success_handler"] = $this->successHandler;
-        }
-        if (null !== $this->failureHandler) {
-            $output["failure_handler"] = $this->failureHandler;
-        }
-        if (null !== $this->checkPath) {
-            $output["check_path"] = $this->checkPath;
-        }
-        if (null !== $this->useForward) {
-            $output["use_forward"] = $this->useForward;
-        }
-        if (null !== $this->requirePreviousSession) {
-            $output["require_previous_session"] = $this->requirePreviousSession;
-        }
-        if (null !== $this->loginPath) {
-            $output["login_path"] = $this->loginPath;
-        }
-        if (null !== $this->usernameParameter) {
-            $output["username_parameter"] = $this->usernameParameter;
-        }
-        if (null !== $this->passwordParameter) {
-            $output["password_parameter"] = $this->passwordParameter;
-        }
-        if (null !== $this->csrfParameter) {
-            $output["csrf_parameter"] = $this->csrfParameter;
-        }
-        if (null !== $this->csrfTokenId) {
-            $output["csrf_token_id"] = $this->csrfTokenId;
-        }
-        if (null !== $this->enableCsrf) {
-            $output["enable_csrf"] = $this->enableCsrf;
-        }
-        if (null !== $this->postOnly) {
-            $output["post_only"] = $this->postOnly;
-        }
-        if (null !== $this->alwaysUseDefaultTargetPath) {
-            $output["always_use_default_target_path"] = $this->alwaysUseDefaultTargetPath;
-        }
-        if (null !== $this->defaultTargetPath) {
-            $output["default_target_path"] = $this->defaultTargetPath;
-        }
-        if (null !== $this->targetPathParameter) {
-            $output["target_path_parameter"] = $this->targetPathParameter;
-        }
-        if (null !== $this->useReferer) {
-            $output["use_referer"] = $this->useReferer;
-        }
-        if (null !== $this->failurePath) {
-            $output["failure_path"] = $this->failurePath;
-        }
-        if (null !== $this->failureForward) {
-            $output["failure_forward"] = $this->failureForward;
-        }
-        if (null !== $this->failurePathParameter) {
-            $output["failure_path_parameter"] = $this->failurePathParameter;
-        }
-        if (null !== $this->csrfTokenGenerator) {
-            $output["csrf_token_generator"] = $this->csrfTokenGenerator;
-        }
-        if (null !== $this->service) {
-            $output["service"] = $this->service;
-        }
-        if (null !== $this->dnString) {
-            $output["dn_string"] = $this->dnString;
-        }
-        if (null !== $this->queryString) {
-            $output["query_string"] = $this->queryString;
-        }
-        if (null !== $this->searchDn) {
-            $output["search_dn"] = $this->searchDn;
-        }
-        if (null !== $this->searchPassword) {
-            $output["search_password"] = $this->searchPassword;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -537,6 +448,95 @@ class FormLoginLdapConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->provider) {
+            $output["provider"] = $this->provider;
+        }
+        if (null !== $this->rememberMe) {
+            $output["remember_me"] = $this->rememberMe;
+        }
+        if (null !== $this->successHandler) {
+            $output["success_handler"] = $this->successHandler;
+        }
+        if (null !== $this->failureHandler) {
+            $output["failure_handler"] = $this->failureHandler;
+        }
+        if (null !== $this->checkPath) {
+            $output["check_path"] = $this->checkPath;
+        }
+        if (null !== $this->useForward) {
+            $output["use_forward"] = $this->useForward;
+        }
+        if (null !== $this->requirePreviousSession) {
+            $output["require_previous_session"] = $this->requirePreviousSession;
+        }
+        if (null !== $this->loginPath) {
+            $output["login_path"] = $this->loginPath;
+        }
+        if (null !== $this->usernameParameter) {
+            $output["username_parameter"] = $this->usernameParameter;
+        }
+        if (null !== $this->passwordParameter) {
+            $output["password_parameter"] = $this->passwordParameter;
+        }
+        if (null !== $this->csrfParameter) {
+            $output["csrf_parameter"] = $this->csrfParameter;
+        }
+        if (null !== $this->csrfTokenId) {
+            $output["csrf_token_id"] = $this->csrfTokenId;
+        }
+        if (null !== $this->enableCsrf) {
+            $output["enable_csrf"] = $this->enableCsrf;
+        }
+        if (null !== $this->postOnly) {
+            $output["post_only"] = $this->postOnly;
+        }
+        if (null !== $this->alwaysUseDefaultTargetPath) {
+            $output["always_use_default_target_path"] = $this->alwaysUseDefaultTargetPath;
+        }
+        if (null !== $this->defaultTargetPath) {
+            $output["default_target_path"] = $this->defaultTargetPath;
+        }
+        if (null !== $this->targetPathParameter) {
+            $output["target_path_parameter"] = $this->targetPathParameter;
+        }
+        if (null !== $this->useReferer) {
+            $output["use_referer"] = $this->useReferer;
+        }
+        if (null !== $this->failurePath) {
+            $output["failure_path"] = $this->failurePath;
+        }
+        if (null !== $this->failureForward) {
+            $output["failure_forward"] = $this->failureForward;
+        }
+        if (null !== $this->failurePathParameter) {
+            $output["failure_path_parameter"] = $this->failurePathParameter;
+        }
+        if (null !== $this->csrfTokenGenerator) {
+            $output["csrf_token_generator"] = $this->csrfTokenGenerator;
+        }
+        if (null !== $this->service) {
+            $output["service"] = $this->service;
+        }
+        if (null !== $this->dnString) {
+            $output["dn_string"] = $this->dnString;
+        }
+        if (null !== $this->queryString) {
+            $output["query_string"] = $this->queryString;
+        }
+        if (null !== $this->searchDn) {
+            $output["search_dn"] = $this->searchDn;
+        }
+        if (null !== $this->searchPassword) {
+            $output["search_password"] = $this->searchPassword;
+        }
+    
+        return $output;
     }
     
 

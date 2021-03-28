@@ -101,44 +101,6 @@ class WorkflowsConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->auditTrail) {
-            $output["audit_trail"] = $this->auditTrail->toArray();
-        }
-        if (null !== $this->type) {
-            $output["type"] = $this->type;
-        }
-        if (null !== $this->markingStore) {
-            $output["marking_store"] = $this->markingStore->toArray();
-        }
-        if (null !== $this->supports) {
-            $output["supports"] = $this->supports;
-        }
-        if (null !== $this->supportStrategy) {
-            $output["support_strategy"] = $this->supportStrategy;
-        }
-        if (null !== $this->initialMarking) {
-            $output["initial_marking"] = $this->initialMarking;
-        }
-        if (null !== $this->eventsToDispatch) {
-            $output["events_to_dispatch"] = $this->eventsToDispatch;
-        }
-        if (null !== $this->places) {
-            $output["places"] = array_map(function($v) { return $v->toArray(); }, $this->places);
-        }
-        if (null !== $this->transitions) {
-            $output["transitions"] = array_map(function($v) { return $v->toArray(); }, $this->transitions);
-        }
-        if (null !== $this->metadata) {
-            $output["metadata"] = $this->metadata;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -195,6 +157,44 @@ class WorkflowsConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->auditTrail) {
+            $output["audit_trail"] = $this->auditTrail->toArray();
+        }
+        if (null !== $this->type) {
+            $output["type"] = $this->type;
+        }
+        if (null !== $this->markingStore) {
+            $output["marking_store"] = $this->markingStore->toArray();
+        }
+        if (null !== $this->supports) {
+            $output["supports"] = $this->supports;
+        }
+        if (null !== $this->supportStrategy) {
+            $output["support_strategy"] = $this->supportStrategy;
+        }
+        if (null !== $this->initialMarking) {
+            $output["initial_marking"] = $this->initialMarking;
+        }
+        if (null !== $this->eventsToDispatch) {
+            $output["events_to_dispatch"] = $this->eventsToDispatch;
+        }
+        if (null !== $this->places) {
+            $output["places"] = array_map(function($v) { return $v->toArray(); }, $this->places);
+        }
+        if (null !== $this->transitions) {
+            $output["transitions"] = array_map(function($v) { return $v->toArray(); }, $this->transitions);
+        }
+        if (null !== $this->metadata) {
+            $output["metadata"] = $this->metadata;
+        }
+    
+        return $output;
     }
     
 

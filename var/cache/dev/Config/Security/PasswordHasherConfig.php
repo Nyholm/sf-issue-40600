@@ -131,47 +131,6 @@ class PasswordHasherConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->algorithm) {
-            $output["algorithm"] = $this->algorithm;
-        }
-        if (null !== $this->migrateFrom) {
-            $output["migrate_from"] = $this->migrateFrom;
-        }
-        if (null !== $this->hashAlgorithm) {
-            $output["hash_algorithm"] = $this->hashAlgorithm;
-        }
-        if (null !== $this->keyLength) {
-            $output["key_length"] = $this->keyLength;
-        }
-        if (null !== $this->ignoreCase) {
-            $output["ignore_case"] = $this->ignoreCase;
-        }
-        if (null !== $this->encodeAsBase64) {
-            $output["encode_as_base64"] = $this->encodeAsBase64;
-        }
-        if (null !== $this->iterations) {
-            $output["iterations"] = $this->iterations;
-        }
-        if (null !== $this->cost) {
-            $output["cost"] = $this->cost;
-        }
-        if (null !== $this->memoryCost) {
-            $output["memory_cost"] = $this->memoryCost;
-        }
-        if (null !== $this->timeCost) {
-            $output["time_cost"] = $this->timeCost;
-        }
-        if (null !== $this->id) {
-            $output["id"] = $this->id;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -233,6 +192,47 @@ class PasswordHasherConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->algorithm) {
+            $output["algorithm"] = $this->algorithm;
+        }
+        if (null !== $this->migrateFrom) {
+            $output["migrate_from"] = $this->migrateFrom;
+        }
+        if (null !== $this->hashAlgorithm) {
+            $output["hash_algorithm"] = $this->hashAlgorithm;
+        }
+        if (null !== $this->keyLength) {
+            $output["key_length"] = $this->keyLength;
+        }
+        if (null !== $this->ignoreCase) {
+            $output["ignore_case"] = $this->ignoreCase;
+        }
+        if (null !== $this->encodeAsBase64) {
+            $output["encode_as_base64"] = $this->encodeAsBase64;
+        }
+        if (null !== $this->iterations) {
+            $output["iterations"] = $this->iterations;
+        }
+        if (null !== $this->cost) {
+            $output["cost"] = $this->cost;
+        }
+        if (null !== $this->memoryCost) {
+            $output["memory_cost"] = $this->memoryCost;
+        }
+        if (null !== $this->timeCost) {
+            $output["time_cost"] = $this->timeCost;
+        }
+        if (null !== $this->id) {
+            $output["id"] = $this->id;
+        }
+    
+        return $output;
     }
     
 

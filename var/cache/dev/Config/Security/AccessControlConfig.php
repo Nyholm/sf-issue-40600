@@ -93,38 +93,6 @@ class AccessControlConfig
         return $this;
     }
     
-    public function toArray(): array
-    {
-        $output = [];
-        if (null !== $this->requiresChannel) {
-            $output["requires_channel"] = $this->requiresChannel;
-        }
-        if (null !== $this->path) {
-            $output["path"] = $this->path;
-        }
-        if (null !== $this->host) {
-            $output["host"] = $this->host;
-        }
-        if (null !== $this->port) {
-            $output["port"] = $this->port;
-        }
-        if (null !== $this->ips) {
-            $output["ips"] = $this->ips;
-        }
-        if (null !== $this->methods) {
-            $output["methods"] = $this->methods;
-        }
-        if (null !== $this->allowIf) {
-            $output["allow_if"] = $this->allowIf;
-        }
-        if (null !== $this->roles) {
-            $output["roles"] = $this->roles;
-        }
-    
-        return $output;
-    }
-    
-    
     public function __construct(array $value = [])
     {
     
@@ -171,6 +139,38 @@ class AccessControlConfig
         if ($value !== []) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->requiresChannel) {
+            $output["requires_channel"] = $this->requiresChannel;
+        }
+        if (null !== $this->path) {
+            $output["path"] = $this->path;
+        }
+        if (null !== $this->host) {
+            $output["host"] = $this->host;
+        }
+        if (null !== $this->port) {
+            $output["port"] = $this->port;
+        }
+        if (null !== $this->ips) {
+            $output["ips"] = $this->ips;
+        }
+        if (null !== $this->methods) {
+            $output["methods"] = $this->methods;
+        }
+        if (null !== $this->allowIf) {
+            $output["allow_if"] = $this->allowIf;
+        }
+        if (null !== $this->roles) {
+            $output["roles"] = $this->roles;
+        }
+    
+        return $output;
     }
     
 
