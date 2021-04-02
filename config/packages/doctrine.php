@@ -1,12 +1,11 @@
 <?php
 
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symfony\Config\Doctrine\DoctrineConfig;
 
-return static function (ContainerConfigurator $container) {
-
-    /** @var \Config\Framework\FrameworkConfig $framework */
-    $framework = $container->extensionBuilder('doctrine');
-
-
-    $container->extension('doctrine', $framework->toArray());
+return static function (DoctrineConfig $doctrine) {
+    $doctrine
+        ->dbal()
+            ->connection('default')
+                ->overrideUrl(true)
+                ->url('%env(resolve:DATABASE_URL)%');
 };

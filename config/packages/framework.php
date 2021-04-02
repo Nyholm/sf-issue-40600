@@ -1,12 +1,14 @@
 <?php
 
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symfony\Config\Framework\FrameworkConfig;
 
-return static function (ContainerConfigurator $container) {
+return static function (FrameworkConfig $framework) {
+    $framework->secret('%env(APP_SECRET)%');
+    $framework->httpMethodOverride(false);
 
-    /** @var \Config\Framework\FrameworkConfig $framework */
-    $framework = $container->extensionBuilder('framework');
+    $framework->session()->handlerId(null);
+    $framework->session()->cookieSecure('auto');
+    $framework->session()->cookieSamesite('lax');
 
-
-    $container->extension('framework', $framework->toArray());
+    $framework->phpErrors(['log' => true]);
 };

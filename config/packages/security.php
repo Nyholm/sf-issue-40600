@@ -2,23 +2,20 @@
 
 declare(strict_types=1);
 
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symfony\Config\Security\SecurityConfig;
 
-return static function (ContainerConfigurator $container) {
-    /** @var \Config\Security\SecurityConfig $security */
-    $security = $container->extensionBuilder('security');
+return static function (SecurityConfig $security) {
     $security
-        ->addRoleHierarchy('ROLE_ADMIN', ['ROLE_USER'])
-        ->addRoleHierarchy('ROLE_SUPER_ADMIN', ['ROLE_ADMIN', 'ROLE_ALLOWED_TO_SWITCH'])
-        ->addAccessControl()
-            ->setPath('^/user')
-            ->addRole('ROLE_USER');
+        ->roleHierarchy('ROLE_ADMIN', ['ROLE_USER'])
+        ->roleHierarchy('ROLE_SUPER_ADMIN', ['ROLE_ADMIN', 'ROLE_ALLOWED_TO_SWITCH'])
+        ->accessControl()
+            ->path('^/user')
+            ->role('ROLE_USER');
 
-    $security->addAccessControl(['path' => '^/admin', 'roles' => 'ROLE_ADMIN']);
-    $security->addFirewall('main')
-        ->setPattern('^/*')
-        ->setLazy(true)
-        ->addAnonymous();
+    $security->accessControl(['path' => '^/admin', 'roles' => 'ROLE_ADMIN']);
+    $security->firewall('main')
+        ->pattern('^/*')
+        ->lazy(true)
+        ->anonymous();
 
-    $container->extension('security', $security->toArray());
 };
