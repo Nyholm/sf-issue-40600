@@ -16,9 +16,9 @@ class X509Config
     private $credentials;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function provider( $value): self
+    public function provider($value): self
     {
         $this->provider = $value;
     
@@ -28,7 +28,7 @@ class X509Config
     /**
      * @default 'SSL_CLIENT_S_DN_Email'
      */
-    public function user( $value): self
+    public function user($value): self
     {
         $this->user = $value;
     
@@ -38,7 +38,7 @@ class X509Config
     /**
      * @default 'SSL_CLIENT_S_DN'
      */
-    public function credentials( $value): self
+    public function credentials($value): self
     {
         $this->credentials = $value;
     

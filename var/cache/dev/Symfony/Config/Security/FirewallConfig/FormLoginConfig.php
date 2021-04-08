@@ -35,9 +35,9 @@ class FormLoginConfig
     private $csrfTokenGenerator;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function provider( $value): self
+    public function provider($value): self
     {
         $this->provider = $value;
     
@@ -55,9 +55,9 @@ class FormLoginConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function successHandler( $value): self
+    public function successHandler($value): self
     {
         $this->successHandler = $value;
     
@@ -65,9 +65,9 @@ class FormLoginConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function failureHandler( $value): self
+    public function failureHandler($value): self
     {
         $this->failureHandler = $value;
     
@@ -77,7 +77,7 @@ class FormLoginConfig
     /**
      * @default '/login_check'
      */
-    public function checkPath( $value): self
+    public function checkPath($value): self
     {
         $this->checkPath = $value;
     
@@ -107,7 +107,7 @@ class FormLoginConfig
     /**
      * @default '/login'
      */
-    public function loginPath( $value): self
+    public function loginPath($value): self
     {
         $this->loginPath = $value;
     
@@ -117,7 +117,7 @@ class FormLoginConfig
     /**
      * @default '_username'
      */
-    public function usernameParameter( $value): self
+    public function usernameParameter($value): self
     {
         $this->usernameParameter = $value;
     
@@ -127,7 +127,7 @@ class FormLoginConfig
     /**
      * @default '_password'
      */
-    public function passwordParameter( $value): self
+    public function passwordParameter($value): self
     {
         $this->passwordParameter = $value;
     
@@ -137,7 +137,7 @@ class FormLoginConfig
     /**
      * @default '_csrf_token'
      */
-    public function csrfParameter( $value): self
+    public function csrfParameter($value): self
     {
         $this->csrfParameter = $value;
     
@@ -147,7 +147,7 @@ class FormLoginConfig
     /**
      * @default 'authenticate'
      */
-    public function csrfTokenId( $value): self
+    public function csrfTokenId($value): self
     {
         $this->csrfTokenId = $value;
     
@@ -187,7 +187,7 @@ class FormLoginConfig
     /**
      * @default '/'
      */
-    public function defaultTargetPath( $value): self
+    public function defaultTargetPath($value): self
     {
         $this->defaultTargetPath = $value;
     
@@ -197,7 +197,7 @@ class FormLoginConfig
     /**
      * @default '_target_path'
      */
-    public function targetPathParameter( $value): self
+    public function targetPathParameter($value): self
     {
         $this->targetPathParameter = $value;
     
@@ -215,9 +215,9 @@ class FormLoginConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function failurePath( $value): self
+    public function failurePath($value): self
     {
         $this->failurePath = $value;
     
@@ -237,7 +237,7 @@ class FormLoginConfig
     /**
      * @default '_failure_path'
      */
-    public function failurePathParameter( $value): self
+    public function failurePathParameter($value): self
     {
         $this->failurePathParameter = $value;
     
@@ -245,9 +245,9 @@ class FormLoginConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function csrfTokenGenerator( $value): self
+    public function csrfTokenGenerator($value): self
     {
         $this->csrfTokenGenerator = $value;
     

@@ -2,7 +2,7 @@
 
 namespace Symfony\Config\Security\FirewallConfig;
 
-require_once __DIR__.'/LogoutConfig/DeleteCookieConfig.php';
+require_once __DIR__.'/Logout/DeleteCookieConfig.php';
 
 
 /**
@@ -25,7 +25,7 @@ class LogoutConfig
     /**
      * @default '_csrf_token'
      */
-    public function csrfParameter( $value): self
+    public function csrfParameter($value): self
     {
         $this->csrfParameter = $value;
     
@@ -33,9 +33,9 @@ class LogoutConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function csrfTokenGenerator( $value): self
+    public function csrfTokenGenerator($value): self
     {
         $this->csrfTokenGenerator = $value;
     
@@ -45,7 +45,7 @@ class LogoutConfig
     /**
      * @default 'logout'
      */
-    public function csrfTokenId( $value): self
+    public function csrfTokenId($value): self
     {
         $this->csrfTokenId = $value;
     
@@ -55,7 +55,7 @@ class LogoutConfig
     /**
      * @default '/logout'
      */
-    public function path( $value): self
+    public function path($value): self
     {
         $this->path = $value;
     
@@ -65,7 +65,7 @@ class LogoutConfig
     /**
      * @default '/'
      */
-    public function target( $value): self
+    public function target($value): self
     {
         $this->target = $value;
     
@@ -73,9 +73,10 @@ class LogoutConfig
     }
     
     /**
-     * @default NULL
+     * @default null
+     * @deprecated The "success_handler" at path "logout" is deprecated, register a listener on the "Symfony\Component\Security\Http\Event\LogoutEvent" event instead.
      */
-    public function successHandler( $value): self
+    public function successHandler($value): self
     {
         $this->successHandler = $value;
     
@@ -92,12 +93,12 @@ class LogoutConfig
         return $this;
     }
     
-    public function deleteCookie(string $name, array $value = []): \Symfony\Config\Security\FirewallConfig\LogoutConfig\DeleteCookieConfig
+    public function deleteCookie(string $name, array $value = []): \Symfony\Config\Security\FirewallConfig\Logout\DeleteCookieConfig
     {
-        return $this->deleteCookies[$name] = new \Symfony\Config\Security\FirewallConfig\LogoutConfig\DeleteCookieConfig($value);
+        return $this->deleteCookies[$name] ?? $this->deleteCookies[$name] = new \Symfony\Config\Security\FirewallConfig\Logout\DeleteCookieConfig($value);
     }
     
-    public function handler( $value): self
+    public function handler($value): self
     {
         $this->handlers = $value;
     

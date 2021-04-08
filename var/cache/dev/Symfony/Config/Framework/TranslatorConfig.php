@@ -2,7 +2,7 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/TranslatorConfig/PseudoLocalizationConfig.php';
+require_once __DIR__.'/Translator/PseudoLocalizationConfig.php';
 
 
 /**
@@ -32,7 +32,7 @@ class TranslatorConfig
         return $this;
     }
     
-    public function fallback( $value): self
+    public function fallback($value): self
     {
         $this->fallbacks = $value;
     
@@ -52,7 +52,7 @@ class TranslatorConfig
     /**
      * @default 'translator.formatter.default'
      */
-    public function formatter( $value): self
+    public function formatter($value): self
     {
         $this->formatter = $value;
     
@@ -62,7 +62,7 @@ class TranslatorConfig
     /**
      * @default '%kernel.cache_dir%/translations'
      */
-    public function cacheDir( $value): self
+    public function cacheDir($value): self
     {
         $this->cacheDir = $value;
     
@@ -73,31 +73,31 @@ class TranslatorConfig
      * The default path used to load translations
      * @default '%kernel.project_dir%/translations'
      */
-    public function defaultPath( $value): self
+    public function defaultPath($value): self
     {
         $this->defaultPath = $value;
     
         return $this;
     }
     
-    public function path( $value): self
+    public function path($value): self
     {
         $this->paths = $value;
     
         return $this;
     }
     
-    public function enabledLocale( $value): self
+    public function enabledLocale($value): self
     {
         $this->enabledLocales = $value;
     
         return $this;
     }
     
-    public function pseudoLocalization(array $value = []): \Symfony\Config\Framework\TranslatorConfig\PseudoLocalizationConfig
+    public function pseudoLocalization(array $value = []): \Symfony\Config\Framework\Translator\PseudoLocalizationConfig
     {
         if (null === $this->pseudoLocalization) {
-            $this->pseudoLocalization = new \Symfony\Config\Framework\TranslatorConfig\PseudoLocalizationConfig($value);
+            $this->pseudoLocalization = new \Symfony\Config\Framework\Translator\PseudoLocalizationConfig($value);
         } elseif ([] !== $value) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "pseudoLocalization()" has already been initialized. You cannot pass values the second time you call pseudoLocalization().'));
         }

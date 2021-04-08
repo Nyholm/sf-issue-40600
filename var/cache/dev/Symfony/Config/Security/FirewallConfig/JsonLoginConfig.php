@@ -23,9 +23,9 @@ class JsonLoginConfig
     private $passwordPath;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function provider( $value): self
+    public function provider($value): self
     {
         $this->provider = $value;
     
@@ -43,9 +43,9 @@ class JsonLoginConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function successHandler( $value): self
+    public function successHandler($value): self
     {
         $this->successHandler = $value;
     
@@ -53,9 +53,9 @@ class JsonLoginConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function failureHandler( $value): self
+    public function failureHandler($value): self
     {
         $this->failureHandler = $value;
     
@@ -65,7 +65,7 @@ class JsonLoginConfig
     /**
      * @default '/login_check'
      */
-    public function checkPath( $value): self
+    public function checkPath($value): self
     {
         $this->checkPath = $value;
     
@@ -95,7 +95,7 @@ class JsonLoginConfig
     /**
      * @default '/login'
      */
-    public function loginPath( $value): self
+    public function loginPath($value): self
     {
         $this->loginPath = $value;
     
@@ -105,7 +105,7 @@ class JsonLoginConfig
     /**
      * @default 'username'
      */
-    public function usernamePath( $value): self
+    public function usernamePath($value): self
     {
         $this->usernamePath = $value;
     
@@ -115,7 +115,7 @@ class JsonLoginConfig
     /**
      * @default 'password'
      */
-    public function passwordPath( $value): self
+    public function passwordPath($value): self
     {
         $this->passwordPath = $value;
     

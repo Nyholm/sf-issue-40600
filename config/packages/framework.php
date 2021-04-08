@@ -1,6 +1,6 @@
 <?php
 
-use Symfony\Config\Framework\FrameworkConfig;
+use Symfony\Config\FrameworkConfig;
 
 return static function (FrameworkConfig $framework) {
     $framework->secret('%env(APP_SECRET)%');

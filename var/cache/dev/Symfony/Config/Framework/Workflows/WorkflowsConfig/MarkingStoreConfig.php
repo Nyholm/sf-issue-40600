@@ -1,0 +1,90 @@
+<?php
+
+namespace Symfony\Config\Framework\Workflows\WorkflowsConfig;
+
+
+
+/**
+ * This class is automatically generated to help creating config.
+ *
+ * @experimental in 5.3
+ */
+class MarkingStoreConfig 
+{
+    private $type;
+    private $property;
+    private $service;
+    
+    /**
+     * @default null
+     * @param 'method' $value
+     */
+    public function type($value): self
+    {
+        $this->type = $value;
+    
+        return $this;
+    }
+    
+    /**
+     * @default 'marking'
+     */
+    public function property($value): self
+    {
+        $this->property = $value;
+    
+        return $this;
+    }
+    
+    /**
+     * @default null
+     */
+    public function service($value): self
+    {
+        $this->service = $value;
+    
+        return $this;
+    }
+    
+    public function __construct(array $value = [])
+    {
+    
+        if (isset($value["type"])) {
+            $this->type = $value["type"];
+            unset($value["type"]);
+        }
+    
+        if (isset($value["property"])) {
+            $this->property = $value["property"];
+            unset($value["property"]);
+        }
+    
+        if (isset($value["service"])) {
+            $this->service = $value["service"];
+            unset($value["service"]);
+        }
+    
+        if ($value !== []) {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+        }
+    }
+    
+    
+    public function toArray(): array
+    {
+        $output = [];
+        if (null !== $this->type) {
+            $output["type"] = $this->type;
+        }
+        if (null !== $this->property) {
+            $output["property"] = $this->property;
+        }
+        if (null !== $this->service) {
+            $output["service"] = $this->service;
+        }
+    
+        return $output;
+    }
+    
+
+}

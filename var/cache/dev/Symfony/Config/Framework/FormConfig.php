@@ -2,7 +2,7 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/FormConfig/CsrfProtectionConfig.php';
+require_once __DIR__.'/Form/CsrfProtectionConfig.php';
 
 
 /**
@@ -26,10 +26,10 @@ class FormConfig
         return $this;
     }
     
-    public function csrfProtection(array $value = []): \Symfony\Config\Framework\FormConfig\CsrfProtectionConfig
+    public function csrfProtection(array $value = []): \Symfony\Config\Framework\Form\CsrfProtectionConfig
     {
         if (null === $this->csrfProtection) {
-            $this->csrfProtection = new \Symfony\Config\Framework\FormConfig\CsrfProtectionConfig($value);
+            $this->csrfProtection = new \Symfony\Config\Framework\Form\CsrfProtectionConfig($value);
         } elseif ([] !== $value) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "csrfProtection()" has already been initialized. You cannot pass values the second time you call csrfProtection().'));
         }

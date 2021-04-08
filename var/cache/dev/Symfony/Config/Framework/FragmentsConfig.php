@@ -26,9 +26,9 @@ class FragmentsConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function hincludeDefaultTemplate( $value): self
+    public function hincludeDefaultTemplate($value): self
     {
         $this->hincludeDefaultTemplate = $value;
     
@@ -38,7 +38,7 @@ class FragmentsConfig
     /**
      * @default '/_fragment'
      */
-    public function path( $value): self
+    public function path($value): self
     {
         $this->path = $value;
     

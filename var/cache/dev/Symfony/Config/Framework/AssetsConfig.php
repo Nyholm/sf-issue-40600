@@ -2,7 +2,7 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/AssetsConfig/PackageConfig.php';
+require_once __DIR__.'/Assets/PackageConfig.php';
 
 
 /**
@@ -32,9 +32,9 @@ class AssetsConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function versionStrategy( $value): self
+    public function versionStrategy($value): self
     {
         $this->versionStrategy = $value;
     
@@ -42,9 +42,9 @@ class AssetsConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function version( $value): self
+    public function version($value): self
     {
         $this->version = $value;
     
@@ -54,7 +54,7 @@ class AssetsConfig
     /**
      * @default '%%s?%%s'
      */
-    public function versionFormat( $value): self
+    public function versionFormat($value): self
     {
         $this->versionFormat = $value;
     
@@ -62,9 +62,9 @@ class AssetsConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function jsonManifestPath( $value): self
+    public function jsonManifestPath($value): self
     {
         $this->jsonManifestPath = $value;
     
@@ -73,23 +73,23 @@ class AssetsConfig
     
     /**
      */
-    public function basePath( $value): self
+    public function basePath($value): self
     {
         $this->basePath = $value;
     
         return $this;
     }
     
-    public function baseUrl( $value): self
+    public function baseUrl($value): self
     {
         $this->baseUrls = $value;
     
         return $this;
     }
     
-    public function package(string $name, array $value = []): \Symfony\Config\Framework\AssetsConfig\PackageConfig
+    public function package(string $name, array $value = []): \Symfony\Config\Framework\Assets\PackageConfig
     {
-        return $this->packages[$name] = new \Symfony\Config\Framework\AssetsConfig\PackageConfig($value);
+        return $this->packages[$name] ?? $this->packages[$name] = new \Symfony\Config\Framework\Assets\PackageConfig($value);
     }
     
     public function __construct(array $value = [])

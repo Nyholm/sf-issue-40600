@@ -24,16 +24,16 @@ class PasswordHasherConfig
     private $id;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function algorithm( $value): self
+    public function algorithm($value): self
     {
         $this->algorithm = $value;
     
         return $this;
     }
     
-    public function migrateFrom( $value): self
+    public function migrateFrom($value): self
     {
         $this->migrateFrom = $value;
     
@@ -44,7 +44,7 @@ class PasswordHasherConfig
      * Name of hashing algorithm for PBKDF2 (i.e. sha256, sha512, etc..) See hash_algos() for a list of supported algorithms.
      * @default 'sha512'
      */
-    public function hashAlgorithm( $value): self
+    public function hashAlgorithm($value): self
     {
         $this->hashAlgorithm = $value;
     
@@ -54,7 +54,7 @@ class PasswordHasherConfig
     /**
      * @default 40
      */
-    public function keyLength( $value): self
+    public function keyLength($value): self
     {
         $this->keyLength = $value;
     
@@ -84,7 +84,7 @@ class PasswordHasherConfig
     /**
      * @default 5000
      */
-    public function iterations( $value): self
+    public function iterations($value): self
     {
         $this->iterations = $value;
     
@@ -92,7 +92,7 @@ class PasswordHasherConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
     public function cost(int $value): self
     {
@@ -102,9 +102,9 @@ class PasswordHasherConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function memoryCost( $value): self
+    public function memoryCost($value): self
     {
         $this->memoryCost = $value;
     
@@ -112,9 +112,9 @@ class PasswordHasherConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function timeCost( $value): self
+    public function timeCost($value): self
     {
         $this->timeCost = $value;
     
@@ -122,9 +122,9 @@ class PasswordHasherConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function id( $value): self
+    public function id($value): self
     {
         $this->id = $value;
     

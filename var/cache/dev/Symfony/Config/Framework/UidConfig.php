@@ -32,7 +32,7 @@ class UidConfig
      * @default 6
      * @param 6|4|1 $value
      */
-    public function defaultUuidVersion(string $value): self
+    public function defaultUuidVersion($value): self
     {
         $this->defaultUuidVersion = $value;
     
@@ -43,7 +43,7 @@ class UidConfig
      * @default 5
      * @param 5|3 $value
      */
-    public function nameBasedUuidVersion(string $value): self
+    public function nameBasedUuidVersion($value): self
     {
         $this->nameBasedUuidVersion = $value;
     
@@ -51,9 +51,9 @@ class UidConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function nameBasedUuidNamespace( $value): self
+    public function nameBasedUuidNamespace($value): self
     {
         $this->nameBasedUuidNamespace = $value;
     
@@ -64,7 +64,7 @@ class UidConfig
      * @default 6
      * @param 6|1 $value
      */
-    public function timeBasedUuidVersion(string $value): self
+    public function timeBasedUuidVersion($value): self
     {
         $this->timeBasedUuidVersion = $value;
     
@@ -72,9 +72,9 @@ class UidConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function timeBasedUuidNode( $value): self
+    public function timeBasedUuidNode($value): self
     {
         $this->timeBasedUuidNode = $value;
     

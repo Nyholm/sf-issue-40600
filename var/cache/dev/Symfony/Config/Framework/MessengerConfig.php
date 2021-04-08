@@ -2,10 +2,10 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/MessengerConfig/RoutingConfig.php';
-require_once __DIR__.'/MessengerConfig/SerializerConfig.php';
-require_once __DIR__.'/MessengerConfig/TransportConfig.php';
-require_once __DIR__.'/MessengerConfig/BusConfig.php';
+require_once __DIR__.'/Messenger/RoutingConfig.php';
+require_once __DIR__.'/Messenger/SerializerConfig.php';
+require_once __DIR__.'/Messenger/TransportConfig.php';
+require_once __DIR__.'/Messenger/BusConfig.php';
 
 
 /**
@@ -33,15 +33,15 @@ class MessengerConfig
         return $this;
     }
     
-    public function routing(string $message_class, array $value = []): \Symfony\Config\Framework\MessengerConfig\RoutingConfig
+    public function routing(string $message_class, array $value = []): \Symfony\Config\Framework\Messenger\RoutingConfig
     {
-        return $this->routing[$message_class] = new \Symfony\Config\Framework\MessengerConfig\RoutingConfig($value);
+        return $this->routing[$message_class] ?? $this->routing[$message_class] = new \Symfony\Config\Framework\Messenger\RoutingConfig($value);
     }
     
-    public function serializer(array $value = []): \Symfony\Config\Framework\MessengerConfig\SerializerConfig
+    public function serializer(array $value = []): \Symfony\Config\Framework\Messenger\SerializerConfig
     {
         if (null === $this->serializer) {
-            $this->serializer = new \Symfony\Config\Framework\MessengerConfig\SerializerConfig($value);
+            $this->serializer = new \Symfony\Config\Framework\Messenger\SerializerConfig($value);
         } elseif ([] !== $value) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "serializer()" has already been initialized. You cannot pass values the second time you call serializer().'));
         }
@@ -49,16 +49,16 @@ class MessengerConfig
         return $this->serializer;
     }
     
-    public function transport(string $name, array $value = []): \Symfony\Config\Framework\MessengerConfig\TransportConfig
+    public function transport(string $name, array $value = []): \Symfony\Config\Framework\Messenger\TransportConfig
     {
-        return $this->transports[$name] = new \Symfony\Config\Framework\MessengerConfig\TransportConfig($value);
+        return $this->transports[$name] ?? $this->transports[$name] = new \Symfony\Config\Framework\Messenger\TransportConfig($value);
     }
     
     /**
      * Transport name to send failed messages to (after all retries have failed).
-     * @default NULL
+     * @default null
      */
-    public function failureTransport( $value): self
+    public function failureTransport($value): self
     {
         $this->failureTransport = $value;
     
@@ -66,18 +66,18 @@ class MessengerConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function defaultBus( $value): self
+    public function defaultBus($value): self
     {
         $this->defaultBus = $value;
     
         return $this;
     }
     
-    public function bus(string $name, array $value = []): \Symfony\Config\Framework\MessengerConfig\BusConfig
+    public function bus(string $name, array $value = []): \Symfony\Config\Framework\Messenger\BusConfig
     {
-        return $this->buses[$name] = new \Symfony\Config\Framework\MessengerConfig\BusConfig($value);
+        return $this->buses[$name] ?? $this->buses[$name] = new \Symfony\Config\Framework\Messenger\BusConfig($value);
     }
     
     public function __construct(array $value = [])

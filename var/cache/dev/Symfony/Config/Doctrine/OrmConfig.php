@@ -2,7 +2,7 @@
 
 namespace Symfony\Config\Doctrine;
 
-require_once __DIR__.'/OrmConfig/EntityManagerConfig.php';
+require_once __DIR__.'/Orm/EntityManagerConfig.php';
 
 
 /**
@@ -20,9 +20,9 @@ class OrmConfig
     private $resolveTargetEntities;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function defaultEntityManager( $value): self
+    public function defaultEntityManager($value): self
     {
         $this->defaultEntityManager = $value;
     
@@ -33,7 +33,7 @@ class OrmConfig
      * Auto generate mode possible values are: "NEVER", "ALWAYS", "FILE_NOT_EXISTS", "EVAL"
      * @default false
      */
-    public function autoGenerateProxyClasses( $value): self
+    public function autoGenerateProxyClasses($value): self
     {
         $this->autoGenerateProxyClasses = $value;
     
@@ -43,7 +43,7 @@ class OrmConfig
     /**
      * @default '%kernel.cache_dir%/doctrine/orm/Proxies'
      */
-    public function proxyDir( $value): self
+    public function proxyDir($value): self
     {
         $this->proxyDir = $value;
     
@@ -53,19 +53,19 @@ class OrmConfig
     /**
      * @default 'Proxies'
      */
-    public function proxyNamespace( $value): self
+    public function proxyNamespace($value): self
     {
         $this->proxyNamespace = $value;
     
         return $this;
     }
     
-    public function entityManager(string $name, array $value = []): \Symfony\Config\Doctrine\OrmConfig\EntityManagerConfig
+    public function entityManager(string $name, array $value = []): \Symfony\Config\Doctrine\Orm\EntityManagerConfig
     {
-        return $this->entityManagers[$name] = new \Symfony\Config\Doctrine\OrmConfig\EntityManagerConfig($value);
+        return $this->entityManagers[$name] ?? $this->entityManagers[$name] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig($value);
     }
     
-    public function resolveTargetEntity(string $interface,  $value): self
+    public function resolveTargetEntity(string $interface, $value): self
     {
         $this->resolveTargetEntities[$interface] = $value;
     

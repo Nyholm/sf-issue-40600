@@ -14,7 +14,7 @@ class CsrfProtectionConfig
     private $enabled;
     
     /**
-     * @default NULL
+     * @default null
      */
     public function enabled(bool $value): self
     {

@@ -27,9 +27,9 @@ class RememberMeConfig
     private $rememberMeParameter;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function secret( $value): self
+    public function secret($value): self
     {
         $this->secret = $value;
     
@@ -37,9 +37,9 @@ class RememberMeConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function service( $value): self
+    public function service($value): self
     {
         $this->service = $value;
     
@@ -47,16 +47,16 @@ class RememberMeConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function tokenProvider( $value): self
+    public function tokenProvider($value): self
     {
         $this->tokenProvider = $value;
     
         return $this;
     }
     
-    public function userProvider( $value): self
+    public function userProvider($value): self
     {
         $this->userProviders = $value;
     
@@ -76,7 +76,7 @@ class RememberMeConfig
     /**
      * @default 'REMEMBERME'
      */
-    public function name( $value): self
+    public function name($value): self
     {
         $this->name = $value;
     
@@ -96,7 +96,7 @@ class RememberMeConfig
     /**
      * @default '/'
      */
-    public function path( $value): self
+    public function path($value): self
     {
         $this->path = $value;
     
@@ -104,9 +104,9 @@ class RememberMeConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function domain( $value): self
+    public function domain($value): self
     {
         $this->domain = $value;
     
@@ -117,7 +117,7 @@ class RememberMeConfig
      * @default false
      * @param true|false|'auto' $value
      */
-    public function secure(string $value): self
+    public function secure($value): self
     {
         $this->secure = $value;
     
@@ -135,10 +135,10 @@ class RememberMeConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      * @param NULL|'lax'|'strict'|'none' $value
      */
-    public function samesite(string $value): self
+    public function samesite($value): self
     {
         $this->samesite = $value;
     
@@ -158,7 +158,7 @@ class RememberMeConfig
     /**
      * @default '_remember_me'
      */
-    public function rememberMeParameter( $value): self
+    public function rememberMeParameter($value): self
     {
         $this->rememberMeParameter = $value;
     

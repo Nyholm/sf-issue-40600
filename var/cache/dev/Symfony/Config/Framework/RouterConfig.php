@@ -31,9 +31,9 @@ class RouterConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function resource( $value): self
+    public function resource($value): self
     {
         $this->resource = $value;
     
@@ -41,9 +41,9 @@ class RouterConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function type( $value): self
+    public function type($value): self
     {
         $this->type = $value;
     
@@ -52,9 +52,9 @@ class RouterConfig
     
     /**
      * The default URI used to generate URLs in a non-HTTP context
-     * @default NULL
+     * @default null
      */
-    public function defaultUri( $value): self
+    public function defaultUri($value): self
     {
         $this->defaultUri = $value;
     
@@ -64,7 +64,7 @@ class RouterConfig
     /**
      * @default 80
      */
-    public function httpPort( $value): self
+    public function httpPort($value): self
     {
         $this->httpPort = $value;
     
@@ -74,7 +74,7 @@ class RouterConfig
     /**
      * @default 443
      */
-    public function httpsPort( $value): self
+    public function httpsPort($value): self
     {
         $this->httpsPort = $value;
     
@@ -88,7 +88,7 @@ class RouterConfig
     'true' is the preferred configuration in development mode, while 'false' or 'null' might be preferred in production
      * @default true
      */
-    public function strictRequirements( $value): self
+    public function strictRequirements($value): self
     {
         $this->strictRequirements = $value;
     
@@ -96,7 +96,7 @@ class RouterConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
     public function utf8(bool $value): self
     {

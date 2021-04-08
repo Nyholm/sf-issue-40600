@@ -57,9 +57,9 @@ class FirewallConfig
     private $anonymous;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function pattern( $value): self
+    public function pattern($value): self
     {
         $this->pattern = $value;
     
@@ -67,16 +67,16 @@ class FirewallConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function host( $value): self
+    public function host($value): self
     {
         $this->host = $value;
     
         return $this;
     }
     
-    public function methods( $value): self
+    public function methods($value): self
     {
         $this->methods = $value;
     
@@ -97,7 +97,7 @@ class FirewallConfig
      * The UserChecker to use when authenticating users in this firewall.
      * @default 'security.user_checker'
      */
-    public function userChecker( $value): self
+    public function userChecker($value): self
     {
         $this->userChecker = $value;
     
@@ -105,9 +105,9 @@ class FirewallConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function requestMatcher( $value): self
+    public function requestMatcher($value): self
     {
         $this->requestMatcher = $value;
     
@@ -115,9 +115,9 @@ class FirewallConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function accessDeniedUrl( $value): self
+    public function accessDeniedUrl($value): self
     {
         $this->accessDeniedUrl = $value;
     
@@ -125,9 +125,9 @@ class FirewallConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function accessDeniedHandler( $value): self
+    public function accessDeniedHandler($value): self
     {
         $this->accessDeniedHandler = $value;
     
@@ -136,9 +136,9 @@ class FirewallConfig
     
     /**
      * An enabled authenticator name or a service id that implements "Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface"
-     * @default NULL
+     * @default null
      */
-    public function entryPoint( $value): self
+    public function entryPoint($value): self
     {
         $this->entryPoint = $value;
     
@@ -146,9 +146,9 @@ class FirewallConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function provider( $value): self
+    public function provider($value): self
     {
         $this->provider = $value;
     
@@ -176,9 +176,9 @@ class FirewallConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function context( $value): self
+    public function context($value): self
     {
         $this->context = $value;
     
@@ -240,7 +240,7 @@ class FirewallConfig
         return $this->guard;
     }
     
-    public function customAuthenticator( $value): self
+    public function customAuthenticator($value): self
     {
         $this->customAuthenticators = $value;
     

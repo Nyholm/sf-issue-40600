@@ -2,7 +2,7 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/RateLimiterConfig/LimiterConfig.php';
+require_once __DIR__.'/RateLimiter/LimiterConfig.php';
 
 
 /**
@@ -25,9 +25,9 @@ class RateLimiterConfig
         return $this;
     }
     
-    public function limiter(string $name, array $value = []): \Symfony\Config\Framework\RateLimiterConfig\LimiterConfig
+    public function limiter(string $name, array $value = []): \Symfony\Config\Framework\RateLimiter\LimiterConfig
     {
-        return $this->limiters[$name] = new \Symfony\Config\Framework\RateLimiterConfig\LimiterConfig($value);
+        return $this->limiters[$name] ?? $this->limiters[$name] = new \Symfony\Config\Framework\RateLimiter\LimiterConfig($value);
     }
     
     public function __construct(array $value = [])

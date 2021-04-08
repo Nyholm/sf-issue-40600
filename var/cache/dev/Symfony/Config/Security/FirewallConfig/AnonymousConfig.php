@@ -16,6 +16,7 @@ class AnonymousConfig
     
     /**
      * @default false
+     * @deprecated Using "anonymous: lazy" to make the firewall lazy is deprecated, use "anonymous: true" and "lazy: true" instead.
      */
     public function lazy(bool $value): self
     {
@@ -25,9 +26,9 @@ class AnonymousConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function secret( $value): self
+    public function secret($value): self
     {
         $this->secret = $value;
     

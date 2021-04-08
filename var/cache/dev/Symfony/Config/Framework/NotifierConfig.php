@@ -2,7 +2,7 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/NotifierConfig/AdminRecipientConfig.php';
+require_once __DIR__.'/Notifier/AdminRecipientConfig.php';
 
 
 /**
@@ -29,14 +29,14 @@ class NotifierConfig
         return $this;
     }
     
-    public function chatterTransport(string $name,  $value): self
+    public function chatterTransport(string $name, $value): self
     {
         $this->chatterTransports[$name] = $value;
     
         return $this;
     }
     
-    public function texterTransport(string $name,  $value): self
+    public function texterTransport(string $name, $value): self
     {
         $this->texterTransports[$name] = $value;
     
@@ -60,9 +60,9 @@ class NotifierConfig
         return $this;
     }
     
-    public function adminRecipient(array $value = []): \Symfony\Config\Framework\NotifierConfig\AdminRecipientConfig
+    public function adminRecipient(array $value = []): \Symfony\Config\Framework\Notifier\AdminRecipientConfig
     {
-        return $this->adminRecipients[] = new \Symfony\Config\Framework\NotifierConfig\AdminRecipientConfig($value);
+        return $this->adminRecipients[] = new \Symfony\Config\Framework\Notifier\AdminRecipientConfig($value);
     }
     
     public function __construct(array $value = [])

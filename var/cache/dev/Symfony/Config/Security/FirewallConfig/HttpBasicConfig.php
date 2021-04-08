@@ -15,9 +15,9 @@ class HttpBasicConfig
     private $realm;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function provider( $value): self
+    public function provider($value): self
     {
         $this->provider = $value;
     
@@ -27,7 +27,7 @@ class HttpBasicConfig
     /**
      * @default 'Secured Area'
      */
-    public function realm( $value): self
+    public function realm($value): self
     {
         $this->realm = $value;
     

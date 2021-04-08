@@ -28,9 +28,9 @@ class JsonLoginLdapConfig
     private $searchPassword;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function provider( $value): self
+    public function provider($value): self
     {
         $this->provider = $value;
     
@@ -48,9 +48,9 @@ class JsonLoginLdapConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function successHandler( $value): self
+    public function successHandler($value): self
     {
         $this->successHandler = $value;
     
@@ -58,9 +58,9 @@ class JsonLoginLdapConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function failureHandler( $value): self
+    public function failureHandler($value): self
     {
         $this->failureHandler = $value;
     
@@ -70,7 +70,7 @@ class JsonLoginLdapConfig
     /**
      * @default '/login_check'
      */
-    public function checkPath( $value): self
+    public function checkPath($value): self
     {
         $this->checkPath = $value;
     
@@ -100,7 +100,7 @@ class JsonLoginLdapConfig
     /**
      * @default '/login'
      */
-    public function loginPath( $value): self
+    public function loginPath($value): self
     {
         $this->loginPath = $value;
     
@@ -110,7 +110,7 @@ class JsonLoginLdapConfig
     /**
      * @default 'username'
      */
-    public function usernamePath( $value): self
+    public function usernamePath($value): self
     {
         $this->usernamePath = $value;
     
@@ -120,7 +120,7 @@ class JsonLoginLdapConfig
     /**
      * @default 'password'
      */
-    public function passwordPath( $value): self
+    public function passwordPath($value): self
     {
         $this->passwordPath = $value;
     
@@ -130,7 +130,7 @@ class JsonLoginLdapConfig
     /**
      * @default 'ldap'
      */
-    public function service( $value): self
+    public function service($value): self
     {
         $this->service = $value;
     
@@ -140,7 +140,7 @@ class JsonLoginLdapConfig
     /**
      * @default '{username}'
      */
-    public function dnString( $value): self
+    public function dnString($value): self
     {
         $this->dnString = $value;
     
@@ -148,9 +148,9 @@ class JsonLoginLdapConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function queryString( $value): self
+    public function queryString($value): self
     {
         $this->queryString = $value;
     
@@ -159,7 +159,7 @@ class JsonLoginLdapConfig
     
     /**
      */
-    public function searchDn( $value): self
+    public function searchDn($value): self
     {
         $this->searchDn = $value;
     
@@ -168,7 +168,7 @@ class JsonLoginLdapConfig
     
     /**
      */
-    public function searchPassword( $value): self
+    public function searchPassword($value): self
     {
         $this->searchPassword = $value;
     

@@ -2,8 +2,8 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/MailerConfig/EnvelopeConfig.php';
-require_once __DIR__.'/MailerConfig/HeaderConfig.php';
+require_once __DIR__.'/Mailer/EnvelopeConfig.php';
+require_once __DIR__.'/Mailer/HeaderConfig.php';
 
 
 /**
@@ -32,9 +32,9 @@ class MailerConfig
     
     /**
      * The message bus to use. Defaults to the default bus if the Messenger component is installed.
-     * @default NULL
+     * @default null
      */
-    public function messageBus( $value): self
+    public function messageBus($value): self
     {
         $this->messageBus = $value;
     
@@ -42,26 +42,26 @@ class MailerConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function dsn( $value): self
+    public function dsn($value): self
     {
         $this->dsn = $value;
     
         return $this;
     }
     
-    public function transport(string $name,  $value): self
+    public function transport(string $name, $value): self
     {
         $this->transports[$name] = $value;
     
         return $this;
     }
     
-    public function envelope(array $value = []): \Symfony\Config\Framework\MailerConfig\EnvelopeConfig
+    public function envelope(array $value = []): \Symfony\Config\Framework\Mailer\EnvelopeConfig
     {
         if (null === $this->envelope) {
-            $this->envelope = new \Symfony\Config\Framework\MailerConfig\EnvelopeConfig($value);
+            $this->envelope = new \Symfony\Config\Framework\Mailer\EnvelopeConfig($value);
         } elseif ([] !== $value) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "envelope()" has already been initialized. You cannot pass values the second time you call envelope().'));
         }
@@ -69,9 +69,9 @@ class MailerConfig
         return $this->envelope;
     }
     
-    public function header(string $name, array $value = []): \Symfony\Config\Framework\MailerConfig\HeaderConfig
+    public function header(string $name, array $value = []): \Symfony\Config\Framework\Mailer\HeaderConfig
     {
-        return $this->headers[$name] = new \Symfony\Config\Framework\MailerConfig\HeaderConfig($value);
+        return $this->headers[$name] ?? $this->headers[$name] = new \Symfony\Config\Framework\Mailer\HeaderConfig($value);
     }
     
     public function __construct(array $value = [])

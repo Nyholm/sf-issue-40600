@@ -2,9 +2,9 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/ValidationConfig/MappingConfig.php';
-require_once __DIR__.'/ValidationConfig/NotCompromisedPasswordConfig.php';
-require_once __DIR__.'/ValidationConfig/AutoMappingConfig.php';
+require_once __DIR__.'/Validation/MappingConfig.php';
+require_once __DIR__.'/Validation/NotCompromisedPasswordConfig.php';
+require_once __DIR__.'/Validation/AutoMappingConfig.php';
 
 
 /**
@@ -35,9 +35,9 @@ class ValidationConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function cache( $value): self
+    public function cache($value): self
     {
         $this->cache = $value;
     
@@ -54,7 +54,7 @@ class ValidationConfig
         return $this;
     }
     
-    public function staticMethod( $value): self
+    public function staticMethod($value): self
     {
         $this->staticMethod = $value;
     
@@ -64,7 +64,7 @@ class ValidationConfig
     /**
      * @default 'validators'
      */
-    public function translationDomain( $value): self
+    public function translationDomain($value): self
     {
         $this->translationDomain = $value;
     
@@ -72,20 +72,20 @@ class ValidationConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      * @param 'html5'|'loose'|'strict' $value
      */
-    public function emailValidationMode(string $value): self
+    public function emailValidationMode($value): self
     {
         $this->emailValidationMode = $value;
     
         return $this;
     }
     
-    public function mapping(array $value = []): \Symfony\Config\Framework\ValidationConfig\MappingConfig
+    public function mapping(array $value = []): \Symfony\Config\Framework\Validation\MappingConfig
     {
         if (null === $this->mapping) {
-            $this->mapping = new \Symfony\Config\Framework\ValidationConfig\MappingConfig($value);
+            $this->mapping = new \Symfony\Config\Framework\Validation\MappingConfig($value);
         } elseif ([] !== $value) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "mapping()" has already been initialized. You cannot pass values the second time you call mapping().'));
         }
@@ -93,10 +93,10 @@ class ValidationConfig
         return $this->mapping;
     }
     
-    public function notCompromisedPassword(array $value = []): \Symfony\Config\Framework\ValidationConfig\NotCompromisedPasswordConfig
+    public function notCompromisedPassword(array $value = []): \Symfony\Config\Framework\Validation\NotCompromisedPasswordConfig
     {
         if (null === $this->notCompromisedPassword) {
-            $this->notCompromisedPassword = new \Symfony\Config\Framework\ValidationConfig\NotCompromisedPasswordConfig($value);
+            $this->notCompromisedPassword = new \Symfony\Config\Framework\Validation\NotCompromisedPasswordConfig($value);
         } elseif ([] !== $value) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "notCompromisedPassword()" has already been initialized. You cannot pass values the second time you call notCompromisedPassword().'));
         }
@@ -104,9 +104,9 @@ class ValidationConfig
         return $this->notCompromisedPassword;
     }
     
-    public function autoMapping(string $namespace, array $value = []): \Symfony\Config\Framework\ValidationConfig\AutoMappingConfig
+    public function autoMapping(string $namespace, array $value = []): \Symfony\Config\Framework\Validation\AutoMappingConfig
     {
-        return $this->autoMapping[$namespace] = new \Symfony\Config\Framework\ValidationConfig\AutoMappingConfig($value);
+        return $this->autoMapping[$namespace] ?? $this->autoMapping[$namespace] = new \Symfony\Config\Framework\Validation\AutoMappingConfig($value);
     }
     
     public function __construct(array $value = [])

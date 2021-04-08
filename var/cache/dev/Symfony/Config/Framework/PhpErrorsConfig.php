@@ -19,7 +19,7 @@ class PhpErrorsConfig
      * @example "true" to use the default configuration: log all errors. "false" to disable. An integer bit field of E_* constants, or an array mapping E_* constants to log levels.
      * @default true
      */
-    public function log($value): self
+    public function log($value = true): self
     {
         $this->log = $value;
     

@@ -60,6 +60,7 @@ class ProfilerConfig
     
     /**
      * @default false
+     * @deprecated Option "only_master_requests" at "profiler" is deprecated, use "only_main_requests" instead.
      */
     public function onlyMasterRequests(bool $value): self
     {
@@ -71,7 +72,7 @@ class ProfilerConfig
     /**
      * @default 'file:%kernel.cache_dir%/profiler'
      */
-    public function dsn( $value): self
+    public function dsn($value): self
     {
         $this->dsn = $value;
     

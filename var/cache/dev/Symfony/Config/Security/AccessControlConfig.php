@@ -21,9 +21,9 @@ class AccessControlConfig
     private $roles;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function requiresChannel( $value): self
+    public function requiresChannel($value): self
     {
         $this->requiresChannel = $value;
     
@@ -33,9 +33,9 @@ class AccessControlConfig
     /**
      * use the urldecoded format
      * @example ^/path to resource/
-     * @default NULL
+     * @default null
      */
-    public function path( $value): self
+    public function path($value): self
     {
         $this->path = $value;
     
@@ -43,9 +43,9 @@ class AccessControlConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function host( $value): self
+    public function host($value): self
     {
         $this->host = $value;
     
@@ -53,7 +53,7 @@ class AccessControlConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
     public function port(int $value): self
     {
@@ -62,14 +62,14 @@ class AccessControlConfig
         return $this;
     }
     
-    public function ip( $value): self
+    public function ip($value): self
     {
         $this->ips = $value;
     
         return $this;
     }
     
-    public function method( $value): self
+    public function method($value): self
     {
         $this->methods = $value;
     
@@ -77,16 +77,16 @@ class AccessControlConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function allowIf( $value): self
+    public function allowIf($value): self
     {
         $this->allowIf = $value;
     
         return $this;
     }
     
-    public function role( $value): self
+    public function role($value): self
     {
         $this->roles = $value;
     

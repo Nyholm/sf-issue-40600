@@ -17,9 +17,9 @@ class EntityConfig
     
     /**
      * The full entity class name of your user class.
-     * @default NULL
+     * @default null
      */
-    public function class( $value): self
+    public function class($value): self
     {
         $this->class = $value;
     
@@ -27,9 +27,9 @@ class EntityConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function property( $value): self
+    public function property($value): self
     {
         $this->property = $value;
     
@@ -37,9 +37,9 @@ class EntityConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function managerName( $value): self
+    public function managerName($value): self
     {
         $this->managerName = $value;
     

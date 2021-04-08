@@ -1,6 +1,6 @@
 <?php
 
-use Symfony\Config\Doctrine\DoctrineConfig;
+use Symfony\Config\DoctrineConfig;
 
 return static function (DoctrineConfig $doctrine) {
     $doctrine

@@ -40,9 +40,9 @@ class FormLoginLdapConfig
     private $searchPassword;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function provider( $value): self
+    public function provider($value): self
     {
         $this->provider = $value;
     
@@ -60,9 +60,9 @@ class FormLoginLdapConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function successHandler( $value): self
+    public function successHandler($value): self
     {
         $this->successHandler = $value;
     
@@ -70,9 +70,9 @@ class FormLoginLdapConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function failureHandler( $value): self
+    public function failureHandler($value): self
     {
         $this->failureHandler = $value;
     
@@ -82,7 +82,7 @@ class FormLoginLdapConfig
     /**
      * @default '/login_check'
      */
-    public function checkPath( $value): self
+    public function checkPath($value): self
     {
         $this->checkPath = $value;
     
@@ -112,7 +112,7 @@ class FormLoginLdapConfig
     /**
      * @default '/login'
      */
-    public function loginPath( $value): self
+    public function loginPath($value): self
     {
         $this->loginPath = $value;
     
@@ -122,7 +122,7 @@ class FormLoginLdapConfig
     /**
      * @default '_username'
      */
-    public function usernameParameter( $value): self
+    public function usernameParameter($value): self
     {
         $this->usernameParameter = $value;
     
@@ -132,7 +132,7 @@ class FormLoginLdapConfig
     /**
      * @default '_password'
      */
-    public function passwordParameter( $value): self
+    public function passwordParameter($value): self
     {
         $this->passwordParameter = $value;
     
@@ -142,7 +142,7 @@ class FormLoginLdapConfig
     /**
      * @default '_csrf_token'
      */
-    public function csrfParameter( $value): self
+    public function csrfParameter($value): self
     {
         $this->csrfParameter = $value;
     
@@ -152,7 +152,7 @@ class FormLoginLdapConfig
     /**
      * @default 'authenticate'
      */
-    public function csrfTokenId( $value): self
+    public function csrfTokenId($value): self
     {
         $this->csrfTokenId = $value;
     
@@ -192,7 +192,7 @@ class FormLoginLdapConfig
     /**
      * @default '/'
      */
-    public function defaultTargetPath( $value): self
+    public function defaultTargetPath($value): self
     {
         $this->defaultTargetPath = $value;
     
@@ -202,7 +202,7 @@ class FormLoginLdapConfig
     /**
      * @default '_target_path'
      */
-    public function targetPathParameter( $value): self
+    public function targetPathParameter($value): self
     {
         $this->targetPathParameter = $value;
     
@@ -220,9 +220,9 @@ class FormLoginLdapConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function failurePath( $value): self
+    public function failurePath($value): self
     {
         $this->failurePath = $value;
     
@@ -242,7 +242,7 @@ class FormLoginLdapConfig
     /**
      * @default '_failure_path'
      */
-    public function failurePathParameter( $value): self
+    public function failurePathParameter($value): self
     {
         $this->failurePathParameter = $value;
     
@@ -250,9 +250,9 @@ class FormLoginLdapConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function csrfTokenGenerator( $value): self
+    public function csrfTokenGenerator($value): self
     {
         $this->csrfTokenGenerator = $value;
     
@@ -262,7 +262,7 @@ class FormLoginLdapConfig
     /**
      * @default 'ldap'
      */
-    public function service( $value): self
+    public function service($value): self
     {
         $this->service = $value;
     
@@ -272,7 +272,7 @@ class FormLoginLdapConfig
     /**
      * @default '{username}'
      */
-    public function dnString( $value): self
+    public function dnString($value): self
     {
         $this->dnString = $value;
     
@@ -280,9 +280,9 @@ class FormLoginLdapConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function queryString( $value): self
+    public function queryString($value): self
     {
         $this->queryString = $value;
     
@@ -291,7 +291,7 @@ class FormLoginLdapConfig
     
     /**
      */
-    public function searchDn( $value): self
+    public function searchDn($value): self
     {
         $this->searchDn = $value;
     
@@ -300,7 +300,7 @@ class FormLoginLdapConfig
     
     /**
      */
-    public function searchPassword( $value): self
+    public function searchPassword($value): self
     {
         $this->searchPassword = $value;
     

@@ -43,10 +43,10 @@ class HttpCacheConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      * @param 'none'|'short'|'full' $value
      */
-    public function traceLevel(string $value): self
+    public function traceLevel($value): self
     {
         $this->traceLevel = $value;
     
@@ -54,9 +54,9 @@ class HttpCacheConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function traceHeader( $value): self
+    public function traceHeader($value): self
     {
         $this->traceHeader = $value;
     
@@ -64,7 +64,7 @@ class HttpCacheConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
     public function defaultTtl(int $value): self
     {
@@ -73,7 +73,7 @@ class HttpCacheConfig
         return $this;
     }
     
-    public function privateHeader( $value): self
+    public function privateHeader($value): self
     {
         $this->privateHeaders = $value;
     
@@ -81,7 +81,7 @@ class HttpCacheConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
     public function allowReload(bool $value): self
     {
@@ -91,7 +91,7 @@ class HttpCacheConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
     public function allowRevalidate(bool $value): self
     {
@@ -101,7 +101,7 @@ class HttpCacheConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
     public function staleWhileRevalidate(int $value): self
     {
@@ -111,7 +111,7 @@ class HttpCacheConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
     public function staleIfError(int $value): self
     {

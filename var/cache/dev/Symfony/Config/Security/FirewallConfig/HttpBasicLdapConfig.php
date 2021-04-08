@@ -20,9 +20,9 @@ class HttpBasicLdapConfig
     private $searchPassword;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function provider( $value): self
+    public function provider($value): self
     {
         $this->provider = $value;
     
@@ -32,7 +32,7 @@ class HttpBasicLdapConfig
     /**
      * @default 'Secured Area'
      */
-    public function realm( $value): self
+    public function realm($value): self
     {
         $this->realm = $value;
     
@@ -42,7 +42,7 @@ class HttpBasicLdapConfig
     /**
      * @default 'ldap'
      */
-    public function service( $value): self
+    public function service($value): self
     {
         $this->service = $value;
     
@@ -52,7 +52,7 @@ class HttpBasicLdapConfig
     /**
      * @default '{username}'
      */
-    public function dnString( $value): self
+    public function dnString($value): self
     {
         $this->dnString = $value;
     
@@ -60,9 +60,9 @@ class HttpBasicLdapConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function queryString( $value): self
+    public function queryString($value): self
     {
         $this->queryString = $value;
     
@@ -71,7 +71,7 @@ class HttpBasicLdapConfig
     
     /**
      */
-    public function searchDn( $value): self
+    public function searchDn($value): self
     {
         $this->searchDn = $value;
     
@@ -80,7 +80,7 @@ class HttpBasicLdapConfig
     
     /**
      */
-    public function searchPassword( $value): self
+    public function searchPassword($value): self
     {
         $this->searchPassword = $value;
     

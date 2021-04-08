@@ -29,7 +29,7 @@ class AnnotationsConfig
     /**
      * @default 'php_array'
      */
-    public function cache( $value): self
+    public function cache($value): self
     {
         $this->cache = $value;
     
@@ -39,7 +39,7 @@ class AnnotationsConfig
     /**
      * @default '%kernel.cache_dir%/annotations'
      */
-    public function fileCacheDir( $value): self
+    public function fileCacheDir($value): self
     {
         $this->fileCacheDir = $value;
     

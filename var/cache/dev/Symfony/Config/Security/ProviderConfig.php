@@ -22,9 +22,9 @@ class ProviderConfig
     private $entity;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function id( $value): self
+    public function id($value): self
     {
         $this->id = $value;
     

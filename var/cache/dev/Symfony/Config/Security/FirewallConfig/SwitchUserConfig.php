@@ -16,9 +16,9 @@ class SwitchUserConfig
     private $role;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function provider( $value): self
+    public function provider($value): self
     {
         $this->provider = $value;
     
@@ -28,7 +28,7 @@ class SwitchUserConfig
     /**
      * @default '_switch_user'
      */
-    public function parameter( $value): self
+    public function parameter($value): self
     {
         $this->parameter = $value;
     
@@ -38,7 +38,7 @@ class SwitchUserConfig
     /**
      * @default 'ROLE_ALLOWED_TO_SWITCH'
      */
-    public function role( $value): self
+    public function role($value): self
     {
         $this->role = $value;
     

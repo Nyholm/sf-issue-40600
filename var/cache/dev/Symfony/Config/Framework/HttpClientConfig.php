@@ -2,8 +2,8 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/HttpClientConfig/DefaultOptionsConfig.php';
-require_once __DIR__.'/HttpClientConfig/ScopedClientConfig.php';
+require_once __DIR__.'/HttpClient/DefaultOptionsConfig.php';
+require_once __DIR__.'/HttpClient/ScopedClientConfig.php';
 
 
 /**
@@ -31,7 +31,7 @@ class HttpClientConfig
     
     /**
      * The maximum number of connections to a single host.
-     * @default NULL
+     * @default null
      */
     public function maxHostConnections(int $value): self
     {
@@ -40,10 +40,10 @@ class HttpClientConfig
         return $this;
     }
     
-    public function defaultOptions(array $value = []): \Symfony\Config\Framework\HttpClientConfig\DefaultOptionsConfig
+    public function defaultOptions(array $value = []): \Symfony\Config\Framework\HttpClient\DefaultOptionsConfig
     {
         if (null === $this->defaultOptions) {
-            $this->defaultOptions = new \Symfony\Config\Framework\HttpClientConfig\DefaultOptionsConfig($value);
+            $this->defaultOptions = new \Symfony\Config\Framework\HttpClient\DefaultOptionsConfig($value);
         } elseif ([] !== $value) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "defaultOptions()" has already been initialized. You cannot pass values the second time you call defaultOptions().'));
         }
@@ -53,18 +53,18 @@ class HttpClientConfig
     
     /**
      * The id of the service that should generate mock responses. It should be either an invokable or an iterable.
-     * @default NULL
+     * @default null
      */
-    public function mockResponseFactory( $value): self
+    public function mockResponseFactory($value): self
     {
         $this->mockResponseFactory = $value;
     
         return $this;
     }
     
-    public function scopedClient(string $name, array $value = []): \Symfony\Config\Framework\HttpClientConfig\ScopedClientConfig
+    public function scopedClient(string $name, array $value = []): \Symfony\Config\Framework\HttpClient\ScopedClientConfig
     {
-        return $this->scopedClients[$name] = new \Symfony\Config\Framework\HttpClientConfig\ScopedClientConfig($value);
+        return $this->scopedClients[$name] ?? $this->scopedClients[$name] = new \Symfony\Config\Framework\HttpClient\ScopedClientConfig($value);
     }
     
     public function __construct(array $value = [])

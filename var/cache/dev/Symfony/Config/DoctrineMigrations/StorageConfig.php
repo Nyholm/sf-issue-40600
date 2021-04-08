@@ -2,7 +2,7 @@
 
 namespace Symfony\Config\DoctrineMigrations;
 
-require_once __DIR__.'/StorageConfig/TableStorageConfig.php';
+require_once __DIR__.'/Storage/TableStorageConfig.php';
 
 
 /**
@@ -14,10 +14,10 @@ class StorageConfig
 {
     private $tableStorage;
     
-    public function tableStorage(array $value = []): \Symfony\Config\DoctrineMigrations\StorageConfig\TableStorageConfig
+    public function tableStorage(array $value = []): \Symfony\Config\DoctrineMigrations\Storage\TableStorageConfig
     {
         if (null === $this->tableStorage) {
-            $this->tableStorage = new \Symfony\Config\DoctrineMigrations\StorageConfig\TableStorageConfig($value);
+            $this->tableStorage = new \Symfony\Config\DoctrineMigrations\Storage\TableStorageConfig($value);
         } elseif ([] !== $value) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "tableStorage()" has already been initialized. You cannot pass values the second time you call tableStorage().'));
         }

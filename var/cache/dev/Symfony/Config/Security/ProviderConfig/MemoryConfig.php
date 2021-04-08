@@ -2,7 +2,7 @@
 
 namespace Symfony\Config\Security\ProviderConfig;
 
-require_once __DIR__.'/MemoryConfig/UserConfig.php';
+require_once __DIR__.'/Memory/UserConfig.php';
 
 
 /**
@@ -14,9 +14,9 @@ class MemoryConfig
 {
     private $users;
     
-    public function user(string $identifier, array $value = []): \Symfony\Config\Security\ProviderConfig\MemoryConfig\UserConfig
+    public function user(string $identifier, array $value = []): \Symfony\Config\Security\ProviderConfig\Memory\UserConfig
     {
-        return $this->users[$identifier] = new \Symfony\Config\Security\ProviderConfig\MemoryConfig\UserConfig($value);
+        return $this->users[$identifier] ?? $this->users[$identifier] = new \Symfony\Config\Security\ProviderConfig\Memory\UserConfig($value);
     }
     
     public function __construct(array $value = [])

@@ -2,7 +2,7 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/WorkflowsConfig/WorkflowsConfig.php';
+require_once __DIR__.'/Workflows/WorkflowsConfig.php';
 
 
 /**
@@ -25,9 +25,9 @@ class WorkflowsConfig
         return $this;
     }
     
-    public function workflows(string $name, array $value = []): \Symfony\Config\Framework\WorkflowsConfig\WorkflowsConfig
+    public function workflows(string $name, array $value = []): \Symfony\Config\Framework\Workflows\WorkflowsConfig
     {
-        return $this->workflows[$name] = new \Symfony\Config\Framework\WorkflowsConfig\WorkflowsConfig($value);
+        return $this->workflows[$name] ?? $this->workflows[$name] = new \Symfony\Config\Framework\Workflows\WorkflowsConfig($value);
     }
     
     public function __construct(array $value = [])

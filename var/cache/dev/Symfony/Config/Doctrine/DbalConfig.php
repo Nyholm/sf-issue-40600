@@ -2,8 +2,8 @@
 
 namespace Symfony\Config\Doctrine;
 
-require_once __DIR__.'/DbalConfig/TypeConfig.php';
-require_once __DIR__.'/DbalConfig/ConnectionConfig.php';
+require_once __DIR__.'/Dbal/TypeConfig.php';
+require_once __DIR__.'/Dbal/ConnectionConfig.php';
 
 
 /**
@@ -18,23 +18,23 @@ class DbalConfig
     private $connections;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function defaultConnection( $value): self
+    public function defaultConnection($value): self
     {
         $this->defaultConnection = $value;
     
         return $this;
     }
     
-    public function type(string $name, array $value = []): \Symfony\Config\Doctrine\DbalConfig\TypeConfig
+    public function type(string $name, array $value = []): \Symfony\Config\Doctrine\Dbal\TypeConfig
     {
-        return $this->types[$name] = new \Symfony\Config\Doctrine\DbalConfig\TypeConfig($value);
+        return $this->types[$name] ?? $this->types[$name] = new \Symfony\Config\Doctrine\Dbal\TypeConfig($value);
     }
     
-    public function connection(string $name, array $value = []): \Symfony\Config\Doctrine\DbalConfig\ConnectionConfig
+    public function connection(string $name, array $value = []): \Symfony\Config\Doctrine\Dbal\ConnectionConfig
     {
-        return $this->connections[$name] = new \Symfony\Config\Doctrine\DbalConfig\ConnectionConfig($value);
+        return $this->connections[$name] ?? $this->connections[$name] = new \Symfony\Config\Doctrine\Dbal\ConnectionConfig($value);
     }
     
     public function __construct(array $value = [])

@@ -17,10 +17,10 @@ class AccessDecisionManagerConfig
     private $allowIfEqualGrantedDenied;
     
     /**
-     * @default NULL
+     * @default null
      * @param 'affirmative'|'consensus'|'unanimous'|'priority' $value
      */
-    public function strategy(string $value): self
+    public function strategy($value): self
     {
         $this->strategy = $value;
     
@@ -28,9 +28,9 @@ class AccessDecisionManagerConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function service( $value): self
+    public function service($value): self
     {
         $this->service = $value;
     

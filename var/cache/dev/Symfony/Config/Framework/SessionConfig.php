@@ -44,7 +44,7 @@ class SessionConfig
     /**
      * @default 'session.storage.native'
      */
-    public function storageId( $value): self
+    public function storageId($value): self
     {
         $this->storageId = $value;
     
@@ -52,9 +52,9 @@ class SessionConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function storageFactoryId( $value): self
+    public function storageFactoryId($value): self
     {
         $this->storageFactoryId = $value;
     
@@ -64,7 +64,7 @@ class SessionConfig
     /**
      * @default 'session.handler.native_file'
      */
-    public function handlerId( $value): self
+    public function handlerId($value): self
     {
         $this->handlerId = $value;
     
@@ -72,9 +72,9 @@ class SessionConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function name( $value): self
+    public function name($value): self
     {
         $this->name = $value;
     
@@ -82,9 +82,9 @@ class SessionConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function cookieLifetime( $value): self
+    public function cookieLifetime($value): self
     {
         $this->cookieLifetime = $value;
     
@@ -92,9 +92,9 @@ class SessionConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function cookiePath( $value): self
+    public function cookiePath($value): self
     {
         $this->cookiePath = $value;
     
@@ -102,9 +102,9 @@ class SessionConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function cookieDomain( $value): self
+    public function cookieDomain($value): self
     {
         $this->cookieDomain = $value;
     
@@ -112,10 +112,10 @@ class SessionConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      * @param true|false|'auto' $value
      */
-    public function cookieSecure(string $value): self
+    public function cookieSecure($value): self
     {
         $this->cookieSecure = $value;
     
@@ -133,10 +133,10 @@ class SessionConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      * @param NULL|'lax'|'strict'|'none' $value
      */
-    public function cookieSamesite(string $value): self
+    public function cookieSamesite($value): self
     {
         $this->cookieSamesite = $value;
     
@@ -144,7 +144,7 @@ class SessionConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
     public function useCookies(bool $value): self
     {
@@ -154,9 +154,9 @@ class SessionConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function gcDivisor( $value): self
+    public function gcDivisor($value): self
     {
         $this->gcDivisor = $value;
     
@@ -166,7 +166,7 @@ class SessionConfig
     /**
      * @default 1
      */
-    public function gcProbability( $value): self
+    public function gcProbability($value): self
     {
         $this->gcProbability = $value;
     
@@ -174,9 +174,9 @@ class SessionConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function gcMaxlifetime( $value): self
+    public function gcMaxlifetime($value): self
     {
         $this->gcMaxlifetime = $value;
     
@@ -186,7 +186,7 @@ class SessionConfig
     /**
      * @default '%kernel.cache_dir%/sessions'
      */
-    public function savePath( $value): self
+    public function savePath($value): self
     {
         $this->savePath = $value;
     
@@ -205,7 +205,7 @@ class SessionConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
     public function sidLength(int $value): self
     {
@@ -215,7 +215,7 @@ class SessionConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
     public function sidBitsPerCharacter(int $value): self
     {

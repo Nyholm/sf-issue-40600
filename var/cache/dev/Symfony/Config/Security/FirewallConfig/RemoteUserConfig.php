@@ -15,9 +15,9 @@ class RemoteUserConfig
     private $user;
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function provider( $value): self
+    public function provider($value): self
     {
         $this->provider = $value;
     
@@ -27,7 +27,7 @@ class RemoteUserConfig
     /**
      * @default 'REMOTE_USER'
      */
-    public function user( $value): self
+    public function user($value): self
     {
         $this->user = $value;
     

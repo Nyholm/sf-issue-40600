@@ -31,9 +31,9 @@ class LoginLinkConfig
     
     /**
      * Route that will validate the login link - e.g. "app_login_link_verify".
-     * @default NULL
+     * @default null
      */
-    public function checkRoute( $value): self
+    public function checkRoute($value): self
     {
         $this->checkRoute = $value;
     
@@ -44,14 +44,14 @@ class LoginLinkConfig
      * If true, only HTTP POST requests to "check_route" will be handled by the authenticator.
      * @default false
      */
-    public function checkPostOnly( $value): self
+    public function checkPostOnly($value): self
     {
         $this->checkPostOnly = $value;
     
         return $this;
     }
     
-    public function signatureProperty( $value): self
+    public function signatureProperty($value): self
     {
         $this->signatureProperties = $value;
     
@@ -71,7 +71,7 @@ class LoginLinkConfig
     
     /**
      * Max number of times a login link can be used - null means unlimited within lifetime.
-     * @default NULL
+     * @default null
      */
     public function maxUses(int $value): self
     {
@@ -82,9 +82,9 @@ class LoginLinkConfig
     
     /**
      * Cache service id used to expired links of max_uses is set.
-     * @default NULL
+     * @default null
      */
-    public function usedLinkCache( $value): self
+    public function usedLinkCache($value): self
     {
         $this->usedLinkCache = $value;
     
@@ -93,9 +93,9 @@ class LoginLinkConfig
     
     /**
      * A service id that implements Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface.
-     * @default NULL
+     * @default null
      */
-    public function successHandler( $value): self
+    public function successHandler($value): self
     {
         $this->successHandler = $value;
     
@@ -104,9 +104,9 @@ class LoginLinkConfig
     
     /**
      * A service id that implements Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface.
-     * @default NULL
+     * @default null
      */
-    public function failureHandler( $value): self
+    public function failureHandler($value): self
     {
         $this->failureHandler = $value;
     
@@ -115,9 +115,9 @@ class LoginLinkConfig
     
     /**
      * The user provider to load users from.
-     * @default NULL
+     * @default null
      */
-    public function provider( $value): self
+    public function provider($value): self
     {
         $this->provider = $value;
     
@@ -137,7 +137,7 @@ class LoginLinkConfig
     /**
      * @default '/'
      */
-    public function defaultTargetPath( $value): self
+    public function defaultTargetPath($value): self
     {
         $this->defaultTargetPath = $value;
     
@@ -147,7 +147,7 @@ class LoginLinkConfig
     /**
      * @default '/login'
      */
-    public function loginPath( $value): self
+    public function loginPath($value): self
     {
         $this->loginPath = $value;
     
@@ -157,7 +157,7 @@ class LoginLinkConfig
     /**
      * @default '_target_path'
      */
-    public function targetPathParameter( $value): self
+    public function targetPathParameter($value): self
     {
         $this->targetPathParameter = $value;
     
@@ -175,9 +175,9 @@ class LoginLinkConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function failurePath( $value): self
+    public function failurePath($value): self
     {
         $this->failurePath = $value;
     
@@ -197,7 +197,7 @@ class LoginLinkConfig
     /**
      * @default '_failure_path'
      */
-    public function failurePathParameter( $value): self
+    public function failurePathParameter($value): self
     {
         $this->failurePathParameter = $value;
     

@@ -2,7 +2,7 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/SerializerConfig/MappingConfig.php';
+require_once __DIR__.'/Serializer/MappingConfig.php';
 
 
 /**
@@ -40,9 +40,9 @@ class SerializerConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function nameConverter( $value): self
+    public function nameConverter($value): self
     {
         $this->nameConverter = $value;
     
@@ -50,9 +50,9 @@ class SerializerConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function circularReferenceHandler( $value): self
+    public function circularReferenceHandler($value): self
     {
         $this->circularReferenceHandler = $value;
     
@@ -60,19 +60,19 @@ class SerializerConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function maxDepthHandler( $value): self
+    public function maxDepthHandler($value): self
     {
         $this->maxDepthHandler = $value;
     
         return $this;
     }
     
-    public function mapping(array $value = []): \Symfony\Config\Framework\SerializerConfig\MappingConfig
+    public function mapping(array $value = []): \Symfony\Config\Framework\Serializer\MappingConfig
     {
         if (null === $this->mapping) {
-            $this->mapping = new \Symfony\Config\Framework\SerializerConfig\MappingConfig($value);
+            $this->mapping = new \Symfony\Config\Framework\Serializer\MappingConfig($value);
         } elseif ([] !== $value) {
             throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "mapping()" has already been initialized. You cannot pass values the second time you call mapping().'));
         }

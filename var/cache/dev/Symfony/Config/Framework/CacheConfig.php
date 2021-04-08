@@ -2,7 +2,7 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/CacheConfig/PoolConfig.php';
+require_once __DIR__.'/Cache/PoolConfig.php';
 
 
 /**
@@ -28,7 +28,7 @@ class CacheConfig
      * @example my-application-name/%kernel.environment%
      * @default '_%kernel.project_dir%.%kernel.container_class%'
      */
-    public function prefixSeed( $value): self
+    public function prefixSeed($value): self
     {
         $this->prefixSeed = $value;
     
@@ -39,7 +39,7 @@ class CacheConfig
      * App related cache pools configuration
      * @default 'cache.adapter.filesystem'
      */
-    public function app( $value): self
+    public function app($value): self
     {
         $this->app = $value;
     
@@ -50,7 +50,7 @@ class CacheConfig
      * System related cache pools configuration
      * @default 'cache.adapter.system'
      */
-    public function system( $value): self
+    public function system($value): self
     {
         $this->system = $value;
     
@@ -60,7 +60,7 @@ class CacheConfig
     /**
      * @default '%kernel.cache_dir%/pools'
      */
-    public function directory( $value): self
+    public function directory($value): self
     {
         $this->directory = $value;
     
@@ -68,9 +68,9 @@ class CacheConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function defaultDoctrineProvider( $value): self
+    public function defaultDoctrineProvider($value): self
     {
         $this->defaultDoctrineProvider = $value;
     
@@ -78,9 +78,9 @@ class CacheConfig
     }
     
     /**
-     * @default NULL
+     * @default null
      */
-    public function defaultPsr6Provider( $value): self
+    public function defaultPsr6Provider($value): self
     {
         $this->defaultPsr6Provider = $value;
     
@@ -90,7 +90,7 @@ class CacheConfig
     /**
      * @default 'redis://localhost'
      */
-    public function defaultRedisProvider( $value): self
+    public function defaultRedisProvider($value): self
     {
         $this->defaultRedisProvider = $value;
     
@@ -100,7 +100,7 @@ class CacheConfig
     /**
      * @default 'memcached://localhost'
      */
-    public function defaultMemcachedProvider( $value): self
+    public function defaultMemcachedProvider($value): self
     {
         $this->defaultMemcachedProvider = $value;
     
@@ -110,16 +110,16 @@ class CacheConfig
     /**
      * @default 'database_connection'
      */
-    public function defaultPdoProvider( $value): self
+    public function defaultPdoProvider($value): self
     {
         $this->defaultPdoProvider = $value;
     
         return $this;
     }
     
-    public function pool(string $name, array $value = []): \Symfony\Config\Framework\CacheConfig\PoolConfig
+    public function pool(string $name, array $value = []): \Symfony\Config\Framework\Cache\PoolConfig
     {
-        return $this->pools[$name] = new \Symfony\Config\Framework\CacheConfig\PoolConfig($value);
+        return $this->pools[$name] ?? $this->pools[$name] = new \Symfony\Config\Framework\Cache\PoolConfig($value);
     }
     
     public function __construct(array $value = [])
