@@ -89,7 +89,13 @@ class AssetsConfig
     
     public function package(string $name, array $value = []): \Symfony\Config\Framework\Assets\PackageConfig
     {
-        return $this->packages[$name] ?? $this->packages[$name] = new \Symfony\Config\Framework\Assets\PackageConfig($value);
+        if (!isset($this->packages[$name])) {
+            return $this->packages[$name] = new \Symfony\Config\Framework\Assets\PackageConfig($value);
+        } elseif ([] === $value) {
+            return $this->packages[$name];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "package()" has already been initialized. You cannot pass values the second time you call package().'));
+        }
     }
     
     public function __construct(array $value = [])

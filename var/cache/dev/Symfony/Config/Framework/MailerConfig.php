@@ -71,7 +71,13 @@ class MailerConfig
     
     public function header(string $name, array $value = []): \Symfony\Config\Framework\Mailer\HeaderConfig
     {
-        return $this->headers[$name] ?? $this->headers[$name] = new \Symfony\Config\Framework\Mailer\HeaderConfig($value);
+        if (!isset($this->headers[$name])) {
+            return $this->headers[$name] = new \Symfony\Config\Framework\Mailer\HeaderConfig($value);
+        } elseif ([] === $value) {
+            return $this->headers[$name];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "header()" has already been initialized. You cannot pass values the second time you call header().'));
+        }
     }
     
     public function __construct(array $value = [])

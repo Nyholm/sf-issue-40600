@@ -16,7 +16,13 @@ class MemoryConfig
     
     public function user(string $identifier, array $value = []): \Symfony\Config\Security\ProviderConfig\Memory\UserConfig
     {
-        return $this->users[$identifier] ?? $this->users[$identifier] = new \Symfony\Config\Security\ProviderConfig\Memory\UserConfig($value);
+        if (!isset($this->users[$identifier])) {
+            return $this->users[$identifier] = new \Symfony\Config\Security\ProviderConfig\Memory\UserConfig($value);
+        } elseif ([] === $value) {
+            return $this->users[$identifier];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "user()" has already been initialized. You cannot pass values the second time you call user().'));
+        }
     }
     
     public function __construct(array $value = [])

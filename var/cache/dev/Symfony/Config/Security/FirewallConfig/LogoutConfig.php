@@ -95,7 +95,13 @@ class LogoutConfig
     
     public function deleteCookie(string $name, array $value = []): \Symfony\Config\Security\FirewallConfig\Logout\DeleteCookieConfig
     {
-        return $this->deleteCookies[$name] ?? $this->deleteCookies[$name] = new \Symfony\Config\Security\FirewallConfig\Logout\DeleteCookieConfig($value);
+        if (!isset($this->deleteCookies[$name])) {
+            return $this->deleteCookies[$name] = new \Symfony\Config\Security\FirewallConfig\Logout\DeleteCookieConfig($value);
+        } elseif ([] === $value) {
+            return $this->deleteCookies[$name];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "deleteCookie()" has already been initialized. You cannot pass values the second time you call deleteCookie().'));
+        }
     }
     
     public function handler($value): self

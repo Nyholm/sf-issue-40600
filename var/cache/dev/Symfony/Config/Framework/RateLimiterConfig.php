@@ -27,7 +27,13 @@ class RateLimiterConfig
     
     public function limiter(string $name, array $value = []): \Symfony\Config\Framework\RateLimiter\LimiterConfig
     {
-        return $this->limiters[$name] ?? $this->limiters[$name] = new \Symfony\Config\Framework\RateLimiter\LimiterConfig($value);
+        if (!isset($this->limiters[$name])) {
+            return $this->limiters[$name] = new \Symfony\Config\Framework\RateLimiter\LimiterConfig($value);
+        } elseif ([] === $value) {
+            return $this->limiters[$name];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "limiter()" has already been initialized. You cannot pass values the second time you call limiter().'));
+        }
     }
     
     public function __construct(array $value = [])

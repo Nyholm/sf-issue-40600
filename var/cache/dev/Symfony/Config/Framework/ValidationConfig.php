@@ -106,7 +106,13 @@ class ValidationConfig
     
     public function autoMapping(string $namespace, array $value = []): \Symfony\Config\Framework\Validation\AutoMappingConfig
     {
-        return $this->autoMapping[$namespace] ?? $this->autoMapping[$namespace] = new \Symfony\Config\Framework\Validation\AutoMappingConfig($value);
+        if (!isset($this->autoMapping[$namespace])) {
+            return $this->autoMapping[$namespace] = new \Symfony\Config\Framework\Validation\AutoMappingConfig($value);
+        } elseif ([] === $value) {
+            return $this->autoMapping[$namespace];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "autoMapping()" has already been initialized. You cannot pass values the second time you call autoMapping().'));
+        }
     }
     
     public function __construct(array $value = [])

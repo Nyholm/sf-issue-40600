@@ -29,12 +29,24 @@ class DbalConfig
     
     public function type(string $name, array $value = []): \Symfony\Config\Doctrine\Dbal\TypeConfig
     {
-        return $this->types[$name] ?? $this->types[$name] = new \Symfony\Config\Doctrine\Dbal\TypeConfig($value);
+        if (!isset($this->types[$name])) {
+            return $this->types[$name] = new \Symfony\Config\Doctrine\Dbal\TypeConfig($value);
+        } elseif ([] === $value) {
+            return $this->types[$name];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "type()" has already been initialized. You cannot pass values the second time you call type().'));
+        }
     }
     
     public function connection(string $name, array $value = []): \Symfony\Config\Doctrine\Dbal\ConnectionConfig
     {
-        return $this->connections[$name] ?? $this->connections[$name] = new \Symfony\Config\Doctrine\Dbal\ConnectionConfig($value);
+        if (!isset($this->connections[$name])) {
+            return $this->connections[$name] = new \Symfony\Config\Doctrine\Dbal\ConnectionConfig($value);
+        } elseif ([] === $value) {
+            return $this->connections[$name];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "connection()" has already been initialized. You cannot pass values the second time you call connection().'));
+        }
     }
     
     public function __construct(array $value = [])

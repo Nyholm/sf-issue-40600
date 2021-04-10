@@ -16,7 +16,13 @@ class EntityConfig
     
     public function listener(string $class, array $value = []): \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListeners\EntityConfig\ListenerConfig
     {
-        return $this->listeners[$class] ?? $this->listeners[$class] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListeners\EntityConfig\ListenerConfig($value);
+        if (!isset($this->listeners[$class])) {
+            return $this->listeners[$class] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListeners\EntityConfig\ListenerConfig($value);
+        } elseif ([] === $value) {
+            return $this->listeners[$class];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "listener()" has already been initialized. You cannot pass values the second time you call listener().'));
+        }
     }
     
     public function __construct(array $value = [])

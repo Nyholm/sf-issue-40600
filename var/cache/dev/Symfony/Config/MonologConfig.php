@@ -35,7 +35,13 @@ class MonologConfig implements \Symfony\Component\Config\Builder\ConfigBuilderIn
     
     public function handler(string $name, array $value = []): \Symfony\Config\Monolog\HandlerConfig
     {
-        return $this->handlers[$name] ?? $this->handlers[$name] = new \Symfony\Config\Monolog\HandlerConfig($value);
+        if (!isset($this->handlers[$name])) {
+            return $this->handlers[$name] = new \Symfony\Config\Monolog\HandlerConfig($value);
+        } elseif ([] === $value) {
+            return $this->handlers[$name];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "handler()" has already been initialized. You cannot pass values the second time you call handler().'));
+        }
     }
     
     public function getExtensionAlias(): string

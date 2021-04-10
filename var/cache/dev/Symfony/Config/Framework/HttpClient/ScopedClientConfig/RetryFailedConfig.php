@@ -44,7 +44,13 @@ class RetryFailedConfig
     
     public function httpCode(string $code, array $value = []): \Symfony\Config\Framework\HttpClient\ScopedClientConfig\RetryFailed\HttpCodeConfig
     {
-        return $this->httpCodes[$code] ?? $this->httpCodes[$code] = new \Symfony\Config\Framework\HttpClient\ScopedClientConfig\RetryFailed\HttpCodeConfig($value);
+        if (!isset($this->httpCodes[$code])) {
+            return $this->httpCodes[$code] = new \Symfony\Config\Framework\HttpClient\ScopedClientConfig\RetryFailed\HttpCodeConfig($value);
+        } elseif ([] === $value) {
+            return $this->httpCodes[$code];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "httpCode()" has already been initialized. You cannot pass values the second time you call httpCode().'));
+        }
     }
     
     /**

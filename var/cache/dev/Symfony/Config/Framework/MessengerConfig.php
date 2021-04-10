@@ -35,7 +35,13 @@ class MessengerConfig
     
     public function routing(string $message_class, array $value = []): \Symfony\Config\Framework\Messenger\RoutingConfig
     {
-        return $this->routing[$message_class] ?? $this->routing[$message_class] = new \Symfony\Config\Framework\Messenger\RoutingConfig($value);
+        if (!isset($this->routing[$message_class])) {
+            return $this->routing[$message_class] = new \Symfony\Config\Framework\Messenger\RoutingConfig($value);
+        } elseif ([] === $value) {
+            return $this->routing[$message_class];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "routing()" has already been initialized. You cannot pass values the second time you call routing().'));
+        }
     }
     
     public function serializer(array $value = []): \Symfony\Config\Framework\Messenger\SerializerConfig
@@ -51,7 +57,13 @@ class MessengerConfig
     
     public function transport(string $name, array $value = []): \Symfony\Config\Framework\Messenger\TransportConfig
     {
-        return $this->transports[$name] ?? $this->transports[$name] = new \Symfony\Config\Framework\Messenger\TransportConfig($value);
+        if (!isset($this->transports[$name])) {
+            return $this->transports[$name] = new \Symfony\Config\Framework\Messenger\TransportConfig($value);
+        } elseif ([] === $value) {
+            return $this->transports[$name];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "transport()" has already been initialized. You cannot pass values the second time you call transport().'));
+        }
     }
     
     /**
@@ -77,7 +89,13 @@ class MessengerConfig
     
     public function bus(string $name, array $value = []): \Symfony\Config\Framework\Messenger\BusConfig
     {
-        return $this->buses[$name] ?? $this->buses[$name] = new \Symfony\Config\Framework\Messenger\BusConfig($value);
+        if (!isset($this->buses[$name])) {
+            return $this->buses[$name] = new \Symfony\Config\Framework\Messenger\BusConfig($value);
+        } elseif ([] === $value) {
+            return $this->buses[$name];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "bus()" has already been initialized. You cannot pass values the second time you call bus().'));
+        }
     }
     
     public function __construct(array $value = [])

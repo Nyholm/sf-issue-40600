@@ -64,7 +64,13 @@ class HttpClientConfig
     
     public function scopedClient(string $name, array $value = []): \Symfony\Config\Framework\HttpClient\ScopedClientConfig
     {
-        return $this->scopedClients[$name] ?? $this->scopedClients[$name] = new \Symfony\Config\Framework\HttpClient\ScopedClientConfig($value);
+        if (!isset($this->scopedClients[$name])) {
+            return $this->scopedClients[$name] = new \Symfony\Config\Framework\HttpClient\ScopedClientConfig($value);
+        } elseif ([] === $value) {
+            return $this->scopedClients[$name];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "scopedClient()" has already been initialized. You cannot pass values the second time you call scopedClient().'));
+        }
     }
     
     public function __construct(array $value = [])

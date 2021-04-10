@@ -119,7 +119,13 @@ class CacheConfig
     
     public function pool(string $name, array $value = []): \Symfony\Config\Framework\Cache\PoolConfig
     {
-        return $this->pools[$name] ?? $this->pools[$name] = new \Symfony\Config\Framework\Cache\PoolConfig($value);
+        if (!isset($this->pools[$name])) {
+            return $this->pools[$name] = new \Symfony\Config\Framework\Cache\PoolConfig($value);
+        } elseif ([] === $value) {
+            return $this->pools[$name];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "pool()" has already been initialized. You cannot pass values the second time you call pool().'));
+        }
     }
     
     public function __construct(array $value = [])

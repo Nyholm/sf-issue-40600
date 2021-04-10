@@ -86,12 +86,24 @@ class SecondLevelCacheConfig
     
     public function region(string $name, array $value = []): \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\RegionConfig
     {
-        return $this->regions[$name] ?? $this->regions[$name] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\RegionConfig($value);
+        if (!isset($this->regions[$name])) {
+            return $this->regions[$name] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\RegionConfig($value);
+        } elseif ([] === $value) {
+            return $this->regions[$name];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "region()" has already been initialized. You cannot pass values the second time you call region().'));
+        }
     }
     
     public function logger(string $name, array $value = []): \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\LoggerConfig
     {
-        return $this->loggers[$name] ?? $this->loggers[$name] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\LoggerConfig($value);
+        if (!isset($this->loggers[$name])) {
+            return $this->loggers[$name] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\LoggerConfig($value);
+        } elseif ([] === $value) {
+            return $this->loggers[$name];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "logger()" has already been initialized. You cannot pass values the second time you call logger().'));
+        }
     }
     
     public function __construct(array $value = [])

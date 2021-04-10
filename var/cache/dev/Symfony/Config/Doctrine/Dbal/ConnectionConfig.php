@@ -566,12 +566,24 @@ class ConnectionConfig
     
     public function slave(string $name, array $value = []): \Symfony\Config\Doctrine\Dbal\ConnectionConfig\SlaveConfig
     {
-        return $this->slaves[$name] ?? $this->slaves[$name] = new \Symfony\Config\Doctrine\Dbal\ConnectionConfig\SlaveConfig($value);
+        if (!isset($this->slaves[$name])) {
+            return $this->slaves[$name] = new \Symfony\Config\Doctrine\Dbal\ConnectionConfig\SlaveConfig($value);
+        } elseif ([] === $value) {
+            return $this->slaves[$name];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "slave()" has already been initialized. You cannot pass values the second time you call slave().'));
+        }
     }
     
     public function replica(string $name, array $value = []): \Symfony\Config\Doctrine\Dbal\ConnectionConfig\ReplicaConfig
     {
-        return $this->replicas[$name] ?? $this->replicas[$name] = new \Symfony\Config\Doctrine\Dbal\ConnectionConfig\ReplicaConfig($value);
+        if (!isset($this->replicas[$name])) {
+            return $this->replicas[$name] = new \Symfony\Config\Doctrine\Dbal\ConnectionConfig\ReplicaConfig($value);
+        } elseif ([] === $value) {
+            return $this->replicas[$name];
+        } else {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "replica()" has already been initialized. You cannot pass values the second time you call replica().'));
+        }
     }
     
     public function shard(array $value = []): \Symfony\Config\Doctrine\Dbal\ConnectionConfig\ShardConfig
