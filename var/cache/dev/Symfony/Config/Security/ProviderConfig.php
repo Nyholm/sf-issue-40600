@@ -23,6 +23,7 @@ class ProviderConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function id($value): self
     {

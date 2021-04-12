@@ -21,6 +21,7 @@ class HttpClientConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -32,6 +33,7 @@ class HttpClientConfig
     /**
      * The maximum number of connections to a single host.
      * @default null
+     * @return $this
      */
     public function maxHostConnections(int $value): self
     {
@@ -54,6 +56,7 @@ class HttpClientConfig
     /**
      * The id of the service that should generate mock responses. It should be either an invokable or an iterable.
      * @default null
+     * @return $this
      */
     public function mockResponseFactory($value): self
     {
@@ -66,11 +69,12 @@ class HttpClientConfig
     {
         if (!isset($this->scopedClients[$name])) {
             return $this->scopedClients[$name] = new \Symfony\Config\Framework\HttpClient\ScopedClientConfig($value);
-        } elseif ([] === $value) {
-            return $this->scopedClients[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "scopedClient()" has already been initialized. You cannot pass values the second time you call scopedClient().'));
         }
+        if ([] === $value) {
+            return $this->scopedClients[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "scopedClient()" has already been initialized. You cannot pass values the second time you call scopedClient().'));
     }
     
     public function __construct(array $value = [])

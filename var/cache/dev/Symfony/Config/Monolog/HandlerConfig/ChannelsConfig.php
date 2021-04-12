@@ -16,6 +16,7 @@ class ChannelsConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function type($value): self
     {
@@ -24,6 +25,9 @@ class ChannelsConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function channel($value): self
     {
         $this->elements = $value;

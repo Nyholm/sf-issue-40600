@@ -44,6 +44,7 @@ class ShardConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function id(int $value): self
     {
@@ -55,6 +56,7 @@ class ShardConfig
     /**
      * A URL with connection information; any parameter value parsed from this string will override explicitly set parameters
      * @default null
+     * @return $this
      */
     public function url($value): self
     {
@@ -65,6 +67,7 @@ class ShardConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function dbname($value): self
     {
@@ -76,6 +79,7 @@ class ShardConfig
     /**
      * Defaults to "localhost" at runtime.
      * @default null
+     * @return $this
      */
     public function host($value): self
     {
@@ -87,6 +91,7 @@ class ShardConfig
     /**
      * Defaults to null at runtime.
      * @default null
+     * @return $this
      */
     public function port($value): self
     {
@@ -98,6 +103,7 @@ class ShardConfig
     /**
      * Defaults to "root" at runtime.
      * @default null
+     * @return $this
      */
     public function user($value): self
     {
@@ -109,6 +115,7 @@ class ShardConfig
     /**
      * Defaults to null at runtime.
      * @default null
+     * @return $this
      */
     public function password($value): self
     {
@@ -120,6 +127,7 @@ class ShardConfig
     /**
      * Allows overriding parts of the "url" parameter with dbname, host, port, user, and/or password parameters.
      * @default false
+     * @return $this
      */
     public function overrideUrl(bool $value): self
     {
@@ -130,6 +138,7 @@ class ShardConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function applicationName($value): self
     {
@@ -140,6 +149,7 @@ class ShardConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function charset($value): self
     {
@@ -150,6 +160,7 @@ class ShardConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function path($value): self
     {
@@ -160,6 +171,7 @@ class ShardConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function memory(bool $value): self
     {
@@ -171,6 +183,7 @@ class ShardConfig
     /**
      * The unix socket to use for MySQL
      * @default null
+     * @return $this
      */
     public function unixSocket($value): self
     {
@@ -182,6 +195,7 @@ class ShardConfig
     /**
      * True to use as persistent connection for the ibm_db2 driver
      * @default null
+     * @return $this
      */
     public function persistent(bool $value): self
     {
@@ -193,6 +207,7 @@ class ShardConfig
     /**
      * The protocol to use for the ibm_db2 driver (default to TCPIP if omitted)
      * @default null
+     * @return $this
      */
     public function protocol($value): self
     {
@@ -204,6 +219,7 @@ class ShardConfig
     /**
      * True to use SERVICE_NAME as connection parameter instead of SID for Oracle
      * @default null
+     * @return $this
      */
     public function service(bool $value): self
     {
@@ -215,6 +231,7 @@ class ShardConfig
     /**
      * Overrules dbname parameter if given and used as SERVICE_NAME or SID connection parameter for Oracle depending on the service parameter.
      * @default null
+     * @return $this
      */
     public function servicename($value): self
     {
@@ -226,6 +243,7 @@ class ShardConfig
     /**
      * The session mode to use for the oci8 driver
      * @default null
+     * @return $this
      */
     public function sessionMode($value): self
     {
@@ -237,6 +255,7 @@ class ShardConfig
     /**
      * The name of a running database server to connect to for SQL Anywhere.
      * @default null
+     * @return $this
      */
     public function server($value): self
     {
@@ -248,6 +267,7 @@ class ShardConfig
     /**
      * Override the default database (postgres) to connect to for PostgreSQL connexion.
      * @default null
+     * @return $this
      */
     public function defaultDbname($value): self
     {
@@ -259,6 +279,7 @@ class ShardConfig
     /**
      * Determines whether or with what priority a SSL TCP/IP connection will be negotiated with the server for PostgreSQL.
      * @default null
+     * @return $this
      */
     public function sslmode($value): self
     {
@@ -270,6 +291,7 @@ class ShardConfig
     /**
      * The name of a file containing SSL certificate authority (CA) certificate(s). If the file exists, the server's certificate will be verified to be signed by one of these authorities.
      * @default null
+     * @return $this
      */
     public function sslrootcert($value): self
     {
@@ -281,6 +303,7 @@ class ShardConfig
     /**
      * The path to the SSL client certificate file for PostgreSQL.
      * @default null
+     * @return $this
      */
     public function sslcert($value): self
     {
@@ -292,6 +315,7 @@ class ShardConfig
     /**
      * The path to the SSL client key file for PostgreSQL.
      * @default null
+     * @return $this
      */
     public function sslkey($value): self
     {
@@ -303,6 +327,7 @@ class ShardConfig
     /**
      * The file name of the SSL certificate revocation list for PostgreSQL.
      * @default null
+     * @return $this
      */
     public function sslcrl($value): self
     {
@@ -314,6 +339,7 @@ class ShardConfig
     /**
      * True to use a pooled server with the oci8/pdo_oracle driver
      * @default null
+     * @return $this
      */
     public function pooled(bool $value): self
     {
@@ -325,6 +351,7 @@ class ShardConfig
     /**
      * Configuring MultipleActiveResultSets for the pdo_sqlsrv driver
      * @default null
+     * @return $this
      */
     public function multipleActiveResultSets(bool $value): self
     {
@@ -336,6 +363,7 @@ class ShardConfig
     /**
      * Use savepoints for nested transactions
      * @default null
+     * @return $this
      */
     public function useSavepoints(bool $value): self
     {
@@ -347,6 +375,7 @@ class ShardConfig
     /**
      * Optional parameter, complete whether to add the INSTANCE_NAME parameter in the connection. It is generally used to connect to an Oracle RAC server to select the name of a particular instance.
      * @default null
+     * @return $this
      */
     public function instancename($value): self
     {
@@ -358,6 +387,7 @@ class ShardConfig
     /**
      * Complete Easy Connect connection descriptor, see https://docs.oracle.com/database/121/NETAG/naming.htm.When using this option, you will still need to provide the user and password parameters, but the other parameters will no longer be used. Note that when using this parameter, the getHost and getPort methods from Doctrine\DBAL\Connection will no longer function as expected.
      * @default null
+     * @return $this
      */
     public function connectstring($value): self
     {

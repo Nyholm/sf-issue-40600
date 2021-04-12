@@ -16,6 +16,7 @@ class AdminRecipientConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function email($value): self
     {
@@ -25,6 +26,7 @@ class AdminRecipientConfig
     }
     
     /**
+     * @return $this
      */
     public function phone($value): self
     {

@@ -20,6 +20,7 @@ class TransportConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function dsn($value): self
     {
@@ -31,6 +32,7 @@ class TransportConfig
     /**
      * Service id of a custom serializer to use.
      * @default null
+     * @return $this
      */
     public function serializer($value): self
     {
@@ -39,6 +41,9 @@ class TransportConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function option($value): self
     {
         $this->options = $value;
@@ -49,6 +54,7 @@ class TransportConfig
     /**
      * Transport name to send failed messages to (after all retries have failed).
      * @default null
+     * @return $this
      */
     public function failureTransport($value): self
     {

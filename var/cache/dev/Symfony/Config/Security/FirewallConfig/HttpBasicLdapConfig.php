@@ -21,6 +21,7 @@ class HttpBasicLdapConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function provider($value): self
     {
@@ -31,6 +32,7 @@ class HttpBasicLdapConfig
     
     /**
      * @default 'Secured Area'
+     * @return $this
      */
     public function realm($value): self
     {
@@ -41,6 +43,7 @@ class HttpBasicLdapConfig
     
     /**
      * @default 'ldap'
+     * @return $this
      */
     public function service($value): self
     {
@@ -51,6 +54,7 @@ class HttpBasicLdapConfig
     
     /**
      * @default '{username}'
+     * @return $this
      */
     public function dnString($value): self
     {
@@ -61,6 +65,7 @@ class HttpBasicLdapConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function queryString($value): self
     {
@@ -70,6 +75,7 @@ class HttpBasicLdapConfig
     }
     
     /**
+     * @return $this
      */
     public function searchDn($value): self
     {
@@ -79,6 +85,7 @@ class HttpBasicLdapConfig
     }
     
     /**
+     * @return $this
      */
     public function searchPassword($value): self
     {

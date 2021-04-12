@@ -19,6 +19,7 @@ class VerbosityLevelsConfig
     
     /**
      * @default 'ERROR'
+     * @return $this
      */
     public function vERBOSITYQUIET($value): self
     {
@@ -29,6 +30,7 @@ class VerbosityLevelsConfig
     
     /**
      * @default 'WARNING'
+     * @return $this
      */
     public function vERBOSITYNORMAL($value): self
     {
@@ -39,6 +41,7 @@ class VerbosityLevelsConfig
     
     /**
      * @default 'NOTICE'
+     * @return $this
      */
     public function vERBOSITYVERBOSE($value): self
     {
@@ -49,6 +52,7 @@ class VerbosityLevelsConfig
     
     /**
      * @default 'INFO'
+     * @return $this
      */
     public function vERBOSITYVERYVERBOSE($value): self
     {
@@ -59,6 +63,7 @@ class VerbosityLevelsConfig
     
     /**
      * @default 'DEBUG'
+     * @return $this
      */
     public function vERBOSITYDEBUG($value): self
     {

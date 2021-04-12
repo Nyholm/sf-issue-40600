@@ -21,6 +21,7 @@ class OrmConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function defaultEntityManager($value): self
     {
@@ -32,6 +33,7 @@ class OrmConfig
     /**
      * Auto generate mode possible values are: "NEVER", "ALWAYS", "FILE_NOT_EXISTS", "EVAL"
      * @default false
+     * @return $this
      */
     public function autoGenerateProxyClasses($value): self
     {
@@ -42,6 +44,7 @@ class OrmConfig
     
     /**
      * @default '%kernel.cache_dir%/doctrine/orm/Proxies'
+     * @return $this
      */
     public function proxyDir($value): self
     {
@@ -52,6 +55,7 @@ class OrmConfig
     
     /**
      * @default 'Proxies'
+     * @return $this
      */
     public function proxyNamespace($value): self
     {
@@ -64,13 +68,17 @@ class OrmConfig
     {
         if (!isset($this->entityManagers[$name])) {
             return $this->entityManagers[$name] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig($value);
-        } elseif ([] === $value) {
-            return $this->entityManagers[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "entityManager()" has already been initialized. You cannot pass values the second time you call entityManager().'));
         }
+        if ([] === $value) {
+            return $this->entityManagers[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "entityManager()" has already been initialized. You cannot pass values the second time you call entityManager().'));
     }
     
+    /**
+     * @return $this
+     */
     public function resolveTargetEntity(string $interface, $value): self
     {
         $this->resolveTargetEntities[$interface] = $value;

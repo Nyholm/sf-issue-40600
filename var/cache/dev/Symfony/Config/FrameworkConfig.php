@@ -82,6 +82,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     
     /**
      * @default null
+     * @return $this
      */
     public function secret($value): self
     {
@@ -93,6 +94,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     /**
      * Set true to enable support for the '_method' request parameter to determine the intended HTTP method on POST requests. Note: When using the HttpCache, you need to call the method in your front controller instead
      * @default true
+     * @return $this
      */
     public function httpMethodOverride($value): self
     {
@@ -103,6 +105,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     
     /**
      * @default null
+     * @return $this
      */
     public function ide($value): self
     {
@@ -113,6 +116,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     
     /**
      * @default null
+     * @return $this
      */
     public function test(bool $value): self
     {
@@ -123,6 +127,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     
     /**
      * @default 'en'
+     * @return $this
      */
     public function defaultLocale($value): self
     {
@@ -131,6 +136,9 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function trustedHosts($value): self
     {
         $this->trustedHosts = $value;
@@ -140,6 +148,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     
     /**
      * @default null
+     * @return $this
      */
     public function trustedProxies($value): self
     {
@@ -148,6 +157,9 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function trustedHeaders($value): self
     {
         $this->trustedHeaders = $value;
@@ -157,6 +169,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     
     /**
      * @default 'error_controller'
+     * @return $this
      */
     public function errorController($value): self
     {
@@ -421,6 +434,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     /**
      * Enabled by default when debug is enabled.
      * @default true
+     * @return $this
      */
     public function disallowSearchEngineIndex(bool $value): self
     {

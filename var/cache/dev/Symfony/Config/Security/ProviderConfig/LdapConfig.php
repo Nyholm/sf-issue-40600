@@ -23,6 +23,7 @@ class LdapConfig
     
     /**
      * @default 'ldap'
+     * @return $this
      */
     public function service($value): self
     {
@@ -33,6 +34,7 @@ class LdapConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function baseDn($value): self
     {
@@ -43,6 +45,7 @@ class LdapConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function searchDn($value): self
     {
@@ -53,6 +56,7 @@ class LdapConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function searchPassword($value): self
     {
@@ -61,6 +65,9 @@ class LdapConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function extraField($value): self
     {
         $this->extraFields = $value;
@@ -68,6 +75,9 @@ class LdapConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function defaultRole($value): self
     {
         $this->defaultRoles = $value;
@@ -77,6 +87,7 @@ class LdapConfig
     
     /**
      * @default 'sAMAccountName'
+     * @return $this
      */
     public function uidKey($value): self
     {
@@ -87,6 +98,7 @@ class LdapConfig
     
     /**
      * @default '({uid_key}={username})'
+     * @return $this
      */
     public function filter($value): self
     {
@@ -97,6 +109,7 @@ class LdapConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function passwordAttribute($value): self
     {

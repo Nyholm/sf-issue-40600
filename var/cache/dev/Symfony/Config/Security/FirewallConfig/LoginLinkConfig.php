@@ -32,6 +32,7 @@ class LoginLinkConfig
     /**
      * Route that will validate the login link - e.g. "app_login_link_verify".
      * @default null
+     * @return $this
      */
     public function checkRoute($value): self
     {
@@ -43,6 +44,7 @@ class LoginLinkConfig
     /**
      * If true, only HTTP POST requests to "check_route" will be handled by the authenticator.
      * @default false
+     * @return $this
      */
     public function checkPostOnly($value): self
     {
@@ -51,6 +53,9 @@ class LoginLinkConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function signatureProperty($value): self
     {
         $this->signatureProperties = $value;
@@ -61,6 +66,7 @@ class LoginLinkConfig
     /**
      * The lifetime of the login link in seconds.
      * @default 600
+     * @return $this
      */
     public function lifetime(int $value): self
     {
@@ -72,6 +78,7 @@ class LoginLinkConfig
     /**
      * Max number of times a login link can be used - null means unlimited within lifetime.
      * @default null
+     * @return $this
      */
     public function maxUses(int $value): self
     {
@@ -83,6 +90,7 @@ class LoginLinkConfig
     /**
      * Cache service id used to expired links of max_uses is set.
      * @default null
+     * @return $this
      */
     public function usedLinkCache($value): self
     {
@@ -94,6 +102,7 @@ class LoginLinkConfig
     /**
      * A service id that implements Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface.
      * @default null
+     * @return $this
      */
     public function successHandler($value): self
     {
@@ -105,6 +114,7 @@ class LoginLinkConfig
     /**
      * A service id that implements Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface.
      * @default null
+     * @return $this
      */
     public function failureHandler($value): self
     {
@@ -116,6 +126,7 @@ class LoginLinkConfig
     /**
      * The user provider to load users from.
      * @default null
+     * @return $this
      */
     public function provider($value): self
     {
@@ -126,6 +137,7 @@ class LoginLinkConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function alwaysUseDefaultTargetPath(bool $value): self
     {
@@ -136,6 +148,7 @@ class LoginLinkConfig
     
     /**
      * @default '/'
+     * @return $this
      */
     public function defaultTargetPath($value): self
     {
@@ -146,6 +159,7 @@ class LoginLinkConfig
     
     /**
      * @default '/login'
+     * @return $this
      */
     public function loginPath($value): self
     {
@@ -156,6 +170,7 @@ class LoginLinkConfig
     
     /**
      * @default '_target_path'
+     * @return $this
      */
     public function targetPathParameter($value): self
     {
@@ -166,6 +181,7 @@ class LoginLinkConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function useReferer(bool $value): self
     {
@@ -176,6 +192,7 @@ class LoginLinkConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function failurePath($value): self
     {
@@ -186,6 +203,7 @@ class LoginLinkConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function failureForward(bool $value): self
     {
@@ -196,6 +214,7 @@ class LoginLinkConfig
     
     /**
      * @default '_failure_path'
+     * @return $this
      */
     public function failurePathParameter($value): self
     {

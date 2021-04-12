@@ -13,6 +13,9 @@ class RoutingConfig
 {
     private $senders;
     
+    /**
+     * @return $this
+     */
     public function senders($value): self
     {
         $this->senders = $value;

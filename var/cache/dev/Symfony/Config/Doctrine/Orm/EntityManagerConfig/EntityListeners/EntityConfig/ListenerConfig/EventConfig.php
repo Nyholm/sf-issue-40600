@@ -16,6 +16,7 @@ class EventConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function type($value): self
     {
@@ -26,6 +27,7 @@ class EventConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function method($value): self
     {

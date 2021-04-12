@@ -24,6 +24,7 @@ class TranslatorConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -32,6 +33,9 @@ class TranslatorConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function fallback($value): self
     {
         $this->fallbacks = $value;
@@ -41,6 +45,7 @@ class TranslatorConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function logging(bool $value): self
     {
@@ -51,6 +56,7 @@ class TranslatorConfig
     
     /**
      * @default 'translator.formatter.default'
+     * @return $this
      */
     public function formatter($value): self
     {
@@ -61,6 +67,7 @@ class TranslatorConfig
     
     /**
      * @default '%kernel.cache_dir%/translations'
+     * @return $this
      */
     public function cacheDir($value): self
     {
@@ -72,6 +79,7 @@ class TranslatorConfig
     /**
      * The default path used to load translations
      * @default '%kernel.project_dir%/translations'
+     * @return $this
      */
     public function defaultPath($value): self
     {
@@ -80,6 +88,9 @@ class TranslatorConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function path($value): self
     {
         $this->paths = $value;
@@ -87,6 +98,9 @@ class TranslatorConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function enabledLocale($value): self
     {
         $this->enabledLocales = $value;

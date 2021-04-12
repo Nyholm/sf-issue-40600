@@ -16,6 +16,7 @@ class MiddlewareConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function id($value): self
     {
@@ -24,6 +25,9 @@ class MiddlewareConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function argument($value): self
     {
         $this->arguments = $value;

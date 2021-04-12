@@ -33,6 +33,7 @@ class SessionConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -43,6 +44,7 @@ class SessionConfig
     
     /**
      * @default 'session.storage.native'
+     * @return $this
      */
     public function storageId($value): self
     {
@@ -53,6 +55,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function storageFactoryId($value): self
     {
@@ -63,6 +66,7 @@ class SessionConfig
     
     /**
      * @default 'session.handler.native_file'
+     * @return $this
      */
     public function handlerId($value): self
     {
@@ -73,6 +77,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function name($value): self
     {
@@ -83,6 +88,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function cookieLifetime($value): self
     {
@@ -93,6 +99,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function cookiePath($value): self
     {
@@ -103,6 +110,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function cookieDomain($value): self
     {
@@ -114,6 +122,7 @@ class SessionConfig
     /**
      * @default null
      * @param true|false|'auto' $value
+     * @return $this
      */
     public function cookieSecure($value): self
     {
@@ -124,6 +133,7 @@ class SessionConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function cookieHttponly(bool $value): self
     {
@@ -135,6 +145,7 @@ class SessionConfig
     /**
      * @default null
      * @param NULL|'lax'|'strict'|'none' $value
+     * @return $this
      */
     public function cookieSamesite($value): self
     {
@@ -145,6 +156,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function useCookies(bool $value): self
     {
@@ -155,6 +167,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function gcDivisor($value): self
     {
@@ -165,6 +178,7 @@ class SessionConfig
     
     /**
      * @default 1
+     * @return $this
      */
     public function gcProbability($value): self
     {
@@ -175,6 +189,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function gcMaxlifetime($value): self
     {
@@ -185,6 +200,7 @@ class SessionConfig
     
     /**
      * @default '%kernel.cache_dir%/sessions'
+     * @return $this
      */
     public function savePath($value): self
     {
@@ -196,6 +212,7 @@ class SessionConfig
     /**
      * seconds to wait between 2 session metadata updates
      * @default 0
+     * @return $this
      */
     public function metadataUpdateThreshold(int $value): self
     {
@@ -206,6 +223,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function sidLength(int $value): self
     {
@@ -216,6 +234,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function sidBitsPerCharacter(int $value): self
     {

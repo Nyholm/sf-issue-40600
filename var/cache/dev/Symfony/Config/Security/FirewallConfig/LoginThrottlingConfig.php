@@ -19,6 +19,7 @@ class LoginThrottlingConfig
     /**
      * A service id implementing "Symfony\Component\HttpFoundation\RateLimiter\RequestRateLimiterInterface".
      * @default null
+     * @return $this
      */
     public function limiter($value): self
     {
@@ -29,6 +30,7 @@ class LoginThrottlingConfig
     
     /**
      * @default 5
+     * @return $this
      */
     public function maxAttempts(int $value): self
     {
@@ -39,6 +41,7 @@ class LoginThrottlingConfig
     
     /**
      * @default '1 minute'
+     * @return $this
      */
     public function interval($value): self
     {
@@ -50,6 +53,7 @@ class LoginThrottlingConfig
     /**
      * The service ID of the lock factory used by the login rate limiter (or null to disable locking)
      * @default null
+     * @return $this
      */
     public function lockFactory($value): self
     {

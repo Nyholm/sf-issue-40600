@@ -25,6 +25,7 @@ class MessengerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -37,11 +38,12 @@ class MessengerConfig
     {
         if (!isset($this->routing[$message_class])) {
             return $this->routing[$message_class] = new \Symfony\Config\Framework\Messenger\RoutingConfig($value);
-        } elseif ([] === $value) {
-            return $this->routing[$message_class];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "routing()" has already been initialized. You cannot pass values the second time you call routing().'));
         }
+        if ([] === $value) {
+            return $this->routing[$message_class];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "routing()" has already been initialized. You cannot pass values the second time you call routing().'));
     }
     
     public function serializer(array $value = []): \Symfony\Config\Framework\Messenger\SerializerConfig
@@ -59,16 +61,18 @@ class MessengerConfig
     {
         if (!isset($this->transports[$name])) {
             return $this->transports[$name] = new \Symfony\Config\Framework\Messenger\TransportConfig($value);
-        } elseif ([] === $value) {
-            return $this->transports[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "transport()" has already been initialized. You cannot pass values the second time you call transport().'));
         }
+        if ([] === $value) {
+            return $this->transports[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "transport()" has already been initialized. You cannot pass values the second time you call transport().'));
     }
     
     /**
      * Transport name to send failed messages to (after all retries have failed).
      * @default null
+     * @return $this
      */
     public function failureTransport($value): self
     {
@@ -79,6 +83,7 @@ class MessengerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function defaultBus($value): self
     {
@@ -91,11 +96,12 @@ class MessengerConfig
     {
         if (!isset($this->buses[$name])) {
             return $this->buses[$name] = new \Symfony\Config\Framework\Messenger\BusConfig($value);
-        } elseif ([] === $value) {
-            return $this->buses[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "bus()" has already been initialized. You cannot pass values the second time you call bus().'));
         }
+        if ([] === $value) {
+            return $this->buses[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "bus()" has already been initialized. You cannot pass values the second time you call bus().'));
     }
     
     public function __construct(array $value = [])

@@ -20,6 +20,7 @@ class RedisConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function id($value): self
     {
@@ -30,6 +31,7 @@ class RedisConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function host($value): self
     {
@@ -40,6 +42,7 @@ class RedisConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function password($value): self
     {
@@ -50,6 +53,7 @@ class RedisConfig
     
     /**
      * @default 6379
+     * @return $this
      */
     public function port($value): self
     {
@@ -60,6 +64,7 @@ class RedisConfig
     
     /**
      * @default 0
+     * @return $this
      */
     public function database($value): self
     {
@@ -70,6 +75,7 @@ class RedisConfig
     
     /**
      * @default 'monolog_redis'
+     * @return $this
      */
     public function keyName($value): self
     {

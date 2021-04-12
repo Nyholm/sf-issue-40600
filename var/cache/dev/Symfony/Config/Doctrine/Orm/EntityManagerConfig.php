@@ -83,6 +83,7 @@ class EntityManagerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function connection($value): self
     {
@@ -93,6 +94,7 @@ class EntityManagerConfig
     
     /**
      * @default 'Doctrine\\ORM\\Mapping\\ClassMetadataFactory'
+     * @return $this
      */
     public function classMetadataFactoryName($value): self
     {
@@ -103,6 +105,7 @@ class EntityManagerConfig
     
     /**
      * @default 'Doctrine\\ORM\\EntityRepository'
+     * @return $this
      */
     public function defaultRepositoryClass($value): self
     {
@@ -113,6 +116,7 @@ class EntityManagerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function autoMapping($value): self
     {
@@ -123,6 +127,7 @@ class EntityManagerConfig
     
     /**
      * @default 'doctrine.orm.naming_strategy.default'
+     * @return $this
      */
     public function namingStrategy($value): self
     {
@@ -133,6 +138,7 @@ class EntityManagerConfig
     
     /**
      * @default 'doctrine.orm.quote_strategy.default'
+     * @return $this
      */
     public function quoteStrategy($value): self
     {
@@ -143,6 +149,7 @@ class EntityManagerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function entityListenerResolver($value): self
     {
@@ -153,6 +160,7 @@ class EntityManagerConfig
     
     /**
      * @default 'doctrine.orm.container_repository_factory'
+     * @return $this
      */
     public function repositoryFactory($value): self
     {
@@ -172,6 +180,9 @@ class EntityManagerConfig
         return $this->secondLevelCache;
     }
     
+    /**
+     * @return $this
+     */
     public function hydrator(string $name, $value): self
     {
         $this->hydrators[$name] = $value;
@@ -183,11 +194,12 @@ class EntityManagerConfig
     {
         if (!isset($this->mappings[$name])) {
             return $this->mappings[$name] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\MappingConfig($value);
-        } elseif ([] === $value) {
-            return $this->mappings[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "mapping()" has already been initialized. You cannot pass values the second time you call mapping().'));
         }
+        if ([] === $value) {
+            return $this->mappings[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "mapping()" has already been initialized. You cannot pass values the second time you call mapping().'));
     }
     
     public function dql(array $value = []): \Symfony\Config\Doctrine\Orm\EntityManagerConfig\DqlConfig
@@ -205,11 +217,12 @@ class EntityManagerConfig
     {
         if (!isset($this->filters[$name])) {
             return $this->filters[$name] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\FilterConfig($value);
-        } elseif ([] === $value) {
-            return $this->filters[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "filter()" has already been initialized. You cannot pass values the second time you call filter().'));
         }
+        if ([] === $value) {
+            return $this->filters[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "filter()" has already been initialized. You cannot pass values the second time you call filter().'));
     }
     
     public function __construct(array $value = [])

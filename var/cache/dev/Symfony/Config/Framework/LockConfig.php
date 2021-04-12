@@ -16,6 +16,7 @@ class LockConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -24,6 +25,9 @@ class LockConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function resource(string $name, array $value): self
     {
         $this->resources[$name] = $value;

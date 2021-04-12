@@ -17,6 +17,7 @@ class FilterConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function class($value): self
     {
@@ -27,6 +28,7 @@ class FilterConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -35,6 +37,9 @@ class FilterConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function parameter(string $name, $value): self
     {
         $this->parameters[$name] = $value;

@@ -16,6 +16,7 @@ class EmailPrototypeConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function id($value): self
     {
@@ -26,6 +27,7 @@ class EmailPrototypeConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function method($value): self
     {

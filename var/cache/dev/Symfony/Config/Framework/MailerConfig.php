@@ -22,6 +22,7 @@ class MailerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -33,6 +34,7 @@ class MailerConfig
     /**
      * The message bus to use. Defaults to the default bus if the Messenger component is installed.
      * @default null
+     * @return $this
      */
     public function messageBus($value): self
     {
@@ -43,6 +45,7 @@ class MailerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function dsn($value): self
     {
@@ -51,6 +54,9 @@ class MailerConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function transport(string $name, $value): self
     {
         $this->transports[$name] = $value;
@@ -73,11 +79,12 @@ class MailerConfig
     {
         if (!isset($this->headers[$name])) {
             return $this->headers[$name] = new \Symfony\Config\Framework\Mailer\HeaderConfig($value);
-        } elseif ([] === $value) {
-            return $this->headers[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "header()" has already been initialized. You cannot pass values the second time you call header().'));
         }
+        if ([] === $value) {
+            return $this->headers[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "header()" has already been initialized. You cannot pass values the second time you call header().'));
     }
     
     public function __construct(array $value = [])

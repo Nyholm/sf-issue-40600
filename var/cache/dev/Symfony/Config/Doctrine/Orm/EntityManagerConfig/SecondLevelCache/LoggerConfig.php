@@ -16,6 +16,7 @@ class LoggerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function name($value): self
     {
@@ -26,6 +27,7 @@ class LoggerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function service($value): self
     {

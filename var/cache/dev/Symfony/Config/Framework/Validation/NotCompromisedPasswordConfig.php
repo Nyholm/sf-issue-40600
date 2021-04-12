@@ -17,6 +17,7 @@ class NotCompromisedPasswordConfig
     /**
      * When disabled, compromised passwords will be accepted as valid.
      * @default true
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -28,6 +29,7 @@ class NotCompromisedPasswordConfig
     /**
      * API endpoint for the NotCompromisedPassword Validator.
      * @default null
+     * @return $this
      */
     public function endpoint($value): self
     {

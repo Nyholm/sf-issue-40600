@@ -18,6 +18,7 @@ class GuardConfig
     /**
      * A key from the "providers" section of your security config, in case your user provider is different than the firewall
      * @default null
+     * @return $this
      */
     public function provider($value): self
     {
@@ -29,6 +30,7 @@ class GuardConfig
     /**
      * A service id (of one of your authenticators) whose start() method should be called when an anonymous user hits a page that requires authentication
      * @default null
+     * @return $this
      */
     public function entryPoint($value): self
     {
@@ -37,6 +39,9 @@ class GuardConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function authenticator($value): self
     {
         $this->authenticators = $value;

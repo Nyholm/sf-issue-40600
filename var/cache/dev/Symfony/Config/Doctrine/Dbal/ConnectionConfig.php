@@ -69,6 +69,7 @@ class ConnectionConfig
     /**
      * A URL with connection information; any parameter value parsed from this string will override explicitly set parameters
      * @default null
+     * @return $this
      */
     public function url($value): self
     {
@@ -79,6 +80,7 @@ class ConnectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function dbname($value): self
     {
@@ -90,6 +92,7 @@ class ConnectionConfig
     /**
      * Defaults to "localhost" at runtime.
      * @default null
+     * @return $this
      */
     public function host($value): self
     {
@@ -101,6 +104,7 @@ class ConnectionConfig
     /**
      * Defaults to null at runtime.
      * @default null
+     * @return $this
      */
     public function port($value): self
     {
@@ -112,6 +116,7 @@ class ConnectionConfig
     /**
      * Defaults to "root" at runtime.
      * @default null
+     * @return $this
      */
     public function user($value): self
     {
@@ -123,6 +128,7 @@ class ConnectionConfig
     /**
      * Defaults to null at runtime.
      * @default null
+     * @return $this
      */
     public function password($value): self
     {
@@ -134,6 +140,7 @@ class ConnectionConfig
     /**
      * Allows overriding parts of the "url" parameter with dbname, host, port, user, and/or password parameters.
      * @default false
+     * @return $this
      */
     public function overrideUrl(bool $value): self
     {
@@ -144,6 +151,7 @@ class ConnectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function applicationName($value): self
     {
@@ -154,6 +162,7 @@ class ConnectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function charset($value): self
     {
@@ -164,6 +173,7 @@ class ConnectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function path($value): self
     {
@@ -174,6 +184,7 @@ class ConnectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function memory(bool $value): self
     {
@@ -185,6 +196,7 @@ class ConnectionConfig
     /**
      * The unix socket to use for MySQL
      * @default null
+     * @return $this
      */
     public function unixSocket($value): self
     {
@@ -196,6 +208,7 @@ class ConnectionConfig
     /**
      * True to use as persistent connection for the ibm_db2 driver
      * @default null
+     * @return $this
      */
     public function persistent(bool $value): self
     {
@@ -207,6 +220,7 @@ class ConnectionConfig
     /**
      * The protocol to use for the ibm_db2 driver (default to TCPIP if omitted)
      * @default null
+     * @return $this
      */
     public function protocol($value): self
     {
@@ -218,6 +232,7 @@ class ConnectionConfig
     /**
      * True to use SERVICE_NAME as connection parameter instead of SID for Oracle
      * @default null
+     * @return $this
      */
     public function service(bool $value): self
     {
@@ -229,6 +244,7 @@ class ConnectionConfig
     /**
      * Overrules dbname parameter if given and used as SERVICE_NAME or SID connection parameter for Oracle depending on the service parameter.
      * @default null
+     * @return $this
      */
     public function servicename($value): self
     {
@@ -240,6 +256,7 @@ class ConnectionConfig
     /**
      * The session mode to use for the oci8 driver
      * @default null
+     * @return $this
      */
     public function sessionMode($value): self
     {
@@ -251,6 +268,7 @@ class ConnectionConfig
     /**
      * The name of a running database server to connect to for SQL Anywhere.
      * @default null
+     * @return $this
      */
     public function server($value): self
     {
@@ -262,6 +280,7 @@ class ConnectionConfig
     /**
      * Override the default database (postgres) to connect to for PostgreSQL connexion.
      * @default null
+     * @return $this
      */
     public function defaultDbname($value): self
     {
@@ -273,6 +292,7 @@ class ConnectionConfig
     /**
      * Determines whether or with what priority a SSL TCP/IP connection will be negotiated with the server for PostgreSQL.
      * @default null
+     * @return $this
      */
     public function sslmode($value): self
     {
@@ -284,6 +304,7 @@ class ConnectionConfig
     /**
      * The name of a file containing SSL certificate authority (CA) certificate(s). If the file exists, the server's certificate will be verified to be signed by one of these authorities.
      * @default null
+     * @return $this
      */
     public function sslrootcert($value): self
     {
@@ -295,6 +316,7 @@ class ConnectionConfig
     /**
      * The path to the SSL client certificate file for PostgreSQL.
      * @default null
+     * @return $this
      */
     public function sslcert($value): self
     {
@@ -306,6 +328,7 @@ class ConnectionConfig
     /**
      * The path to the SSL client key file for PostgreSQL.
      * @default null
+     * @return $this
      */
     public function sslkey($value): self
     {
@@ -317,6 +340,7 @@ class ConnectionConfig
     /**
      * The file name of the SSL certificate revocation list for PostgreSQL.
      * @default null
+     * @return $this
      */
     public function sslcrl($value): self
     {
@@ -328,6 +352,7 @@ class ConnectionConfig
     /**
      * True to use a pooled server with the oci8/pdo_oracle driver
      * @default null
+     * @return $this
      */
     public function pooled(bool $value): self
     {
@@ -339,6 +364,7 @@ class ConnectionConfig
     /**
      * Configuring MultipleActiveResultSets for the pdo_sqlsrv driver
      * @default null
+     * @return $this
      */
     public function multipleActiveResultSets(bool $value): self
     {
@@ -350,6 +376,7 @@ class ConnectionConfig
     /**
      * Use savepoints for nested transactions
      * @default null
+     * @return $this
      */
     public function useSavepoints(bool $value): self
     {
@@ -361,6 +388,7 @@ class ConnectionConfig
     /**
      * Optional parameter, complete whether to add the INSTANCE_NAME parameter in the connection. It is generally used to connect to an Oracle RAC server to select the name of a particular instance.
      * @default null
+     * @return $this
      */
     public function instancename($value): self
     {
@@ -372,6 +400,7 @@ class ConnectionConfig
     /**
      * Complete Easy Connect connection descriptor, see https://docs.oracle.com/database/121/NETAG/naming.htm.When using this option, you will still need to provide the user and password parameters, but the other parameters will no longer be used. Note that when using this parameter, the getHost and getPort methods from Doctrine\DBAL\Connection will no longer function as expected.
      * @default null
+     * @return $this
      */
     public function connectstring($value): self
     {
@@ -382,6 +411,7 @@ class ConnectionConfig
     
     /**
      * @default 'pdo_mysql'
+     * @return $this
      */
     public function driver($value): self
     {
@@ -392,6 +422,7 @@ class ConnectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function platformService($value): self
     {
@@ -402,6 +433,7 @@ class ConnectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function autoCommit(bool $value): self
     {
@@ -412,6 +444,7 @@ class ConnectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function schemaFilter($value): self
     {
@@ -422,6 +455,7 @@ class ConnectionConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function logging(bool $value): self
     {
@@ -432,6 +466,7 @@ class ConnectionConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function profiling(bool $value): self
     {
@@ -443,6 +478,7 @@ class ConnectionConfig
     /**
      * Enables collecting backtraces when profiling is enabled
      * @default false
+     * @return $this
      */
     public function profilingCollectBacktrace(bool $value): self
     {
@@ -454,6 +490,7 @@ class ConnectionConfig
     /**
      * Enables collecting schema errors when profiling is enabled
      * @default true
+     * @return $this
      */
     public function profilingCollectSchemaErrors(bool $value): self
     {
@@ -464,6 +501,7 @@ class ConnectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function serverVersion($value): self
     {
@@ -474,6 +512,7 @@ class ConnectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function driverClass($value): self
     {
@@ -484,6 +523,7 @@ class ConnectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function wrapperClass($value): self
     {
@@ -494,6 +534,7 @@ class ConnectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function shardManagerClass($value): self
     {
@@ -504,6 +545,7 @@ class ConnectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function shardChoser($value): self
     {
@@ -514,6 +556,7 @@ class ConnectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function shardChoserService($value): self
     {
@@ -525,6 +568,7 @@ class ConnectionConfig
     /**
      * @default null
      * @deprecated The "keep_slave" configuration key is deprecated since doctrine-bundle 2.2. Use the "keep_replica" configuration key instead.
+     * @return $this
      */
     public function keepSlave(bool $value): self
     {
@@ -535,6 +579,7 @@ class ConnectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function keepReplica(bool $value): self
     {
@@ -543,6 +588,9 @@ class ConnectionConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function option(string $key, $value): self
     {
         $this->options[$key] = $value;
@@ -550,6 +598,9 @@ class ConnectionConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function mappingType(string $name, $value): self
     {
         $this->mappingTypes[$name] = $value;
@@ -557,6 +608,9 @@ class ConnectionConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function defaultTableOption(string $name, $value): self
     {
         $this->defaultTableOptions[$name] = $value;
@@ -568,22 +622,24 @@ class ConnectionConfig
     {
         if (!isset($this->slaves[$name])) {
             return $this->slaves[$name] = new \Symfony\Config\Doctrine\Dbal\ConnectionConfig\SlaveConfig($value);
-        } elseif ([] === $value) {
-            return $this->slaves[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "slave()" has already been initialized. You cannot pass values the second time you call slave().'));
         }
+        if ([] === $value) {
+            return $this->slaves[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "slave()" has already been initialized. You cannot pass values the second time you call slave().'));
     }
     
     public function replica(string $name, array $value = []): \Symfony\Config\Doctrine\Dbal\ConnectionConfig\ReplicaConfig
     {
         if (!isset($this->replicas[$name])) {
             return $this->replicas[$name] = new \Symfony\Config\Doctrine\Dbal\ConnectionConfig\ReplicaConfig($value);
-        } elseif ([] === $value) {
-            return $this->replicas[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "replica()" has already been initialized. You cannot pass values the second time you call replica().'));
         }
+        if ([] === $value) {
+            return $this->replicas[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "replica()" has already been initialized. You cannot pass values the second time you call replica().'));
     }
     
     public function shard(array $value = []): \Symfony\Config\Doctrine\Dbal\ConnectionConfig\ShardConfig

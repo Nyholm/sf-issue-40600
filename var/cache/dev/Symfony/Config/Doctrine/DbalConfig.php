@@ -19,6 +19,7 @@ class DbalConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function defaultConnection($value): self
     {
@@ -31,22 +32,24 @@ class DbalConfig
     {
         if (!isset($this->types[$name])) {
             return $this->types[$name] = new \Symfony\Config\Doctrine\Dbal\TypeConfig($value);
-        } elseif ([] === $value) {
-            return $this->types[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "type()" has already been initialized. You cannot pass values the second time you call type().'));
         }
+        if ([] === $value) {
+            return $this->types[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "type()" has already been initialized. You cannot pass values the second time you call type().'));
     }
     
     public function connection(string $name, array $value = []): \Symfony\Config\Doctrine\Dbal\ConnectionConfig
     {
         if (!isset($this->connections[$name])) {
             return $this->connections[$name] = new \Symfony\Config\Doctrine\Dbal\ConnectionConfig($value);
-        } elseif ([] === $value) {
-            return $this->connections[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "connection()" has already been initialized. You cannot pass values the second time you call connection().'));
         }
+        if ([] === $value) {
+            return $this->connections[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "connection()" has already been initialized. You cannot pass values the second time you call connection().'));
     }
     
     public function __construct(array $value = [])

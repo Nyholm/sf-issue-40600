@@ -17,6 +17,7 @@ class CacheDriverConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function type($value): self
     {
@@ -27,6 +28,7 @@ class CacheDriverConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function id($value): self
     {
@@ -37,6 +39,7 @@ class CacheDriverConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function pool($value): self
     {

@@ -16,6 +16,7 @@ class RequestConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -24,6 +25,9 @@ class RequestConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function format(string $name, array $value): self
     {
         $this->formats[$name] = $value;

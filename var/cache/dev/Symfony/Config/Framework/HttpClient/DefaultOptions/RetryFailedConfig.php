@@ -23,6 +23,7 @@ class RetryFailedConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -34,6 +35,7 @@ class RetryFailedConfig
     /**
      * service id to override the retry strategy
      * @default null
+     * @return $this
      */
     public function retryStrategy($value): self
     {
@@ -46,15 +48,17 @@ class RetryFailedConfig
     {
         if (!isset($this->httpCodes[$code])) {
             return $this->httpCodes[$code] = new \Symfony\Config\Framework\HttpClient\DefaultOptions\RetryFailed\HttpCodeConfig($value);
-        } elseif ([] === $value) {
-            return $this->httpCodes[$code];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "httpCode()" has already been initialized. You cannot pass values the second time you call httpCode().'));
         }
+        if ([] === $value) {
+            return $this->httpCodes[$code];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "httpCode()" has already been initialized. You cannot pass values the second time you call httpCode().'));
     }
     
     /**
      * @default 3
+     * @return $this
      */
     public function maxRetries(int $value): self
     {
@@ -66,6 +70,7 @@ class RetryFailedConfig
     /**
      * Time in ms to delay (or the initial value when multiplier is used)
      * @default 1000
+     * @return $this
      */
     public function delay(int $value): self
     {
@@ -77,6 +82,7 @@ class RetryFailedConfig
     /**
      * If greater than 1, delay will grow exponentially for each retry: delay * (multiple ^ retries)
      * @default 2
+     * @return $this
      */
     public function multiplier(float $value): self
     {
@@ -88,6 +94,7 @@ class RetryFailedConfig
     /**
      * Max time in ms that a retry should ever be delayed (0 = infinite)
      * @default 0
+     * @return $this
      */
     public function maxDelay(int $value): self
     {
@@ -99,6 +106,7 @@ class RetryFailedConfig
     /**
      * Randomness in percent (between 0 and 1) to apply to the delay
      * @default 0.1
+     * @return $this
      */
     public function jitter(float $value): self
     {

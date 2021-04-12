@@ -16,6 +16,7 @@ class TypeConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function class($value): self
     {
@@ -27,6 +28,7 @@ class TypeConfig
     /**
      * @default null
      * @deprecated The doctrine-bundle type commenting features were removed; the corresponding config parameter was deprecated in 2.0 and will be dropped in 3.0.
+     * @return $this
      */
     public function commented(bool $value): self
     {

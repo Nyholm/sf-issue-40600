@@ -16,6 +16,7 @@ class HttpCodeConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function code(int $value): self
     {
@@ -24,6 +25,9 @@ class HttpCodeConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function method($value): self
     {
         $this->methods = $value;

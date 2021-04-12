@@ -21,6 +21,7 @@ class MongoConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function id($value): self
     {
@@ -31,6 +32,7 @@ class MongoConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function host($value): self
     {
@@ -41,6 +43,7 @@ class MongoConfig
     
     /**
      * @default 27017
+     * @return $this
      */
     public function port($value): self
     {
@@ -51,6 +54,7 @@ class MongoConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function user($value): self
     {
@@ -61,6 +65,7 @@ class MongoConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function pass($value): self
     {
@@ -71,6 +76,7 @@ class MongoConfig
     
     /**
      * @default 'monolog'
+     * @return $this
      */
     public function database($value): self
     {
@@ -81,6 +87,7 @@ class MongoConfig
     
     /**
      * @default 'logs'
+     * @return $this
      */
     public function collection($value): self
     {

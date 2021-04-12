@@ -25,6 +25,7 @@ class PasswordHasherConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function algorithm($value): self
     {
@@ -33,6 +34,9 @@ class PasswordHasherConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function migrateFrom($value): self
     {
         $this->migrateFrom = $value;
@@ -43,6 +47,7 @@ class PasswordHasherConfig
     /**
      * Name of hashing algorithm for PBKDF2 (i.e. sha256, sha512, etc..) See hash_algos() for a list of supported algorithms.
      * @default 'sha512'
+     * @return $this
      */
     public function hashAlgorithm($value): self
     {
@@ -53,6 +58,7 @@ class PasswordHasherConfig
     
     /**
      * @default 40
+     * @return $this
      */
     public function keyLength($value): self
     {
@@ -63,6 +69,7 @@ class PasswordHasherConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function ignoreCase(bool $value): self
     {
@@ -73,6 +80,7 @@ class PasswordHasherConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function encodeAsBase64(bool $value): self
     {
@@ -83,6 +91,7 @@ class PasswordHasherConfig
     
     /**
      * @default 5000
+     * @return $this
      */
     public function iterations($value): self
     {
@@ -93,6 +102,7 @@ class PasswordHasherConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function cost(int $value): self
     {
@@ -103,6 +113,7 @@ class PasswordHasherConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function memoryCost($value): self
     {
@@ -113,6 +124,7 @@ class PasswordHasherConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function timeCost($value): self
     {
@@ -123,6 +135,7 @@ class PasswordHasherConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function id($value): self
     {

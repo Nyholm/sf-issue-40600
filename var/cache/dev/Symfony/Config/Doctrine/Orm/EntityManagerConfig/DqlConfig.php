@@ -15,6 +15,9 @@ class DqlConfig
     private $numericFunctions;
     private $datetimeFunctions;
     
+    /**
+     * @return $this
+     */
     public function stringFunction(string $name, $value): self
     {
         $this->stringFunctions[$name] = $value;
@@ -22,6 +25,9 @@ class DqlConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function numericFunction(string $name, $value): self
     {
         $this->numericFunctions[$name] = $value;
@@ -29,6 +35,9 @@ class DqlConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function datetimeFunction(string $name, $value): self
     {
         $this->datetimeFunctions[$name] = $value;

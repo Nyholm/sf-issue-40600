@@ -20,6 +20,7 @@ class UidConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -31,6 +32,7 @@ class UidConfig
     /**
      * @default 6
      * @param 6|4|1 $value
+     * @return $this
      */
     public function defaultUuidVersion($value): self
     {
@@ -42,6 +44,7 @@ class UidConfig
     /**
      * @default 5
      * @param 5|3 $value
+     * @return $this
      */
     public function nameBasedUuidVersion($value): self
     {
@@ -52,6 +55,7 @@ class UidConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function nameBasedUuidNamespace($value): self
     {
@@ -63,6 +67,7 @@ class UidConfig
     /**
      * @default 6
      * @param 6|1 $value
+     * @return $this
      */
     public function timeBasedUuidVersion($value): self
     {
@@ -73,6 +78,7 @@ class UidConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function timeBasedUuidNode($value): self
     {

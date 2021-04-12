@@ -19,6 +19,7 @@ class TableStorageConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function tableName($value): self
     {
@@ -29,6 +30,7 @@ class TableStorageConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function versionColumnName($value): self
     {
@@ -39,6 +41,7 @@ class TableStorageConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function versionColumnLength($value): self
     {
@@ -49,6 +52,7 @@ class TableStorageConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function executedAtColumnName($value): self
     {
@@ -59,6 +63,7 @@ class TableStorageConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function executionTimeColumnName($value): self
     {

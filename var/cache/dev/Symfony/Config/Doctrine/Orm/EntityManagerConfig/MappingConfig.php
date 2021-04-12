@@ -20,6 +20,7 @@ class MappingConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function mapping($value): self
     {
@@ -30,6 +31,7 @@ class MappingConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function type($value): self
     {
@@ -40,6 +42,7 @@ class MappingConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function dir($value): self
     {
@@ -50,6 +53,7 @@ class MappingConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function alias($value): self
     {
@@ -60,6 +64,7 @@ class MappingConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function prefix($value): self
     {
@@ -70,6 +75,7 @@ class MappingConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function isBundle(bool $value): self
     {

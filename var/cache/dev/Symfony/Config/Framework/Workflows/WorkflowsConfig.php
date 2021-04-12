@@ -40,6 +40,7 @@ class WorkflowsConfig
     /**
      * @default 'state_machine'
      * @param 'workflow'|'state_machine' $value
+     * @return $this
      */
     public function type($value): self
     {
@@ -59,6 +60,9 @@ class WorkflowsConfig
         return $this->markingStore;
     }
     
+    /**
+     * @return $this
+     */
     public function support($value): self
     {
         $this->supports = $value;
@@ -68,6 +72,7 @@ class WorkflowsConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function supportStrategy($value): self
     {
@@ -76,6 +81,9 @@ class WorkflowsConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function initialMarking($value): self
     {
         $this->initialMarking = $value;
@@ -88,6 +96,7 @@ class WorkflowsConfig
      * @example workflow.enter
      * @example workflow.transition
      * @default null
+     * @return $this
      */
     public function eventsToDispatch($value = NULL): self
     {
@@ -106,6 +115,9 @@ class WorkflowsConfig
         return $this->transitions[] = new \Symfony\Config\Framework\Workflows\WorkflowsConfig\TransitionConfig($value);
     }
     
+    /**
+     * @return $this
+     */
     public function metadata($value): self
     {
         $this->metadata = $value;

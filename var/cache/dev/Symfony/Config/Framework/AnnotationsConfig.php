@@ -18,6 +18,7 @@ class AnnotationsConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -28,6 +29,7 @@ class AnnotationsConfig
     
     /**
      * @default 'php_array'
+     * @return $this
      */
     public function cache($value): self
     {
@@ -38,6 +40,7 @@ class AnnotationsConfig
     
     /**
      * @default '%kernel.cache_dir%/annotations'
+     * @return $this
      */
     public function fileCacheDir($value): self
     {
@@ -48,6 +51,7 @@ class AnnotationsConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function debug(bool $value): self
     {

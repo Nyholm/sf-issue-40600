@@ -16,6 +16,7 @@ class ExcludedHttpCodeConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function code($value): self
     {
@@ -24,6 +25,9 @@ class ExcludedHttpCodeConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function urls($value): self
     {
         $this->urls = $value;

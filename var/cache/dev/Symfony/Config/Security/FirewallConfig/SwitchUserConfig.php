@@ -17,6 +17,7 @@ class SwitchUserConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function provider($value): self
     {
@@ -27,6 +28,7 @@ class SwitchUserConfig
     
     /**
      * @default '_switch_user'
+     * @return $this
      */
     public function parameter($value): self
     {
@@ -37,6 +39,7 @@ class SwitchUserConfig
     
     /**
      * @default 'ROLE_ALLOWED_TO_SWITCH'
+     * @return $this
      */
     public function role($value): self
     {

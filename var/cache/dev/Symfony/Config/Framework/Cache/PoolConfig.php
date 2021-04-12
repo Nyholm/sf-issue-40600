@@ -19,6 +19,9 @@ class PoolConfig
     private $earlyExpirationMessageBus;
     private $clearer;
     
+    /**
+     * @return $this
+     */
     public function adapter($value): self
     {
         $this->adapters = $value;
@@ -28,6 +31,7 @@ class PoolConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function tags($value): self
     {
@@ -38,6 +42,7 @@ class PoolConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function public(bool $value): self
     {
@@ -50,6 +55,7 @@ class PoolConfig
      * Default lifetime of the pool
      * @example "600" for 5 minutes expressed in seconds, "PT5M" for five minutes expressed as ISO 8601 time interval, or "5 minutes" as a date expression
      * @default null
+     * @return $this
      */
     public function defaultLifetime($value): self
     {
@@ -61,6 +67,7 @@ class PoolConfig
     /**
      * Overwrite the setting from the default provider for this adapter.
      * @default null
+     * @return $this
      */
     public function provider($value): self
     {
@@ -72,6 +79,7 @@ class PoolConfig
     /**
      * @example "messenger.default_bus" to send early expiration events to the default Messenger bus.
      * @default null
+     * @return $this
      */
     public function earlyExpirationMessageBus($value): self
     {
@@ -82,6 +90,7 @@ class PoolConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function clearer($value): self
     {

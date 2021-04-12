@@ -16,6 +16,7 @@ class PredisConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function id($value): self
     {
@@ -26,6 +27,7 @@ class PredisConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function host($value): self
     {

@@ -23,6 +23,7 @@ class LimiterConfig
     /**
      * The service ID of the lock factory used by this limiter (or null to disable locking)
      * @default 'lock.factory'
+     * @return $this
      */
     public function lockFactory($value): self
     {
@@ -34,6 +35,7 @@ class LimiterConfig
     /**
      * The cache pool to use for storing the current limiter state
      * @default 'cache.rate_limiter'
+     * @return $this
      */
     public function cachePool($value): self
     {
@@ -45,6 +47,7 @@ class LimiterConfig
     /**
      * The service ID of a custom storage implementation, this precedes any configured "cache_pool"
      * @default null
+     * @return $this
      */
     public function storageService($value): self
     {
@@ -57,6 +60,7 @@ class LimiterConfig
      * The algorithm to be used by this limiter
      * @default null
      * @param 'fixed_window'|'token_bucket'|'sliding_window'|'no_limit' $value
+     * @return $this
      */
     public function policy($value): self
     {
@@ -68,6 +72,7 @@ class LimiterConfig
     /**
      * The maximum allowed hits in a fixed interval or burst
      * @default null
+     * @return $this
      */
     public function limit(int $value): self
     {
@@ -79,6 +84,7 @@ class LimiterConfig
     /**
      * Configures the fixed interval if "policy" is set to "fixed_window" or "sliding_window". The value must be a number followed by "second", "minute", "hour", "day", "week" or "month" (or their plural equivalent).
      * @default null
+     * @return $this
      */
     public function interval($value): self
     {

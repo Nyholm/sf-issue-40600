@@ -18,6 +18,7 @@ class PublisherConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function id($value): self
     {
@@ -28,6 +29,7 @@ class PublisherConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function hostname($value): self
     {
@@ -38,6 +40,7 @@ class PublisherConfig
     
     /**
      * @default 12201
+     * @return $this
      */
     public function port($value): self
     {
@@ -48,6 +51,7 @@ class PublisherConfig
     
     /**
      * @default 1420
+     * @return $this
      */
     public function chunkSize($value): self
     {

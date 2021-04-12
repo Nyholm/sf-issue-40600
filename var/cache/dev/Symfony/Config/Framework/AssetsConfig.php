@@ -23,6 +23,7 @@ class AssetsConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -33,6 +34,7 @@ class AssetsConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function versionStrategy($value): self
     {
@@ -43,6 +45,7 @@ class AssetsConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function version($value): self
     {
@@ -53,6 +56,7 @@ class AssetsConfig
     
     /**
      * @default '%%s?%%s'
+     * @return $this
      */
     public function versionFormat($value): self
     {
@@ -63,6 +67,7 @@ class AssetsConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function jsonManifestPath($value): self
     {
@@ -72,6 +77,7 @@ class AssetsConfig
     }
     
     /**
+     * @return $this
      */
     public function basePath($value): self
     {
@@ -80,6 +86,9 @@ class AssetsConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function baseUrl($value): self
     {
         $this->baseUrls = $value;
@@ -91,11 +100,12 @@ class AssetsConfig
     {
         if (!isset($this->packages[$name])) {
             return $this->packages[$name] = new \Symfony\Config\Framework\Assets\PackageConfig($value);
-        } elseif ([] === $value) {
-            return $this->packages[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "package()" has already been initialized. You cannot pass values the second time you call package().'));
         }
+        if ([] === $value) {
+            return $this->packages[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "package()" has already been initialized. You cannot pass values the second time you call package().'));
     }
     
     public function __construct(array $value = [])

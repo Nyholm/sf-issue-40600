@@ -19,6 +19,7 @@ class TransitionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function name($value): self
     {
@@ -31,6 +32,7 @@ class TransitionConfig
      * An expression to block the transition
      * @example is_fully_authenticated() and is_granted('ROLE_JOURNALIST') and subject.getTitle() == 'My first article'
      * @default null
+     * @return $this
      */
     public function guard($value): self
     {
@@ -39,6 +41,9 @@ class TransitionConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function from($value): self
     {
         $this->from = $value;
@@ -46,6 +51,9 @@ class TransitionConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function to($value): self
     {
         $this->to = $value;
@@ -53,6 +61,9 @@ class TransitionConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function metadata($value): self
     {
         $this->metadata = $value;

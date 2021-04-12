@@ -36,6 +36,7 @@ class FormLoginConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function provider($value): self
     {
@@ -46,6 +47,7 @@ class FormLoginConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function rememberMe(bool $value): self
     {
@@ -56,6 +58,7 @@ class FormLoginConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function successHandler($value): self
     {
@@ -66,6 +69,7 @@ class FormLoginConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function failureHandler($value): self
     {
@@ -76,6 +80,7 @@ class FormLoginConfig
     
     /**
      * @default '/login_check'
+     * @return $this
      */
     public function checkPath($value): self
     {
@@ -86,6 +91,7 @@ class FormLoginConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function useForward(bool $value): self
     {
@@ -96,6 +102,7 @@ class FormLoginConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function requirePreviousSession(bool $value): self
     {
@@ -106,6 +113,7 @@ class FormLoginConfig
     
     /**
      * @default '/login'
+     * @return $this
      */
     public function loginPath($value): self
     {
@@ -116,6 +124,7 @@ class FormLoginConfig
     
     /**
      * @default '_username'
+     * @return $this
      */
     public function usernameParameter($value): self
     {
@@ -126,6 +135,7 @@ class FormLoginConfig
     
     /**
      * @default '_password'
+     * @return $this
      */
     public function passwordParameter($value): self
     {
@@ -136,6 +146,7 @@ class FormLoginConfig
     
     /**
      * @default '_csrf_token'
+     * @return $this
      */
     public function csrfParameter($value): self
     {
@@ -146,6 +157,7 @@ class FormLoginConfig
     
     /**
      * @default 'authenticate'
+     * @return $this
      */
     public function csrfTokenId($value): self
     {
@@ -156,6 +168,7 @@ class FormLoginConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enableCsrf(bool $value): self
     {
@@ -166,6 +179,7 @@ class FormLoginConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function postOnly(bool $value): self
     {
@@ -176,6 +190,7 @@ class FormLoginConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function alwaysUseDefaultTargetPath(bool $value): self
     {
@@ -186,6 +201,7 @@ class FormLoginConfig
     
     /**
      * @default '/'
+     * @return $this
      */
     public function defaultTargetPath($value): self
     {
@@ -196,6 +212,7 @@ class FormLoginConfig
     
     /**
      * @default '_target_path'
+     * @return $this
      */
     public function targetPathParameter($value): self
     {
@@ -206,6 +223,7 @@ class FormLoginConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function useReferer(bool $value): self
     {
@@ -216,6 +234,7 @@ class FormLoginConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function failurePath($value): self
     {
@@ -226,6 +245,7 @@ class FormLoginConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function failureForward(bool $value): self
     {
@@ -236,6 +256,7 @@ class FormLoginConfig
     
     /**
      * @default '_failure_path'
+     * @return $this
      */
     public function failurePathParameter($value): self
     {
@@ -246,6 +267,7 @@ class FormLoginConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function csrfTokenGenerator($value): self
     {

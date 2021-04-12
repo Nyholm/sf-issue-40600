@@ -26,6 +26,7 @@ class ValidationConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -36,6 +37,7 @@ class ValidationConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function cache($value): self
     {
@@ -46,6 +48,7 @@ class ValidationConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function enableAnnotations(bool $value): self
     {
@@ -54,6 +57,9 @@ class ValidationConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function staticMethod($value): self
     {
         $this->staticMethod = $value;
@@ -63,6 +69,7 @@ class ValidationConfig
     
     /**
      * @default 'validators'
+     * @return $this
      */
     public function translationDomain($value): self
     {
@@ -74,6 +81,7 @@ class ValidationConfig
     /**
      * @default null
      * @param 'html5'|'loose'|'strict' $value
+     * @return $this
      */
     public function emailValidationMode($value): self
     {
@@ -108,11 +116,12 @@ class ValidationConfig
     {
         if (!isset($this->autoMapping[$namespace])) {
             return $this->autoMapping[$namespace] = new \Symfony\Config\Framework\Validation\AutoMappingConfig($value);
-        } elseif ([] === $value) {
-            return $this->autoMapping[$namespace];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "autoMapping()" has already been initialized. You cannot pass values the second time you call autoMapping().'));
         }
+        if ([] === $value) {
+            return $this->autoMapping[$namespace];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "autoMapping()" has already been initialized. You cannot pass values the second time you call autoMapping().'));
     }
     
     public function __construct(array $value = [])

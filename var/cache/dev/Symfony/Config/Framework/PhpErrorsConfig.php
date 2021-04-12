@@ -18,6 +18,7 @@ class PhpErrorsConfig
      * Use the application logger instead of the PHP logger for logging PHP errors.
      * @example "true" to use the default configuration: log all errors. "false" to disable. An integer bit field of E_* constants, or an array mapping E_* constants to log levels.
      * @default true
+     * @return $this
      */
     public function log($value = true): self
     {
@@ -29,6 +30,7 @@ class PhpErrorsConfig
     /**
      * Throw PHP errors as \ErrorException instances.
      * @default true
+     * @return $this
      */
     public function throw(bool $value): self
     {

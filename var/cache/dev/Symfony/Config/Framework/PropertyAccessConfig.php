@@ -20,6 +20,7 @@ class PropertyAccessConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -30,6 +31,7 @@ class PropertyAccessConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function magicCall(bool $value): self
     {
@@ -40,6 +42,7 @@ class PropertyAccessConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function magicGet(bool $value): self
     {
@@ -50,6 +53,7 @@ class PropertyAccessConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function magicSet(bool $value): self
     {
@@ -60,6 +64,7 @@ class PropertyAccessConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function throwExceptionOnInvalidIndex(bool $value): self
     {
@@ -70,6 +75,7 @@ class PropertyAccessConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function throwExceptionOnInvalidPropertyPath(bool $value): self
     {

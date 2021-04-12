@@ -22,6 +22,7 @@ class AccessControlConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function requiresChannel($value): self
     {
@@ -34,6 +35,7 @@ class AccessControlConfig
      * use the urldecoded format
      * @example ^/path to resource/
      * @default null
+     * @return $this
      */
     public function path($value): self
     {
@@ -44,6 +46,7 @@ class AccessControlConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function host($value): self
     {
@@ -54,6 +57,7 @@ class AccessControlConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function port(int $value): self
     {
@@ -62,6 +66,9 @@ class AccessControlConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function ip($value): self
     {
         $this->ips = $value;
@@ -69,6 +76,9 @@ class AccessControlConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function method($value): self
     {
         $this->methods = $value;
@@ -78,6 +88,7 @@ class AccessControlConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function allowIf($value): self
     {
@@ -86,6 +97,9 @@ class AccessControlConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function role($value): self
     {
         $this->roles = $value;

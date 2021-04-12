@@ -36,6 +36,7 @@ class SecondLevelCacheConfig
     
     /**
      * @default 60
+     * @return $this
      */
     public function regionLockLifetime($value): self
     {
@@ -46,6 +47,7 @@ class SecondLevelCacheConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function logEnabled(bool $value): self
     {
@@ -56,6 +58,7 @@ class SecondLevelCacheConfig
     
     /**
      * @default 3600
+     * @return $this
      */
     public function regionLifetime($value): self
     {
@@ -66,6 +69,7 @@ class SecondLevelCacheConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -76,6 +80,7 @@ class SecondLevelCacheConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function factory($value): self
     {
@@ -88,22 +93,24 @@ class SecondLevelCacheConfig
     {
         if (!isset($this->regions[$name])) {
             return $this->regions[$name] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\RegionConfig($value);
-        } elseif ([] === $value) {
-            return $this->regions[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "region()" has already been initialized. You cannot pass values the second time you call region().'));
         }
+        if ([] === $value) {
+            return $this->regions[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "region()" has already been initialized. You cannot pass values the second time you call region().'));
     }
     
     public function logger(string $name, array $value = []): \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\LoggerConfig
     {
         if (!isset($this->loggers[$name])) {
             return $this->loggers[$name] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\LoggerConfig($value);
-        } elseif ([] === $value) {
-            return $this->loggers[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "logger()" has already been initialized. You cannot pass values the second time you call logger().'));
         }
+        if ([] === $value) {
+            return $this->loggers[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "logger()" has already been initialized. You cannot pass values the second time you call logger().'));
     }
     
     public function __construct(array $value = [])

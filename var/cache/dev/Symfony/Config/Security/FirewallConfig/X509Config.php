@@ -17,6 +17,7 @@ class X509Config
     
     /**
      * @default null
+     * @return $this
      */
     public function provider($value): self
     {
@@ -27,6 +28,7 @@ class X509Config
     
     /**
      * @default 'SSL_CLIENT_S_DN_Email'
+     * @return $this
      */
     public function user($value): self
     {
@@ -37,6 +39,7 @@ class X509Config
     
     /**
      * @default 'SSL_CLIENT_S_DN'
+     * @return $this
      */
     public function credentials($value): self
     {

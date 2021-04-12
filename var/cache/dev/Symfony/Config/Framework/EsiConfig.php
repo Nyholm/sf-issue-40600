@@ -15,6 +15,7 @@ class EsiConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {

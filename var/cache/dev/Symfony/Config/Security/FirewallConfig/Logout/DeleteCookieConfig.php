@@ -18,6 +18,7 @@ class DeleteCookieConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function path($value): self
     {
@@ -28,6 +29,7 @@ class DeleteCookieConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function domain($value): self
     {
@@ -38,6 +40,7 @@ class DeleteCookieConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function secure($value): self
     {
@@ -48,6 +51,7 @@ class DeleteCookieConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function samesite($value): self
     {

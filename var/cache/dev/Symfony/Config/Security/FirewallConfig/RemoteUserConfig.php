@@ -16,6 +16,7 @@ class RemoteUserConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function provider($value): self
     {
@@ -26,6 +27,7 @@ class RemoteUserConfig
     
     /**
      * @default 'REMOTE_USER'
+     * @return $this
      */
     public function user($value): self
     {

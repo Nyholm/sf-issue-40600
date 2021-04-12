@@ -33,6 +33,7 @@ class RegionConfig
     
     /**
      * @default '%kernel.cache_dir%/doctrine/orm/slc/filelock'
+     * @return $this
      */
     public function lockPath($value): self
     {
@@ -43,6 +44,7 @@ class RegionConfig
     
     /**
      * @default 60
+     * @return $this
      */
     public function lockLifetime($value): self
     {
@@ -53,6 +55,7 @@ class RegionConfig
     
     /**
      * @default 'default'
+     * @return $this
      */
     public function type($value): self
     {
@@ -63,6 +66,7 @@ class RegionConfig
     
     /**
      * @default 0
+     * @return $this
      */
     public function lifetime($value): self
     {
@@ -73,6 +77,7 @@ class RegionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function service($value): self
     {
@@ -83,6 +88,7 @@ class RegionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function name($value): self
     {

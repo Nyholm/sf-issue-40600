@@ -17,6 +17,7 @@ class RateConfig
     /**
      * Configures the rate interval. The value must be a number followed by "second", "minute", "hour", "day", "week" or "month" (or their plural equivalent).
      * @default null
+     * @return $this
      */
     public function interval($value): self
     {
@@ -28,6 +29,7 @@ class RateConfig
     /**
      * Amount of tokens to add each interval
      * @default 1
+     * @return $this
      */
     public function amount(int $value): self
     {

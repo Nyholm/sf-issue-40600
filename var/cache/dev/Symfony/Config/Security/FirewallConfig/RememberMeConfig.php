@@ -2,6 +2,7 @@
 
 namespace Symfony\Config\Security\FirewallConfig;
 
+require_once __DIR__.'/RememberMe/TokenProviderConfig.php';
 
 
 /**
@@ -13,9 +14,10 @@ class RememberMeConfig
 {
     private $secret;
     private $service;
-    private $tokenProvider;
     private $userProviders;
     private $catchExceptions;
+    private $signatureProperties;
+    private $tokenProvider;
     private $name;
     private $lifetime;
     private $path;
@@ -28,6 +30,7 @@ class RememberMeConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function secret($value): self
     {
@@ -38,6 +41,7 @@ class RememberMeConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function service($value): self
     {
@@ -47,15 +51,8 @@ class RememberMeConfig
     }
     
     /**
-     * @default null
+     * @return $this
      */
-    public function tokenProvider($value): self
-    {
-        $this->tokenProvider = $value;
-    
-        return $this;
-    }
-    
     public function userProvider($value): self
     {
         $this->userProviders = $value;
@@ -65,6 +62,7 @@ class RememberMeConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function catchExceptions(bool $value): self
     {
@@ -74,7 +72,29 @@ class RememberMeConfig
     }
     
     /**
+     * @return $this
+     */
+    public function signatureProperties($value): self
+    {
+        $this->signatureProperties = $value;
+    
+        return $this;
+    }
+    
+    public function tokenProvider(array $value = []): \Symfony\Config\Security\FirewallConfig\RememberMe\TokenProviderConfig
+    {
+        if (null === $this->tokenProvider) {
+            $this->tokenProvider = new \Symfony\Config\Security\FirewallConfig\RememberMe\TokenProviderConfig($value);
+        } elseif ([] !== $value) {
+            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "tokenProvider()" has already been initialized. You cannot pass values the second time you call tokenProvider().'));
+        }
+    
+        return $this->tokenProvider;
+    }
+    
+    /**
      * @default 'REMEMBERME'
+     * @return $this
      */
     public function name($value): self
     {
@@ -85,6 +105,7 @@ class RememberMeConfig
     
     /**
      * @default 31536000
+     * @return $this
      */
     public function lifetime(int $value): self
     {
@@ -95,6 +116,7 @@ class RememberMeConfig
     
     /**
      * @default '/'
+     * @return $this
      */
     public function path($value): self
     {
@@ -105,6 +127,7 @@ class RememberMeConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function domain($value): self
     {
@@ -116,6 +139,7 @@ class RememberMeConfig
     /**
      * @default false
      * @param true|false|'auto' $value
+     * @return $this
      */
     public function secure($value): self
     {
@@ -126,6 +150,7 @@ class RememberMeConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function httponly(bool $value): self
     {
@@ -137,6 +162,7 @@ class RememberMeConfig
     /**
      * @default null
      * @param NULL|'lax'|'strict'|'none' $value
+     * @return $this
      */
     public function samesite($value): self
     {
@@ -147,6 +173,7 @@ class RememberMeConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function alwaysRememberMe(bool $value): self
     {
@@ -157,6 +184,7 @@ class RememberMeConfig
     
     /**
      * @default '_remember_me'
+     * @return $this
      */
     public function rememberMeParameter($value): self
     {
@@ -178,11 +206,6 @@ class RememberMeConfig
             unset($value["service"]);
         }
     
-        if (isset($value["token_provider"])) {
-            $this->tokenProvider = $value["token_provider"];
-            unset($value["token_provider"]);
-        }
-    
         if (isset($value["user_providers"])) {
             $this->userProviders = $value["user_providers"];
             unset($value["user_providers"]);
@@ -191,6 +214,16 @@ class RememberMeConfig
         if (isset($value["catch_exceptions"])) {
             $this->catchExceptions = $value["catch_exceptions"];
             unset($value["catch_exceptions"]);
+        }
+    
+        if (isset($value["signature_properties"])) {
+            $this->signatureProperties = $value["signature_properties"];
+            unset($value["signature_properties"]);
+        }
+    
+        if (isset($value["token_provider"])) {
+            $this->tokenProvider = new TokenProviderConfig($value["token_provider"]);
+            unset($value["token_provider"]);
         }
     
         if (isset($value["name"])) {
@@ -253,14 +286,17 @@ class RememberMeConfig
         if (null !== $this->service) {
             $output["service"] = $this->service;
         }
-        if (null !== $this->tokenProvider) {
-            $output["token_provider"] = $this->tokenProvider;
-        }
         if (null !== $this->userProviders) {
             $output["user_providers"] = $this->userProviders;
         }
         if (null !== $this->catchExceptions) {
             $output["catch_exceptions"] = $this->catchExceptions;
+        }
+        if (null !== $this->signatureProperties) {
+            $output["signature_properties"] = $this->signatureProperties;
+        }
+        if (null !== $this->tokenProvider) {
+            $output["token_provider"] = $this->tokenProvider->toArray();
         }
         if (null !== $this->name) {
             $output["name"] = $this->name;

@@ -42,6 +42,7 @@ class ScopedClientConfig
     /**
      * The regular expression that the request URL must match before adding the other options. When none is provided, the base URI is used instead.
      * @default null
+     * @return $this
      */
     public function scope($value): self
     {
@@ -53,6 +54,7 @@ class ScopedClientConfig
     /**
      * The URI to resolve relative URLs, following rules in RFC 3985, section 2.
      * @default null
+     * @return $this
      */
     public function baseUri($value): self
     {
@@ -64,6 +66,7 @@ class ScopedClientConfig
     /**
      * An HTTP Basic authentication "username:password".
      * @default null
+     * @return $this
      */
     public function authBasic($value): self
     {
@@ -75,6 +78,7 @@ class ScopedClientConfig
     /**
      * A token enabling HTTP Bearer authorization.
      * @default null
+     * @return $this
      */
     public function authBearer($value): self
     {
@@ -86,6 +90,7 @@ class ScopedClientConfig
     /**
      * A "username:password" pair to use Microsoft NTLM authentication (requires the cURL extension).
      * @default null
+     * @return $this
      */
     public function authNtlm($value): self
     {
@@ -94,6 +99,9 @@ class ScopedClientConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function query(string $key, $value): self
     {
         $this->query[$key] = $value;
@@ -101,6 +109,9 @@ class ScopedClientConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function header(string $name, $value): self
     {
         $this->headers[$name] = $value;
@@ -111,6 +122,7 @@ class ScopedClientConfig
     /**
      * The maximum number of redirects to follow.
      * @default null
+     * @return $this
      */
     public function maxRedirects(int $value): self
     {
@@ -122,6 +134,7 @@ class ScopedClientConfig
     /**
      * The default HTTP version, typically 1.1 or 2.0, leave to null for the best version.
      * @default null
+     * @return $this
      */
     public function httpVersion($value): self
     {
@@ -130,6 +143,9 @@ class ScopedClientConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function resolve(string $host, $value): self
     {
         $this->resolve[$host] = $value;
@@ -140,6 +156,7 @@ class ScopedClientConfig
     /**
      * The URL of the proxy to pass requests through or null for automatic detection.
      * @default null
+     * @return $this
      */
     public function proxy($value): self
     {
@@ -151,6 +168,7 @@ class ScopedClientConfig
     /**
      * A comma separated list of hosts that do not require a proxy to be reached.
      * @default null
+     * @return $this
      */
     public function noProxy($value): self
     {
@@ -162,6 +180,7 @@ class ScopedClientConfig
     /**
      * The idle timeout, defaults to the "default_socket_timeout" ini parameter.
      * @default null
+     * @return $this
      */
     public function timeout(float $value): self
     {
@@ -173,6 +192,7 @@ class ScopedClientConfig
     /**
      * The maximum execution time for the request+response as a whole.
      * @default null
+     * @return $this
      */
     public function maxDuration(float $value): self
     {
@@ -184,6 +204,7 @@ class ScopedClientConfig
     /**
      * A network interface name, IP address, a host name or a UNIX socket to bind to.
      * @default null
+     * @return $this
      */
     public function bindto($value): self
     {
@@ -195,6 +216,7 @@ class ScopedClientConfig
     /**
      * Indicates if the peer should be verified in an SSL/TLS context.
      * @default null
+     * @return $this
      */
     public function verifyPeer(bool $value): self
     {
@@ -206,6 +228,7 @@ class ScopedClientConfig
     /**
      * Indicates if the host should exist as a certificate common name.
      * @default null
+     * @return $this
      */
     public function verifyHost(bool $value): self
     {
@@ -217,6 +240,7 @@ class ScopedClientConfig
     /**
      * A certificate authority file.
      * @default null
+     * @return $this
      */
     public function cafile($value): self
     {
@@ -228,6 +252,7 @@ class ScopedClientConfig
     /**
      * A directory that contains multiple certificate authority files.
      * @default null
+     * @return $this
      */
     public function capath($value): self
     {
@@ -239,6 +264,7 @@ class ScopedClientConfig
     /**
      * A PEM formatted certificate file.
      * @default null
+     * @return $this
      */
     public function localCert($value): self
     {
@@ -250,6 +276,7 @@ class ScopedClientConfig
     /**
      * A private key file.
      * @default null
+     * @return $this
      */
     public function localPk($value): self
     {
@@ -261,6 +288,7 @@ class ScopedClientConfig
     /**
      * The passphrase used to encrypt the "local_pk" file.
      * @default null
+     * @return $this
      */
     public function passphrase($value): self
     {
@@ -272,6 +300,7 @@ class ScopedClientConfig
     /**
      * A list of SSL/TLS ciphers separated by colons, commas or spaces (e.g. "RC3-SHA:TLS13-AES-128-GCM-SHA256"...)
      * @default null
+     * @return $this
      */
     public function ciphers($value): self
     {

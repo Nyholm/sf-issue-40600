@@ -17,6 +17,7 @@ class FragmentsConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -27,6 +28,7 @@ class FragmentsConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function hincludeDefaultTemplate($value): self
     {
@@ -37,6 +39,7 @@ class FragmentsConfig
     
     /**
      * @default '/_fragment'
+     * @return $this
      */
     public function path($value): self
     {

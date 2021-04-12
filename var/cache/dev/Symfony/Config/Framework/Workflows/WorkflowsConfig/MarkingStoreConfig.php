@@ -18,6 +18,7 @@ class MarkingStoreConfig
     /**
      * @default null
      * @param 'method' $value
+     * @return $this
      */
     public function type($value): self
     {
@@ -28,6 +29,7 @@ class MarkingStoreConfig
     
     /**
      * @default 'marking'
+     * @return $this
      */
     public function property($value): self
     {
@@ -38,6 +40,7 @@ class MarkingStoreConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function service($value): self
     {

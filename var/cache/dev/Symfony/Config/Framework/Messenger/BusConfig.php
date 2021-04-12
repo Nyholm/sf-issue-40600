@@ -18,6 +18,7 @@ class BusConfig
     /**
      * @default true
      * @param true|false|'allow_no_handlers' $value
+     * @return $this
      */
     public function defaultMiddleware($value): self
     {

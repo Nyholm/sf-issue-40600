@@ -20,6 +20,7 @@ class PackageConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function versionStrategy($value): self
     {
@@ -30,6 +31,7 @@ class PackageConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function version($value): self
     {
@@ -40,6 +42,7 @@ class PackageConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function versionFormat($value): self
     {
@@ -50,6 +53,7 @@ class PackageConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function jsonManifestPath($value): self
     {
@@ -59,6 +63,7 @@ class PackageConfig
     }
     
     /**
+     * @return $this
      */
     public function basePath($value): self
     {
@@ -67,6 +72,9 @@ class PackageConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function baseUrl($value): self
     {
         $this->baseUrls = $value;

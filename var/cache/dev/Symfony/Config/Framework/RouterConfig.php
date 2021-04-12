@@ -22,6 +22,7 @@ class RouterConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -32,6 +33,7 @@ class RouterConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function resource($value): self
     {
@@ -42,6 +44,7 @@ class RouterConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function type($value): self
     {
@@ -53,6 +56,7 @@ class RouterConfig
     /**
      * The default URI used to generate URLs in a non-HTTP context
      * @default null
+     * @return $this
      */
     public function defaultUri($value): self
     {
@@ -63,6 +67,7 @@ class RouterConfig
     
     /**
      * @default 80
+     * @return $this
      */
     public function httpPort($value): self
     {
@@ -73,6 +78,7 @@ class RouterConfig
     
     /**
      * @default 443
+     * @return $this
      */
     public function httpsPort($value): self
     {
@@ -87,6 +93,7 @@ class RouterConfig
     set to null to disable parameter checks against requirements
     'true' is the preferred configuration in development mode, while 'false' or 'null' might be preferred in production
      * @default true
+     * @return $this
      */
     public function strictRequirements($value): self
     {
@@ -97,6 +104,7 @@ class RouterConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function utf8(bool $value): self
     {

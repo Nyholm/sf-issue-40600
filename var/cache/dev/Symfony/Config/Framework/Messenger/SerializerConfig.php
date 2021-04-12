@@ -18,6 +18,7 @@ class SerializerConfig
     /**
      * Service id to use as the default serializer for the transports.
      * @default 'messenger.transport.native_php_serializer'
+     * @return $this
      */
     public function defaultSerializer($value): self
     {

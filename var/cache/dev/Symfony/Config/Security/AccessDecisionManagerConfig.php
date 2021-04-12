@@ -19,6 +19,7 @@ class AccessDecisionManagerConfig
     /**
      * @default null
      * @param 'affirmative'|'consensus'|'unanimous'|'priority' $value
+     * @return $this
      */
     public function strategy($value): self
     {
@@ -29,6 +30,7 @@ class AccessDecisionManagerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function service($value): self
     {
@@ -39,6 +41,7 @@ class AccessDecisionManagerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function allowIfAllAbstain(bool $value): self
     {
@@ -49,6 +52,7 @@ class AccessDecisionManagerConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function allowIfEqualGrantedDenied(bool $value): self
     {

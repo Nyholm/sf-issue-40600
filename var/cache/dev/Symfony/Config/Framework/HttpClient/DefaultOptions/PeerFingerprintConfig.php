@@ -17,6 +17,7 @@ class PeerFingerprintConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function sha1($value): self
     {
@@ -27,6 +28,7 @@ class PeerFingerprintConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function pinsha256($value): self
     {
@@ -37,6 +39,7 @@ class PeerFingerprintConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function md5($value): self
     {

@@ -15,6 +15,7 @@ class PropertyInfoConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function enabled(bool $value): self
     {

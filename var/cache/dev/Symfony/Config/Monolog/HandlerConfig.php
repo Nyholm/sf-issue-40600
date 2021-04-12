@@ -115,6 +115,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function type($value): self
     {
@@ -125,6 +126,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function id($value): self
     {
@@ -135,6 +137,7 @@ class HandlerConfig
     
     /**
      * @default 0
+     * @return $this
      */
     public function priority($value): self
     {
@@ -145,6 +148,7 @@ class HandlerConfig
     
     /**
      * @default 'DEBUG'
+     * @return $this
      */
     public function level($value): self
     {
@@ -155,6 +159,7 @@ class HandlerConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function bubble(bool $value): self
     {
@@ -165,6 +170,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function appName($value): self
     {
@@ -175,6 +181,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function includeStacktraces(bool $value): self
     {
@@ -185,6 +192,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function processPsr3Messages(bool $value): self
     {
@@ -195,6 +203,7 @@ class HandlerConfig
     
     /**
      * @default '%kernel.logs_dir%/%kernel.environment%.log'
+     * @return $this
      */
     public function path($value): self
     {
@@ -205,6 +214,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function filePermission($value): self
     {
@@ -215,6 +225,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function useLocking(bool $value): self
     {
@@ -225,6 +236,7 @@ class HandlerConfig
     
     /**
      * @default '{filename}-{date}'
+     * @return $this
      */
     public function filenameFormat($value): self
     {
@@ -235,6 +247,7 @@ class HandlerConfig
     
     /**
      * @default 'Y-m-d'
+     * @return $this
      */
     public function dateFormat($value): self
     {
@@ -245,6 +258,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function ident($value): self
     {
@@ -255,6 +269,7 @@ class HandlerConfig
     
     /**
      * @default 1
+     * @return $this
      */
     public function logopts($value): self
     {
@@ -265,6 +280,7 @@ class HandlerConfig
     
     /**
      * @default 'user'
+     * @return $this
      */
     public function facility($value): self
     {
@@ -275,6 +291,7 @@ class HandlerConfig
     
     /**
      * @default 0
+     * @return $this
      */
     public function maxFiles($value): self
     {
@@ -285,6 +302,7 @@ class HandlerConfig
     
     /**
      * @default 'WARNING'
+     * @return $this
      */
     public function actionLevel($value): self
     {
@@ -295,6 +313,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function activationStrategy($value): self
     {
@@ -305,6 +324,7 @@ class HandlerConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function stopBuffering(bool $value): self
     {
@@ -315,6 +335,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function passthruLevel($value): self
     {
@@ -323,6 +344,9 @@ class HandlerConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function excluded404($value): self
     {
         $this->excluded404s = $value;
@@ -335,6 +359,9 @@ class HandlerConfig
         return $this->excludedHttpCodes[] = new \Symfony\Config\Monolog\HandlerConfig\ExcludedHttpCodeConfig($value);
     }
     
+    /**
+     * @return $this
+     */
     public function acceptedLevel($value): self
     {
         $this->acceptedLevels = $value;
@@ -344,6 +371,7 @@ class HandlerConfig
     
     /**
      * @default 'DEBUG'
+     * @return $this
      */
     public function minLevel($value): self
     {
@@ -354,6 +382,7 @@ class HandlerConfig
     
     /**
      * @default 'EMERGENCY'
+     * @return $this
      */
     public function maxLevel($value): self
     {
@@ -364,6 +393,7 @@ class HandlerConfig
     
     /**
      * @default 0
+     * @return $this
      */
     public function bufferSize($value): self
     {
@@ -374,6 +404,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function flushOnOverflow(bool $value): self
     {
@@ -384,6 +415,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function handler($value): self
     {
@@ -394,6 +426,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function url($value): self
     {
@@ -404,6 +437,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function exchange($value): self
     {
@@ -414,6 +448,7 @@ class HandlerConfig
     
     /**
      * @default 'log'
+     * @return $this
      */
     public function exchangeName($value): self
     {
@@ -424,6 +459,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function room($value): self
     {
@@ -434,6 +470,7 @@ class HandlerConfig
     
     /**
      * @default 'text'
+     * @return $this
      */
     public function messageFormat($value): self
     {
@@ -444,6 +481,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function apiVersion($value): self
     {
@@ -454,6 +492,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function channel($value): self
     {
@@ -464,6 +503,7 @@ class HandlerConfig
     
     /**
      * @default 'Monolog'
+     * @return $this
      */
     public function botName($value): self
     {
@@ -474,6 +514,7 @@ class HandlerConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function useAttachment($value): self
     {
@@ -484,6 +525,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function useShortAttachment($value): self
     {
@@ -494,6 +536,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function includeExtra($value): self
     {
@@ -504,6 +547,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function iconEmoji($value): self
     {
@@ -514,6 +558,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function webhookUrl($value): self
     {
@@ -524,6 +569,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function team($value): self
     {
@@ -534,6 +580,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function notify($value): self
     {
@@ -544,6 +591,7 @@ class HandlerConfig
     
     /**
      * @default 'Monolog'
+     * @return $this
      */
     public function nickname($value): self
     {
@@ -554,6 +602,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function token($value): self
     {
@@ -564,6 +613,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function region($value): self
     {
@@ -574,6 +624,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function source($value): self
     {
@@ -584,6 +635,7 @@ class HandlerConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function useSsl(bool $value): self
     {
@@ -594,6 +646,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function user($value): self
     {
@@ -604,6 +657,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function title($value): self
     {
@@ -614,6 +668,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function host($value): self
     {
@@ -624,6 +679,7 @@ class HandlerConfig
     
     /**
      * @default 514
+     * @return $this
      */
     public function port($value): self
     {
@@ -667,6 +723,7 @@ class HandlerConfig
     
     /**
      * @default 'monolog'
+     * @return $this
      */
     public function index($value): self
     {
@@ -677,6 +734,7 @@ class HandlerConfig
     
     /**
      * @default 'logs'
+     * @return $this
      */
     public function documentType($value): self
     {
@@ -687,6 +745,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function ignoreError($value): self
     {
@@ -717,6 +776,9 @@ class HandlerConfig
         return $this->predis;
     }
     
+    /**
+     * @return $this
+     */
     public function config($value): self
     {
         $this->config = $value;
@@ -724,6 +786,9 @@ class HandlerConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function member($value): self
     {
         $this->members = $value;
@@ -733,6 +798,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function fromEmail($value): self
     {
@@ -741,6 +807,9 @@ class HandlerConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function toEmail($value): self
     {
         $this->toEmail = $value;
@@ -750,6 +819,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function subject($value): self
     {
@@ -760,6 +830,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function contentType($value): self
     {
@@ -768,6 +839,9 @@ class HandlerConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function header($value): self
     {
         $this->headers = $value;
@@ -777,6 +851,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function mailer($value): self
     {
@@ -798,6 +873,7 @@ class HandlerConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function lazy(bool $value): self
     {
@@ -808,6 +884,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function connectionString($value): self
     {
@@ -818,6 +895,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function timeout($value): self
     {
@@ -828,6 +906,7 @@ class HandlerConfig
     
     /**
      * @default 60
+     * @return $this
      */
     public function time($value): self
     {
@@ -838,6 +917,7 @@ class HandlerConfig
     
     /**
      * @default 400
+     * @return $this
      */
     public function deduplicationLevel($value): self
     {
@@ -848,6 +928,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function store($value): self
     {
@@ -858,6 +939,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function connectionTimeout($value): self
     {
@@ -868,6 +950,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function persistent(bool $value): self
     {
@@ -878,6 +961,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function dsn($value): self
     {
@@ -888,6 +972,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function hubId($value): self
     {
@@ -898,6 +983,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function clientId($value): self
     {
@@ -908,6 +994,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function autoLogStacks($value): self
     {
@@ -918,6 +1005,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function release($value): self
     {
@@ -928,6 +1016,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function environment($value): self
     {
@@ -938,6 +1027,7 @@ class HandlerConfig
     
     /**
      * @default 0
+     * @return $this
      */
     public function messageType($value): self
     {
@@ -946,6 +1036,9 @@ class HandlerConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function tag($value): self
     {
         $this->tags = $value;
@@ -956,6 +1049,7 @@ class HandlerConfig
     /**
      * @default null
      * @deprecated ".console_formater_options" is deprecated, use ".console_formatter_options" instead.
+     * @return $this
      */
     public function consoleFormaterOptions($value): self
     {
@@ -967,6 +1061,7 @@ class HandlerConfig
     /**
      * @default array (
     )
+     * @return $this
      */
     public function consoleFormatterOptions($value = array (
     )): self
@@ -1000,6 +1095,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function formatter($value): self
     {
@@ -1010,6 +1106,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function nested(bool $value): self
     {

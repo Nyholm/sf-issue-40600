@@ -20,6 +20,7 @@ class PseudoLocalizationConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -30,6 +31,7 @@ class PseudoLocalizationConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function accents(bool $value): self
     {
@@ -40,6 +42,7 @@ class PseudoLocalizationConfig
     
     /**
      * @default 1.0
+     * @return $this
      */
     public function expansionFactor(float $value): self
     {
@@ -50,6 +53,7 @@ class PseudoLocalizationConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function brackets(bool $value): self
     {
@@ -60,6 +64,7 @@ class PseudoLocalizationConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function parseHtml(bool $value): self
     {
@@ -68,6 +73,9 @@ class PseudoLocalizationConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function localizableHtmlAttribute($value): self
     {
         $this->localizableHtmlAttributes = $value;

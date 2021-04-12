@@ -13,6 +13,9 @@ class MappingConfig
 {
     private $paths;
     
+    /**
+     * @return $this
+     */
     public function path($value): self
     {
         $this->paths = $value;

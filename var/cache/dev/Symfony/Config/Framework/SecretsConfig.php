@@ -18,6 +18,7 @@ class SecretsConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -28,6 +29,7 @@ class SecretsConfig
     
     /**
      * @default '%kernel.project_dir%/config/secrets/%kernel.runtime_environment%'
+     * @return $this
      */
     public function vaultDirectory($value): self
     {
@@ -38,6 +40,7 @@ class SecretsConfig
     
     /**
      * @default '%kernel.project_dir%/.env.%kernel.environment%.local'
+     * @return $this
      */
     public function localDotenvFile($value): self
     {
@@ -48,6 +51,7 @@ class SecretsConfig
     
     /**
      * @default 'base64:default::SYMFONY_DECRYPTION_SECRET'
+     * @return $this
      */
     public function decryptionEnvVar($value): self
     {

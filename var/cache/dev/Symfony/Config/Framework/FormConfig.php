@@ -18,6 +18,7 @@ class FormConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -39,6 +40,7 @@ class FormConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function legacyErrorMessages(bool $value): self
     {

@@ -16,6 +16,7 @@ class PlaceConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function name($value): self
     {
@@ -24,6 +25,9 @@ class PlaceConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function metadata($value): self
     {
         $this->metadata = $value;

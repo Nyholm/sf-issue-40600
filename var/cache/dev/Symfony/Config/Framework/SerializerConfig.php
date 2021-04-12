@@ -21,6 +21,7 @@ class SerializerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -31,6 +32,7 @@ class SerializerConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function enableAnnotations(bool $value): self
     {
@@ -41,6 +43,7 @@ class SerializerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function nameConverter($value): self
     {
@@ -51,6 +54,7 @@ class SerializerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function circularReferenceHandler($value): self
     {
@@ -61,6 +65,7 @@ class SerializerConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function maxDepthHandler($value): self
     {

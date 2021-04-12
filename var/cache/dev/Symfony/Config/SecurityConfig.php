@@ -34,6 +34,7 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     /**
      * @example /foo/error403
      * @default null
+     * @return $this
      */
     public function accessDeniedUrl($value): self
     {
@@ -45,6 +46,7 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     /**
      * @default 'migrate'
      * @param 'none'|'migrate'|'invalidate' $value
+     * @return $this
      */
     public function sessionFixationStrategy($value): self
     {
@@ -55,6 +57,7 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     
     /**
      * @default true
+     * @return $this
      */
     public function hideUserNotFound(bool $value): self
     {
@@ -65,6 +68,7 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     
     /**
      * @default false
+     * @return $this
      */
     public function alwaysAuthenticateBeforeGranting(bool $value): self
     {
@@ -75,6 +79,7 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     
     /**
      * @default true
+     * @return $this
      */
     public function eraseCredentials(bool $value): self
     {
@@ -86,6 +91,7 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     /**
      * Enables the new Symfony Security system based on Authenticators, all used authenticators must support this before enabling this.
      * @default false
+     * @return $this
      */
     public function enableAuthenticatorManager(bool $value): self
     {
@@ -109,44 +115,48 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     {
         if (!isset($this->encoders[$class])) {
             return $this->encoders[$class] = new \Symfony\Config\Security\EncoderConfig($value);
-        } elseif ([] === $value) {
-            return $this->encoders[$class];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "encoder()" has already been initialized. You cannot pass values the second time you call encoder().'));
         }
+        if ([] === $value) {
+            return $this->encoders[$class];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "encoder()" has already been initialized. You cannot pass values the second time you call encoder().'));
     }
     
     public function passwordHasher(string $class, array $value = []): \Symfony\Config\Security\PasswordHasherConfig
     {
         if (!isset($this->passwordHashers[$class])) {
             return $this->passwordHashers[$class] = new \Symfony\Config\Security\PasswordHasherConfig($value);
-        } elseif ([] === $value) {
-            return $this->passwordHashers[$class];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "passwordHasher()" has already been initialized. You cannot pass values the second time you call passwordHasher().'));
         }
+        if ([] === $value) {
+            return $this->passwordHashers[$class];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "passwordHasher()" has already been initialized. You cannot pass values the second time you call passwordHasher().'));
     }
     
     public function provider(string $name, array $value = []): \Symfony\Config\Security\ProviderConfig
     {
         if (!isset($this->providers[$name])) {
             return $this->providers[$name] = new \Symfony\Config\Security\ProviderConfig($value);
-        } elseif ([] === $value) {
-            return $this->providers[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "provider()" has already been initialized. You cannot pass values the second time you call provider().'));
         }
+        if ([] === $value) {
+            return $this->providers[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "provider()" has already been initialized. You cannot pass values the second time you call provider().'));
     }
     
     public function firewall(string $name, array $value = []): \Symfony\Config\Security\FirewallConfig
     {
         if (!isset($this->firewalls[$name])) {
             return $this->firewalls[$name] = new \Symfony\Config\Security\FirewallConfig($value);
-        } elseif ([] === $value) {
-            return $this->firewalls[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "firewall()" has already been initialized. You cannot pass values the second time you call firewall().'));
         }
+        if ([] === $value) {
+            return $this->firewalls[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "firewall()" has already been initialized. You cannot pass values the second time you call firewall().'));
     }
     
     public function accessControl(array $value = []): \Symfony\Config\Security\AccessControlConfig
@@ -154,6 +164,9 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
         return $this->accessControl[] = new \Symfony\Config\Security\AccessControlConfig($value);
     }
     
+    /**
+     * @return $this
+     */
     public function roleHierarchy(string $id, array $value): self
     {
         $this->roleHierarchy[$id] = $value;

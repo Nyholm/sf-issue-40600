@@ -16,6 +16,7 @@ class CsrfProtectionConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -26,6 +27,7 @@ class CsrfProtectionConfig
     
     /**
      * @default '_token'
+     * @return $this
      */
     public function fieldName($value): self
     {

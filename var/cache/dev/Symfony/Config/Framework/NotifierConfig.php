@@ -21,6 +21,7 @@ class NotifierConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -29,6 +30,9 @@ class NotifierConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function chatterTransport(string $name, $value): self
     {
         $this->chatterTransports[$name] = $value;
@@ -36,6 +40,9 @@ class NotifierConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function texterTransport(string $name, $value): self
     {
         $this->texterTransports[$name] = $value;
@@ -45,6 +52,7 @@ class NotifierConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function notificationOnFailedMessages(bool $value): self
     {
@@ -53,6 +61,9 @@ class NotifierConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function channelPolicy(string $name, array $value): self
     {
         $this->channelPolicy[$name] = $value;

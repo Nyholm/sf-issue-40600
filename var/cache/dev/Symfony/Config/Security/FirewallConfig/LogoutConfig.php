@@ -24,6 +24,7 @@ class LogoutConfig
     
     /**
      * @default '_csrf_token'
+     * @return $this
      */
     public function csrfParameter($value): self
     {
@@ -34,6 +35,7 @@ class LogoutConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function csrfTokenGenerator($value): self
     {
@@ -44,6 +46,7 @@ class LogoutConfig
     
     /**
      * @default 'logout'
+     * @return $this
      */
     public function csrfTokenId($value): self
     {
@@ -54,6 +57,7 @@ class LogoutConfig
     
     /**
      * @default '/logout'
+     * @return $this
      */
     public function path($value): self
     {
@@ -64,6 +68,7 @@ class LogoutConfig
     
     /**
      * @default '/'
+     * @return $this
      */
     public function target($value): self
     {
@@ -75,6 +80,7 @@ class LogoutConfig
     /**
      * @default null
      * @deprecated The "success_handler" at path "logout" is deprecated, register a listener on the "Symfony\Component\Security\Http\Event\LogoutEvent" event instead.
+     * @return $this
      */
     public function successHandler($value): self
     {
@@ -85,6 +91,7 @@ class LogoutConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function invalidateSession(bool $value): self
     {
@@ -97,13 +104,17 @@ class LogoutConfig
     {
         if (!isset($this->deleteCookies[$name])) {
             return $this->deleteCookies[$name] = new \Symfony\Config\Security\FirewallConfig\Logout\DeleteCookieConfig($value);
-        } elseif ([] === $value) {
-            return $this->deleteCookies[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "deleteCookie()" has already been initialized. You cannot pass values the second time you call deleteCookie().'));
         }
+        if ([] === $value) {
+            return $this->deleteCookies[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "deleteCookie()" has already been initialized. You cannot pass values the second time you call deleteCookie().'));
     }
     
+    /**
+     * @return $this
+     */
     public function handler($value): self
     {
         $this->handlers = $value;

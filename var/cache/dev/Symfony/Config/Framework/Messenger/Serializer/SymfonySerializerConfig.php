@@ -17,6 +17,7 @@ class SymfonySerializerConfig
     /**
      * Serialization format for the messenger.transport.symfony_serializer service (which is not the serializer used by default).
      * @default 'json'
+     * @return $this
      */
     public function format($value): self
     {
@@ -25,6 +26,9 @@ class SymfonySerializerConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function context(string $name, $value): self
     {
         $this->context[$name] = $value;

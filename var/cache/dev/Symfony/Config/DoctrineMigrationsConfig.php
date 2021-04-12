@@ -24,6 +24,9 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     private $customTemplate;
     private $organizeMigrations;
     
+    /**
+     * @return $this
+     */
     public function migrationsPath(string $namespace, $value): self
     {
         $this->migrationsPaths[$namespace] = $value;
@@ -31,6 +34,9 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function services(string $service, $value): self
     {
         $this->services[$service] = $value;
@@ -38,6 +44,9 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function factories(string $factory, $value): self
     {
         $this->factories[$factory] = $value;
@@ -56,6 +65,9 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
         return $this->storage;
     }
     
+    /**
+     * @return $this
+     */
     public function migration($value): self
     {
         $this->migrations = $value;
@@ -66,6 +78,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     /**
      * Connection name to use for the migrations database.
      * @default null
+     * @return $this
      */
     public function connection($value): self
     {
@@ -77,6 +90,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     /**
      * Entity manager name to use for the migrations database (available when doctrine/orm is installed).
      * @default null
+     * @return $this
      */
     public function em($value): self
     {
@@ -88,6 +102,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     /**
      * Run all migrations in a transaction.
      * @default false
+     * @return $this
      */
     public function allOrNothing($value): self
     {
@@ -99,6 +114,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     /**
      * Adds an extra check in the generated migrations to allow execution only on the same platform as they were initially generated on.
      * @default true
+     * @return $this
      */
     public function checkDatabasePlatform($value): self
     {
@@ -110,6 +126,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     /**
      * Custom template path for generated migration classes.
      * @default null
+     * @return $this
      */
     public function customTemplate($value): self
     {
@@ -121,6 +138,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     /**
      * Organize migrations mode. Possible values are: "BY_YEAR", "BY_YEAR_AND_MONTH", false
      * @default false
+     * @return $this
      */
     public function organizeMigrations($value): self
     {

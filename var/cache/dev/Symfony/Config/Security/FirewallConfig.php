@@ -41,6 +41,7 @@ class FirewallConfig
     private $context;
     private $logout;
     private $switchUser;
+    private $requiredBadges;
     private $x509;
     private $remoteUser;
     private $guard;
@@ -58,6 +59,7 @@ class FirewallConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function pattern($value): self
     {
@@ -68,6 +70,7 @@ class FirewallConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function host($value): self
     {
@@ -76,6 +79,9 @@ class FirewallConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function methods($value): self
     {
         $this->methods = $value;
@@ -85,6 +91,7 @@ class FirewallConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function security(bool $value): self
     {
@@ -96,6 +103,7 @@ class FirewallConfig
     /**
      * The UserChecker to use when authenticating users in this firewall.
      * @default 'security.user_checker'
+     * @return $this
      */
     public function userChecker($value): self
     {
@@ -106,6 +114,7 @@ class FirewallConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function requestMatcher($value): self
     {
@@ -116,6 +125,7 @@ class FirewallConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function accessDeniedUrl($value): self
     {
@@ -126,6 +136,7 @@ class FirewallConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function accessDeniedHandler($value): self
     {
@@ -137,6 +148,7 @@ class FirewallConfig
     /**
      * An enabled authenticator name or a service id that implements "Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface"
      * @default null
+     * @return $this
      */
     public function entryPoint($value): self
     {
@@ -147,6 +159,7 @@ class FirewallConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function provider($value): self
     {
@@ -157,6 +170,7 @@ class FirewallConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function stateless(bool $value): self
     {
@@ -167,6 +181,7 @@ class FirewallConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function lazy(bool $value): self
     {
@@ -177,6 +192,7 @@ class FirewallConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function context($value): self
     {
@@ -205,6 +221,16 @@ class FirewallConfig
         }
     
         return $this->switchUser;
+    }
+    
+    /**
+     * @return $this
+     */
+    public function requiredBadge($value): self
+    {
+        $this->requiredBadges = $value;
+    
+        return $this;
     }
     
     public function x509(array $value = []): \Symfony\Config\Security\FirewallConfig\X509Config
@@ -240,6 +266,9 @@ class FirewallConfig
         return $this->guard;
     }
     
+    /**
+     * @return $this
+     */
     public function customAuthenticator($value): self
     {
         $this->customAuthenticators = $value;
@@ -435,6 +464,11 @@ class FirewallConfig
             unset($value["switch_user"]);
         }
     
+        if (isset($value["required_badges"])) {
+            $this->requiredBadges = $value["required_badges"];
+            unset($value["required_badges"]);
+        }
+    
         if (isset($value["x509"])) {
             $this->x509 = new X509Config($value["x509"]);
             unset($value["x509"]);
@@ -558,6 +592,9 @@ class FirewallConfig
         }
         if (null !== $this->switchUser) {
             $output["switch_user"] = $this->switchUser->toArray();
+        }
+        if (null !== $this->requiredBadges) {
+            $output["required_badges"] = $this->requiredBadges;
         }
         if (null !== $this->x509) {
             $output["x509"] = $this->x509->toArray();

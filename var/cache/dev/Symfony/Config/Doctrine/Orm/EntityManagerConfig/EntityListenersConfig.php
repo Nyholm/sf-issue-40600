@@ -18,11 +18,12 @@ class EntityListenersConfig
     {
         if (!isset($this->entities[$class])) {
             return $this->entities[$class] = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListeners\EntityConfig($value);
-        } elseif ([] === $value) {
-            return $this->entities[$class];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "entity()" has already been initialized. You cannot pass values the second time you call entity().'));
         }
+        if ([] === $value) {
+            return $this->entities[$class];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "entity()" has already been initialized. You cannot pass values the second time you call entity().'));
     }
     
     public function __construct(array $value = [])

@@ -24,6 +24,7 @@ class HttpCacheConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -34,6 +35,7 @@ class HttpCacheConfig
     
     /**
      * @default '%kernel.debug%'
+     * @return $this
      */
     public function debug(bool $value): self
     {
@@ -45,6 +47,7 @@ class HttpCacheConfig
     /**
      * @default null
      * @param 'none'|'short'|'full' $value
+     * @return $this
      */
     public function traceLevel($value): self
     {
@@ -55,6 +58,7 @@ class HttpCacheConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function traceHeader($value): self
     {
@@ -65,6 +69,7 @@ class HttpCacheConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function defaultTtl(int $value): self
     {
@@ -73,6 +78,9 @@ class HttpCacheConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function privateHeader($value): self
     {
         $this->privateHeaders = $value;
@@ -82,6 +90,7 @@ class HttpCacheConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function allowReload(bool $value): self
     {
@@ -92,6 +101,7 @@ class HttpCacheConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function allowRevalidate(bool $value): self
     {
@@ -102,6 +112,7 @@ class HttpCacheConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function staleWhileRevalidate(int $value): self
     {
@@ -112,6 +123,7 @@ class HttpCacheConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function staleIfError(int $value): self
     {

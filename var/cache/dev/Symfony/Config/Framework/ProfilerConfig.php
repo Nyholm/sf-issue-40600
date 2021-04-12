@@ -20,6 +20,7 @@ class ProfilerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -30,6 +31,7 @@ class ProfilerConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function collect(bool $value): self
     {
@@ -40,6 +42,7 @@ class ProfilerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function onlyExceptions(bool $value): self
     {
@@ -50,6 +53,7 @@ class ProfilerConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function onlyMainRequests(bool $value): self
     {
@@ -61,6 +65,7 @@ class ProfilerConfig
     /**
      * @default false
      * @deprecated Option "only_master_requests" at "profiler" is deprecated, use "only_main_requests" instead.
+     * @return $this
      */
     public function onlyMasterRequests(bool $value): self
     {
@@ -71,6 +76,7 @@ class ProfilerConfig
     
     /**
      * @default 'file:%kernel.cache_dir%/profiler'
+     * @return $this
      */
     public function dsn($value): self
     {

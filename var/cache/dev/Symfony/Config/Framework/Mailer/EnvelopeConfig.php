@@ -16,6 +16,7 @@ class EnvelopeConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function sender($value): self
     {
@@ -24,6 +25,9 @@ class EnvelopeConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function recipients($value): self
     {
         $this->recipients = $value;

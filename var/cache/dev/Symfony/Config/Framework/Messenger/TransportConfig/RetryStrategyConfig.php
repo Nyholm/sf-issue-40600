@@ -20,6 +20,7 @@ class RetryStrategyConfig
     /**
      * Service id to override the retry strategy entirely
      * @default null
+     * @return $this
      */
     public function service($value): self
     {
@@ -30,6 +31,7 @@ class RetryStrategyConfig
     
     /**
      * @default 3
+     * @return $this
      */
     public function maxRetries(int $value): self
     {
@@ -41,6 +43,7 @@ class RetryStrategyConfig
     /**
      * Time in ms to delay (or the initial value when multiplier is used)
      * @default 1000
+     * @return $this
      */
     public function delay(int $value): self
     {
@@ -52,6 +55,7 @@ class RetryStrategyConfig
     /**
      * If greater than 1, delay will grow exponentially for each retry: this delay = (delay * (multiple ^ retries))
      * @default 2
+     * @return $this
      */
     public function multiplier(float $value): self
     {
@@ -63,6 +67,7 @@ class RetryStrategyConfig
     /**
      * Max time in ms that a retry should ever be delayed (0 = infinite)
      * @default 0
+     * @return $this
      */
     public function maxDelay(int $value): self
     {

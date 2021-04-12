@@ -18,6 +18,7 @@ class EntityConfig
     /**
      * The full entity class name of your user class.
      * @default null
+     * @return $this
      */
     public function class($value): self
     {
@@ -28,6 +29,7 @@ class EntityConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function property($value): self
     {
@@ -38,6 +40,7 @@ class EntityConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function managerName($value): self
     {

@@ -16,6 +16,7 @@ class UserConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function password($value): self
     {
@@ -24,6 +25,9 @@ class UserConfig
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function roles($value): self
     {
         $this->roles = $value;

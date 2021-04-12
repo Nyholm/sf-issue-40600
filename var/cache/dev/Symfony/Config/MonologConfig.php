@@ -18,6 +18,7 @@ class MonologConfig implements \Symfony\Component\Config\Builder\ConfigBuilderIn
     
     /**
      * @default true
+     * @return $this
      */
     public function useMicroseconds($value): self
     {
@@ -26,6 +27,9 @@ class MonologConfig implements \Symfony\Component\Config\Builder\ConfigBuilderIn
         return $this;
     }
     
+    /**
+     * @return $this
+     */
     public function channel($value): self
     {
         $this->channels = $value;
@@ -37,11 +41,12 @@ class MonologConfig implements \Symfony\Component\Config\Builder\ConfigBuilderIn
     {
         if (!isset($this->handlers[$name])) {
             return $this->handlers[$name] = new \Symfony\Config\Monolog\HandlerConfig($value);
-        } elseif ([] === $value) {
-            return $this->handlers[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "handler()" has already been initialized. You cannot pass values the second time you call handler().'));
         }
+        if ([] === $value) {
+            return $this->handlers[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "handler()" has already been initialized. You cannot pass values the second time you call handler().'));
     }
     
     public function getExtensionAlias(): string

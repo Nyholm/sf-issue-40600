@@ -24,6 +24,7 @@ class JsonLoginConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function provider($value): self
     {
@@ -34,6 +35,7 @@ class JsonLoginConfig
     
     /**
      * @default true
+     * @return $this
      */
     public function rememberMe(bool $value): self
     {
@@ -44,6 +46,7 @@ class JsonLoginConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function successHandler($value): self
     {
@@ -54,6 +57,7 @@ class JsonLoginConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function failureHandler($value): self
     {
@@ -64,6 +68,7 @@ class JsonLoginConfig
     
     /**
      * @default '/login_check'
+     * @return $this
      */
     public function checkPath($value): self
     {
@@ -74,6 +79,7 @@ class JsonLoginConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function useForward(bool $value): self
     {
@@ -84,6 +90,7 @@ class JsonLoginConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function requirePreviousSession(bool $value): self
     {
@@ -94,6 +101,7 @@ class JsonLoginConfig
     
     /**
      * @default '/login'
+     * @return $this
      */
     public function loginPath($value): self
     {
@@ -104,6 +112,7 @@ class JsonLoginConfig
     
     /**
      * @default 'username'
+     * @return $this
      */
     public function usernamePath($value): self
     {
@@ -114,6 +123,7 @@ class JsonLoginConfig
     
     /**
      * @default 'password'
+     * @return $this
      */
     public function passwordPath($value): self
     {

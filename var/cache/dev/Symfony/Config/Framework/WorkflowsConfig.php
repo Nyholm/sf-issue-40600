@@ -17,6 +17,7 @@ class WorkflowsConfig
     
     /**
      * @default false
+     * @return $this
      */
     public function enabled(bool $value): self
     {
@@ -29,11 +30,12 @@ class WorkflowsConfig
     {
         if (!isset($this->workflows[$name])) {
             return $this->workflows[$name] = new \Symfony\Config\Framework\Workflows\WorkflowsConfig($value);
-        } elseif ([] === $value) {
-            return $this->workflows[$name];
-        } else {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "workflows()" has already been initialized. You cannot pass values the second time you call workflows().'));
         }
+        if ([] === $value) {
+            return $this->workflows[$name];
+        }
+    
+        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "workflows()" has already been initialized. You cannot pass values the second time you call workflows().'));
     }
     
     public function __construct(array $value = [])

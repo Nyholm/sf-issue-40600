@@ -15,6 +15,7 @@ class HeaderConfig
     
     /**
      * @default null
+     * @return $this
      */
     public function value($value): self
     {
