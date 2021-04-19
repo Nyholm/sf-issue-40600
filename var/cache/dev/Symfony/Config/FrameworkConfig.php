@@ -139,7 +139,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     /**
      * @return $this
      */
-    public function trustedHosts($value): self
+    public function trustedHosts(array $value): self
     {
         $this->trustedHosts = $value;
     
@@ -160,7 +160,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     /**
      * @return $this
      */
-    public function trustedHeaders($value): self
+    public function trustedHeaders(array $value): self
     {
         $this->trustedHeaders = $value;
     

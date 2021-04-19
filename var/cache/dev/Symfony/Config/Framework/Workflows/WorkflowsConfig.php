@@ -63,7 +63,7 @@ class WorkflowsConfig
     /**
      * @return $this
      */
-    public function support($value): self
+    public function supports(array $value): self
     {
         $this->supports = $value;
     
@@ -84,7 +84,7 @@ class WorkflowsConfig
     /**
      * @return $this
      */
-    public function initialMarking($value): self
+    public function initialMarking(array $value): self
     {
         $this->initialMarking = $value;
     
@@ -118,7 +118,7 @@ class WorkflowsConfig
     /**
      * @return $this
      */
-    public function metadata($value): self
+    public function metadata(array $value): self
     {
         $this->metadata = $value;
     

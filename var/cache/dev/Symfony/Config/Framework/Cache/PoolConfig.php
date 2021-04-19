@@ -22,7 +22,7 @@ class PoolConfig
     /**
      * @return $this
      */
-    public function adapter($value): self
+    public function adapters(array $value): self
     {
         $this->adapters = $value;
     

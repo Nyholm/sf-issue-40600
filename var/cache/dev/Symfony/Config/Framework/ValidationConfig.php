@@ -60,7 +60,7 @@ class ValidationConfig
     /**
      * @return $this
      */
-    public function staticMethod($value): self
+    public function staticMethod(array $value): self
     {
         $this->staticMethod = $value;
     

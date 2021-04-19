@@ -28,7 +28,7 @@ class UserConfig
     /**
      * @return $this
      */
-    public function roles($value): self
+    public function roles(array $value): self
     {
         $this->roles = $value;
     

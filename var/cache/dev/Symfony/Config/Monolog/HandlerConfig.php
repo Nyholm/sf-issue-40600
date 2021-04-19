@@ -347,7 +347,7 @@ class HandlerConfig
     /**
      * @return $this
      */
-    public function excluded404($value): self
+    public function excluded404s(array $value): self
     {
         $this->excluded404s = $value;
     
@@ -362,7 +362,7 @@ class HandlerConfig
     /**
      * @return $this
      */
-    public function acceptedLevel($value): self
+    public function acceptedLevels(array $value): self
     {
         $this->acceptedLevels = $value;
     
@@ -779,7 +779,7 @@ class HandlerConfig
     /**
      * @return $this
      */
-    public function config($value): self
+    public function config(array $value): self
     {
         $this->config = $value;
     
@@ -789,7 +789,7 @@ class HandlerConfig
     /**
      * @return $this
      */
-    public function member($value): self
+    public function members(array $value): self
     {
         $this->members = $value;
     
@@ -810,7 +810,7 @@ class HandlerConfig
     /**
      * @return $this
      */
-    public function toEmail($value): self
+    public function toEmail(array $value): self
     {
         $this->toEmail = $value;
     
@@ -842,7 +842,7 @@ class HandlerConfig
     /**
      * @return $this
      */
-    public function header($value): self
+    public function headers(array $value): self
     {
         $this->headers = $value;
     
@@ -1039,7 +1039,7 @@ class HandlerConfig
     /**
      * @return $this
      */
-    public function tag($value): self
+    public function tags(array $value): self
     {
         $this->tags = $value;
     

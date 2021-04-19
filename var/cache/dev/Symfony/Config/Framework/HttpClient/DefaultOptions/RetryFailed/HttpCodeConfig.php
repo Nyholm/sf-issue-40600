@@ -28,7 +28,7 @@ class HttpCodeConfig
     /**
      * @return $this
      */
-    public function method($value): self
+    public function methods(array $value): self
     {
         $this->methods = $value;
     

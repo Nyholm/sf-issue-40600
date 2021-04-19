@@ -81,7 +81,7 @@ class HttpCacheConfig
     /**
      * @return $this
      */
-    public function privateHeader($value): self
+    public function privateHeaders(array $value): self
     {
         $this->privateHeaders = $value;
     

@@ -82,7 +82,7 @@ class FirewallConfig
     /**
      * @return $this
      */
-    public function methods($value): self
+    public function methods(array $value): self
     {
         $this->methods = $value;
     
@@ -226,7 +226,7 @@ class FirewallConfig
     /**
      * @return $this
      */
-    public function requiredBadge($value): self
+    public function requiredBadges(array $value): self
     {
         $this->requiredBadges = $value;
     
@@ -269,7 +269,7 @@ class FirewallConfig
     /**
      * @return $this
      */
-    public function customAuthenticator($value): self
+    public function customAuthenticators(array $value): self
     {
         $this->customAuthenticators = $value;
     

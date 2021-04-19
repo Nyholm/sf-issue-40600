@@ -76,7 +76,7 @@ class PseudoLocalizationConfig
     /**
      * @return $this
      */
-    public function localizableHtmlAttribute($value): self
+    public function localizableHtmlAttributes(array $value): self
     {
         $this->localizableHtmlAttributes = $value;
     

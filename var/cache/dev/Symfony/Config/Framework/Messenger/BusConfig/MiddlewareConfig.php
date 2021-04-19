@@ -28,7 +28,7 @@ class MiddlewareConfig
     /**
      * @return $this
      */
-    public function argument($value): self
+    public function arguments(array $value): self
     {
         $this->arguments = $value;
     

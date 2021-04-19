@@ -28,7 +28,7 @@ class ChannelsConfig
     /**
      * @return $this
      */
-    public function channel($value): self
+    public function elements(array $value): self
     {
         $this->elements = $value;
     

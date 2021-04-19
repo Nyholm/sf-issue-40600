@@ -68,7 +68,7 @@ class LdapConfig
     /**
      * @return $this
      */
-    public function extraField($value): self
+    public function extraFields(array $value): self
     {
         $this->extraFields = $value;
     
@@ -78,7 +78,7 @@ class LdapConfig
     /**
      * @return $this
      */
-    public function defaultRole($value): self
+    public function defaultRoles(array $value): self
     {
         $this->defaultRoles = $value;
     

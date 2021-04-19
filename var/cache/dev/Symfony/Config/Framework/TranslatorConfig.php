@@ -36,7 +36,7 @@ class TranslatorConfig
     /**
      * @return $this
      */
-    public function fallback($value): self
+    public function fallbacks(array $value): self
     {
         $this->fallbacks = $value;
     
@@ -91,7 +91,7 @@ class TranslatorConfig
     /**
      * @return $this
      */
-    public function path($value): self
+    public function paths(array $value): self
     {
         $this->paths = $value;
     
@@ -101,7 +101,7 @@ class TranslatorConfig
     /**
      * @return $this
      */
-    public function enabledLocale($value): self
+    public function enabledLocales(array $value): self
     {
         $this->enabledLocales = $value;
     

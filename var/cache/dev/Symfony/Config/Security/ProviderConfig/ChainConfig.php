@@ -16,7 +16,7 @@ class ChainConfig
     /**
      * @return $this
      */
-    public function provider($value): self
+    public function providers(array $value): self
     {
         $this->providers = $value;
     

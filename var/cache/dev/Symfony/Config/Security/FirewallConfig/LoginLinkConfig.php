@@ -56,7 +56,7 @@ class LoginLinkConfig
     /**
      * @return $this
      */
-    public function signatureProperty($value): self
+    public function signatureProperties(array $value): self
     {
         $this->signatureProperties = $value;
     

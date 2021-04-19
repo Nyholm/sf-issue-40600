@@ -44,7 +44,7 @@ class TransportConfig
     /**
      * @return $this
      */
-    public function option($value): self
+    public function options(array $value): self
     {
         $this->options = $value;
     

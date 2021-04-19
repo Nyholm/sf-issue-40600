@@ -42,7 +42,7 @@ class GuardConfig
     /**
      * @return $this
      */
-    public function authenticator($value): self
+    public function authenticators(array $value): self
     {
         $this->authenticators = $value;
     

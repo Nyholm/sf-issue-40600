@@ -115,7 +115,7 @@ class LogoutConfig
     /**
      * @return $this
      */
-    public function handler($value): self
+    public function handlers(array $value): self
     {
         $this->handlers = $value;
     

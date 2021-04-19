@@ -89,7 +89,7 @@ class AssetsConfig
     /**
      * @return $this
      */
-    public function baseUrl($value): self
+    public function baseUrls(array $value): self
     {
         $this->baseUrls = $value;
     

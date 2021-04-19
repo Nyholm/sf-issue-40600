@@ -37,7 +37,7 @@ class PasswordHasherConfig
     /**
      * @return $this
      */
-    public function migrateFrom($value): self
+    public function migrateFrom(array $value): self
     {
         $this->migrateFrom = $value;
     

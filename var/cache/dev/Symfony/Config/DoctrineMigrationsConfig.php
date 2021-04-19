@@ -68,7 +68,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     /**
      * @return $this
      */
-    public function migration($value): self
+    public function migrations(array $value): self
     {
         $this->migrations = $value;
     

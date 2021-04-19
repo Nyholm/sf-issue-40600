@@ -53,7 +53,7 @@ class RememberMeConfig
     /**
      * @return $this
      */
-    public function userProvider($value): self
+    public function userProviders(array $value): self
     {
         $this->userProviders = $value;
     
@@ -74,7 +74,7 @@ class RememberMeConfig
     /**
      * @return $this
      */
-    public function signatureProperties($value): self
+    public function signatureProperties(array $value): self
     {
         $this->signatureProperties = $value;
     

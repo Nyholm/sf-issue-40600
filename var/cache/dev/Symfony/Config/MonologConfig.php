@@ -30,7 +30,7 @@ class MonologConfig implements \Symfony\Component\Config\Builder\ConfigBuilderIn
     /**
      * @return $this
      */
-    public function channel($value): self
+    public function channels(array $value): self
     {
         $this->channels = $value;
     

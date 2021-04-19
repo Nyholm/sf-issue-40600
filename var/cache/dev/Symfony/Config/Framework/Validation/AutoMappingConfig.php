@@ -16,7 +16,7 @@ class AutoMappingConfig
     /**
      * @return $this
      */
-    public function service($value): self
+    public function services(array $value): self
     {
         $this->services = $value;
     

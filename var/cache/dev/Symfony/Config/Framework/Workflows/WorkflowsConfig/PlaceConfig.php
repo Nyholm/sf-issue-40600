@@ -28,7 +28,7 @@ class PlaceConfig
     /**
      * @return $this
      */
-    public function metadata($value): self
+    public function metadata(array $value): self
     {
         $this->metadata = $value;
     

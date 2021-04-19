@@ -28,7 +28,7 @@ class EnvelopeConfig
     /**
      * @return $this
      */
-    public function recipients($value): self
+    public function recipients(array $value): self
     {
         $this->recipients = $value;
     

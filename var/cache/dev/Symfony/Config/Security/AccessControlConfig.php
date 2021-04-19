@@ -69,7 +69,7 @@ class AccessControlConfig
     /**
      * @return $this
      */
-    public function ip($value): self
+    public function ips(array $value): self
     {
         $this->ips = $value;
     
@@ -79,7 +79,7 @@ class AccessControlConfig
     /**
      * @return $this
      */
-    public function method($value): self
+    public function methods(array $value): self
     {
         $this->methods = $value;
     
@@ -100,7 +100,7 @@ class AccessControlConfig
     /**
      * @return $this
      */
-    public function role($value): self
+    public function roles(array $value): self
     {
         $this->roles = $value;
     
