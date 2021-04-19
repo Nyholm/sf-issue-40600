@@ -3,18 +3,7 @@ use Symfony\Config\MonologConfig;
 
 return static function (MonologConfig $monolog) {
 
-    $handler = $monolog->handler('main')
-        ->type('fingers_crossed')
-        ->handler('nested')
-    ;
-    $handler->excludedHttpCode()->code('404');
-    $handler->excludedHttpCode()->code('405');
 
-    $monolog->handler('nested')
-        ->type('stream')
-        ->path('php://strerr')
-        ->level('debug')
-        ->channels(['elements' => ['!event']]);
 };
 
 /*

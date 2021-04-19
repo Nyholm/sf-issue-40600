@@ -28,8 +28,8 @@ class Kernel extends BaseKernel
 
     protected function configureRoutes(RoutingConfigurator $routes): void
     {
-        $routes->import('../config/{routes}/'.$this->environment.'/*.yaml');
-        $routes->import('../config/{routes}/*.yaml');
+        $routes->import('../config/{routes}/'.$this->environment.'/*.php');
+        $routes->import('../config/{routes}/*.php');
 
         if (is_file(\dirname(__DIR__).'/config/routes.yaml')) {
             $routes->import('../config/routes.yaml');
@@ -37,4 +37,11 @@ class Kernel extends BaseKernel
             (require $path)($routes->withPath($path), $this);
         }
     }
+
+    public function getBuildDir(): string
+    {
+        return $this->getProjectDir().'/var/build/'.$this->environment;
+    }
+
+
 }

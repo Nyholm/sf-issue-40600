@@ -137,7 +137,7 @@ class RememberMeConfig
     }
     
     /**
-     * @default false
+     * @default null
      * @param true|false|'auto' $value
      * @return $this
      */
@@ -160,7 +160,7 @@ class RememberMeConfig
     }
     
     /**
-     * @default null
+     * @default 'lax'
      * @param NULL|'lax'|'strict'|'none' $value
      * @return $this
      */

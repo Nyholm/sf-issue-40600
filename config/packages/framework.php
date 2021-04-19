@@ -3,6 +3,7 @@
 use Symfony\Config\FrameworkConfig;
 
 return static function (FrameworkConfig $framework) {
+    $framework->router()->defaultUri('https://example.org/my/path/');
     $framework->secret('%env(APP_SECRET)%');
     $framework->httpMethodOverride(false);
 
