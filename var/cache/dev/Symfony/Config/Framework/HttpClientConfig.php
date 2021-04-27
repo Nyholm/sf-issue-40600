@@ -2,8 +2,11 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/HttpClient/DefaultOptionsConfig.php';
-require_once __DIR__.'/HttpClient/ScopedClientConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'HttpClient'.\DIRECTORY_SEPARATOR.'DefaultOptionsConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'HttpClient'.\DIRECTORY_SEPARATOR.'ScopedClientConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -20,10 +23,11 @@ class HttpClientConfig
     private $scopedClients;
     
     /**
-     * @default false
+     * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -33,9 +37,10 @@ class HttpClientConfig
     /**
      * The maximum number of connections to a single host.
      * @default null
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function maxHostConnections(int $value): self
+    public function maxHostConnections($value): self
     {
         $this->maxHostConnections = $value;
     
@@ -47,7 +52,7 @@ class HttpClientConfig
         if (null === $this->defaultOptions) {
             $this->defaultOptions = new \Symfony\Config\Framework\HttpClient\DefaultOptionsConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "defaultOptions()" has already been initialized. You cannot pass values the second time you call defaultOptions().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "defaultOptions()" has already been initialized. You cannot pass values the second time you call defaultOptions().'));
         }
     
         return $this->defaultOptions;
@@ -56,6 +61,7 @@ class HttpClientConfig
     /**
      * The id of the service that should generate mock responses. It should be either an invokable or an iterable.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function mockResponseFactory($value): self
@@ -74,7 +80,7 @@ class HttpClientConfig
             return $this->scopedClients[$name];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "scopedClient()" has already been initialized. You cannot pass values the second time you call scopedClient().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "scopedClient()" has already been initialized. You cannot pass values the second time you call scopedClient().'));
     }
     
     public function __construct(array $value = [])
@@ -106,7 +112,7 @@ class HttpClientConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -33,9 +36,10 @@ class SessionConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -44,6 +48,7 @@ class SessionConfig
     
     /**
      * @default 'session.storage.native'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function storageId($value): self
@@ -55,6 +60,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function storageFactoryId($value): self
@@ -66,6 +72,7 @@ class SessionConfig
     
     /**
      * @default 'session.handler.native_file'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function handlerId($value): self
@@ -77,6 +84,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function name($value): self
@@ -88,6 +96,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function cookieLifetime($value): self
@@ -99,6 +108,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function cookiePath($value): self
@@ -110,6 +120,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function cookieDomain($value): self
@@ -121,7 +132,7 @@ class SessionConfig
     
     /**
      * @default null
-     * @param true|false|'auto' $value
+     * @param ParamConfigurator|true|false|'auto' $value
      * @return $this
      */
     public function cookieSecure($value): self
@@ -133,9 +144,10 @@ class SessionConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function cookieHttponly(bool $value): self
+    public function cookieHttponly($value): self
     {
         $this->cookieHttponly = $value;
     
@@ -144,7 +156,7 @@ class SessionConfig
     
     /**
      * @default null
-     * @param NULL|'lax'|'strict'|'none' $value
+     * @param ParamConfigurator|NULL|'lax'|'strict'|'none' $value
      * @return $this
      */
     public function cookieSamesite($value): self
@@ -156,9 +168,10 @@ class SessionConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useCookies(bool $value): self
+    public function useCookies($value): self
     {
         $this->useCookies = $value;
     
@@ -167,6 +180,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function gcDivisor($value): self
@@ -178,6 +192,7 @@ class SessionConfig
     
     /**
      * @default 1
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function gcProbability($value): self
@@ -189,6 +204,7 @@ class SessionConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function gcMaxlifetime($value): self
@@ -200,6 +216,7 @@ class SessionConfig
     
     /**
      * @default '%kernel.cache_dir%/sessions'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function savePath($value): self
@@ -212,9 +229,10 @@ class SessionConfig
     /**
      * seconds to wait between 2 session metadata updates
      * @default 0
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function metadataUpdateThreshold(int $value): self
+    public function metadataUpdateThreshold($value): self
     {
         $this->metadataUpdateThreshold = $value;
     
@@ -223,9 +241,10 @@ class SessionConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function sidLength(int $value): self
+    public function sidLength($value): self
     {
         $this->sidLength = $value;
     
@@ -234,9 +253,10 @@ class SessionConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function sidBitsPerCharacter(int $value): self
+    public function sidBitsPerCharacter($value): self
     {
         $this->sidBitsPerCharacter = $value;
     
@@ -342,7 +362,7 @@ class SessionConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

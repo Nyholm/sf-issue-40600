@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework\Validation;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -14,9 +17,10 @@ class AutoMappingConfig
     private $services;
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function services(array $value): self
+    public function services($value): self
     {
         $this->services = $value;
     
@@ -32,7 +36,7 @@ class AutoMappingConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

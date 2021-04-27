@@ -2,9 +2,12 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/Validation/MappingConfig.php';
-require_once __DIR__.'/Validation/NotCompromisedPasswordConfig.php';
-require_once __DIR__.'/Validation/AutoMappingConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Validation'.\DIRECTORY_SEPARATOR.'MappingConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Validation'.\DIRECTORY_SEPARATOR.'NotCompromisedPasswordConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Validation'.\DIRECTORY_SEPARATOR.'AutoMappingConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -26,9 +29,10 @@ class ValidationConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -37,6 +41,7 @@ class ValidationConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function cache($value): self
@@ -48,9 +53,10 @@ class ValidationConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enableAnnotations(bool $value): self
+    public function enableAnnotations($value): self
     {
         $this->enableAnnotations = $value;
     
@@ -58,9 +64,10 @@ class ValidationConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function staticMethod(array $value): self
+    public function staticMethod($value): self
     {
         $this->staticMethod = $value;
     
@@ -69,6 +76,7 @@ class ValidationConfig
     
     /**
      * @default 'validators'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function translationDomain($value): self
@@ -80,7 +88,7 @@ class ValidationConfig
     
     /**
      * @default null
-     * @param 'html5'|'loose'|'strict' $value
+     * @param ParamConfigurator|'html5'|'loose'|'strict' $value
      * @return $this
      */
     public function emailValidationMode($value): self
@@ -95,7 +103,7 @@ class ValidationConfig
         if (null === $this->mapping) {
             $this->mapping = new \Symfony\Config\Framework\Validation\MappingConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "mapping()" has already been initialized. You cannot pass values the second time you call mapping().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "mapping()" has already been initialized. You cannot pass values the second time you call mapping().'));
         }
     
         return $this->mapping;
@@ -106,7 +114,7 @@ class ValidationConfig
         if (null === $this->notCompromisedPassword) {
             $this->notCompromisedPassword = new \Symfony\Config\Framework\Validation\NotCompromisedPasswordConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "notCompromisedPassword()" has already been initialized. You cannot pass values the second time you call notCompromisedPassword().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "notCompromisedPassword()" has already been initialized. You cannot pass values the second time you call notCompromisedPassword().'));
         }
     
         return $this->notCompromisedPassword;
@@ -121,7 +129,7 @@ class ValidationConfig
             return $this->autoMapping[$namespace];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "autoMapping()" has already been initialized. You cannot pass values the second time you call autoMapping().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "autoMapping()" has already been initialized. You cannot pass values the second time you call autoMapping().'));
     }
     
     public function __construct(array $value = [])
@@ -173,7 +181,7 @@ class ValidationConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

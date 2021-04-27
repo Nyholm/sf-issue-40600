@@ -2,9 +2,12 @@
 
 namespace Symfony\Config\Doctrine\Orm\EntityManagerConfig;
 
-require_once __DIR__.'/SecondLevelCache/RegionCacheDriverConfig.php';
-require_once __DIR__.'/SecondLevelCache/RegionConfig.php';
-require_once __DIR__.'/SecondLevelCache/LoggerConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'SecondLevelCache'.\DIRECTORY_SEPARATOR.'RegionCacheDriverConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'SecondLevelCache'.\DIRECTORY_SEPARATOR.'RegionConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'SecondLevelCache'.\DIRECTORY_SEPARATOR.'LoggerConfig.php';
+
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+use Symfony\Component\Config\Loader\ParamConfigurator;
 
 
 /**
@@ -28,7 +31,7 @@ class SecondLevelCacheConfig
         if (null === $this->regionCacheDriver) {
             $this->regionCacheDriver = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\RegionCacheDriverConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "regionCacheDriver()" has already been initialized. You cannot pass values the second time you call regionCacheDriver().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "regionCacheDriver()" has already been initialized. You cannot pass values the second time you call regionCacheDriver().'));
         }
     
         return $this->regionCacheDriver;
@@ -36,6 +39,7 @@ class SecondLevelCacheConfig
     
     /**
      * @default 60
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function regionLockLifetime($value): self
@@ -47,9 +51,10 @@ class SecondLevelCacheConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function logEnabled(bool $value): self
+    public function logEnabled($value): self
     {
         $this->logEnabled = $value;
     
@@ -58,6 +63,7 @@ class SecondLevelCacheConfig
     
     /**
      * @default 3600
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function regionLifetime($value): self
@@ -69,9 +75,10 @@ class SecondLevelCacheConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -80,6 +87,7 @@ class SecondLevelCacheConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function factory($value): self
@@ -98,7 +106,7 @@ class SecondLevelCacheConfig
             return $this->regions[$name];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "region()" has already been initialized. You cannot pass values the second time you call region().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "region()" has already been initialized. You cannot pass values the second time you call region().'));
     }
     
     public function logger(string $name, array $value = []): \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\LoggerConfig
@@ -110,7 +118,7 @@ class SecondLevelCacheConfig
             return $this->loggers[$name];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "logger()" has already been initialized. You cannot pass values the second time you call logger().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "logger()" has already been initialized. You cannot pass values the second time you call logger().'));
     }
     
     public function __construct(array $value = [])
@@ -157,7 +165,7 @@ class SecondLevelCacheConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

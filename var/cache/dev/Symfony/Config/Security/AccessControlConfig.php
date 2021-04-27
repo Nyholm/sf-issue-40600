@@ -3,6 +3,9 @@
 namespace Symfony\Config\Security;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -22,6 +25,7 @@ class AccessControlConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function requiresChannel($value): self
@@ -35,6 +39,7 @@ class AccessControlConfig
      * use the urldecoded format
      * @example ^/path to resource/
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function path($value): self
@@ -46,6 +51,7 @@ class AccessControlConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function host($value): self
@@ -57,9 +63,10 @@ class AccessControlConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function port(int $value): self
+    public function port($value): self
     {
         $this->port = $value;
     
@@ -67,9 +74,10 @@ class AccessControlConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function ips(array $value): self
+    public function ips($value): self
     {
         $this->ips = $value;
     
@@ -77,9 +85,10 @@ class AccessControlConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function methods(array $value): self
+    public function methods($value): self
     {
         $this->methods = $value;
     
@@ -88,6 +97,7 @@ class AccessControlConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function allowIf($value): self
@@ -98,9 +108,10 @@ class AccessControlConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function roles(array $value): self
+    public function roles($value): self
     {
         $this->roles = $value;
     
@@ -151,7 +162,7 @@ class AccessControlConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

@@ -2,7 +2,9 @@
 
 namespace Symfony\Config\DoctrineMigrations;
 
-require_once __DIR__.'/Storage/TableStorageConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Storage'.\DIRECTORY_SEPARATOR.'TableStorageConfig.php';
+
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -19,7 +21,7 @@ class StorageConfig
         if (null === $this->tableStorage) {
             $this->tableStorage = new \Symfony\Config\DoctrineMigrations\Storage\TableStorageConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "tableStorage()" has already been initialized. You cannot pass values the second time you call tableStorage().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "tableStorage()" has already been initialized. You cannot pass values the second time you call tableStorage().'));
         }
     
         return $this->tableStorage;
@@ -34,7 +36,7 @@ class StorageConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

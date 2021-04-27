@@ -3,6 +3,9 @@
 namespace Symfony\Config\Security;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -25,6 +28,7 @@ class PasswordHasherConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function algorithm($value): self
@@ -35,9 +39,10 @@ class PasswordHasherConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function migrateFrom(array $value): self
+    public function migrateFrom($value): self
     {
         $this->migrateFrom = $value;
     
@@ -47,6 +52,7 @@ class PasswordHasherConfig
     /**
      * Name of hashing algorithm for PBKDF2 (i.e. sha256, sha512, etc..) See hash_algos() for a list of supported algorithms.
      * @default 'sha512'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function hashAlgorithm($value): self
@@ -58,6 +64,7 @@ class PasswordHasherConfig
     
     /**
      * @default 40
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function keyLength($value): self
@@ -69,9 +76,10 @@ class PasswordHasherConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function ignoreCase(bool $value): self
+    public function ignoreCase($value): self
     {
         $this->ignoreCase = $value;
     
@@ -80,9 +88,10 @@ class PasswordHasherConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function encodeAsBase64(bool $value): self
+    public function encodeAsBase64($value): self
     {
         $this->encodeAsBase64 = $value;
     
@@ -91,6 +100,7 @@ class PasswordHasherConfig
     
     /**
      * @default 5000
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function iterations($value): self
@@ -102,9 +112,10 @@ class PasswordHasherConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function cost(int $value): self
+    public function cost($value): self
     {
         $this->cost = $value;
     
@@ -113,6 +124,7 @@ class PasswordHasherConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function memoryCost($value): self
@@ -124,6 +136,7 @@ class PasswordHasherConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function timeCost($value): self
@@ -135,6 +148,7 @@ class PasswordHasherConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function id($value): self
@@ -203,7 +217,7 @@ class PasswordHasherConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

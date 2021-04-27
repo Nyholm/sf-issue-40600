@@ -2,7 +2,10 @@
 
 namespace Symfony\Config\Framework\Messenger;
 
-require_once __DIR__.'/TransportConfig/RetryStrategyConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'TransportConfig'.\DIRECTORY_SEPARATOR.'RetryStrategyConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -20,6 +23,7 @@ class TransportConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function dsn($value): self
@@ -32,6 +36,7 @@ class TransportConfig
     /**
      * Service id of a custom serializer to use.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function serializer($value): self
@@ -42,9 +47,10 @@ class TransportConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function options(array $value): self
+    public function options($value): self
     {
         $this->options = $value;
     
@@ -54,6 +60,7 @@ class TransportConfig
     /**
      * Transport name to send failed messages to (after all retries have failed).
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function failureTransport($value): self
@@ -68,7 +75,7 @@ class TransportConfig
         if (null === $this->retryStrategy) {
             $this->retryStrategy = new \Symfony\Config\Framework\Messenger\TransportConfig\RetryStrategyConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "retryStrategy()" has already been initialized. You cannot pass values the second time you call retryStrategy().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "retryStrategy()" has already been initialized. You cannot pass values the second time you call retryStrategy().'));
         }
     
         return $this->retryStrategy;
@@ -103,7 +110,7 @@ class TransportConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

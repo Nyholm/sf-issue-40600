@@ -2,10 +2,13 @@
 
 namespace Symfony\Config\Framework\Workflows;
 
-require_once __DIR__.'/WorkflowsConfig/AuditTrailConfig.php';
-require_once __DIR__.'/WorkflowsConfig/MarkingStoreConfig.php';
-require_once __DIR__.'/WorkflowsConfig/PlaceConfig.php';
-require_once __DIR__.'/WorkflowsConfig/TransitionConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'WorkflowsConfig'.\DIRECTORY_SEPARATOR.'AuditTrailConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'WorkflowsConfig'.\DIRECTORY_SEPARATOR.'MarkingStoreConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'WorkflowsConfig'.\DIRECTORY_SEPARATOR.'PlaceConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'WorkflowsConfig'.\DIRECTORY_SEPARATOR.'TransitionConfig.php';
+
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+use Symfony\Component\Config\Loader\ParamConfigurator;
 
 
 /**
@@ -31,7 +34,7 @@ class WorkflowsConfig
         if (null === $this->auditTrail) {
             $this->auditTrail = new \Symfony\Config\Framework\Workflows\WorkflowsConfig\AuditTrailConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "auditTrail()" has already been initialized. You cannot pass values the second time you call auditTrail().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "auditTrail()" has already been initialized. You cannot pass values the second time you call auditTrail().'));
         }
     
         return $this->auditTrail;
@@ -39,7 +42,7 @@ class WorkflowsConfig
     
     /**
      * @default 'state_machine'
-     * @param 'workflow'|'state_machine' $value
+     * @param ParamConfigurator|'workflow'|'state_machine' $value
      * @return $this
      */
     public function type($value): self
@@ -54,16 +57,17 @@ class WorkflowsConfig
         if (null === $this->markingStore) {
             $this->markingStore = new \Symfony\Config\Framework\Workflows\WorkflowsConfig\MarkingStoreConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "markingStore()" has already been initialized. You cannot pass values the second time you call markingStore().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "markingStore()" has already been initialized. You cannot pass values the second time you call markingStore().'));
         }
     
         return $this->markingStore;
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function supports(array $value): self
+    public function supports($value): self
     {
         $this->supports = $value;
     
@@ -72,6 +76,7 @@ class WorkflowsConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function supportStrategy($value): self
@@ -82,9 +87,10 @@ class WorkflowsConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function initialMarking(array $value): self
+    public function initialMarking($value): self
     {
         $this->initialMarking = $value;
     
@@ -96,6 +102,7 @@ class WorkflowsConfig
      * @example workflow.enter
      * @example workflow.transition
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function eventsToDispatch($value = NULL): self
@@ -116,9 +123,10 @@ class WorkflowsConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function metadata(array $value): self
+    public function metadata($value): self
     {
         $this->metadata = $value;
     
@@ -179,7 +187,7 @@ class WorkflowsConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

@@ -2,10 +2,13 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/Messenger/RoutingConfig.php';
-require_once __DIR__.'/Messenger/SerializerConfig.php';
-require_once __DIR__.'/Messenger/TransportConfig.php';
-require_once __DIR__.'/Messenger/BusConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Messenger'.\DIRECTORY_SEPARATOR.'RoutingConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Messenger'.\DIRECTORY_SEPARATOR.'SerializerConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Messenger'.\DIRECTORY_SEPARATOR.'TransportConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Messenger'.\DIRECTORY_SEPARATOR.'BusConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -25,9 +28,10 @@ class MessengerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -43,7 +47,7 @@ class MessengerConfig
             return $this->routing[$message_class];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "routing()" has already been initialized. You cannot pass values the second time you call routing().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "routing()" has already been initialized. You cannot pass values the second time you call routing().'));
     }
     
     public function serializer(array $value = []): \Symfony\Config\Framework\Messenger\SerializerConfig
@@ -51,7 +55,7 @@ class MessengerConfig
         if (null === $this->serializer) {
             $this->serializer = new \Symfony\Config\Framework\Messenger\SerializerConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "serializer()" has already been initialized. You cannot pass values the second time you call serializer().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "serializer()" has already been initialized. You cannot pass values the second time you call serializer().'));
         }
     
         return $this->serializer;
@@ -66,12 +70,13 @@ class MessengerConfig
             return $this->transports[$name];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "transport()" has already been initialized. You cannot pass values the second time you call transport().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "transport()" has already been initialized. You cannot pass values the second time you call transport().'));
     }
     
     /**
      * Transport name to send failed messages to (after all retries have failed).
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function failureTransport($value): self
@@ -83,6 +88,7 @@ class MessengerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultBus($value): self
@@ -101,7 +107,7 @@ class MessengerConfig
             return $this->buses[$name];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "bus()" has already been initialized. You cannot pass values the second time you call bus().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "bus()" has already been initialized. You cannot pass values the second time you call bus().'));
     }
     
     public function __construct(array $value = [])
@@ -143,7 +149,7 @@ class MessengerConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

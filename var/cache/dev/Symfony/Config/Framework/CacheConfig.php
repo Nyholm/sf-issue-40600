@@ -2,7 +2,10 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/Cache/PoolConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Cache'.\DIRECTORY_SEPARATOR.'PoolConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -27,6 +30,7 @@ class CacheConfig
      * Used to namespace cache keys when using several apps with the same shared backend
      * @example my-application-name/%kernel.environment%
      * @default '_%kernel.project_dir%.%kernel.container_class%'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function prefixSeed($value): self
@@ -39,6 +43,7 @@ class CacheConfig
     /**
      * App related cache pools configuration
      * @default 'cache.adapter.filesystem'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function app($value): self
@@ -51,6 +56,7 @@ class CacheConfig
     /**
      * System related cache pools configuration
      * @default 'cache.adapter.system'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function system($value): self
@@ -62,6 +68,7 @@ class CacheConfig
     
     /**
      * @default '%kernel.cache_dir%/pools'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function directory($value): self
@@ -73,6 +80,7 @@ class CacheConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultDoctrineProvider($value): self
@@ -84,6 +92,7 @@ class CacheConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultPsr6Provider($value): self
@@ -95,6 +104,7 @@ class CacheConfig
     
     /**
      * @default 'redis://localhost'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultRedisProvider($value): self
@@ -106,6 +116,7 @@ class CacheConfig
     
     /**
      * @default 'memcached://localhost'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultMemcachedProvider($value): self
@@ -117,6 +128,7 @@ class CacheConfig
     
     /**
      * @default 'database_connection'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultPdoProvider($value): self
@@ -135,7 +147,7 @@ class CacheConfig
             return $this->pools[$name];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "pool()" has already been initialized. You cannot pass values the second time you call pool().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "pool()" has already been initialized. You cannot pass values the second time you call pool().'));
     }
     
     public function __construct(array $value = [])
@@ -192,7 +204,7 @@ class CacheConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

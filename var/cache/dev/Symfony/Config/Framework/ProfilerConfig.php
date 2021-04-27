@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -20,9 +23,10 @@ class ProfilerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -31,9 +35,10 @@ class ProfilerConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function collect(bool $value): self
+    public function collect($value): self
     {
         $this->collect = $value;
     
@@ -42,9 +47,10 @@ class ProfilerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function onlyExceptions(bool $value): self
+    public function onlyExceptions($value): self
     {
         $this->onlyExceptions = $value;
     
@@ -53,9 +59,10 @@ class ProfilerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function onlyMainRequests(bool $value): self
+    public function onlyMainRequests($value): self
     {
         $this->onlyMainRequests = $value;
     
@@ -64,10 +71,11 @@ class ProfilerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @deprecated Option "only_master_requests" at "profiler" is deprecated, use "only_main_requests" instead.
      * @return $this
      */
-    public function onlyMasterRequests(bool $value): self
+    public function onlyMasterRequests($value): self
     {
         $this->onlyMasterRequests = $value;
     
@@ -76,6 +84,7 @@ class ProfilerConfig
     
     /**
      * @default 'file:%kernel.cache_dir%/profiler'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function dsn($value): self
@@ -119,7 +128,7 @@ class ProfilerConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

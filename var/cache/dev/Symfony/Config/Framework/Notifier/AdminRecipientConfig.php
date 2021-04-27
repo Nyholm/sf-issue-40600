@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework\Notifier;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -16,6 +19,7 @@ class AdminRecipientConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function email($value): self
@@ -26,6 +30,7 @@ class AdminRecipientConfig
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function phone($value): self
@@ -49,7 +54,7 @@ class AdminRecipientConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

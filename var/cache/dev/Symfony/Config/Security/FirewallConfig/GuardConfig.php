@@ -3,6 +3,9 @@
 namespace Symfony\Config\Security\FirewallConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -18,6 +21,7 @@ class GuardConfig
     /**
      * A key from the "providers" section of your security config, in case your user provider is different than the firewall
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function provider($value): self
@@ -30,6 +34,7 @@ class GuardConfig
     /**
      * A service id (of one of your authenticators) whose start() method should be called when an anonymous user hits a page that requires authentication
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function entryPoint($value): self
@@ -40,9 +45,10 @@ class GuardConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function authenticators(array $value): self
+    public function authenticators($value): self
     {
         $this->authenticators = $value;
     
@@ -68,7 +74,7 @@ class GuardConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

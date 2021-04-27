@@ -3,6 +3,9 @@
 namespace Symfony\Config\Security\FirewallConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -41,6 +44,7 @@ class FormLoginLdapConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function provider($value): self
@@ -52,9 +56,10 @@ class FormLoginLdapConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function rememberMe(bool $value): self
+    public function rememberMe($value): self
     {
         $this->rememberMe = $value;
     
@@ -63,6 +68,7 @@ class FormLoginLdapConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function successHandler($value): self
@@ -74,6 +80,7 @@ class FormLoginLdapConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function failureHandler($value): self
@@ -85,6 +92,7 @@ class FormLoginLdapConfig
     
     /**
      * @default '/login_check'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function checkPath($value): self
@@ -96,9 +104,10 @@ class FormLoginLdapConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useForward(bool $value): self
+    public function useForward($value): self
     {
         $this->useForward = $value;
     
@@ -107,9 +116,10 @@ class FormLoginLdapConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function requirePreviousSession(bool $value): self
+    public function requirePreviousSession($value): self
     {
         $this->requirePreviousSession = $value;
     
@@ -118,6 +128,7 @@ class FormLoginLdapConfig
     
     /**
      * @default '/login'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function loginPath($value): self
@@ -129,6 +140,7 @@ class FormLoginLdapConfig
     
     /**
      * @default '_username'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function usernameParameter($value): self
@@ -140,6 +152,7 @@ class FormLoginLdapConfig
     
     /**
      * @default '_password'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function passwordParameter($value): self
@@ -151,6 +164,7 @@ class FormLoginLdapConfig
     
     /**
      * @default '_csrf_token'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function csrfParameter($value): self
@@ -162,6 +176,7 @@ class FormLoginLdapConfig
     
     /**
      * @default 'authenticate'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function csrfTokenId($value): self
@@ -173,9 +188,10 @@ class FormLoginLdapConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enableCsrf(bool $value): self
+    public function enableCsrf($value): self
     {
         $this->enableCsrf = $value;
     
@@ -184,9 +200,10 @@ class FormLoginLdapConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function postOnly(bool $value): self
+    public function postOnly($value): self
     {
         $this->postOnly = $value;
     
@@ -195,9 +212,10 @@ class FormLoginLdapConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function alwaysUseDefaultTargetPath(bool $value): self
+    public function alwaysUseDefaultTargetPath($value): self
     {
         $this->alwaysUseDefaultTargetPath = $value;
     
@@ -206,6 +224,7 @@ class FormLoginLdapConfig
     
     /**
      * @default '/'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultTargetPath($value): self
@@ -217,6 +236,7 @@ class FormLoginLdapConfig
     
     /**
      * @default '_target_path'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function targetPathParameter($value): self
@@ -228,9 +248,10 @@ class FormLoginLdapConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useReferer(bool $value): self
+    public function useReferer($value): self
     {
         $this->useReferer = $value;
     
@@ -239,6 +260,7 @@ class FormLoginLdapConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function failurePath($value): self
@@ -250,9 +272,10 @@ class FormLoginLdapConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function failureForward(bool $value): self
+    public function failureForward($value): self
     {
         $this->failureForward = $value;
     
@@ -261,6 +284,7 @@ class FormLoginLdapConfig
     
     /**
      * @default '_failure_path'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function failurePathParameter($value): self
@@ -272,6 +296,7 @@ class FormLoginLdapConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function csrfTokenGenerator($value): self
@@ -283,6 +308,7 @@ class FormLoginLdapConfig
     
     /**
      * @default 'ldap'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function service($value): self
@@ -294,6 +320,7 @@ class FormLoginLdapConfig
     
     /**
      * @default '{username}'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function dnString($value): self
@@ -305,6 +332,7 @@ class FormLoginLdapConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function queryString($value): self
@@ -315,6 +343,7 @@ class FormLoginLdapConfig
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function searchDn($value): self
@@ -325,6 +354,7 @@ class FormLoginLdapConfig
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function searchPassword($value): self
@@ -473,7 +503,7 @@ class FormLoginLdapConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

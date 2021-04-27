@@ -2,7 +2,10 @@
 
 namespace Symfony\Config\Security\FirewallConfig;
 
-require_once __DIR__.'/RememberMe/TokenProviderConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'RememberMe'.\DIRECTORY_SEPARATOR.'TokenProviderConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -30,6 +33,7 @@ class RememberMeConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function secret($value): self
@@ -41,6 +45,7 @@ class RememberMeConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function service($value): self
@@ -51,9 +56,10 @@ class RememberMeConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function userProviders(array $value): self
+    public function userProviders($value): self
     {
         $this->userProviders = $value;
     
@@ -62,9 +68,10 @@ class RememberMeConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function catchExceptions(bool $value): self
+    public function catchExceptions($value): self
     {
         $this->catchExceptions = $value;
     
@@ -72,9 +79,10 @@ class RememberMeConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function signatureProperties(array $value): self
+    public function signatureProperties($value): self
     {
         $this->signatureProperties = $value;
     
@@ -86,7 +94,7 @@ class RememberMeConfig
         if (null === $this->tokenProvider) {
             $this->tokenProvider = new \Symfony\Config\Security\FirewallConfig\RememberMe\TokenProviderConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "tokenProvider()" has already been initialized. You cannot pass values the second time you call tokenProvider().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "tokenProvider()" has already been initialized. You cannot pass values the second time you call tokenProvider().'));
         }
     
         return $this->tokenProvider;
@@ -94,6 +102,7 @@ class RememberMeConfig
     
     /**
      * @default 'REMEMBERME'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function name($value): self
@@ -105,9 +114,10 @@ class RememberMeConfig
     
     /**
      * @default 31536000
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function lifetime(int $value): self
+    public function lifetime($value): self
     {
         $this->lifetime = $value;
     
@@ -116,6 +126,7 @@ class RememberMeConfig
     
     /**
      * @default '/'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function path($value): self
@@ -127,6 +138,7 @@ class RememberMeConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function domain($value): self
@@ -137,8 +149,8 @@ class RememberMeConfig
     }
     
     /**
-     * @default null
-     * @param true|false|'auto' $value
+     * @default false
+     * @param ParamConfigurator|true|false|'auto' $value
      * @return $this
      */
     public function secure($value): self
@@ -150,9 +162,10 @@ class RememberMeConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function httponly(bool $value): self
+    public function httponly($value): self
     {
         $this->httponly = $value;
     
@@ -160,8 +173,8 @@ class RememberMeConfig
     }
     
     /**
-     * @default 'lax'
-     * @param NULL|'lax'|'strict'|'none' $value
+     * @default null
+     * @param ParamConfigurator|NULL|'lax'|'strict'|'none' $value
      * @return $this
      */
     public function samesite($value): self
@@ -173,9 +186,10 @@ class RememberMeConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function alwaysRememberMe(bool $value): self
+    public function alwaysRememberMe($value): self
     {
         $this->alwaysRememberMe = $value;
     
@@ -184,6 +198,7 @@ class RememberMeConfig
     
     /**
      * @default '_remember_me'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function rememberMeParameter($value): self
@@ -272,7 +287,7 @@ class RememberMeConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

@@ -2,7 +2,10 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/Form/CsrfProtectionConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Form'.\DIRECTORY_SEPARATOR.'CsrfProtectionConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -18,9 +21,10 @@ class FormConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -32,7 +36,7 @@ class FormConfig
         if (null === $this->csrfProtection) {
             $this->csrfProtection = new \Symfony\Config\Framework\Form\CsrfProtectionConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "csrfProtection()" has already been initialized. You cannot pass values the second time you call csrfProtection().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "csrfProtection()" has already been initialized. You cannot pass values the second time you call csrfProtection().'));
         }
     
         return $this->csrfProtection;
@@ -40,9 +44,10 @@ class FormConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function legacyErrorMessages(bool $value): self
+    public function legacyErrorMessages($value): self
     {
         $this->legacyErrorMessages = $value;
     
@@ -68,7 +73,7 @@ class FormConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

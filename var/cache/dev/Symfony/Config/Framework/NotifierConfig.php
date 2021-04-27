@@ -2,7 +2,10 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/Notifier/AdminRecipientConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Notifier'.\DIRECTORY_SEPARATOR.'AdminRecipientConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -21,9 +24,10 @@ class NotifierConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -31,6 +35,7 @@ class NotifierConfig
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function chatterTransport(string $name, $value): self
@@ -41,6 +46,7 @@ class NotifierConfig
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function texterTransport(string $name, $value): self
@@ -52,9 +58,10 @@ class NotifierConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function notificationOnFailedMessages(bool $value): self
+    public function notificationOnFailedMessages($value): self
     {
         $this->notificationOnFailedMessages = $value;
     
@@ -62,9 +69,10 @@ class NotifierConfig
     }
     
     /**
+     * @param ParamConfigurator|array $value
      * @return $this
      */
-    public function channelPolicy(string $name, array $value): self
+    public function channelPolicy(string $name, $value): self
     {
         $this->channelPolicy[$name] = $value;
     
@@ -110,7 +118,7 @@ class NotifierConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

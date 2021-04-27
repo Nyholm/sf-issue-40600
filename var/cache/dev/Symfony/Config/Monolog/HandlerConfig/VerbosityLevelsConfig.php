@@ -3,6 +3,9 @@
 namespace Symfony\Config\Monolog\HandlerConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -19,6 +22,7 @@ class VerbosityLevelsConfig
     
     /**
      * @default 'ERROR'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function vERBOSITYQUIET($value): self
@@ -30,6 +34,7 @@ class VerbosityLevelsConfig
     
     /**
      * @default 'WARNING'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function vERBOSITYNORMAL($value): self
@@ -41,6 +46,7 @@ class VerbosityLevelsConfig
     
     /**
      * @default 'NOTICE'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function vERBOSITYVERBOSE($value): self
@@ -52,6 +58,7 @@ class VerbosityLevelsConfig
     
     /**
      * @default 'INFO'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function vERBOSITYVERYVERBOSE($value): self
@@ -63,6 +70,7 @@ class VerbosityLevelsConfig
     
     /**
      * @default 'DEBUG'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function vERBOSITYDEBUG($value): self
@@ -101,7 +109,7 @@ class VerbosityLevelsConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

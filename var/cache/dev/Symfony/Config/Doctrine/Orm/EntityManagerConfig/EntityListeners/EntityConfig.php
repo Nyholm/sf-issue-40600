@@ -2,7 +2,9 @@
 
 namespace Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListeners;
 
-require_once __DIR__.'/EntityConfig/ListenerConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'EntityConfig'.\DIRECTORY_SEPARATOR.'ListenerConfig.php';
+
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -23,7 +25,7 @@ class EntityConfig
             return $this->listeners[$class];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "listener()" has already been initialized. You cannot pass values the second time you call listener().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "listener()" has already been initialized. You cannot pass values the second time you call listener().'));
     }
     
     public function __construct(array $value = [])
@@ -35,7 +37,7 @@ class EntityConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

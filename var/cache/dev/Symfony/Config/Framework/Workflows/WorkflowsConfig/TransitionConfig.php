@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework\Workflows\WorkflowsConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -19,6 +22,7 @@ class TransitionConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function name($value): self
@@ -32,6 +36,7 @@ class TransitionConfig
      * An expression to block the transition
      * @example is_fully_authenticated() and is_granted('ROLE_JOURNALIST') and subject.getTitle() == 'My first article'
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function guard($value): self
@@ -42,9 +47,10 @@ class TransitionConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function from(array $value): self
+    public function from($value): self
     {
         $this->from = $value;
     
@@ -52,9 +58,10 @@ class TransitionConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function to(array $value): self
+    public function to($value): self
     {
         $this->to = $value;
     
@@ -62,9 +69,10 @@ class TransitionConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function metadata(array $value): self
+    public function metadata($value): self
     {
         $this->metadata = $value;
     
@@ -100,7 +108,7 @@ class TransitionConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

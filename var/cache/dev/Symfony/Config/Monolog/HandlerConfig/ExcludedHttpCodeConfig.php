@@ -3,6 +3,9 @@
 namespace Symfony\Config\Monolog\HandlerConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -16,6 +19,7 @@ class ExcludedHttpCodeConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function code($value): self
@@ -26,9 +30,10 @@ class ExcludedHttpCodeConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function urls(array $value): self
+    public function urls($value): self
     {
         $this->urls = $value;
     
@@ -49,7 +54,7 @@ class ExcludedHttpCodeConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

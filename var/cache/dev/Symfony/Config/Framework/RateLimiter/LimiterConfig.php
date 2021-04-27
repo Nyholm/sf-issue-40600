@@ -2,7 +2,10 @@
 
 namespace Symfony\Config\Framework\RateLimiter;
 
-require_once __DIR__.'/LimiterConfig/RateConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'LimiterConfig'.\DIRECTORY_SEPARATOR.'RateConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -23,6 +26,7 @@ class LimiterConfig
     /**
      * The service ID of the lock factory used by this limiter (or null to disable locking)
      * @default 'lock.factory'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function lockFactory($value): self
@@ -35,6 +39,7 @@ class LimiterConfig
     /**
      * The cache pool to use for storing the current limiter state
      * @default 'cache.rate_limiter'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function cachePool($value): self
@@ -47,6 +52,7 @@ class LimiterConfig
     /**
      * The service ID of a custom storage implementation, this precedes any configured "cache_pool"
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function storageService($value): self
@@ -59,7 +65,7 @@ class LimiterConfig
     /**
      * The algorithm to be used by this limiter
      * @default null
-     * @param 'fixed_window'|'token_bucket'|'sliding_window'|'no_limit' $value
+     * @param ParamConfigurator|'fixed_window'|'token_bucket'|'sliding_window'|'no_limit' $value
      * @return $this
      */
     public function policy($value): self
@@ -72,9 +78,10 @@ class LimiterConfig
     /**
      * The maximum allowed hits in a fixed interval or burst
      * @default null
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function limit(int $value): self
+    public function limit($value): self
     {
         $this->limit = $value;
     
@@ -84,6 +91,7 @@ class LimiterConfig
     /**
      * Configures the fixed interval if "policy" is set to "fixed_window" or "sliding_window". The value must be a number followed by "second", "minute", "hour", "day", "week" or "month" (or their plural equivalent).
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function interval($value): self
@@ -98,7 +106,7 @@ class LimiterConfig
         if (null === $this->rate) {
             $this->rate = new \Symfony\Config\Framework\RateLimiter\LimiterConfig\RateConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "rate()" has already been initialized. You cannot pass values the second time you call rate().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "rate()" has already been initialized. You cannot pass values the second time you call rate().'));
         }
     
         return $this->rate;
@@ -143,7 +151,7 @@ class LimiterConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

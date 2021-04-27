@@ -2,7 +2,10 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/Assets/PackageConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Assets'.\DIRECTORY_SEPARATOR.'PackageConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -23,9 +26,10 @@ class AssetsConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -34,6 +38,7 @@ class AssetsConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function versionStrategy($value): self
@@ -45,6 +50,7 @@ class AssetsConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function version($value): self
@@ -56,6 +62,7 @@ class AssetsConfig
     
     /**
      * @default '%%s?%%s'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function versionFormat($value): self
@@ -67,6 +74,7 @@ class AssetsConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function jsonManifestPath($value): self
@@ -77,6 +85,7 @@ class AssetsConfig
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function basePath($value): self
@@ -87,9 +96,10 @@ class AssetsConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function baseUrls(array $value): self
+    public function baseUrls($value): self
     {
         $this->baseUrls = $value;
     
@@ -105,7 +115,7 @@ class AssetsConfig
             return $this->packages[$name];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "package()" has already been initialized. You cannot pass values the second time you call package().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "package()" has already been initialized. You cannot pass values the second time you call package().'));
     }
     
     public function __construct(array $value = [])
@@ -152,7 +162,7 @@ class AssetsConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

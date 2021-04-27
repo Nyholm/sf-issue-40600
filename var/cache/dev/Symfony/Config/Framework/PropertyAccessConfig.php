@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -20,9 +23,10 @@ class PropertyAccessConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -31,9 +35,10 @@ class PropertyAccessConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function magicCall(bool $value): self
+    public function magicCall($value): self
     {
         $this->magicCall = $value;
     
@@ -42,9 +47,10 @@ class PropertyAccessConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function magicGet(bool $value): self
+    public function magicGet($value): self
     {
         $this->magicGet = $value;
     
@@ -53,9 +59,10 @@ class PropertyAccessConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function magicSet(bool $value): self
+    public function magicSet($value): self
     {
         $this->magicSet = $value;
     
@@ -64,9 +71,10 @@ class PropertyAccessConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function throwExceptionOnInvalidIndex(bool $value): self
+    public function throwExceptionOnInvalidIndex($value): self
     {
         $this->throwExceptionOnInvalidIndex = $value;
     
@@ -75,9 +83,10 @@ class PropertyAccessConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function throwExceptionOnInvalidPropertyPath(bool $value): self
+    public function throwExceptionOnInvalidPropertyPath($value): self
     {
         $this->throwExceptionOnInvalidPropertyPath = $value;
     
@@ -118,7 +127,7 @@ class PropertyAccessConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

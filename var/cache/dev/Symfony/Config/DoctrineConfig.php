@@ -2,8 +2,10 @@
 
 namespace Symfony\Config;
 
-require_once __DIR__.'/Doctrine/DbalConfig.php';
-require_once __DIR__.'/Doctrine/OrmConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Doctrine'.\DIRECTORY_SEPARATOR.'DbalConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Doctrine'.\DIRECTORY_SEPARATOR.'OrmConfig.php';
+
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -21,7 +23,7 @@ class DoctrineConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
         if (null === $this->dbal) {
             $this->dbal = new \Symfony\Config\Doctrine\DbalConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "dbal()" has already been initialized. You cannot pass values the second time you call dbal().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "dbal()" has already been initialized. You cannot pass values the second time you call dbal().'));
         }
     
         return $this->dbal;
@@ -32,7 +34,7 @@ class DoctrineConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
         if (null === $this->orm) {
             $this->orm = new \Symfony\Config\Doctrine\OrmConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "orm()" has already been initialized. You cannot pass values the second time you call orm().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "orm()" has already been initialized. You cannot pass values the second time you call orm().'));
         }
     
         return $this->orm;
@@ -58,7 +60,7 @@ class DoctrineConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

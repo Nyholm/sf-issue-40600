@@ -3,6 +3,9 @@
 namespace Symfony\Config\Security\FirewallConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -24,6 +27,7 @@ class JsonLoginConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function provider($value): self
@@ -35,9 +39,10 @@ class JsonLoginConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function rememberMe(bool $value): self
+    public function rememberMe($value): self
     {
         $this->rememberMe = $value;
     
@@ -46,6 +51,7 @@ class JsonLoginConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function successHandler($value): self
@@ -57,6 +63,7 @@ class JsonLoginConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function failureHandler($value): self
@@ -68,6 +75,7 @@ class JsonLoginConfig
     
     /**
      * @default '/login_check'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function checkPath($value): self
@@ -79,9 +87,10 @@ class JsonLoginConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useForward(bool $value): self
+    public function useForward($value): self
     {
         $this->useForward = $value;
     
@@ -90,9 +99,10 @@ class JsonLoginConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function requirePreviousSession(bool $value): self
+    public function requirePreviousSession($value): self
     {
         $this->requirePreviousSession = $value;
     
@@ -101,6 +111,7 @@ class JsonLoginConfig
     
     /**
      * @default '/login'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function loginPath($value): self
@@ -112,6 +123,7 @@ class JsonLoginConfig
     
     /**
      * @default 'username'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function usernamePath($value): self
@@ -123,6 +135,7 @@ class JsonLoginConfig
     
     /**
      * @default 'password'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function passwordPath($value): self
@@ -186,7 +199,7 @@ class JsonLoginConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

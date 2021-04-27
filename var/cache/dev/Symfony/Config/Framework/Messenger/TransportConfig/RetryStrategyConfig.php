@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework\Messenger\TransportConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -20,6 +23,7 @@ class RetryStrategyConfig
     /**
      * Service id to override the retry strategy entirely
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function service($value): self
@@ -31,9 +35,10 @@ class RetryStrategyConfig
     
     /**
      * @default 3
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function maxRetries(int $value): self
+    public function maxRetries($value): self
     {
         $this->maxRetries = $value;
     
@@ -43,9 +48,10 @@ class RetryStrategyConfig
     /**
      * Time in ms to delay (or the initial value when multiplier is used)
      * @default 1000
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function delay(int $value): self
+    public function delay($value): self
     {
         $this->delay = $value;
     
@@ -55,9 +61,10 @@ class RetryStrategyConfig
     /**
      * If greater than 1, delay will grow exponentially for each retry: this delay = (delay * (multiple ^ retries))
      * @default 2
+     * @param ParamConfigurator|float $value
      * @return $this
      */
-    public function multiplier(float $value): self
+    public function multiplier($value): self
     {
         $this->multiplier = $value;
     
@@ -67,9 +74,10 @@ class RetryStrategyConfig
     /**
      * Max time in ms that a retry should ever be delayed (0 = infinite)
      * @default 0
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function maxDelay(int $value): self
+    public function maxDelay($value): self
     {
         $this->maxDelay = $value;
     
@@ -105,7 +113,7 @@ class RetryStrategyConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

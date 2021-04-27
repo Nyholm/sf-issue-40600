@@ -3,6 +3,9 @@
 namespace Symfony\Config\Security\FirewallConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -36,6 +39,7 @@ class FormLoginConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function provider($value): self
@@ -47,9 +51,10 @@ class FormLoginConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function rememberMe(bool $value): self
+    public function rememberMe($value): self
     {
         $this->rememberMe = $value;
     
@@ -58,6 +63,7 @@ class FormLoginConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function successHandler($value): self
@@ -69,6 +75,7 @@ class FormLoginConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function failureHandler($value): self
@@ -80,6 +87,7 @@ class FormLoginConfig
     
     /**
      * @default '/login_check'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function checkPath($value): self
@@ -91,9 +99,10 @@ class FormLoginConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useForward(bool $value): self
+    public function useForward($value): self
     {
         $this->useForward = $value;
     
@@ -102,9 +111,10 @@ class FormLoginConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function requirePreviousSession(bool $value): self
+    public function requirePreviousSession($value): self
     {
         $this->requirePreviousSession = $value;
     
@@ -113,6 +123,7 @@ class FormLoginConfig
     
     /**
      * @default '/login'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function loginPath($value): self
@@ -124,6 +135,7 @@ class FormLoginConfig
     
     /**
      * @default '_username'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function usernameParameter($value): self
@@ -135,6 +147,7 @@ class FormLoginConfig
     
     /**
      * @default '_password'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function passwordParameter($value): self
@@ -146,6 +159,7 @@ class FormLoginConfig
     
     /**
      * @default '_csrf_token'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function csrfParameter($value): self
@@ -157,6 +171,7 @@ class FormLoginConfig
     
     /**
      * @default 'authenticate'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function csrfTokenId($value): self
@@ -168,9 +183,10 @@ class FormLoginConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enableCsrf(bool $value): self
+    public function enableCsrf($value): self
     {
         $this->enableCsrf = $value;
     
@@ -179,9 +195,10 @@ class FormLoginConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function postOnly(bool $value): self
+    public function postOnly($value): self
     {
         $this->postOnly = $value;
     
@@ -190,9 +207,10 @@ class FormLoginConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function alwaysUseDefaultTargetPath(bool $value): self
+    public function alwaysUseDefaultTargetPath($value): self
     {
         $this->alwaysUseDefaultTargetPath = $value;
     
@@ -201,6 +219,7 @@ class FormLoginConfig
     
     /**
      * @default '/'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultTargetPath($value): self
@@ -212,6 +231,7 @@ class FormLoginConfig
     
     /**
      * @default '_target_path'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function targetPathParameter($value): self
@@ -223,9 +243,10 @@ class FormLoginConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useReferer(bool $value): self
+    public function useReferer($value): self
     {
         $this->useReferer = $value;
     
@@ -234,6 +255,7 @@ class FormLoginConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function failurePath($value): self
@@ -245,9 +267,10 @@ class FormLoginConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function failureForward(bool $value): self
+    public function failureForward($value): self
     {
         $this->failureForward = $value;
     
@@ -256,6 +279,7 @@ class FormLoginConfig
     
     /**
      * @default '_failure_path'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function failurePathParameter($value): self
@@ -267,6 +291,7 @@ class FormLoginConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function csrfTokenGenerator($value): self
@@ -390,7 +415,7 @@ class FormLoginConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

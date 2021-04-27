@@ -2,7 +2,10 @@
 
 namespace Symfony\Config;
 
-require_once __DIR__.'/DoctrineMigrations/StorageConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'DoctrineMigrations'.\DIRECTORY_SEPARATOR.'StorageConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -23,8 +26,10 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     private $checkDatabasePlatform;
     private $customTemplate;
     private $organizeMigrations;
+    private $enableProfiler;
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function migrationsPath(string $namespace, $value): self
@@ -35,6 +40,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function services(string $service, $value): self
@@ -45,6 +51,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function factories(string $factory, $value): self
@@ -59,16 +66,17 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
         if (null === $this->storage) {
             $this->storage = new \Symfony\Config\DoctrineMigrations\StorageConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "storage()" has already been initialized. You cannot pass values the second time you call storage().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "storage()" has already been initialized. You cannot pass values the second time you call storage().'));
         }
     
         return $this->storage;
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function migrations(array $value): self
+    public function migrations($value): self
     {
         $this->migrations = $value;
     
@@ -78,6 +86,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     /**
      * Connection name to use for the migrations database.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function connection($value): self
@@ -90,6 +99,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     /**
      * Entity manager name to use for the migrations database (available when doctrine/orm is installed).
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function em($value): self
@@ -102,6 +112,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     /**
      * Run all migrations in a transaction.
      * @default false
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function allOrNothing($value): self
@@ -114,6 +125,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     /**
      * Adds an extra check in the generated migrations to allow execution only on the same platform as they were initially generated on.
      * @default true
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function checkDatabasePlatform($value): self
@@ -126,6 +138,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     /**
      * Custom template path for generated migration classes.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function customTemplate($value): self
@@ -138,11 +151,25 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     /**
      * Organize migrations mode. Possible values are: "BY_YEAR", "BY_YEAR_AND_MONTH", false
      * @default false
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function organizeMigrations($value): self
     {
         $this->organizeMigrations = $value;
+    
+        return $this;
+    }
+    
+    /**
+     * Use profiler to calculate and visualize migration status.
+     * @default false
+     * @param ParamConfigurator|bool $value
+     * @return $this
+     */
+    public function enableProfiler($value): self
+    {
+        $this->enableProfiler = $value;
     
         return $this;
     }
@@ -211,8 +238,13 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
             unset($value["organize_migrations"]);
         }
     
+        if (isset($value["enable_profiler"])) {
+            $this->enableProfiler = $value["enable_profiler"];
+            unset($value["enable_profiler"]);
+        }
+    
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     
@@ -252,6 +284,9 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
         }
         if (null !== $this->organizeMigrations) {
             $output["organize_migrations"] = $this->organizeMigrations;
+        }
+        if (null !== $this->enableProfiler) {
+            $output["enable_profiler"] = $this->enableProfiler;
         }
     
         return $output;

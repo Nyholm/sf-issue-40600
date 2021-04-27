@@ -3,6 +3,9 @@
 namespace Symfony\Config\Security\ProviderConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -18,6 +21,7 @@ class EntityConfig
     /**
      * The full entity class name of your user class.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function class($value): self
@@ -29,6 +33,7 @@ class EntityConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function property($value): self
@@ -40,6 +45,7 @@ class EntityConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function managerName($value): self
@@ -68,7 +74,7 @@ class EntityConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

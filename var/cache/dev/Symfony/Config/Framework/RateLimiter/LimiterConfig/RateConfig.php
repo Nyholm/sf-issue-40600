@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework\RateLimiter\LimiterConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -17,6 +20,7 @@ class RateConfig
     /**
      * Configures the rate interval. The value must be a number followed by "second", "minute", "hour", "day", "week" or "month" (or their plural equivalent).
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function interval($value): self
@@ -29,9 +33,10 @@ class RateConfig
     /**
      * Amount of tokens to add each interval
      * @default 1
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function amount(int $value): self
+    public function amount($value): self
     {
         $this->amount = $value;
     
@@ -52,7 +57,7 @@ class RateConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

@@ -2,35 +2,38 @@
 
 namespace Symfony\Config;
 
-require_once __DIR__.'/Framework/CsrfProtectionConfig.php';
-require_once __DIR__.'/Framework/FormConfig.php';
-require_once __DIR__.'/Framework/HttpCacheConfig.php';
-require_once __DIR__.'/Framework/EsiConfig.php';
-require_once __DIR__.'/Framework/SsiConfig.php';
-require_once __DIR__.'/Framework/FragmentsConfig.php';
-require_once __DIR__.'/Framework/ProfilerConfig.php';
-require_once __DIR__.'/Framework/WorkflowsConfig.php';
-require_once __DIR__.'/Framework/RouterConfig.php';
-require_once __DIR__.'/Framework/SessionConfig.php';
-require_once __DIR__.'/Framework/RequestConfig.php';
-require_once __DIR__.'/Framework/AssetsConfig.php';
-require_once __DIR__.'/Framework/TranslatorConfig.php';
-require_once __DIR__.'/Framework/ValidationConfig.php';
-require_once __DIR__.'/Framework/AnnotationsConfig.php';
-require_once __DIR__.'/Framework/SerializerConfig.php';
-require_once __DIR__.'/Framework/PropertyAccessConfig.php';
-require_once __DIR__.'/Framework/PropertyInfoConfig.php';
-require_once __DIR__.'/Framework/CacheConfig.php';
-require_once __DIR__.'/Framework/PhpErrorsConfig.php';
-require_once __DIR__.'/Framework/WebLinkConfig.php';
-require_once __DIR__.'/Framework/LockConfig.php';
-require_once __DIR__.'/Framework/MessengerConfig.php';
-require_once __DIR__.'/Framework/HttpClientConfig.php';
-require_once __DIR__.'/Framework/MailerConfig.php';
-require_once __DIR__.'/Framework/SecretsConfig.php';
-require_once __DIR__.'/Framework/NotifierConfig.php';
-require_once __DIR__.'/Framework/RateLimiterConfig.php';
-require_once __DIR__.'/Framework/UidConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'CsrfProtectionConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'FormConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'HttpCacheConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'EsiConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'SsiConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'FragmentsConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'ProfilerConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'WorkflowsConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'RouterConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'SessionConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'RequestConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'AssetsConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'TranslatorConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'ValidationConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'AnnotationsConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'SerializerConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'PropertyAccessConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'PropertyInfoConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'CacheConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'PhpErrorsConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'WebLinkConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'LockConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'MessengerConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'HttpClientConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'MailerConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'SecretsConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'NotifierConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'RateLimiterConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'UidConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -82,6 +85,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function secret($value): self
@@ -94,6 +98,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     /**
      * Set true to enable support for the '_method' request parameter to determine the intended HTTP method on POST requests. Note: When using the HttpCache, you need to call the method in your front controller instead
      * @default true
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function httpMethodOverride($value): self
@@ -105,6 +110,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function ide($value): self
@@ -116,9 +122,10 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     
     /**
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function test(bool $value): self
+    public function test($value): self
     {
         $this->test = $value;
     
@@ -127,6 +134,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     
     /**
      * @default 'en'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultLocale($value): self
@@ -137,9 +145,10 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function trustedHosts(array $value): self
+    public function trustedHosts($value): self
     {
         $this->trustedHosts = $value;
     
@@ -148,6 +157,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function trustedProxies($value): self
@@ -158,9 +168,10 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function trustedHeaders(array $value): self
+    public function trustedHeaders($value): self
     {
         $this->trustedHeaders = $value;
     
@@ -169,6 +180,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     
     /**
      * @default 'error_controller'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function errorController($value): self
@@ -183,7 +195,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->csrfProtection) {
             $this->csrfProtection = new \Symfony\Config\Framework\CsrfProtectionConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "csrfProtection()" has already been initialized. You cannot pass values the second time you call csrfProtection().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "csrfProtection()" has already been initialized. You cannot pass values the second time you call csrfProtection().'));
         }
     
         return $this->csrfProtection;
@@ -194,7 +206,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->form) {
             $this->form = new \Symfony\Config\Framework\FormConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "form()" has already been initialized. You cannot pass values the second time you call form().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "form()" has already been initialized. You cannot pass values the second time you call form().'));
         }
     
         return $this->form;
@@ -205,7 +217,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->httpCache) {
             $this->httpCache = new \Symfony\Config\Framework\HttpCacheConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "httpCache()" has already been initialized. You cannot pass values the second time you call httpCache().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "httpCache()" has already been initialized. You cannot pass values the second time you call httpCache().'));
         }
     
         return $this->httpCache;
@@ -216,7 +228,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->esi) {
             $this->esi = new \Symfony\Config\Framework\EsiConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "esi()" has already been initialized. You cannot pass values the second time you call esi().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "esi()" has already been initialized. You cannot pass values the second time you call esi().'));
         }
     
         return $this->esi;
@@ -227,7 +239,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->ssi) {
             $this->ssi = new \Symfony\Config\Framework\SsiConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "ssi()" has already been initialized. You cannot pass values the second time you call ssi().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "ssi()" has already been initialized. You cannot pass values the second time you call ssi().'));
         }
     
         return $this->ssi;
@@ -238,7 +250,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->fragments) {
             $this->fragments = new \Symfony\Config\Framework\FragmentsConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "fragments()" has already been initialized. You cannot pass values the second time you call fragments().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "fragments()" has already been initialized. You cannot pass values the second time you call fragments().'));
         }
     
         return $this->fragments;
@@ -249,7 +261,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->profiler) {
             $this->profiler = new \Symfony\Config\Framework\ProfilerConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "profiler()" has already been initialized. You cannot pass values the second time you call profiler().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "profiler()" has already been initialized. You cannot pass values the second time you call profiler().'));
         }
     
         return $this->profiler;
@@ -260,7 +272,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->workflows) {
             $this->workflows = new \Symfony\Config\Framework\WorkflowsConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "workflows()" has already been initialized. You cannot pass values the second time you call workflows().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "workflows()" has already been initialized. You cannot pass values the second time you call workflows().'));
         }
     
         return $this->workflows;
@@ -271,7 +283,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->router) {
             $this->router = new \Symfony\Config\Framework\RouterConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "router()" has already been initialized. You cannot pass values the second time you call router().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "router()" has already been initialized. You cannot pass values the second time you call router().'));
         }
     
         return $this->router;
@@ -282,7 +294,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->session) {
             $this->session = new \Symfony\Config\Framework\SessionConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "session()" has already been initialized. You cannot pass values the second time you call session().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "session()" has already been initialized. You cannot pass values the second time you call session().'));
         }
     
         return $this->session;
@@ -293,7 +305,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->request) {
             $this->request = new \Symfony\Config\Framework\RequestConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "request()" has already been initialized. You cannot pass values the second time you call request().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "request()" has already been initialized. You cannot pass values the second time you call request().'));
         }
     
         return $this->request;
@@ -304,7 +316,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->assets) {
             $this->assets = new \Symfony\Config\Framework\AssetsConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "assets()" has already been initialized. You cannot pass values the second time you call assets().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "assets()" has already been initialized. You cannot pass values the second time you call assets().'));
         }
     
         return $this->assets;
@@ -315,7 +327,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->translator) {
             $this->translator = new \Symfony\Config\Framework\TranslatorConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "translator()" has already been initialized. You cannot pass values the second time you call translator().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "translator()" has already been initialized. You cannot pass values the second time you call translator().'));
         }
     
         return $this->translator;
@@ -326,7 +338,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->validation) {
             $this->validation = new \Symfony\Config\Framework\ValidationConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "validation()" has already been initialized. You cannot pass values the second time you call validation().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "validation()" has already been initialized. You cannot pass values the second time you call validation().'));
         }
     
         return $this->validation;
@@ -337,7 +349,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->annotations) {
             $this->annotations = new \Symfony\Config\Framework\AnnotationsConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "annotations()" has already been initialized. You cannot pass values the second time you call annotations().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "annotations()" has already been initialized. You cannot pass values the second time you call annotations().'));
         }
     
         return $this->annotations;
@@ -348,7 +360,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->serializer) {
             $this->serializer = new \Symfony\Config\Framework\SerializerConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "serializer()" has already been initialized. You cannot pass values the second time you call serializer().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "serializer()" has already been initialized. You cannot pass values the second time you call serializer().'));
         }
     
         return $this->serializer;
@@ -359,7 +371,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->propertyAccess) {
             $this->propertyAccess = new \Symfony\Config\Framework\PropertyAccessConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "propertyAccess()" has already been initialized. You cannot pass values the second time you call propertyAccess().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "propertyAccess()" has already been initialized. You cannot pass values the second time you call propertyAccess().'));
         }
     
         return $this->propertyAccess;
@@ -370,7 +382,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->propertyInfo) {
             $this->propertyInfo = new \Symfony\Config\Framework\PropertyInfoConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "propertyInfo()" has already been initialized. You cannot pass values the second time you call propertyInfo().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "propertyInfo()" has already been initialized. You cannot pass values the second time you call propertyInfo().'));
         }
     
         return $this->propertyInfo;
@@ -381,7 +393,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->cache) {
             $this->cache = new \Symfony\Config\Framework\CacheConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "cache()" has already been initialized. You cannot pass values the second time you call cache().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "cache()" has already been initialized. You cannot pass values the second time you call cache().'));
         }
     
         return $this->cache;
@@ -392,7 +404,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->phpErrors) {
             $this->phpErrors = new \Symfony\Config\Framework\PhpErrorsConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "phpErrors()" has already been initialized. You cannot pass values the second time you call phpErrors().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "phpErrors()" has already been initialized. You cannot pass values the second time you call phpErrors().'));
         }
     
         return $this->phpErrors;
@@ -403,7 +415,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->webLink) {
             $this->webLink = new \Symfony\Config\Framework\WebLinkConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "webLink()" has already been initialized. You cannot pass values the second time you call webLink().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "webLink()" has already been initialized. You cannot pass values the second time you call webLink().'));
         }
     
         return $this->webLink;
@@ -414,7 +426,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->lock) {
             $this->lock = new \Symfony\Config\Framework\LockConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "lock()" has already been initialized. You cannot pass values the second time you call lock().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "lock()" has already been initialized. You cannot pass values the second time you call lock().'));
         }
     
         return $this->lock;
@@ -425,7 +437,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->messenger) {
             $this->messenger = new \Symfony\Config\Framework\MessengerConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "messenger()" has already been initialized. You cannot pass values the second time you call messenger().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "messenger()" has already been initialized. You cannot pass values the second time you call messenger().'));
         }
     
         return $this->messenger;
@@ -434,9 +446,10 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     /**
      * Enabled by default when debug is enabled.
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function disallowSearchEngineIndex(bool $value): self
+    public function disallowSearchEngineIndex($value): self
     {
         $this->disallowSearchEngineIndex = $value;
     
@@ -448,7 +461,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->httpClient) {
             $this->httpClient = new \Symfony\Config\Framework\HttpClientConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "httpClient()" has already been initialized. You cannot pass values the second time you call httpClient().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "httpClient()" has already been initialized. You cannot pass values the second time you call httpClient().'));
         }
     
         return $this->httpClient;
@@ -459,7 +472,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->mailer) {
             $this->mailer = new \Symfony\Config\Framework\MailerConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "mailer()" has already been initialized. You cannot pass values the second time you call mailer().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "mailer()" has already been initialized. You cannot pass values the second time you call mailer().'));
         }
     
         return $this->mailer;
@@ -470,7 +483,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->secrets) {
             $this->secrets = new \Symfony\Config\Framework\SecretsConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "secrets()" has already been initialized. You cannot pass values the second time you call secrets().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "secrets()" has already been initialized. You cannot pass values the second time you call secrets().'));
         }
     
         return $this->secrets;
@@ -481,7 +494,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->notifier) {
             $this->notifier = new \Symfony\Config\Framework\NotifierConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "notifier()" has already been initialized. You cannot pass values the second time you call notifier().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "notifier()" has already been initialized. You cannot pass values the second time you call notifier().'));
         }
     
         return $this->notifier;
@@ -492,7 +505,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->rateLimiter) {
             $this->rateLimiter = new \Symfony\Config\Framework\RateLimiterConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "rateLimiter()" has already been initialized. You cannot pass values the second time you call rateLimiter().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "rateLimiter()" has already been initialized. You cannot pass values the second time you call rateLimiter().'));
         }
     
         return $this->rateLimiter;
@@ -503,7 +516,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null === $this->uid) {
             $this->uid = new \Symfony\Config\Framework\UidConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "uid()" has already been initialized. You cannot pass values the second time you call uid().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "uid()" has already been initialized. You cannot pass values the second time you call uid().'));
         }
     
         return $this->uid;
@@ -714,7 +727,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

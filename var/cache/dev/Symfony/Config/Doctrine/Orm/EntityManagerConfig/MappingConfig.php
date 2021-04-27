@@ -3,6 +3,9 @@
 namespace Symfony\Config\Doctrine\Orm\EntityManagerConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -20,6 +23,7 @@ class MappingConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function mapping($value): self
@@ -31,6 +35,7 @@ class MappingConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function type($value): self
@@ -42,6 +47,7 @@ class MappingConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function dir($value): self
@@ -53,6 +59,7 @@ class MappingConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function alias($value): self
@@ -64,6 +71,7 @@ class MappingConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function prefix($value): self
@@ -75,9 +83,10 @@ class MappingConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function isBundle(bool $value): self
+    public function isBundle($value): self
     {
         $this->isBundle = $value;
     
@@ -118,7 +127,7 @@ class MappingConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

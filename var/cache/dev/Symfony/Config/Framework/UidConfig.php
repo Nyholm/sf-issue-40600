@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -20,9 +23,10 @@ class UidConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -31,7 +35,7 @@ class UidConfig
     
     /**
      * @default 6
-     * @param 6|4|1 $value
+     * @param ParamConfigurator|6|4|1 $value
      * @return $this
      */
     public function defaultUuidVersion($value): self
@@ -43,7 +47,7 @@ class UidConfig
     
     /**
      * @default 5
-     * @param 5|3 $value
+     * @param ParamConfigurator|5|3 $value
      * @return $this
      */
     public function nameBasedUuidVersion($value): self
@@ -55,6 +59,7 @@ class UidConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function nameBasedUuidNamespace($value): self
@@ -66,7 +71,7 @@ class UidConfig
     
     /**
      * @default 6
-     * @param 6|1 $value
+     * @param ParamConfigurator|6|1 $value
      * @return $this
      */
     public function timeBasedUuidVersion($value): self
@@ -78,6 +83,7 @@ class UidConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function timeBasedUuidNode($value): self
@@ -121,7 +127,7 @@ class UidConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

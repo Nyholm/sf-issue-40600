@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -18,9 +21,10 @@ class SecretsConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -29,6 +33,7 @@ class SecretsConfig
     
     /**
      * @default '%kernel.project_dir%/config/secrets/%kernel.runtime_environment%'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function vaultDirectory($value): self
@@ -40,6 +45,7 @@ class SecretsConfig
     
     /**
      * @default '%kernel.project_dir%/.env.%kernel.environment%.local'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function localDotenvFile($value): self
@@ -51,6 +57,7 @@ class SecretsConfig
     
     /**
      * @default 'base64:default::SYMFONY_DECRYPTION_SECRET'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function decryptionEnvVar($value): self
@@ -84,7 +91,7 @@ class SecretsConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

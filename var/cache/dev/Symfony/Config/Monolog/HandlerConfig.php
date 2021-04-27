@@ -2,15 +2,18 @@
 
 namespace Symfony\Config\Monolog;
 
-require_once __DIR__.'/HandlerConfig/ExcludedHttpCodeConfig.php';
-require_once __DIR__.'/HandlerConfig/PublisherConfig.php';
-require_once __DIR__.'/HandlerConfig/MongoConfig.php';
-require_once __DIR__.'/HandlerConfig/ElasticsearchConfig.php';
-require_once __DIR__.'/HandlerConfig/RedisConfig.php';
-require_once __DIR__.'/HandlerConfig/PredisConfig.php';
-require_once __DIR__.'/HandlerConfig/EmailPrototypeConfig.php';
-require_once __DIR__.'/HandlerConfig/VerbosityLevelsConfig.php';
-require_once __DIR__.'/HandlerConfig/ChannelsConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'HandlerConfig'.\DIRECTORY_SEPARATOR.'ExcludedHttpCodeConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'HandlerConfig'.\DIRECTORY_SEPARATOR.'PublisherConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'HandlerConfig'.\DIRECTORY_SEPARATOR.'MongoConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'HandlerConfig'.\DIRECTORY_SEPARATOR.'ElasticsearchConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'HandlerConfig'.\DIRECTORY_SEPARATOR.'RedisConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'HandlerConfig'.\DIRECTORY_SEPARATOR.'PredisConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'HandlerConfig'.\DIRECTORY_SEPARATOR.'EmailPrototypeConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'HandlerConfig'.\DIRECTORY_SEPARATOR.'VerbosityLevelsConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'HandlerConfig'.\DIRECTORY_SEPARATOR.'ChannelsConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -115,6 +118,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function type($value): self
@@ -126,6 +130,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function id($value): self
@@ -137,6 +142,7 @@ class HandlerConfig
     
     /**
      * @default 0
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function priority($value): self
@@ -148,6 +154,7 @@ class HandlerConfig
     
     /**
      * @default 'DEBUG'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function level($value): self
@@ -159,9 +166,10 @@ class HandlerConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function bubble(bool $value): self
+    public function bubble($value): self
     {
         $this->bubble = $value;
     
@@ -170,6 +178,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function appName($value): self
@@ -181,9 +190,10 @@ class HandlerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function includeStacktraces(bool $value): self
+    public function includeStacktraces($value): self
     {
         $this->includeStacktraces = $value;
     
@@ -192,9 +202,10 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function processPsr3Messages(bool $value): self
+    public function processPsr3Messages($value): self
     {
         $this->processPsr3Messages = $value;
     
@@ -203,6 +214,7 @@ class HandlerConfig
     
     /**
      * @default '%kernel.logs_dir%/%kernel.environment%.log'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function path($value): self
@@ -214,6 +226,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function filePermission($value): self
@@ -225,9 +238,10 @@ class HandlerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useLocking(bool $value): self
+    public function useLocking($value): self
     {
         $this->useLocking = $value;
     
@@ -236,6 +250,7 @@ class HandlerConfig
     
     /**
      * @default '{filename}-{date}'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function filenameFormat($value): self
@@ -247,6 +262,7 @@ class HandlerConfig
     
     /**
      * @default 'Y-m-d'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function dateFormat($value): self
@@ -258,6 +274,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function ident($value): self
@@ -269,6 +286,7 @@ class HandlerConfig
     
     /**
      * @default 1
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function logopts($value): self
@@ -280,6 +298,7 @@ class HandlerConfig
     
     /**
      * @default 'user'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function facility($value): self
@@ -291,6 +310,7 @@ class HandlerConfig
     
     /**
      * @default 0
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function maxFiles($value): self
@@ -302,6 +322,7 @@ class HandlerConfig
     
     /**
      * @default 'WARNING'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function actionLevel($value): self
@@ -313,6 +334,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function activationStrategy($value): self
@@ -324,9 +346,10 @@ class HandlerConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function stopBuffering(bool $value): self
+    public function stopBuffering($value): self
     {
         $this->stopBuffering = $value;
     
@@ -335,6 +358,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function passthruLevel($value): self
@@ -345,9 +369,10 @@ class HandlerConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function excluded404s(array $value): self
+    public function excluded404s($value): self
     {
         $this->excluded404s = $value;
     
@@ -360,9 +385,10 @@ class HandlerConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function acceptedLevels(array $value): self
+    public function acceptedLevels($value): self
     {
         $this->acceptedLevels = $value;
     
@@ -371,6 +397,7 @@ class HandlerConfig
     
     /**
      * @default 'DEBUG'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function minLevel($value): self
@@ -382,6 +409,7 @@ class HandlerConfig
     
     /**
      * @default 'EMERGENCY'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function maxLevel($value): self
@@ -393,6 +421,7 @@ class HandlerConfig
     
     /**
      * @default 0
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function bufferSize($value): self
@@ -404,9 +433,10 @@ class HandlerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function flushOnOverflow(bool $value): self
+    public function flushOnOverflow($value): self
     {
         $this->flushOnOverflow = $value;
     
@@ -415,6 +445,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function handler($value): self
@@ -426,6 +457,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function url($value): self
@@ -437,6 +469,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function exchange($value): self
@@ -448,6 +481,7 @@ class HandlerConfig
     
     /**
      * @default 'log'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function exchangeName($value): self
@@ -459,6 +493,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function room($value): self
@@ -470,6 +505,7 @@ class HandlerConfig
     
     /**
      * @default 'text'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function messageFormat($value): self
@@ -481,6 +517,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function apiVersion($value): self
@@ -492,6 +529,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function channel($value): self
@@ -503,6 +541,7 @@ class HandlerConfig
     
     /**
      * @default 'Monolog'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function botName($value): self
@@ -514,6 +553,7 @@ class HandlerConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function useAttachment($value): self
@@ -525,6 +565,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function useShortAttachment($value): self
@@ -536,6 +577,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function includeExtra($value): self
@@ -547,6 +589,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function iconEmoji($value): self
@@ -558,6 +601,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function webhookUrl($value): self
@@ -569,6 +613,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function team($value): self
@@ -580,6 +625,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function notify($value): self
@@ -591,6 +637,7 @@ class HandlerConfig
     
     /**
      * @default 'Monolog'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function nickname($value): self
@@ -602,6 +649,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function token($value): self
@@ -613,6 +661,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function region($value): self
@@ -624,6 +673,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function source($value): self
@@ -635,9 +685,10 @@ class HandlerConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useSsl(bool $value): self
+    public function useSsl($value): self
     {
         $this->useSsl = $value;
     
@@ -646,6 +697,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function user($value): self
@@ -657,6 +709,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function title($value): self
@@ -668,6 +721,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function host($value): self
@@ -679,6 +733,7 @@ class HandlerConfig
     
     /**
      * @default 514
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function port($value): self
@@ -693,7 +748,7 @@ class HandlerConfig
         if (null === $this->publisher) {
             $this->publisher = new \Symfony\Config\Monolog\HandlerConfig\PublisherConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "publisher()" has already been initialized. You cannot pass values the second time you call publisher().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "publisher()" has already been initialized. You cannot pass values the second time you call publisher().'));
         }
     
         return $this->publisher;
@@ -704,7 +759,7 @@ class HandlerConfig
         if (null === $this->mongo) {
             $this->mongo = new \Symfony\Config\Monolog\HandlerConfig\MongoConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "mongo()" has already been initialized. You cannot pass values the second time you call mongo().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "mongo()" has already been initialized. You cannot pass values the second time you call mongo().'));
         }
     
         return $this->mongo;
@@ -715,7 +770,7 @@ class HandlerConfig
         if (null === $this->elasticsearch) {
             $this->elasticsearch = new \Symfony\Config\Monolog\HandlerConfig\ElasticsearchConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "elasticsearch()" has already been initialized. You cannot pass values the second time you call elasticsearch().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "elasticsearch()" has already been initialized. You cannot pass values the second time you call elasticsearch().'));
         }
     
         return $this->elasticsearch;
@@ -723,6 +778,7 @@ class HandlerConfig
     
     /**
      * @default 'monolog'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function index($value): self
@@ -734,6 +790,7 @@ class HandlerConfig
     
     /**
      * @default 'logs'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function documentType($value): self
@@ -745,6 +802,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function ignoreError($value): self
@@ -759,7 +817,7 @@ class HandlerConfig
         if (null === $this->redis) {
             $this->redis = new \Symfony\Config\Monolog\HandlerConfig\RedisConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "redis()" has already been initialized. You cannot pass values the second time you call redis().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "redis()" has already been initialized. You cannot pass values the second time you call redis().'));
         }
     
         return $this->redis;
@@ -770,16 +828,17 @@ class HandlerConfig
         if (null === $this->predis) {
             $this->predis = new \Symfony\Config\Monolog\HandlerConfig\PredisConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "predis()" has already been initialized. You cannot pass values the second time you call predis().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "predis()" has already been initialized. You cannot pass values the second time you call predis().'));
         }
     
         return $this->predis;
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function config(array $value): self
+    public function config($value): self
     {
         $this->config = $value;
     
@@ -787,9 +846,10 @@ class HandlerConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function members(array $value): self
+    public function members($value): self
     {
         $this->members = $value;
     
@@ -798,6 +858,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function fromEmail($value): self
@@ -808,9 +869,10 @@ class HandlerConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function toEmail(array $value): self
+    public function toEmail($value): self
     {
         $this->toEmail = $value;
     
@@ -819,6 +881,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function subject($value): self
@@ -830,6 +893,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function contentType($value): self
@@ -840,9 +904,10 @@ class HandlerConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function headers(array $value): self
+    public function headers($value): self
     {
         $this->headers = $value;
     
@@ -851,6 +916,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function mailer($value): self
@@ -865,7 +931,7 @@ class HandlerConfig
         if (null === $this->emailPrototype) {
             $this->emailPrototype = new \Symfony\Config\Monolog\HandlerConfig\EmailPrototypeConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "emailPrototype()" has already been initialized. You cannot pass values the second time you call emailPrototype().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "emailPrototype()" has already been initialized. You cannot pass values the second time you call emailPrototype().'));
         }
     
         return $this->emailPrototype;
@@ -873,9 +939,10 @@ class HandlerConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function lazy(bool $value): self
+    public function lazy($value): self
     {
         $this->lazy = $value;
     
@@ -884,6 +951,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function connectionString($value): self
@@ -895,6 +963,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function timeout($value): self
@@ -906,6 +975,7 @@ class HandlerConfig
     
     /**
      * @default 60
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function time($value): self
@@ -917,6 +987,7 @@ class HandlerConfig
     
     /**
      * @default 400
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function deduplicationLevel($value): self
@@ -928,6 +999,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function store($value): self
@@ -939,6 +1011,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function connectionTimeout($value): self
@@ -950,9 +1023,10 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function persistent(bool $value): self
+    public function persistent($value): self
     {
         $this->persistent = $value;
     
@@ -961,6 +1035,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function dsn($value): self
@@ -972,6 +1047,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function hubId($value): self
@@ -983,6 +1059,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function clientId($value): self
@@ -994,6 +1071,7 @@ class HandlerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function autoLogStacks($value): self
@@ -1005,6 +1083,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function release($value): self
@@ -1016,6 +1095,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function environment($value): self
@@ -1027,6 +1107,7 @@ class HandlerConfig
     
     /**
      * @default 0
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function messageType($value): self
@@ -1037,9 +1118,10 @@ class HandlerConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function tags(array $value): self
+    public function tags($value): self
     {
         $this->tags = $value;
     
@@ -1048,6 +1130,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @deprecated ".console_formater_options" is deprecated, use ".console_formatter_options" instead.
      * @return $this
      */
@@ -1061,6 +1144,7 @@ class HandlerConfig
     /**
      * @default array (
     )
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function consoleFormatterOptions($value = array (
@@ -1076,7 +1160,7 @@ class HandlerConfig
         if (null === $this->verbosityLevels) {
             $this->verbosityLevels = new \Symfony\Config\Monolog\HandlerConfig\VerbosityLevelsConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "verbosityLevels()" has already been initialized. You cannot pass values the second time you call verbosityLevels().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "verbosityLevels()" has already been initialized. You cannot pass values the second time you call verbosityLevels().'));
         }
     
         return $this->verbosityLevels;
@@ -1087,7 +1171,7 @@ class HandlerConfig
         if (null === $this->channels) {
             $this->channels = new \Symfony\Config\Monolog\HandlerConfig\ChannelsConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "channels()" has already been initialized. You cannot pass values the second time you call channels().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "channels()" has already been initialized. You cannot pass values the second time you call channels().'));
         }
     
         return $this->channels;
@@ -1095,6 +1179,7 @@ class HandlerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function formatter($value): self
@@ -1106,9 +1191,10 @@ class HandlerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function nested(bool $value): self
+    public function nested($value): self
     {
         $this->nested = $value;
     
@@ -1579,7 +1665,7 @@ class HandlerConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

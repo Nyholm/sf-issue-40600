@@ -2,8 +2,11 @@
 
 namespace Symfony\Config\Framework\HttpClient;
 
-require_once __DIR__.'/ScopedClientConfig/PeerFingerprintConfig.php';
-require_once __DIR__.'/ScopedClientConfig/RetryFailedConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'ScopedClientConfig'.\DIRECTORY_SEPARATOR.'PeerFingerprintConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'ScopedClientConfig'.\DIRECTORY_SEPARATOR.'RetryFailedConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -42,6 +45,7 @@ class ScopedClientConfig
     /**
      * The regular expression that the request URL must match before adding the other options. When none is provided, the base URI is used instead.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function scope($value): self
@@ -54,6 +58,7 @@ class ScopedClientConfig
     /**
      * The URI to resolve relative URLs, following rules in RFC 3985, section 2.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function baseUri($value): self
@@ -66,6 +71,7 @@ class ScopedClientConfig
     /**
      * An HTTP Basic authentication "username:password".
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function authBasic($value): self
@@ -78,6 +84,7 @@ class ScopedClientConfig
     /**
      * A token enabling HTTP Bearer authorization.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function authBearer($value): self
@@ -90,6 +97,7 @@ class ScopedClientConfig
     /**
      * A "username:password" pair to use Microsoft NTLM authentication (requires the cURL extension).
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function authNtlm($value): self
@@ -100,6 +108,7 @@ class ScopedClientConfig
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function query(string $key, $value): self
@@ -110,6 +119,7 @@ class ScopedClientConfig
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function header(string $name, $value): self
@@ -122,9 +132,10 @@ class ScopedClientConfig
     /**
      * The maximum number of redirects to follow.
      * @default null
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function maxRedirects(int $value): self
+    public function maxRedirects($value): self
     {
         $this->maxRedirects = $value;
     
@@ -134,6 +145,7 @@ class ScopedClientConfig
     /**
      * The default HTTP version, typically 1.1 or 2.0, leave to null for the best version.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function httpVersion($value): self
@@ -144,6 +156,7 @@ class ScopedClientConfig
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function resolve(string $host, $value): self
@@ -156,6 +169,7 @@ class ScopedClientConfig
     /**
      * The URL of the proxy to pass requests through or null for automatic detection.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function proxy($value): self
@@ -168,6 +182,7 @@ class ScopedClientConfig
     /**
      * A comma separated list of hosts that do not require a proxy to be reached.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function noProxy($value): self
@@ -180,9 +195,10 @@ class ScopedClientConfig
     /**
      * The idle timeout, defaults to the "default_socket_timeout" ini parameter.
      * @default null
+     * @param ParamConfigurator|float $value
      * @return $this
      */
-    public function timeout(float $value): self
+    public function timeout($value): self
     {
         $this->timeout = $value;
     
@@ -192,9 +208,10 @@ class ScopedClientConfig
     /**
      * The maximum execution time for the request+response as a whole.
      * @default null
+     * @param ParamConfigurator|float $value
      * @return $this
      */
-    public function maxDuration(float $value): self
+    public function maxDuration($value): self
     {
         $this->maxDuration = $value;
     
@@ -204,6 +221,7 @@ class ScopedClientConfig
     /**
      * A network interface name, IP address, a host name or a UNIX socket to bind to.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function bindto($value): self
@@ -216,9 +234,10 @@ class ScopedClientConfig
     /**
      * Indicates if the peer should be verified in an SSL/TLS context.
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function verifyPeer(bool $value): self
+    public function verifyPeer($value): self
     {
         $this->verifyPeer = $value;
     
@@ -228,9 +247,10 @@ class ScopedClientConfig
     /**
      * Indicates if the host should exist as a certificate common name.
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function verifyHost(bool $value): self
+    public function verifyHost($value): self
     {
         $this->verifyHost = $value;
     
@@ -240,6 +260,7 @@ class ScopedClientConfig
     /**
      * A certificate authority file.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function cafile($value): self
@@ -252,6 +273,7 @@ class ScopedClientConfig
     /**
      * A directory that contains multiple certificate authority files.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function capath($value): self
@@ -264,6 +286,7 @@ class ScopedClientConfig
     /**
      * A PEM formatted certificate file.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function localCert($value): self
@@ -276,6 +299,7 @@ class ScopedClientConfig
     /**
      * A private key file.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function localPk($value): self
@@ -288,6 +312,7 @@ class ScopedClientConfig
     /**
      * The passphrase used to encrypt the "local_pk" file.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function passphrase($value): self
@@ -300,6 +325,7 @@ class ScopedClientConfig
     /**
      * A list of SSL/TLS ciphers separated by colons, commas or spaces (e.g. "RC3-SHA:TLS13-AES-128-GCM-SHA256"...)
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function ciphers($value): self
@@ -314,7 +340,7 @@ class ScopedClientConfig
         if (null === $this->peerFingerprint) {
             $this->peerFingerprint = new \Symfony\Config\Framework\HttpClient\ScopedClientConfig\PeerFingerprintConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "peerFingerprint()" has already been initialized. You cannot pass values the second time you call peerFingerprint().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "peerFingerprint()" has already been initialized. You cannot pass values the second time you call peerFingerprint().'));
         }
     
         return $this->peerFingerprint;
@@ -325,7 +351,7 @@ class ScopedClientConfig
         if (null === $this->retryFailed) {
             $this->retryFailed = new \Symfony\Config\Framework\HttpClient\ScopedClientConfig\RetryFailedConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "retryFailed()" has already been initialized. You cannot pass values the second time you call retryFailed().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "retryFailed()" has already been initialized. You cannot pass values the second time you call retryFailed().'));
         }
     
         return $this->retryFailed;
@@ -460,7 +486,7 @@ class ScopedClientConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

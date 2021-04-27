@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework\Translator;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -20,9 +23,10 @@ class PseudoLocalizationConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -31,9 +35,10 @@ class PseudoLocalizationConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function accents(bool $value): self
+    public function accents($value): self
     {
         $this->accents = $value;
     
@@ -42,9 +47,10 @@ class PseudoLocalizationConfig
     
     /**
      * @default 1.0
+     * @param ParamConfigurator|float $value
      * @return $this
      */
-    public function expansionFactor(float $value): self
+    public function expansionFactor($value): self
     {
         $this->expansionFactor = $value;
     
@@ -53,9 +59,10 @@ class PseudoLocalizationConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function brackets(bool $value): self
+    public function brackets($value): self
     {
         $this->brackets = $value;
     
@@ -64,9 +71,10 @@ class PseudoLocalizationConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function parseHtml(bool $value): self
+    public function parseHtml($value): self
     {
         $this->parseHtml = $value;
     
@@ -74,9 +82,10 @@ class PseudoLocalizationConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function localizableHtmlAttributes(array $value): self
+    public function localizableHtmlAttributes($value): self
     {
         $this->localizableHtmlAttributes = $value;
     
@@ -117,7 +126,7 @@ class PseudoLocalizationConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

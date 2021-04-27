@@ -3,6 +3,9 @@
 namespace Symfony\Config\Security\FirewallConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -16,10 +19,11 @@ class AnonymousConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @deprecated Using "anonymous: lazy" to make the firewall lazy is deprecated, use "anonymous: true" and "lazy: true" instead.
      * @return $this
      */
-    public function lazy(bool $value): self
+    public function lazy($value): self
     {
         $this->lazy = $value;
     
@@ -28,6 +32,7 @@ class AnonymousConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function secret($value): self
@@ -51,7 +56,7 @@ class AnonymousConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

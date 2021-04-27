@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework\HttpClient\DefaultOptions\RetryFailed;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -16,9 +19,10 @@ class HttpCodeConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function code(int $value): self
+    public function code($value): self
     {
         $this->code = $value;
     
@@ -26,9 +30,10 @@ class HttpCodeConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function methods(array $value): self
+    public function methods($value): self
     {
         $this->methods = $value;
     
@@ -49,7 +54,7 @@ class HttpCodeConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

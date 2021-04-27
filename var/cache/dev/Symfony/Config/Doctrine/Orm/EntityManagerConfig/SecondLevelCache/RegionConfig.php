@@ -2,7 +2,10 @@
 
 namespace Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache;
 
-require_once __DIR__.'/RegionConfig/CacheDriverConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'RegionConfig'.\DIRECTORY_SEPARATOR.'CacheDriverConfig.php';
+
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+use Symfony\Component\Config\Loader\ParamConfigurator;
 
 
 /**
@@ -25,7 +28,7 @@ class RegionConfig
         if (null === $this->cacheDriver) {
             $this->cacheDriver = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\RegionConfig\CacheDriverConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "cacheDriver()" has already been initialized. You cannot pass values the second time you call cacheDriver().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "cacheDriver()" has already been initialized. You cannot pass values the second time you call cacheDriver().'));
         }
     
         return $this->cacheDriver;
@@ -33,6 +36,7 @@ class RegionConfig
     
     /**
      * @default '%kernel.cache_dir%/doctrine/orm/slc/filelock'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function lockPath($value): self
@@ -44,6 +48,7 @@ class RegionConfig
     
     /**
      * @default 60
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function lockLifetime($value): self
@@ -55,6 +60,7 @@ class RegionConfig
     
     /**
      * @default 'default'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function type($value): self
@@ -66,6 +72,7 @@ class RegionConfig
     
     /**
      * @default 0
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function lifetime($value): self
@@ -77,6 +84,7 @@ class RegionConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function service($value): self
@@ -88,6 +96,7 @@ class RegionConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function name($value): self
@@ -136,7 +145,7 @@ class RegionConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

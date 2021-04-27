@@ -3,6 +3,9 @@
 namespace Symfony\Config\Doctrine\Orm\EntityManagerConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -16,6 +19,7 @@ class DqlConfig
     private $datetimeFunctions;
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function stringFunction(string $name, $value): self
@@ -26,6 +30,7 @@ class DqlConfig
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function numericFunction(string $name, $value): self
@@ -36,6 +41,7 @@ class DqlConfig
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function datetimeFunction(string $name, $value): self
@@ -64,7 +70,7 @@ class DqlConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

@@ -2,7 +2,10 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/RateLimiter/LimiterConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'RateLimiter'.\DIRECTORY_SEPARATOR.'LimiterConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -17,9 +20,10 @@ class RateLimiterConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -35,7 +39,7 @@ class RateLimiterConfig
             return $this->limiters[$name];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "limiter()" has already been initialized. You cannot pass values the second time you call limiter().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "limiter()" has already been initialized. You cannot pass values the second time you call limiter().'));
     }
     
     public function __construct(array $value = [])
@@ -52,7 +56,7 @@ class RateLimiterConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

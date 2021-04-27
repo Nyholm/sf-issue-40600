@@ -3,6 +3,9 @@
 namespace Symfony\Config\Monolog\HandlerConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -18,6 +21,7 @@ class PublisherConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function id($value): self
@@ -29,6 +33,7 @@ class PublisherConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function hostname($value): self
@@ -40,6 +45,7 @@ class PublisherConfig
     
     /**
      * @default 12201
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function port($value): self
@@ -51,6 +57,7 @@ class PublisherConfig
     
     /**
      * @default 1420
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function chunkSize($value): self
@@ -84,7 +91,7 @@ class PublisherConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

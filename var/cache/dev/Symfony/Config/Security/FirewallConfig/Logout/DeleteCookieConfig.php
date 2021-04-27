@@ -3,6 +3,9 @@
 namespace Symfony\Config\Security\FirewallConfig\Logout;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -18,6 +21,7 @@ class DeleteCookieConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function path($value): self
@@ -29,6 +33,7 @@ class DeleteCookieConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function domain($value): self
@@ -40,6 +45,7 @@ class DeleteCookieConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function secure($value): self
@@ -51,6 +57,7 @@ class DeleteCookieConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function samesite($value): self
@@ -84,7 +91,7 @@ class DeleteCookieConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

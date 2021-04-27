@@ -2,7 +2,11 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/Translator/PseudoLocalizationConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Translator'.\DIRECTORY_SEPARATOR.'PseudoLocalizationConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Translator'.\DIRECTORY_SEPARATOR.'ProviderConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -21,12 +25,14 @@ class TranslatorConfig
     private $paths;
     private $enabledLocales;
     private $pseudoLocalization;
+    private $providers;
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -34,9 +40,10 @@ class TranslatorConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function fallbacks(array $value): self
+    public function fallbacks($value): self
     {
         $this->fallbacks = $value;
     
@@ -45,9 +52,10 @@ class TranslatorConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function logging(bool $value): self
+    public function logging($value): self
     {
         $this->logging = $value;
     
@@ -56,6 +64,7 @@ class TranslatorConfig
     
     /**
      * @default 'translator.formatter.default'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function formatter($value): self
@@ -67,6 +76,7 @@ class TranslatorConfig
     
     /**
      * @default '%kernel.cache_dir%/translations'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function cacheDir($value): self
@@ -79,6 +89,7 @@ class TranslatorConfig
     /**
      * The default path used to load translations
      * @default '%kernel.project_dir%/translations'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultPath($value): self
@@ -89,9 +100,10 @@ class TranslatorConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function paths(array $value): self
+    public function paths($value): self
     {
         $this->paths = $value;
     
@@ -99,9 +111,10 @@ class TranslatorConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function enabledLocales(array $value): self
+    public function enabledLocales($value): self
     {
         $this->enabledLocales = $value;
     
@@ -113,10 +126,22 @@ class TranslatorConfig
         if (null === $this->pseudoLocalization) {
             $this->pseudoLocalization = new \Symfony\Config\Framework\Translator\PseudoLocalizationConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "pseudoLocalization()" has already been initialized. You cannot pass values the second time you call pseudoLocalization().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "pseudoLocalization()" has already been initialized. You cannot pass values the second time you call pseudoLocalization().'));
         }
     
         return $this->pseudoLocalization;
+    }
+    
+    public function provider(string $name, array $value = []): \Symfony\Config\Framework\Translator\ProviderConfig
+    {
+        if (!isset($this->providers[$name])) {
+            return $this->providers[$name] = new \Symfony\Config\Framework\Translator\ProviderConfig($value);
+        }
+        if ([] === $value) {
+            return $this->providers[$name];
+        }
+    
+        throw new InvalidConfigurationException(sprintf('The node created by "provider()" has already been initialized. You cannot pass values the second time you call provider().'));
     }
     
     public function __construct(array $value = [])
@@ -167,8 +192,13 @@ class TranslatorConfig
             unset($value["pseudo_localization"]);
         }
     
+        if (isset($value["providers"])) {
+            $this->providers = array_map(function($v) { return new ProviderConfig($v); }, $value["providers"]);;
+            unset($value["providers"]);
+        }
+    
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     
@@ -202,6 +232,9 @@ class TranslatorConfig
         }
         if (null !== $this->pseudoLocalization) {
             $output["pseudo_localization"] = $this->pseudoLocalization->toArray();
+        }
+        if (null !== $this->providers) {
+            $output["providers"] = array_map(function($v) { return $v->toArray(); }, $this->providers);
         }
     
         return $output;

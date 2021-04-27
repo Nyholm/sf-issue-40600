@@ -2,7 +2,10 @@
 
 namespace Symfony\Config\Framework\Messenger;
 
-require_once __DIR__.'/Serializer/SymfonySerializerConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Serializer'.\DIRECTORY_SEPARATOR.'SymfonySerializerConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -18,6 +21,7 @@ class SerializerConfig
     /**
      * Service id to use as the default serializer for the transports.
      * @default 'messenger.transport.native_php_serializer'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultSerializer($value): self
@@ -32,7 +36,7 @@ class SerializerConfig
         if (null === $this->symfonySerializer) {
             $this->symfonySerializer = new \Symfony\Config\Framework\Messenger\Serializer\SymfonySerializerConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "symfonySerializer()" has already been initialized. You cannot pass values the second time you call symfonySerializer().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "symfonySerializer()" has already been initialized. You cannot pass values the second time you call symfonySerializer().'));
         }
     
         return $this->symfonySerializer;
@@ -52,7 +56,7 @@ class SerializerConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

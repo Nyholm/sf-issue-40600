@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -18,9 +21,10 @@ class AnnotationsConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -29,6 +33,7 @@ class AnnotationsConfig
     
     /**
      * @default 'php_array'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function cache($value): self
@@ -40,6 +45,7 @@ class AnnotationsConfig
     
     /**
      * @default '%kernel.cache_dir%/annotations'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function fileCacheDir($value): self
@@ -51,9 +57,10 @@ class AnnotationsConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function debug(bool $value): self
+    public function debug($value): self
     {
         $this->debug = $value;
     
@@ -84,7 +91,7 @@ class AnnotationsConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

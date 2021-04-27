@@ -3,6 +3,9 @@
 namespace Symfony\Config\Monolog\HandlerConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -20,6 +23,7 @@ class RedisConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function id($value): self
@@ -31,6 +35,7 @@ class RedisConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function host($value): self
@@ -42,6 +47,7 @@ class RedisConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function password($value): self
@@ -53,6 +59,7 @@ class RedisConfig
     
     /**
      * @default 6379
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function port($value): self
@@ -64,6 +71,7 @@ class RedisConfig
     
     /**
      * @default 0
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function database($value): self
@@ -75,6 +83,7 @@ class RedisConfig
     
     /**
      * @default 'monolog_redis'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function keyName($value): self
@@ -118,7 +127,7 @@ class RedisConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

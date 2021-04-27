@@ -2,7 +2,10 @@
 
 namespace Symfony\Config\Security\FirewallConfig;
 
-require_once __DIR__.'/Logout/DeleteCookieConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Logout'.\DIRECTORY_SEPARATOR.'DeleteCookieConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -24,6 +27,7 @@ class LogoutConfig
     
     /**
      * @default '_csrf_token'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function csrfParameter($value): self
@@ -35,6 +39,7 @@ class LogoutConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function csrfTokenGenerator($value): self
@@ -46,6 +51,7 @@ class LogoutConfig
     
     /**
      * @default 'logout'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function csrfTokenId($value): self
@@ -57,6 +63,7 @@ class LogoutConfig
     
     /**
      * @default '/logout'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function path($value): self
@@ -68,6 +75,7 @@ class LogoutConfig
     
     /**
      * @default '/'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function target($value): self
@@ -79,6 +87,7 @@ class LogoutConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @deprecated The "success_handler" at path "logout" is deprecated, register a listener on the "Symfony\Component\Security\Http\Event\LogoutEvent" event instead.
      * @return $this
      */
@@ -91,9 +100,10 @@ class LogoutConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function invalidateSession(bool $value): self
+    public function invalidateSession($value): self
     {
         $this->invalidateSession = $value;
     
@@ -109,13 +119,14 @@ class LogoutConfig
             return $this->deleteCookies[$name];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "deleteCookie()" has already been initialized. You cannot pass values the second time you call deleteCookie().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "deleteCookie()" has already been initialized. You cannot pass values the second time you call deleteCookie().'));
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function handlers(array $value): self
+    public function handlers($value): self
     {
         $this->handlers = $value;
     
@@ -171,7 +182,7 @@ class LogoutConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

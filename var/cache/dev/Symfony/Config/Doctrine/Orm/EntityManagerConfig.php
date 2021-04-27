@@ -2,14 +2,17 @@
 
 namespace Symfony\Config\Doctrine\Orm;
 
-require_once __DIR__.'/EntityManagerConfig/QueryCacheDriverConfig.php';
-require_once __DIR__.'/EntityManagerConfig/MetadataCacheDriverConfig.php';
-require_once __DIR__.'/EntityManagerConfig/ResultCacheDriverConfig.php';
-require_once __DIR__.'/EntityManagerConfig/EntityListenersConfig.php';
-require_once __DIR__.'/EntityManagerConfig/SecondLevelCacheConfig.php';
-require_once __DIR__.'/EntityManagerConfig/MappingConfig.php';
-require_once __DIR__.'/EntityManagerConfig/DqlConfig.php';
-require_once __DIR__.'/EntityManagerConfig/FilterConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'EntityManagerConfig'.\DIRECTORY_SEPARATOR.'QueryCacheDriverConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'EntityManagerConfig'.\DIRECTORY_SEPARATOR.'MetadataCacheDriverConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'EntityManagerConfig'.\DIRECTORY_SEPARATOR.'ResultCacheDriverConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'EntityManagerConfig'.\DIRECTORY_SEPARATOR.'EntityListenersConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'EntityManagerConfig'.\DIRECTORY_SEPARATOR.'SecondLevelCacheConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'EntityManagerConfig'.\DIRECTORY_SEPARATOR.'MappingConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'EntityManagerConfig'.\DIRECTORY_SEPARATOR.'DqlConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'EntityManagerConfig'.\DIRECTORY_SEPARATOR.'FilterConfig.php';
+
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+use Symfony\Component\Config\Loader\ParamConfigurator;
 
 
 /**
@@ -42,7 +45,7 @@ class EntityManagerConfig
         if (null === $this->queryCacheDriver) {
             $this->queryCacheDriver = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\QueryCacheDriverConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "queryCacheDriver()" has already been initialized. You cannot pass values the second time you call queryCacheDriver().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "queryCacheDriver()" has already been initialized. You cannot pass values the second time you call queryCacheDriver().'));
         }
     
         return $this->queryCacheDriver;
@@ -53,7 +56,7 @@ class EntityManagerConfig
         if (null === $this->metadataCacheDriver) {
             $this->metadataCacheDriver = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\MetadataCacheDriverConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "metadataCacheDriver()" has already been initialized. You cannot pass values the second time you call metadataCacheDriver().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "metadataCacheDriver()" has already been initialized. You cannot pass values the second time you call metadataCacheDriver().'));
         }
     
         return $this->metadataCacheDriver;
@@ -64,7 +67,7 @@ class EntityManagerConfig
         if (null === $this->resultCacheDriver) {
             $this->resultCacheDriver = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\ResultCacheDriverConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "resultCacheDriver()" has already been initialized. You cannot pass values the second time you call resultCacheDriver().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "resultCacheDriver()" has already been initialized. You cannot pass values the second time you call resultCacheDriver().'));
         }
     
         return $this->resultCacheDriver;
@@ -75,7 +78,7 @@ class EntityManagerConfig
         if (null === $this->entityListeners) {
             $this->entityListeners = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListenersConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "entityListeners()" has already been initialized. You cannot pass values the second time you call entityListeners().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "entityListeners()" has already been initialized. You cannot pass values the second time you call entityListeners().'));
         }
     
         return $this->entityListeners;
@@ -83,6 +86,7 @@ class EntityManagerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function connection($value): self
@@ -94,6 +98,7 @@ class EntityManagerConfig
     
     /**
      * @default 'Doctrine\\ORM\\Mapping\\ClassMetadataFactory'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function classMetadataFactoryName($value): self
@@ -105,6 +110,7 @@ class EntityManagerConfig
     
     /**
      * @default 'Doctrine\\ORM\\EntityRepository'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultRepositoryClass($value): self
@@ -116,6 +122,7 @@ class EntityManagerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function autoMapping($value): self
@@ -127,6 +134,7 @@ class EntityManagerConfig
     
     /**
      * @default 'doctrine.orm.naming_strategy.default'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function namingStrategy($value): self
@@ -138,6 +146,7 @@ class EntityManagerConfig
     
     /**
      * @default 'doctrine.orm.quote_strategy.default'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function quoteStrategy($value): self
@@ -149,6 +158,7 @@ class EntityManagerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function entityListenerResolver($value): self
@@ -160,6 +170,7 @@ class EntityManagerConfig
     
     /**
      * @default 'doctrine.orm.container_repository_factory'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function repositoryFactory($value): self
@@ -174,13 +185,14 @@ class EntityManagerConfig
         if (null === $this->secondLevelCache) {
             $this->secondLevelCache = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCacheConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "secondLevelCache()" has already been initialized. You cannot pass values the second time you call secondLevelCache().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "secondLevelCache()" has already been initialized. You cannot pass values the second time you call secondLevelCache().'));
         }
     
         return $this->secondLevelCache;
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function hydrator(string $name, $value): self
@@ -199,7 +211,7 @@ class EntityManagerConfig
             return $this->mappings[$name];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "mapping()" has already been initialized. You cannot pass values the second time you call mapping().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "mapping()" has already been initialized. You cannot pass values the second time you call mapping().'));
     }
     
     public function dql(array $value = []): \Symfony\Config\Doctrine\Orm\EntityManagerConfig\DqlConfig
@@ -207,7 +219,7 @@ class EntityManagerConfig
         if (null === $this->dql) {
             $this->dql = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\DqlConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "dql()" has already been initialized. You cannot pass values the second time you call dql().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "dql()" has already been initialized. You cannot pass values the second time you call dql().'));
         }
     
         return $this->dql;
@@ -222,7 +234,7 @@ class EntityManagerConfig
             return $this->filters[$name];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "filter()" has already been initialized. You cannot pass values the second time you call filter().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "filter()" has already been initialized. You cannot pass values the second time you call filter().'));
     }
     
     public function __construct(array $value = [])
@@ -314,7 +326,7 @@ class EntityManagerConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

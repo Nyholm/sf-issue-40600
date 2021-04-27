@@ -3,6 +3,9 @@
 namespace Symfony\Config\Security\FirewallConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -21,6 +24,7 @@ class HttpBasicLdapConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function provider($value): self
@@ -32,6 +36,7 @@ class HttpBasicLdapConfig
     
     /**
      * @default 'Secured Area'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function realm($value): self
@@ -43,6 +48,7 @@ class HttpBasicLdapConfig
     
     /**
      * @default 'ldap'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function service($value): self
@@ -54,6 +60,7 @@ class HttpBasicLdapConfig
     
     /**
      * @default '{username}'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function dnString($value): self
@@ -65,6 +72,7 @@ class HttpBasicLdapConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function queryString($value): self
@@ -75,6 +83,7 @@ class HttpBasicLdapConfig
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function searchDn($value): self
@@ -85,6 +94,7 @@ class HttpBasicLdapConfig
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function searchPassword($value): self
@@ -133,7 +143,7 @@ class HttpBasicLdapConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework\Cache;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -20,9 +23,10 @@ class PoolConfig
     private $clearer;
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function adapters(array $value): self
+    public function adapters($value): self
     {
         $this->adapters = $value;
     
@@ -31,6 +35,7 @@ class PoolConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function tags($value): self
@@ -42,9 +47,10 @@ class PoolConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function public(bool $value): self
+    public function public($value): self
     {
         $this->public = $value;
     
@@ -55,6 +61,7 @@ class PoolConfig
      * Default lifetime of the pool
      * @example "600" for 5 minutes expressed in seconds, "PT5M" for five minutes expressed as ISO 8601 time interval, or "5 minutes" as a date expression
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultLifetime($value): self
@@ -67,6 +74,7 @@ class PoolConfig
     /**
      * Overwrite the setting from the default provider for this adapter.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function provider($value): self
@@ -79,6 +87,7 @@ class PoolConfig
     /**
      * @example "messenger.default_bus" to send early expiration events to the default Messenger bus.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function earlyExpirationMessageBus($value): self
@@ -90,6 +99,7 @@ class PoolConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function clearer($value): self
@@ -138,7 +148,7 @@ class PoolConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

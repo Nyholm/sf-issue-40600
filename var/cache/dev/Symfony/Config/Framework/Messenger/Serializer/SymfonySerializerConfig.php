@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework\Messenger\Serializer;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -17,6 +20,7 @@ class SymfonySerializerConfig
     /**
      * Serialization format for the messenger.transport.symfony_serializer service (which is not the serializer used by default).
      * @default 'json'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function format($value): self
@@ -27,6 +31,7 @@ class SymfonySerializerConfig
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function context(string $name, $value): self
@@ -50,7 +55,7 @@ class SymfonySerializerConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -24,9 +27,10 @@ class HttpCacheConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -35,9 +39,10 @@ class HttpCacheConfig
     
     /**
      * @default '%kernel.debug%'
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function debug(bool $value): self
+    public function debug($value): self
     {
         $this->debug = $value;
     
@@ -46,7 +51,7 @@ class HttpCacheConfig
     
     /**
      * @default null
-     * @param 'none'|'short'|'full' $value
+     * @param ParamConfigurator|'none'|'short'|'full' $value
      * @return $this
      */
     public function traceLevel($value): self
@@ -58,6 +63,7 @@ class HttpCacheConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function traceHeader($value): self
@@ -69,9 +75,10 @@ class HttpCacheConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function defaultTtl(int $value): self
+    public function defaultTtl($value): self
     {
         $this->defaultTtl = $value;
     
@@ -79,9 +86,10 @@ class HttpCacheConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function privateHeaders(array $value): self
+    public function privateHeaders($value): self
     {
         $this->privateHeaders = $value;
     
@@ -90,9 +98,10 @@ class HttpCacheConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function allowReload(bool $value): self
+    public function allowReload($value): self
     {
         $this->allowReload = $value;
     
@@ -101,9 +110,10 @@ class HttpCacheConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function allowRevalidate(bool $value): self
+    public function allowRevalidate($value): self
     {
         $this->allowRevalidate = $value;
     
@@ -112,9 +122,10 @@ class HttpCacheConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function staleWhileRevalidate(int $value): self
+    public function staleWhileRevalidate($value): self
     {
         $this->staleWhileRevalidate = $value;
     
@@ -123,9 +134,10 @@ class HttpCacheConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function staleIfError(int $value): self
+    public function staleIfError($value): self
     {
         $this->staleIfError = $value;
     
@@ -186,7 +198,7 @@ class HttpCacheConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

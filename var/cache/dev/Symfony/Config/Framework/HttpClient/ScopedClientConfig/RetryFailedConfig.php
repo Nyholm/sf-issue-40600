@@ -2,7 +2,10 @@
 
 namespace Symfony\Config\Framework\HttpClient\ScopedClientConfig;
 
-require_once __DIR__.'/RetryFailed/HttpCodeConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'RetryFailed'.\DIRECTORY_SEPARATOR.'HttpCodeConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -23,9 +26,10 @@ class RetryFailedConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -35,6 +39,7 @@ class RetryFailedConfig
     /**
      * service id to override the retry strategy
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function retryStrategy($value): self
@@ -53,14 +58,15 @@ class RetryFailedConfig
             return $this->httpCodes[$code];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "httpCode()" has already been initialized. You cannot pass values the second time you call httpCode().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "httpCode()" has already been initialized. You cannot pass values the second time you call httpCode().'));
     }
     
     /**
      * @default 3
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function maxRetries(int $value): self
+    public function maxRetries($value): self
     {
         $this->maxRetries = $value;
     
@@ -70,9 +76,10 @@ class RetryFailedConfig
     /**
      * Time in ms to delay (or the initial value when multiplier is used)
      * @default 1000
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function delay(int $value): self
+    public function delay($value): self
     {
         $this->delay = $value;
     
@@ -82,9 +89,10 @@ class RetryFailedConfig
     /**
      * If greater than 1, delay will grow exponentially for each retry: delay * (multiple ^ retries)
      * @default 2
+     * @param ParamConfigurator|float $value
      * @return $this
      */
-    public function multiplier(float $value): self
+    public function multiplier($value): self
     {
         $this->multiplier = $value;
     
@@ -94,9 +102,10 @@ class RetryFailedConfig
     /**
      * Max time in ms that a retry should ever be delayed (0 = infinite)
      * @default 0
+     * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function maxDelay(int $value): self
+    public function maxDelay($value): self
     {
         $this->maxDelay = $value;
     
@@ -106,9 +115,10 @@ class RetryFailedConfig
     /**
      * Randomness in percent (between 0 and 1) to apply to the delay
      * @default 0.1
+     * @param ParamConfigurator|float $value
      * @return $this
      */
-    public function jitter(float $value): self
+    public function jitter($value): self
     {
         $this->jitter = $value;
     
@@ -159,7 +169,7 @@ class RetryFailedConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

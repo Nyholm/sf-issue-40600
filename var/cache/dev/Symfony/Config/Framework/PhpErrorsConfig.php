@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -18,6 +21,7 @@ class PhpErrorsConfig
      * Use the application logger instead of the PHP logger for logging PHP errors.
      * @example "true" to use the default configuration: log all errors. "false" to disable. An integer bit field of E_* constants, or an array mapping E_* constants to log levels.
      * @default true
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function log($value = true): self
@@ -30,9 +34,10 @@ class PhpErrorsConfig
     /**
      * Throw PHP errors as \ErrorException instances.
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function throw(bool $value): self
+    public function throw($value): self
     {
         $this->throw = $value;
     
@@ -53,7 +58,7 @@ class PhpErrorsConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

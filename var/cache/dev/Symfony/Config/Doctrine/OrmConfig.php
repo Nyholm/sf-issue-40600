@@ -2,7 +2,10 @@
 
 namespace Symfony\Config\Doctrine;
 
-require_once __DIR__.'/Orm/EntityManagerConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Orm'.\DIRECTORY_SEPARATOR.'EntityManagerConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -21,6 +24,7 @@ class OrmConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultEntityManager($value): self
@@ -33,6 +37,7 @@ class OrmConfig
     /**
      * Auto generate mode possible values are: "NEVER", "ALWAYS", "FILE_NOT_EXISTS", "EVAL"
      * @default false
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function autoGenerateProxyClasses($value): self
@@ -44,6 +49,7 @@ class OrmConfig
     
     /**
      * @default '%kernel.cache_dir%/doctrine/orm/Proxies'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function proxyDir($value): self
@@ -55,6 +61,7 @@ class OrmConfig
     
     /**
      * @default 'Proxies'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function proxyNamespace($value): self
@@ -73,10 +80,11 @@ class OrmConfig
             return $this->entityManagers[$name];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "entityManager()" has already been initialized. You cannot pass values the second time you call entityManager().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "entityManager()" has already been initialized. You cannot pass values the second time you call entityManager().'));
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function resolveTargetEntity(string $interface, $value): self
@@ -120,7 +128,7 @@ class OrmConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

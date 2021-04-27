@@ -2,7 +2,9 @@
 
 namespace Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListeners\EntityConfig;
 
-require_once __DIR__.'/ListenerConfig/EventConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'ListenerConfig'.\DIRECTORY_SEPARATOR.'EventConfig.php';
+
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -28,7 +30,7 @@ class ListenerConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

@@ -2,7 +2,9 @@
 
 namespace Symfony\Config\Security\ProviderConfig;
 
-require_once __DIR__.'/Memory/UserConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Memory'.\DIRECTORY_SEPARATOR.'UserConfig.php';
+
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -23,7 +25,7 @@ class MemoryConfig
             return $this->users[$identifier];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "user()" has already been initialized. You cannot pass values the second time you call user().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "user()" has already been initialized. You cannot pass values the second time you call user().'));
     }
     
     public function __construct(array $value = [])
@@ -35,7 +37,7 @@ class MemoryConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

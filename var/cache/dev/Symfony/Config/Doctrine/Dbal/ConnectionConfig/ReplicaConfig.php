@@ -3,6 +3,9 @@
 namespace Symfony\Config\Doctrine\Dbal\ConnectionConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -44,6 +47,7 @@ class ReplicaConfig
     /**
      * A URL with connection information; any parameter value parsed from this string will override explicitly set parameters
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function url($value): self
@@ -55,6 +59,7 @@ class ReplicaConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function dbname($value): self
@@ -67,6 +72,7 @@ class ReplicaConfig
     /**
      * Defaults to "localhost" at runtime.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function host($value): self
@@ -79,6 +85,7 @@ class ReplicaConfig
     /**
      * Defaults to null at runtime.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function port($value): self
@@ -91,6 +98,7 @@ class ReplicaConfig
     /**
      * Defaults to "root" at runtime.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function user($value): self
@@ -103,6 +111,7 @@ class ReplicaConfig
     /**
      * Defaults to null at runtime.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function password($value): self
@@ -115,9 +124,10 @@ class ReplicaConfig
     /**
      * Allows overriding parts of the "url" parameter with dbname, host, port, user, and/or password parameters.
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function overrideUrl(bool $value): self
+    public function overrideUrl($value): self
     {
         $this->overrideUrl = $value;
     
@@ -126,6 +136,7 @@ class ReplicaConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function applicationName($value): self
@@ -137,6 +148,7 @@ class ReplicaConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function charset($value): self
@@ -148,6 +160,7 @@ class ReplicaConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function path($value): self
@@ -159,9 +172,10 @@ class ReplicaConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function memory(bool $value): self
+    public function memory($value): self
     {
         $this->memory = $value;
     
@@ -171,6 +185,7 @@ class ReplicaConfig
     /**
      * The unix socket to use for MySQL
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function unixSocket($value): self
@@ -183,9 +198,10 @@ class ReplicaConfig
     /**
      * True to use as persistent connection for the ibm_db2 driver
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function persistent(bool $value): self
+    public function persistent($value): self
     {
         $this->persistent = $value;
     
@@ -195,6 +211,7 @@ class ReplicaConfig
     /**
      * The protocol to use for the ibm_db2 driver (default to TCPIP if omitted)
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function protocol($value): self
@@ -207,9 +224,10 @@ class ReplicaConfig
     /**
      * True to use SERVICE_NAME as connection parameter instead of SID for Oracle
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function service(bool $value): self
+    public function service($value): self
     {
         $this->service = $value;
     
@@ -219,6 +237,7 @@ class ReplicaConfig
     /**
      * Overrules dbname parameter if given and used as SERVICE_NAME or SID connection parameter for Oracle depending on the service parameter.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function servicename($value): self
@@ -231,6 +250,7 @@ class ReplicaConfig
     /**
      * The session mode to use for the oci8 driver
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function sessionMode($value): self
@@ -243,6 +263,7 @@ class ReplicaConfig
     /**
      * The name of a running database server to connect to for SQL Anywhere.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function server($value): self
@@ -255,6 +276,7 @@ class ReplicaConfig
     /**
      * Override the default database (postgres) to connect to for PostgreSQL connexion.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultDbname($value): self
@@ -267,6 +289,7 @@ class ReplicaConfig
     /**
      * Determines whether or with what priority a SSL TCP/IP connection will be negotiated with the server for PostgreSQL.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function sslmode($value): self
@@ -279,6 +302,7 @@ class ReplicaConfig
     /**
      * The name of a file containing SSL certificate authority (CA) certificate(s). If the file exists, the server's certificate will be verified to be signed by one of these authorities.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function sslrootcert($value): self
@@ -291,6 +315,7 @@ class ReplicaConfig
     /**
      * The path to the SSL client certificate file for PostgreSQL.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function sslcert($value): self
@@ -303,6 +328,7 @@ class ReplicaConfig
     /**
      * The path to the SSL client key file for PostgreSQL.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function sslkey($value): self
@@ -315,6 +341,7 @@ class ReplicaConfig
     /**
      * The file name of the SSL certificate revocation list for PostgreSQL.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function sslcrl($value): self
@@ -327,9 +354,10 @@ class ReplicaConfig
     /**
      * True to use a pooled server with the oci8/pdo_oracle driver
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function pooled(bool $value): self
+    public function pooled($value): self
     {
         $this->pooled = $value;
     
@@ -339,9 +367,10 @@ class ReplicaConfig
     /**
      * Configuring MultipleActiveResultSets for the pdo_sqlsrv driver
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function multipleActiveResultSets(bool $value): self
+    public function multipleActiveResultSets($value): self
     {
         $this->multipleActiveResultSets = $value;
     
@@ -351,9 +380,10 @@ class ReplicaConfig
     /**
      * Use savepoints for nested transactions
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useSavepoints(bool $value): self
+    public function useSavepoints($value): self
     {
         $this->useSavepoints = $value;
     
@@ -363,6 +393,7 @@ class ReplicaConfig
     /**
      * Optional parameter, complete whether to add the INSTANCE_NAME parameter in the connection. It is generally used to connect to an Oracle RAC server to select the name of a particular instance.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function instancename($value): self
@@ -375,6 +406,7 @@ class ReplicaConfig
     /**
      * Complete Easy Connect connection descriptor, see https://docs.oracle.com/database/121/NETAG/naming.htm.When using this option, you will still need to provide the user and password parameters, but the other parameters will no longer be used. Note that when using this parameter, the getHost and getPort methods from Doctrine\DBAL\Connection will no longer function as expected.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function connectstring($value): self
@@ -533,7 +565,7 @@ class ReplicaConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

@@ -2,10 +2,13 @@
 
 namespace Symfony\Config\Security;
 
-require_once __DIR__.'/ProviderConfig/ChainConfig.php';
-require_once __DIR__.'/ProviderConfig/MemoryConfig.php';
-require_once __DIR__.'/ProviderConfig/LdapConfig.php';
-require_once __DIR__.'/ProviderConfig/EntityConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'ProviderConfig'.\DIRECTORY_SEPARATOR.'ChainConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'ProviderConfig'.\DIRECTORY_SEPARATOR.'MemoryConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'ProviderConfig'.\DIRECTORY_SEPARATOR.'LdapConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'ProviderConfig'.\DIRECTORY_SEPARATOR.'EntityConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -23,6 +26,7 @@ class ProviderConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function id($value): self
@@ -37,7 +41,7 @@ class ProviderConfig
         if (null === $this->chain) {
             $this->chain = new \Symfony\Config\Security\ProviderConfig\ChainConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "chain()" has already been initialized. You cannot pass values the second time you call chain().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "chain()" has already been initialized. You cannot pass values the second time you call chain().'));
         }
     
         return $this->chain;
@@ -48,7 +52,7 @@ class ProviderConfig
         if (null === $this->memory) {
             $this->memory = new \Symfony\Config\Security\ProviderConfig\MemoryConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "memory()" has already been initialized. You cannot pass values the second time you call memory().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "memory()" has already been initialized. You cannot pass values the second time you call memory().'));
         }
     
         return $this->memory;
@@ -59,7 +63,7 @@ class ProviderConfig
         if (null === $this->ldap) {
             $this->ldap = new \Symfony\Config\Security\ProviderConfig\LdapConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "ldap()" has already been initialized. You cannot pass values the second time you call ldap().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "ldap()" has already been initialized. You cannot pass values the second time you call ldap().'));
         }
     
         return $this->ldap;
@@ -70,7 +74,7 @@ class ProviderConfig
         if (null === $this->entity) {
             $this->entity = new \Symfony\Config\Security\ProviderConfig\EntityConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "entity()" has already been initialized. You cannot pass values the second time you call entity().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "entity()" has already been initialized. You cannot pass values the second time you call entity().'));
         }
     
         return $this->entity;
@@ -105,7 +109,7 @@ class ProviderConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

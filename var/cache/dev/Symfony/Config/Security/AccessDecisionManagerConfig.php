@@ -3,6 +3,9 @@
 namespace Symfony\Config\Security;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -18,7 +21,7 @@ class AccessDecisionManagerConfig
     
     /**
      * @default null
-     * @param 'affirmative'|'consensus'|'unanimous'|'priority' $value
+     * @param ParamConfigurator|'affirmative'|'consensus'|'unanimous'|'priority' $value
      * @return $this
      */
     public function strategy($value): self
@@ -30,6 +33,7 @@ class AccessDecisionManagerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function service($value): self
@@ -41,9 +45,10 @@ class AccessDecisionManagerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function allowIfAllAbstain(bool $value): self
+    public function allowIfAllAbstain($value): self
     {
         $this->allowIfAllAbstain = $value;
     
@@ -52,9 +57,10 @@ class AccessDecisionManagerConfig
     
     /**
      * @default true
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function allowIfEqualGrantedDenied(bool $value): self
+    public function allowIfEqualGrantedDenied($value): self
     {
         $this->allowIfEqualGrantedDenied = $value;
     
@@ -85,7 +91,7 @@ class AccessDecisionManagerConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

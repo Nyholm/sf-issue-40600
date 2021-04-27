@@ -2,8 +2,11 @@
 
 namespace Symfony\Config\Doctrine;
 
-require_once __DIR__.'/Dbal/TypeConfig.php';
-require_once __DIR__.'/Dbal/ConnectionConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Dbal'.\DIRECTORY_SEPARATOR.'TypeConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Dbal'.\DIRECTORY_SEPARATOR.'ConnectionConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -19,6 +22,7 @@ class DbalConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultConnection($value): self
@@ -37,7 +41,7 @@ class DbalConfig
             return $this->types[$name];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "type()" has already been initialized. You cannot pass values the second time you call type().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "type()" has already been initialized. You cannot pass values the second time you call type().'));
     }
     
     public function connection(string $name, array $value = []): \Symfony\Config\Doctrine\Dbal\ConnectionConfig
@@ -49,7 +53,7 @@ class DbalConfig
             return $this->connections[$name];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "connection()" has already been initialized. You cannot pass values the second time you call connection().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "connection()" has already been initialized. You cannot pass values the second time you call connection().'));
     }
     
     public function __construct(array $value = [])
@@ -71,7 +75,7 @@ class DbalConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

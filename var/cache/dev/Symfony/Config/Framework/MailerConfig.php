@@ -2,8 +2,11 @@
 
 namespace Symfony\Config\Framework;
 
-require_once __DIR__.'/Mailer/EnvelopeConfig.php';
-require_once __DIR__.'/Mailer/HeaderConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Mailer'.\DIRECTORY_SEPARATOR.'EnvelopeConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Mailer'.\DIRECTORY_SEPARATOR.'HeaderConfig.php';
+
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 
 /**
@@ -22,9 +25,10 @@ class MailerConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -34,6 +38,7 @@ class MailerConfig
     /**
      * The message bus to use. Defaults to the default bus if the Messenger component is installed.
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function messageBus($value): self
@@ -45,6 +50,7 @@ class MailerConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function dsn($value): self
@@ -55,6 +61,7 @@ class MailerConfig
     }
     
     /**
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function transport(string $name, $value): self
@@ -69,7 +76,7 @@ class MailerConfig
         if (null === $this->envelope) {
             $this->envelope = new \Symfony\Config\Framework\Mailer\EnvelopeConfig($value);
         } elseif ([] !== $value) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "envelope()" has already been initialized. You cannot pass values the second time you call envelope().'));
+            throw new InvalidConfigurationException(sprintf('The node created by "envelope()" has already been initialized. You cannot pass values the second time you call envelope().'));
         }
     
         return $this->envelope;
@@ -84,7 +91,7 @@ class MailerConfig
             return $this->headers[$name];
         }
     
-        throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The node created by "header()" has already been initialized. You cannot pass values the second time you call header().'));
+        throw new InvalidConfigurationException(sprintf('The node created by "header()" has already been initialized. You cannot pass values the second time you call header().'));
     }
     
     public function __construct(array $value = [])
@@ -121,7 +128,7 @@ class MailerConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

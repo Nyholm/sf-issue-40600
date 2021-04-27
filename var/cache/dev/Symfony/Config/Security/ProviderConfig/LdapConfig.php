@@ -3,6 +3,9 @@
 namespace Symfony\Config\Security\ProviderConfig;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -23,6 +26,7 @@ class LdapConfig
     
     /**
      * @default 'ldap'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function service($value): self
@@ -34,6 +38,7 @@ class LdapConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function baseDn($value): self
@@ -45,6 +50,7 @@ class LdapConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function searchDn($value): self
@@ -56,6 +62,7 @@ class LdapConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function searchPassword($value): self
@@ -66,9 +73,10 @@ class LdapConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function extraFields(array $value): self
+    public function extraFields($value): self
     {
         $this->extraFields = $value;
     
@@ -76,9 +84,10 @@ class LdapConfig
     }
     
     /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
      * @return $this
      */
-    public function defaultRoles(array $value): self
+    public function defaultRoles($value): self
     {
         $this->defaultRoles = $value;
     
@@ -87,6 +96,7 @@ class LdapConfig
     
     /**
      * @default 'sAMAccountName'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function uidKey($value): self
@@ -98,6 +108,7 @@ class LdapConfig
     
     /**
      * @default '({uid_key}={username})'
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function filter($value): self
@@ -109,6 +120,7 @@ class LdapConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function passwordAttribute($value): self
@@ -167,7 +179,7 @@ class LdapConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     

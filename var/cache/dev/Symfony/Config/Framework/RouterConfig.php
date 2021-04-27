@@ -3,6 +3,9 @@
 namespace Symfony\Config\Framework;
 
 
+use Symfony\Component\Config\Loader\ParamConfigurator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
+
 
 /**
  * This class is automatically generated to help creating config.
@@ -22,9 +25,10 @@ class RouterConfig
     
     /**
      * @default false
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled(bool $value): self
+    public function enabled($value): self
     {
         $this->enabled = $value;
     
@@ -33,6 +37,7 @@ class RouterConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function resource($value): self
@@ -44,6 +49,7 @@ class RouterConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function type($value): self
@@ -56,6 +62,7 @@ class RouterConfig
     /**
      * The default URI used to generate URLs in a non-HTTP context
      * @default null
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function defaultUri($value): self
@@ -67,6 +74,7 @@ class RouterConfig
     
     /**
      * @default 80
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function httpPort($value): self
@@ -78,6 +86,7 @@ class RouterConfig
     
     /**
      * @default 443
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function httpsPort($value): self
@@ -93,6 +102,7 @@ class RouterConfig
     set to null to disable parameter checks against requirements
     'true' is the preferred configuration in development mode, while 'false' or 'null' might be preferred in production
      * @default true
+     * @param ParamConfigurator|mixed $value
      * @return $this
      */
     public function strictRequirements($value): self
@@ -104,9 +114,10 @@ class RouterConfig
     
     /**
      * @default null
+     * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function utf8(bool $value): self
+    public function utf8($value): self
     {
         $this->utf8 = $value;
     
@@ -157,7 +168,7 @@ class RouterConfig
         }
     
         if ($value !== []) {
-            throw new \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
+            throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__) . implode(', ', array_keys($value)));
         }
     }
     
