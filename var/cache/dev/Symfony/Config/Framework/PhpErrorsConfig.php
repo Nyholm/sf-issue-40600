@@ -47,14 +47,14 @@ class PhpErrorsConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["log"])) {
-            $this->log = $value["log"];
-            unset($value["log"]);
+        if (isset($value['log'])) {
+            $this->log = $value['log'];
+            unset($value['log']);
         }
     
-        if (isset($value["throw"])) {
-            $this->throw = $value["throw"];
-            unset($value["throw"]);
+        if (isset($value['throw'])) {
+            $this->throw = $value['throw'];
+            unset($value['throw']);
         }
     
         if ($value !== []) {
@@ -67,10 +67,10 @@ class PhpErrorsConfig
     {
         $output = [];
         if (null !== $this->log) {
-            $output["log"] = $this->log;
+            $output['log'] = $this->log;
         }
         if (null !== $this->throw) {
-            $output["throw"] = $this->throw;
+            $output['throw'] = $this->throw;
         }
     
         return $output;

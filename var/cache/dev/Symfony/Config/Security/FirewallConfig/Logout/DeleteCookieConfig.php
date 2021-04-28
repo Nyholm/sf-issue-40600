@@ -70,24 +70,24 @@ class DeleteCookieConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["path"])) {
-            $this->path = $value["path"];
-            unset($value["path"]);
+        if (isset($value['path'])) {
+            $this->path = $value['path'];
+            unset($value['path']);
         }
     
-        if (isset($value["domain"])) {
-            $this->domain = $value["domain"];
-            unset($value["domain"]);
+        if (isset($value['domain'])) {
+            $this->domain = $value['domain'];
+            unset($value['domain']);
         }
     
-        if (isset($value["secure"])) {
-            $this->secure = $value["secure"];
-            unset($value["secure"]);
+        if (isset($value['secure'])) {
+            $this->secure = $value['secure'];
+            unset($value['secure']);
         }
     
-        if (isset($value["samesite"])) {
-            $this->samesite = $value["samesite"];
-            unset($value["samesite"]);
+        if (isset($value['samesite'])) {
+            $this->samesite = $value['samesite'];
+            unset($value['samesite']);
         }
     
         if ($value !== []) {
@@ -100,16 +100,16 @@ class DeleteCookieConfig
     {
         $output = [];
         if (null !== $this->path) {
-            $output["path"] = $this->path;
+            $output['path'] = $this->path;
         }
         if (null !== $this->domain) {
-            $output["domain"] = $this->domain;
+            $output['domain'] = $this->domain;
         }
         if (null !== $this->secure) {
-            $output["secure"] = $this->secure;
+            $output['secure'] = $this->secure;
         }
         if (null !== $this->samesite) {
-            $output["samesite"] = $this->samesite;
+            $output['samesite'] = $this->samesite;
         }
     
         return $output;

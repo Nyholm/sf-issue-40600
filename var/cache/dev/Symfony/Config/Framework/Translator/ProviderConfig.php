@@ -55,19 +55,19 @@ class ProviderConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["dsn"])) {
-            $this->dsn = $value["dsn"];
-            unset($value["dsn"]);
+        if (isset($value['dsn'])) {
+            $this->dsn = $value['dsn'];
+            unset($value['dsn']);
         }
     
-        if (isset($value["domains"])) {
-            $this->domains = $value["domains"];
-            unset($value["domains"]);
+        if (isset($value['domains'])) {
+            $this->domains = $value['domains'];
+            unset($value['domains']);
         }
     
-        if (isset($value["locales"])) {
-            $this->locales = $value["locales"];
-            unset($value["locales"]);
+        if (isset($value['locales'])) {
+            $this->locales = $value['locales'];
+            unset($value['locales']);
         }
     
         if ($value !== []) {
@@ -80,13 +80,13 @@ class ProviderConfig
     {
         $output = [];
         if (null !== $this->dsn) {
-            $output["dsn"] = $this->dsn;
+            $output['dsn'] = $this->dsn;
         }
         if (null !== $this->domains) {
-            $output["domains"] = $this->domains;
+            $output['domains'] = $this->domains;
         }
         if (null !== $this->locales) {
-            $output["locales"] = $this->locales;
+            $output['locales'] = $this->locales;
         }
     
         return $output;

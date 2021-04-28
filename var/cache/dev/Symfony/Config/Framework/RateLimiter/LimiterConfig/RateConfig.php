@@ -46,14 +46,14 @@ class RateConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["interval"])) {
-            $this->interval = $value["interval"];
-            unset($value["interval"]);
+        if (isset($value['interval'])) {
+            $this->interval = $value['interval'];
+            unset($value['interval']);
         }
     
-        if (isset($value["amount"])) {
-            $this->amount = $value["amount"];
-            unset($value["amount"]);
+        if (isset($value['amount'])) {
+            $this->amount = $value['amount'];
+            unset($value['amount']);
         }
     
         if ($value !== []) {
@@ -66,10 +66,10 @@ class RateConfig
     {
         $output = [];
         if (null !== $this->interval) {
-            $output["interval"] = $this->interval;
+            $output['interval'] = $this->interval;
         }
         if (null !== $this->amount) {
-            $output["amount"] = $this->amount;
+            $output['amount'] = $this->amount;
         }
     
         return $output;

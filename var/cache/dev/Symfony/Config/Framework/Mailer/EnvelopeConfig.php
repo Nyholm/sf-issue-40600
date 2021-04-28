@@ -43,14 +43,14 @@ class EnvelopeConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["sender"])) {
-            $this->sender = $value["sender"];
-            unset($value["sender"]);
+        if (isset($value['sender'])) {
+            $this->sender = $value['sender'];
+            unset($value['sender']);
         }
     
-        if (isset($value["recipients"])) {
-            $this->recipients = $value["recipients"];
-            unset($value["recipients"]);
+        if (isset($value['recipients'])) {
+            $this->recipients = $value['recipients'];
+            unset($value['recipients']);
         }
     
         if ($value !== []) {
@@ -63,10 +63,10 @@ class EnvelopeConfig
     {
         $output = [];
         if (null !== $this->sender) {
-            $output["sender"] = $this->sender;
+            $output['sender'] = $this->sender;
         }
         if (null !== $this->recipients) {
-            $output["recipients"] = $this->recipients;
+            $output['recipients'] = $this->recipients;
         }
     
         return $output;

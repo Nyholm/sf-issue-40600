@@ -86,29 +86,29 @@ class HttpClientConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["max_host_connections"])) {
-            $this->maxHostConnections = $value["max_host_connections"];
-            unset($value["max_host_connections"]);
+        if (isset($value['max_host_connections'])) {
+            $this->maxHostConnections = $value['max_host_connections'];
+            unset($value['max_host_connections']);
         }
     
-        if (isset($value["default_options"])) {
-            $this->defaultOptions = new DefaultOptionsConfig($value["default_options"]);
-            unset($value["default_options"]);
+        if (isset($value['default_options'])) {
+            $this->defaultOptions = new \Symfony\Config\Framework\HttpClient\DefaultOptionsConfig($value['default_options']);
+            unset($value['default_options']);
         }
     
-        if (isset($value["mock_response_factory"])) {
-            $this->mockResponseFactory = $value["mock_response_factory"];
-            unset($value["mock_response_factory"]);
+        if (isset($value['mock_response_factory'])) {
+            $this->mockResponseFactory = $value['mock_response_factory'];
+            unset($value['mock_response_factory']);
         }
     
-        if (isset($value["scoped_clients"])) {
-            $this->scopedClients = array_map(function($v) { return new ScopedClientConfig($v); }, $value["scoped_clients"]);;
-            unset($value["scoped_clients"]);
+        if (isset($value['scoped_clients'])) {
+            $this->scopedClients = array_map(function($v) { return new \Symfony\Config\Framework\HttpClient\ScopedClientConfig($v); }, $value['scoped_clients']);
+            unset($value['scoped_clients']);
         }
     
         if ($value !== []) {
@@ -121,19 +121,19 @@ class HttpClientConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->maxHostConnections) {
-            $output["max_host_connections"] = $this->maxHostConnections;
+            $output['max_host_connections'] = $this->maxHostConnections;
         }
         if (null !== $this->defaultOptions) {
-            $output["default_options"] = $this->defaultOptions->toArray();
+            $output['default_options'] = $this->defaultOptions->toArray();
         }
         if (null !== $this->mockResponseFactory) {
-            $output["mock_response_factory"] = $this->mockResponseFactory;
+            $output['mock_response_factory'] = $this->mockResponseFactory;
         }
         if (null !== $this->scopedClients) {
-            $output["scoped_clients"] = array_map(function($v) { return $v->toArray(); }, $this->scopedClients);
+            $output['scoped_clients'] = array_map(function($v) { return $v->toArray(); }, $this->scopedClients);
         }
     
         return $output;

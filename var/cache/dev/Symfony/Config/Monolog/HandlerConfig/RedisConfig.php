@@ -96,34 +96,34 @@ class RedisConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["id"])) {
-            $this->id = $value["id"];
-            unset($value["id"]);
+        if (isset($value['id'])) {
+            $this->id = $value['id'];
+            unset($value['id']);
         }
     
-        if (isset($value["host"])) {
-            $this->host = $value["host"];
-            unset($value["host"]);
+        if (isset($value['host'])) {
+            $this->host = $value['host'];
+            unset($value['host']);
         }
     
-        if (isset($value["password"])) {
-            $this->password = $value["password"];
-            unset($value["password"]);
+        if (isset($value['password'])) {
+            $this->password = $value['password'];
+            unset($value['password']);
         }
     
-        if (isset($value["port"])) {
-            $this->port = $value["port"];
-            unset($value["port"]);
+        if (isset($value['port'])) {
+            $this->port = $value['port'];
+            unset($value['port']);
         }
     
-        if (isset($value["database"])) {
-            $this->database = $value["database"];
-            unset($value["database"]);
+        if (isset($value['database'])) {
+            $this->database = $value['database'];
+            unset($value['database']);
         }
     
-        if (isset($value["key_name"])) {
-            $this->keyName = $value["key_name"];
-            unset($value["key_name"]);
+        if (isset($value['key_name'])) {
+            $this->keyName = $value['key_name'];
+            unset($value['key_name']);
         }
     
         if ($value !== []) {
@@ -136,22 +136,22 @@ class RedisConfig
     {
         $output = [];
         if (null !== $this->id) {
-            $output["id"] = $this->id;
+            $output['id'] = $this->id;
         }
         if (null !== $this->host) {
-            $output["host"] = $this->host;
+            $output['host'] = $this->host;
         }
         if (null !== $this->password) {
-            $output["password"] = $this->password;
+            $output['password'] = $this->password;
         }
         if (null !== $this->port) {
-            $output["port"] = $this->port;
+            $output['port'] = $this->port;
         }
         if (null !== $this->database) {
-            $output["database"] = $this->database;
+            $output['database'] = $this->database;
         }
         if (null !== $this->keyName) {
-            $output["key_name"] = $this->keyName;
+            $output['key_name'] = $this->keyName;
         }
     
         return $output;

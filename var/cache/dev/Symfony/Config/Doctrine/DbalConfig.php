@@ -59,19 +59,19 @@ class DbalConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["default_connection"])) {
-            $this->defaultConnection = $value["default_connection"];
-            unset($value["default_connection"]);
+        if (isset($value['default_connection'])) {
+            $this->defaultConnection = $value['default_connection'];
+            unset($value['default_connection']);
         }
     
-        if (isset($value["types"])) {
-            $this->types = array_map(function($v) { return new TypeConfig($v); }, $value["types"]);;
-            unset($value["types"]);
+        if (isset($value['types'])) {
+            $this->types = array_map(function($v) { return new \Symfony\Config\Doctrine\Dbal\TypeConfig($v); }, $value['types']);
+            unset($value['types']);
         }
     
-        if (isset($value["connections"])) {
-            $this->connections = array_map(function($v) { return new ConnectionConfig($v); }, $value["connections"]);;
-            unset($value["connections"]);
+        if (isset($value['connections'])) {
+            $this->connections = array_map(function($v) { return new \Symfony\Config\Doctrine\Dbal\ConnectionConfig($v); }, $value['connections']);
+            unset($value['connections']);
         }
     
         if ($value !== []) {
@@ -84,13 +84,13 @@ class DbalConfig
     {
         $output = [];
         if (null !== $this->defaultConnection) {
-            $output["default_connection"] = $this->defaultConnection;
+            $output['default_connection'] = $this->defaultConnection;
         }
         if (null !== $this->types) {
-            $output["types"] = array_map(function($v) { return $v->toArray(); }, $this->types);
+            $output['types'] = array_map(function($v) { return $v->toArray(); }, $this->types);
         }
         if (null !== $this->connections) {
-            $output["connections"] = array_map(function($v) { return $v->toArray(); }, $this->connections);
+            $output['connections'] = array_map(function($v) { return $v->toArray(); }, $this->connections);
         }
     
         return $output;

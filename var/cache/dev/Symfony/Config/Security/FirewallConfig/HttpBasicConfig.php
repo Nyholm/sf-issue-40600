@@ -44,14 +44,14 @@ class HttpBasicConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["provider"])) {
-            $this->provider = $value["provider"];
-            unset($value["provider"]);
+        if (isset($value['provider'])) {
+            $this->provider = $value['provider'];
+            unset($value['provider']);
         }
     
-        if (isset($value["realm"])) {
-            $this->realm = $value["realm"];
-            unset($value["realm"]);
+        if (isset($value['realm'])) {
+            $this->realm = $value['realm'];
+            unset($value['realm']);
         }
     
         if ($value !== []) {
@@ -64,10 +64,10 @@ class HttpBasicConfig
     {
         $output = [];
         if (null !== $this->provider) {
-            $output["provider"] = $this->provider;
+            $output['provider'] = $this->provider;
         }
         if (null !== $this->realm) {
-            $output["realm"] = $this->realm;
+            $output['realm'] = $this->realm;
         }
     
         return $output;

@@ -31,9 +31,9 @@ class IntlConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
         if ($value !== []) {
@@ -46,7 +46,7 @@ class IntlConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
     
         return $output;

@@ -54,19 +54,19 @@ class DqlConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["string_functions"])) {
-            $this->stringFunctions = $value["string_functions"];
-            unset($value["string_functions"]);
+        if (isset($value['string_functions'])) {
+            $this->stringFunctions = $value['string_functions'];
+            unset($value['string_functions']);
         }
     
-        if (isset($value["numeric_functions"])) {
-            $this->numericFunctions = $value["numeric_functions"];
-            unset($value["numeric_functions"]);
+        if (isset($value['numeric_functions'])) {
+            $this->numericFunctions = $value['numeric_functions'];
+            unset($value['numeric_functions']);
         }
     
-        if (isset($value["datetime_functions"])) {
-            $this->datetimeFunctions = $value["datetime_functions"];
-            unset($value["datetime_functions"]);
+        if (isset($value['datetime_functions'])) {
+            $this->datetimeFunctions = $value['datetime_functions'];
+            unset($value['datetime_functions']);
         }
     
         if ($value !== []) {
@@ -79,13 +79,13 @@ class DqlConfig
     {
         $output = [];
         if (null !== $this->stringFunctions) {
-            $output["string_functions"] = $this->stringFunctions;
+            $output['string_functions'] = $this->stringFunctions;
         }
         if (null !== $this->numericFunctions) {
-            $output["numeric_functions"] = $this->numericFunctions;
+            $output['numeric_functions'] = $this->numericFunctions;
         }
         if (null !== $this->datetimeFunctions) {
-            $output["datetime_functions"] = $this->datetimeFunctions;
+            $output['datetime_functions'] = $this->datetimeFunctions;
         }
     
         return $output;

@@ -44,14 +44,14 @@ class RemoteUserConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["provider"])) {
-            $this->provider = $value["provider"];
-            unset($value["provider"]);
+        if (isset($value['provider'])) {
+            $this->provider = $value['provider'];
+            unset($value['provider']);
         }
     
-        if (isset($value["user"])) {
-            $this->user = $value["user"];
-            unset($value["user"]);
+        if (isset($value['user'])) {
+            $this->user = $value['user'];
+            unset($value['user']);
         }
     
         if ($value !== []) {
@@ -64,10 +64,10 @@ class RemoteUserConfig
     {
         $output = [];
         if (null !== $this->provider) {
-            $output["provider"] = $this->provider;
+            $output['provider'] = $this->provider;
         }
         if (null !== $this->user) {
-            $output["user"] = $this->user;
+            $output['user'] = $this->user;
         }
     
         return $output;

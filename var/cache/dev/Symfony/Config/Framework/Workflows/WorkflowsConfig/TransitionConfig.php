@@ -82,29 +82,29 @@ class TransitionConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["name"])) {
-            $this->name = $value["name"];
-            unset($value["name"]);
+        if (isset($value['name'])) {
+            $this->name = $value['name'];
+            unset($value['name']);
         }
     
-        if (isset($value["guard"])) {
-            $this->guard = $value["guard"];
-            unset($value["guard"]);
+        if (isset($value['guard'])) {
+            $this->guard = $value['guard'];
+            unset($value['guard']);
         }
     
-        if (isset($value["from"])) {
-            $this->from = $value["from"];
-            unset($value["from"]);
+        if (isset($value['from'])) {
+            $this->from = $value['from'];
+            unset($value['from']);
         }
     
-        if (isset($value["to"])) {
-            $this->to = $value["to"];
-            unset($value["to"]);
+        if (isset($value['to'])) {
+            $this->to = $value['to'];
+            unset($value['to']);
         }
     
-        if (isset($value["metadata"])) {
-            $this->metadata = $value["metadata"];
-            unset($value["metadata"]);
+        if (isset($value['metadata'])) {
+            $this->metadata = $value['metadata'];
+            unset($value['metadata']);
         }
     
         if ($value !== []) {
@@ -117,19 +117,19 @@ class TransitionConfig
     {
         $output = [];
         if (null !== $this->name) {
-            $output["name"] = $this->name;
+            $output['name'] = $this->name;
         }
         if (null !== $this->guard) {
-            $output["guard"] = $this->guard;
+            $output['guard'] = $this->guard;
         }
         if (null !== $this->from) {
-            $output["from"] = $this->from;
+            $output['from'] = $this->from;
         }
         if (null !== $this->to) {
-            $output["to"] = $this->to;
+            $output['to'] = $this->to;
         }
         if (null !== $this->metadata) {
-            $output["metadata"] = $this->metadata;
+            $output['metadata'] = $this->metadata;
         }
     
         return $output;

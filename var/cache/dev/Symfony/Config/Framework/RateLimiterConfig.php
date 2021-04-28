@@ -45,14 +45,14 @@ class RateLimiterConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["limiters"])) {
-            $this->limiters = array_map(function($v) { return new LimiterConfig($v); }, $value["limiters"]);;
-            unset($value["limiters"]);
+        if (isset($value['limiters'])) {
+            $this->limiters = array_map(function($v) { return new \Symfony\Config\Framework\RateLimiter\LimiterConfig($v); }, $value['limiters']);
+            unset($value['limiters']);
         }
     
         if ($value !== []) {
@@ -65,10 +65,10 @@ class RateLimiterConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->limiters) {
-            $output["limiters"] = array_map(function($v) { return $v->toArray(); }, $this->limiters);
+            $output['limiters'] = array_map(function($v) { return $v->toArray(); }, $this->limiters);
         }
     
         return $output;

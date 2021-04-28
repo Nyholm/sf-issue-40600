@@ -233,84 +233,84 @@ class TwigConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInter
     public function __construct(array $value = [])
     {
     
-        if (isset($value["form_themes"])) {
-            $this->formThemes = $value["form_themes"];
-            unset($value["form_themes"]);
+        if (isset($value['form_themes'])) {
+            $this->formThemes = $value['form_themes'];
+            unset($value['form_themes']);
         }
     
-        if (isset($value["globals"])) {
-            $this->globals = array_map(function($v) { return new GlobalConfig($v); }, $value["globals"]);;
-            unset($value["globals"]);
+        if (isset($value['globals'])) {
+            $this->globals = array_map(function($v) { return new \Symfony\Config\Twig\GlobalConfig($v); }, $value['globals']);
+            unset($value['globals']);
         }
     
-        if (isset($value["autoescape"])) {
-            $this->autoescape = $value["autoescape"];
-            unset($value["autoescape"]);
+        if (isset($value['autoescape'])) {
+            $this->autoescape = $value['autoescape'];
+            unset($value['autoescape']);
         }
     
-        if (isset($value["autoescape_service"])) {
-            $this->autoescapeService = $value["autoescape_service"];
-            unset($value["autoescape_service"]);
+        if (isset($value['autoescape_service'])) {
+            $this->autoescapeService = $value['autoescape_service'];
+            unset($value['autoescape_service']);
         }
     
-        if (isset($value["autoescape_service_method"])) {
-            $this->autoescapeServiceMethod = $value["autoescape_service_method"];
-            unset($value["autoescape_service_method"]);
+        if (isset($value['autoescape_service_method'])) {
+            $this->autoescapeServiceMethod = $value['autoescape_service_method'];
+            unset($value['autoescape_service_method']);
         }
     
-        if (isset($value["base_template_class"])) {
-            $this->baseTemplateClass = $value["base_template_class"];
-            unset($value["base_template_class"]);
+        if (isset($value['base_template_class'])) {
+            $this->baseTemplateClass = $value['base_template_class'];
+            unset($value['base_template_class']);
         }
     
-        if (isset($value["cache"])) {
-            $this->cache = $value["cache"];
-            unset($value["cache"]);
+        if (isset($value['cache'])) {
+            $this->cache = $value['cache'];
+            unset($value['cache']);
         }
     
-        if (isset($value["charset"])) {
-            $this->charset = $value["charset"];
-            unset($value["charset"]);
+        if (isset($value['charset'])) {
+            $this->charset = $value['charset'];
+            unset($value['charset']);
         }
     
-        if (isset($value["debug"])) {
-            $this->debug = $value["debug"];
-            unset($value["debug"]);
+        if (isset($value['debug'])) {
+            $this->debug = $value['debug'];
+            unset($value['debug']);
         }
     
-        if (isset($value["strict_variables"])) {
-            $this->strictVariables = $value["strict_variables"];
-            unset($value["strict_variables"]);
+        if (isset($value['strict_variables'])) {
+            $this->strictVariables = $value['strict_variables'];
+            unset($value['strict_variables']);
         }
     
-        if (isset($value["auto_reload"])) {
-            $this->autoReload = $value["auto_reload"];
-            unset($value["auto_reload"]);
+        if (isset($value['auto_reload'])) {
+            $this->autoReload = $value['auto_reload'];
+            unset($value['auto_reload']);
         }
     
-        if (isset($value["optimizations"])) {
-            $this->optimizations = $value["optimizations"];
-            unset($value["optimizations"]);
+        if (isset($value['optimizations'])) {
+            $this->optimizations = $value['optimizations'];
+            unset($value['optimizations']);
         }
     
-        if (isset($value["default_path"])) {
-            $this->defaultPath = $value["default_path"];
-            unset($value["default_path"]);
+        if (isset($value['default_path'])) {
+            $this->defaultPath = $value['default_path'];
+            unset($value['default_path']);
         }
     
-        if (isset($value["paths"])) {
-            $this->paths = $value["paths"];
-            unset($value["paths"]);
+        if (isset($value['paths'])) {
+            $this->paths = $value['paths'];
+            unset($value['paths']);
         }
     
-        if (isset($value["date"])) {
-            $this->date = new DateConfig($value["date"]);
-            unset($value["date"]);
+        if (isset($value['date'])) {
+            $this->date = new \Symfony\Config\Twig\DateConfig($value['date']);
+            unset($value['date']);
         }
     
-        if (isset($value["number_format"])) {
-            $this->numberFormat = new NumberFormatConfig($value["number_format"]);
-            unset($value["number_format"]);
+        if (isset($value['number_format'])) {
+            $this->numberFormat = new \Symfony\Config\Twig\NumberFormatConfig($value['number_format']);
+            unset($value['number_format']);
         }
     
         if ($value !== []) {
@@ -323,52 +323,52 @@ class TwigConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInter
     {
         $output = [];
         if (null !== $this->formThemes) {
-            $output["form_themes"] = $this->formThemes;
+            $output['form_themes'] = $this->formThemes;
         }
         if (null !== $this->globals) {
-            $output["globals"] = array_map(function($v) { return $v->toArray(); }, $this->globals);
+            $output['globals'] = array_map(function($v) { return $v->toArray(); }, $this->globals);
         }
         if (null !== $this->autoescape) {
-            $output["autoescape"] = $this->autoescape;
+            $output['autoescape'] = $this->autoescape;
         }
         if (null !== $this->autoescapeService) {
-            $output["autoescape_service"] = $this->autoescapeService;
+            $output['autoescape_service'] = $this->autoescapeService;
         }
         if (null !== $this->autoescapeServiceMethod) {
-            $output["autoescape_service_method"] = $this->autoescapeServiceMethod;
+            $output['autoescape_service_method'] = $this->autoescapeServiceMethod;
         }
         if (null !== $this->baseTemplateClass) {
-            $output["base_template_class"] = $this->baseTemplateClass;
+            $output['base_template_class'] = $this->baseTemplateClass;
         }
         if (null !== $this->cache) {
-            $output["cache"] = $this->cache;
+            $output['cache'] = $this->cache;
         }
         if (null !== $this->charset) {
-            $output["charset"] = $this->charset;
+            $output['charset'] = $this->charset;
         }
         if (null !== $this->debug) {
-            $output["debug"] = $this->debug;
+            $output['debug'] = $this->debug;
         }
         if (null !== $this->strictVariables) {
-            $output["strict_variables"] = $this->strictVariables;
+            $output['strict_variables'] = $this->strictVariables;
         }
         if (null !== $this->autoReload) {
-            $output["auto_reload"] = $this->autoReload;
+            $output['auto_reload'] = $this->autoReload;
         }
         if (null !== $this->optimizations) {
-            $output["optimizations"] = $this->optimizations;
+            $output['optimizations'] = $this->optimizations;
         }
         if (null !== $this->defaultPath) {
-            $output["default_path"] = $this->defaultPath;
+            $output['default_path'] = $this->defaultPath;
         }
         if (null !== $this->paths) {
-            $output["paths"] = $this->paths;
+            $output['paths'] = $this->paths;
         }
         if (null !== $this->date) {
-            $output["date"] = $this->date->toArray();
+            $output['date'] = $this->date->toArray();
         }
         if (null !== $this->numberFormat) {
-            $output["number_format"] = $this->numberFormat->toArray();
+            $output['number_format'] = $this->numberFormat->toArray();
         }
     
         return $output;

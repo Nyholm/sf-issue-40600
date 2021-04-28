@@ -84,29 +84,29 @@ class TransportConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["dsn"])) {
-            $this->dsn = $value["dsn"];
-            unset($value["dsn"]);
+        if (isset($value['dsn'])) {
+            $this->dsn = $value['dsn'];
+            unset($value['dsn']);
         }
     
-        if (isset($value["serializer"])) {
-            $this->serializer = $value["serializer"];
-            unset($value["serializer"]);
+        if (isset($value['serializer'])) {
+            $this->serializer = $value['serializer'];
+            unset($value['serializer']);
         }
     
-        if (isset($value["options"])) {
-            $this->options = $value["options"];
-            unset($value["options"]);
+        if (isset($value['options'])) {
+            $this->options = $value['options'];
+            unset($value['options']);
         }
     
-        if (isset($value["failure_transport"])) {
-            $this->failureTransport = $value["failure_transport"];
-            unset($value["failure_transport"]);
+        if (isset($value['failure_transport'])) {
+            $this->failureTransport = $value['failure_transport'];
+            unset($value['failure_transport']);
         }
     
-        if (isset($value["retry_strategy"])) {
-            $this->retryStrategy = new RetryStrategyConfig($value["retry_strategy"]);
-            unset($value["retry_strategy"]);
+        if (isset($value['retry_strategy'])) {
+            $this->retryStrategy = new \Symfony\Config\Framework\Messenger\TransportConfig\RetryStrategyConfig($value['retry_strategy']);
+            unset($value['retry_strategy']);
         }
     
         if ($value !== []) {
@@ -119,19 +119,19 @@ class TransportConfig
     {
         $output = [];
         if (null !== $this->dsn) {
-            $output["dsn"] = $this->dsn;
+            $output['dsn'] = $this->dsn;
         }
         if (null !== $this->serializer) {
-            $output["serializer"] = $this->serializer;
+            $output['serializer'] = $this->serializer;
         }
         if (null !== $this->options) {
-            $output["options"] = $this->options;
+            $output['options'] = $this->options;
         }
         if (null !== $this->failureTransport) {
-            $output["failure_transport"] = $this->failureTransport;
+            $output['failure_transport'] = $this->failureTransport;
         }
         if (null !== $this->retryStrategy) {
-            $output["retry_strategy"] = $this->retryStrategy->toArray();
+            $output['retry_strategy'] = $this->retryStrategy->toArray();
         }
     
         return $output;

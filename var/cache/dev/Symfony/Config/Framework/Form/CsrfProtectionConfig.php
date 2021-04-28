@@ -44,14 +44,14 @@ class CsrfProtectionConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["field_name"])) {
-            $this->fieldName = $value["field_name"];
-            unset($value["field_name"]);
+        if (isset($value['field_name'])) {
+            $this->fieldName = $value['field_name'];
+            unset($value['field_name']);
         }
     
         if ($value !== []) {
@@ -64,10 +64,10 @@ class CsrfProtectionConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->fieldName) {
-            $output["field_name"] = $this->fieldName;
+            $output['field_name'] = $this->fieldName;
         }
     
         return $output;

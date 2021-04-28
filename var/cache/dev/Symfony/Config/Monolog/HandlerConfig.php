@@ -1204,464 +1204,464 @@ class HandlerConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["type"])) {
-            $this->type = $value["type"];
-            unset($value["type"]);
+        if (isset($value['type'])) {
+            $this->type = $value['type'];
+            unset($value['type']);
         }
     
-        if (isset($value["id"])) {
-            $this->id = $value["id"];
-            unset($value["id"]);
+        if (isset($value['id'])) {
+            $this->id = $value['id'];
+            unset($value['id']);
         }
     
-        if (isset($value["priority"])) {
-            $this->priority = $value["priority"];
-            unset($value["priority"]);
+        if (isset($value['priority'])) {
+            $this->priority = $value['priority'];
+            unset($value['priority']);
         }
     
-        if (isset($value["level"])) {
-            $this->level = $value["level"];
-            unset($value["level"]);
+        if (isset($value['level'])) {
+            $this->level = $value['level'];
+            unset($value['level']);
         }
     
-        if (isset($value["bubble"])) {
-            $this->bubble = $value["bubble"];
-            unset($value["bubble"]);
+        if (isset($value['bubble'])) {
+            $this->bubble = $value['bubble'];
+            unset($value['bubble']);
         }
     
-        if (isset($value["app_name"])) {
-            $this->appName = $value["app_name"];
-            unset($value["app_name"]);
+        if (isset($value['app_name'])) {
+            $this->appName = $value['app_name'];
+            unset($value['app_name']);
         }
     
-        if (isset($value["include_stacktraces"])) {
-            $this->includeStacktraces = $value["include_stacktraces"];
-            unset($value["include_stacktraces"]);
+        if (isset($value['include_stacktraces'])) {
+            $this->includeStacktraces = $value['include_stacktraces'];
+            unset($value['include_stacktraces']);
         }
     
-        if (isset($value["process_psr_3_messages"])) {
-            $this->processPsr3Messages = $value["process_psr_3_messages"];
-            unset($value["process_psr_3_messages"]);
+        if (isset($value['process_psr_3_messages'])) {
+            $this->processPsr3Messages = $value['process_psr_3_messages'];
+            unset($value['process_psr_3_messages']);
         }
     
-        if (isset($value["path"])) {
-            $this->path = $value["path"];
-            unset($value["path"]);
+        if (isset($value['path'])) {
+            $this->path = $value['path'];
+            unset($value['path']);
         }
     
-        if (isset($value["file_permission"])) {
-            $this->filePermission = $value["file_permission"];
-            unset($value["file_permission"]);
+        if (isset($value['file_permission'])) {
+            $this->filePermission = $value['file_permission'];
+            unset($value['file_permission']);
         }
     
-        if (isset($value["use_locking"])) {
-            $this->useLocking = $value["use_locking"];
-            unset($value["use_locking"]);
+        if (isset($value['use_locking'])) {
+            $this->useLocking = $value['use_locking'];
+            unset($value['use_locking']);
         }
     
-        if (isset($value["filename_format"])) {
-            $this->filenameFormat = $value["filename_format"];
-            unset($value["filename_format"]);
+        if (isset($value['filename_format'])) {
+            $this->filenameFormat = $value['filename_format'];
+            unset($value['filename_format']);
         }
     
-        if (isset($value["date_format"])) {
-            $this->dateFormat = $value["date_format"];
-            unset($value["date_format"]);
+        if (isset($value['date_format'])) {
+            $this->dateFormat = $value['date_format'];
+            unset($value['date_format']);
         }
     
-        if (isset($value["ident"])) {
-            $this->ident = $value["ident"];
-            unset($value["ident"]);
+        if (isset($value['ident'])) {
+            $this->ident = $value['ident'];
+            unset($value['ident']);
         }
     
-        if (isset($value["logopts"])) {
-            $this->logopts = $value["logopts"];
-            unset($value["logopts"]);
+        if (isset($value['logopts'])) {
+            $this->logopts = $value['logopts'];
+            unset($value['logopts']);
         }
     
-        if (isset($value["facility"])) {
-            $this->facility = $value["facility"];
-            unset($value["facility"]);
+        if (isset($value['facility'])) {
+            $this->facility = $value['facility'];
+            unset($value['facility']);
         }
     
-        if (isset($value["max_files"])) {
-            $this->maxFiles = $value["max_files"];
-            unset($value["max_files"]);
+        if (isset($value['max_files'])) {
+            $this->maxFiles = $value['max_files'];
+            unset($value['max_files']);
         }
     
-        if (isset($value["action_level"])) {
-            $this->actionLevel = $value["action_level"];
-            unset($value["action_level"]);
+        if (isset($value['action_level'])) {
+            $this->actionLevel = $value['action_level'];
+            unset($value['action_level']);
         }
     
-        if (isset($value["activation_strategy"])) {
-            $this->activationStrategy = $value["activation_strategy"];
-            unset($value["activation_strategy"]);
+        if (isset($value['activation_strategy'])) {
+            $this->activationStrategy = $value['activation_strategy'];
+            unset($value['activation_strategy']);
         }
     
-        if (isset($value["stop_buffering"])) {
-            $this->stopBuffering = $value["stop_buffering"];
-            unset($value["stop_buffering"]);
+        if (isset($value['stop_buffering'])) {
+            $this->stopBuffering = $value['stop_buffering'];
+            unset($value['stop_buffering']);
         }
     
-        if (isset($value["passthru_level"])) {
-            $this->passthruLevel = $value["passthru_level"];
-            unset($value["passthru_level"]);
+        if (isset($value['passthru_level'])) {
+            $this->passthruLevel = $value['passthru_level'];
+            unset($value['passthru_level']);
         }
     
-        if (isset($value["excluded_404s"])) {
-            $this->excluded404s = $value["excluded_404s"];
-            unset($value["excluded_404s"]);
+        if (isset($value['excluded_404s'])) {
+            $this->excluded404s = $value['excluded_404s'];
+            unset($value['excluded_404s']);
         }
     
-        if (isset($value["excluded_http_codes"])) {
-            $this->excludedHttpCodes = array_map(function($v) { return new ExcludedHttpCodeConfig($v); }, $value["excluded_http_codes"]);;
-            unset($value["excluded_http_codes"]);
+        if (isset($value['excluded_http_codes'])) {
+            $this->excludedHttpCodes = array_map(function($v) { return new \Symfony\Config\Monolog\HandlerConfig\ExcludedHttpCodeConfig($v); }, $value['excluded_http_codes']);
+            unset($value['excluded_http_codes']);
         }
     
-        if (isset($value["accepted_levels"])) {
-            $this->acceptedLevels = $value["accepted_levels"];
-            unset($value["accepted_levels"]);
+        if (isset($value['accepted_levels'])) {
+            $this->acceptedLevels = $value['accepted_levels'];
+            unset($value['accepted_levels']);
         }
     
-        if (isset($value["min_level"])) {
-            $this->minLevel = $value["min_level"];
-            unset($value["min_level"]);
+        if (isset($value['min_level'])) {
+            $this->minLevel = $value['min_level'];
+            unset($value['min_level']);
         }
     
-        if (isset($value["max_level"])) {
-            $this->maxLevel = $value["max_level"];
-            unset($value["max_level"]);
+        if (isset($value['max_level'])) {
+            $this->maxLevel = $value['max_level'];
+            unset($value['max_level']);
         }
     
-        if (isset($value["buffer_size"])) {
-            $this->bufferSize = $value["buffer_size"];
-            unset($value["buffer_size"]);
+        if (isset($value['buffer_size'])) {
+            $this->bufferSize = $value['buffer_size'];
+            unset($value['buffer_size']);
         }
     
-        if (isset($value["flush_on_overflow"])) {
-            $this->flushOnOverflow = $value["flush_on_overflow"];
-            unset($value["flush_on_overflow"]);
+        if (isset($value['flush_on_overflow'])) {
+            $this->flushOnOverflow = $value['flush_on_overflow'];
+            unset($value['flush_on_overflow']);
         }
     
-        if (isset($value["handler"])) {
-            $this->handler = $value["handler"];
-            unset($value["handler"]);
+        if (isset($value['handler'])) {
+            $this->handler = $value['handler'];
+            unset($value['handler']);
         }
     
-        if (isset($value["url"])) {
-            $this->url = $value["url"];
-            unset($value["url"]);
+        if (isset($value['url'])) {
+            $this->url = $value['url'];
+            unset($value['url']);
         }
     
-        if (isset($value["exchange"])) {
-            $this->exchange = $value["exchange"];
-            unset($value["exchange"]);
+        if (isset($value['exchange'])) {
+            $this->exchange = $value['exchange'];
+            unset($value['exchange']);
         }
     
-        if (isset($value["exchange_name"])) {
-            $this->exchangeName = $value["exchange_name"];
-            unset($value["exchange_name"]);
+        if (isset($value['exchange_name'])) {
+            $this->exchangeName = $value['exchange_name'];
+            unset($value['exchange_name']);
         }
     
-        if (isset($value["room"])) {
-            $this->room = $value["room"];
-            unset($value["room"]);
+        if (isset($value['room'])) {
+            $this->room = $value['room'];
+            unset($value['room']);
         }
     
-        if (isset($value["message_format"])) {
-            $this->messageFormat = $value["message_format"];
-            unset($value["message_format"]);
+        if (isset($value['message_format'])) {
+            $this->messageFormat = $value['message_format'];
+            unset($value['message_format']);
         }
     
-        if (isset($value["api_version"])) {
-            $this->apiVersion = $value["api_version"];
-            unset($value["api_version"]);
+        if (isset($value['api_version'])) {
+            $this->apiVersion = $value['api_version'];
+            unset($value['api_version']);
         }
     
-        if (isset($value["channel"])) {
-            $this->channel = $value["channel"];
-            unset($value["channel"]);
+        if (isset($value['channel'])) {
+            $this->channel = $value['channel'];
+            unset($value['channel']);
         }
     
-        if (isset($value["bot_name"])) {
-            $this->botName = $value["bot_name"];
-            unset($value["bot_name"]);
+        if (isset($value['bot_name'])) {
+            $this->botName = $value['bot_name'];
+            unset($value['bot_name']);
         }
     
-        if (isset($value["use_attachment"])) {
-            $this->useAttachment = $value["use_attachment"];
-            unset($value["use_attachment"]);
+        if (isset($value['use_attachment'])) {
+            $this->useAttachment = $value['use_attachment'];
+            unset($value['use_attachment']);
         }
     
-        if (isset($value["use_short_attachment"])) {
-            $this->useShortAttachment = $value["use_short_attachment"];
-            unset($value["use_short_attachment"]);
+        if (isset($value['use_short_attachment'])) {
+            $this->useShortAttachment = $value['use_short_attachment'];
+            unset($value['use_short_attachment']);
         }
     
-        if (isset($value["include_extra"])) {
-            $this->includeExtra = $value["include_extra"];
-            unset($value["include_extra"]);
+        if (isset($value['include_extra'])) {
+            $this->includeExtra = $value['include_extra'];
+            unset($value['include_extra']);
         }
     
-        if (isset($value["icon_emoji"])) {
-            $this->iconEmoji = $value["icon_emoji"];
-            unset($value["icon_emoji"]);
+        if (isset($value['icon_emoji'])) {
+            $this->iconEmoji = $value['icon_emoji'];
+            unset($value['icon_emoji']);
         }
     
-        if (isset($value["webhook_url"])) {
-            $this->webhookUrl = $value["webhook_url"];
-            unset($value["webhook_url"]);
+        if (isset($value['webhook_url'])) {
+            $this->webhookUrl = $value['webhook_url'];
+            unset($value['webhook_url']);
         }
     
-        if (isset($value["team"])) {
-            $this->team = $value["team"];
-            unset($value["team"]);
+        if (isset($value['team'])) {
+            $this->team = $value['team'];
+            unset($value['team']);
         }
     
-        if (isset($value["notify"])) {
-            $this->notify = $value["notify"];
-            unset($value["notify"]);
+        if (isset($value['notify'])) {
+            $this->notify = $value['notify'];
+            unset($value['notify']);
         }
     
-        if (isset($value["nickname"])) {
-            $this->nickname = $value["nickname"];
-            unset($value["nickname"]);
+        if (isset($value['nickname'])) {
+            $this->nickname = $value['nickname'];
+            unset($value['nickname']);
         }
     
-        if (isset($value["token"])) {
-            $this->token = $value["token"];
-            unset($value["token"]);
+        if (isset($value['token'])) {
+            $this->token = $value['token'];
+            unset($value['token']);
         }
     
-        if (isset($value["region"])) {
-            $this->region = $value["region"];
-            unset($value["region"]);
+        if (isset($value['region'])) {
+            $this->region = $value['region'];
+            unset($value['region']);
         }
     
-        if (isset($value["source"])) {
-            $this->source = $value["source"];
-            unset($value["source"]);
+        if (isset($value['source'])) {
+            $this->source = $value['source'];
+            unset($value['source']);
         }
     
-        if (isset($value["use_ssl"])) {
-            $this->useSsl = $value["use_ssl"];
-            unset($value["use_ssl"]);
+        if (isset($value['use_ssl'])) {
+            $this->useSsl = $value['use_ssl'];
+            unset($value['use_ssl']);
         }
     
-        if (isset($value["user"])) {
-            $this->user = $value["user"];
-            unset($value["user"]);
+        if (isset($value['user'])) {
+            $this->user = $value['user'];
+            unset($value['user']);
         }
     
-        if (isset($value["title"])) {
-            $this->title = $value["title"];
-            unset($value["title"]);
+        if (isset($value['title'])) {
+            $this->title = $value['title'];
+            unset($value['title']);
         }
     
-        if (isset($value["host"])) {
-            $this->host = $value["host"];
-            unset($value["host"]);
+        if (isset($value['host'])) {
+            $this->host = $value['host'];
+            unset($value['host']);
         }
     
-        if (isset($value["port"])) {
-            $this->port = $value["port"];
-            unset($value["port"]);
+        if (isset($value['port'])) {
+            $this->port = $value['port'];
+            unset($value['port']);
         }
     
-        if (isset($value["publisher"])) {
-            $this->publisher = new PublisherConfig($value["publisher"]);
-            unset($value["publisher"]);
+        if (isset($value['publisher'])) {
+            $this->publisher = new \Symfony\Config\Monolog\HandlerConfig\PublisherConfig($value['publisher']);
+            unset($value['publisher']);
         }
     
-        if (isset($value["mongo"])) {
-            $this->mongo = new MongoConfig($value["mongo"]);
-            unset($value["mongo"]);
+        if (isset($value['mongo'])) {
+            $this->mongo = new \Symfony\Config\Monolog\HandlerConfig\MongoConfig($value['mongo']);
+            unset($value['mongo']);
         }
     
-        if (isset($value["elasticsearch"])) {
-            $this->elasticsearch = new ElasticsearchConfig($value["elasticsearch"]);
-            unset($value["elasticsearch"]);
+        if (isset($value['elasticsearch'])) {
+            $this->elasticsearch = new \Symfony\Config\Monolog\HandlerConfig\ElasticsearchConfig($value['elasticsearch']);
+            unset($value['elasticsearch']);
         }
     
-        if (isset($value["index"])) {
-            $this->index = $value["index"];
-            unset($value["index"]);
+        if (isset($value['index'])) {
+            $this->index = $value['index'];
+            unset($value['index']);
         }
     
-        if (isset($value["document_type"])) {
-            $this->documentType = $value["document_type"];
-            unset($value["document_type"]);
+        if (isset($value['document_type'])) {
+            $this->documentType = $value['document_type'];
+            unset($value['document_type']);
         }
     
-        if (isset($value["ignore_error"])) {
-            $this->ignoreError = $value["ignore_error"];
-            unset($value["ignore_error"]);
+        if (isset($value['ignore_error'])) {
+            $this->ignoreError = $value['ignore_error'];
+            unset($value['ignore_error']);
         }
     
-        if (isset($value["redis"])) {
-            $this->redis = new RedisConfig($value["redis"]);
-            unset($value["redis"]);
+        if (isset($value['redis'])) {
+            $this->redis = new \Symfony\Config\Monolog\HandlerConfig\RedisConfig($value['redis']);
+            unset($value['redis']);
         }
     
-        if (isset($value["predis"])) {
-            $this->predis = new PredisConfig($value["predis"]);
-            unset($value["predis"]);
+        if (isset($value['predis'])) {
+            $this->predis = new \Symfony\Config\Monolog\HandlerConfig\PredisConfig($value['predis']);
+            unset($value['predis']);
         }
     
-        if (isset($value["config"])) {
-            $this->config = $value["config"];
-            unset($value["config"]);
+        if (isset($value['config'])) {
+            $this->config = $value['config'];
+            unset($value['config']);
         }
     
-        if (isset($value["members"])) {
-            $this->members = $value["members"];
-            unset($value["members"]);
+        if (isset($value['members'])) {
+            $this->members = $value['members'];
+            unset($value['members']);
         }
     
-        if (isset($value["from_email"])) {
-            $this->fromEmail = $value["from_email"];
-            unset($value["from_email"]);
+        if (isset($value['from_email'])) {
+            $this->fromEmail = $value['from_email'];
+            unset($value['from_email']);
         }
     
-        if (isset($value["to_email"])) {
-            $this->toEmail = $value["to_email"];
-            unset($value["to_email"]);
+        if (isset($value['to_email'])) {
+            $this->toEmail = $value['to_email'];
+            unset($value['to_email']);
         }
     
-        if (isset($value["subject"])) {
-            $this->subject = $value["subject"];
-            unset($value["subject"]);
+        if (isset($value['subject'])) {
+            $this->subject = $value['subject'];
+            unset($value['subject']);
         }
     
-        if (isset($value["content_type"])) {
-            $this->contentType = $value["content_type"];
-            unset($value["content_type"]);
+        if (isset($value['content_type'])) {
+            $this->contentType = $value['content_type'];
+            unset($value['content_type']);
         }
     
-        if (isset($value["headers"])) {
-            $this->headers = $value["headers"];
-            unset($value["headers"]);
+        if (isset($value['headers'])) {
+            $this->headers = $value['headers'];
+            unset($value['headers']);
         }
     
-        if (isset($value["mailer"])) {
-            $this->mailer = $value["mailer"];
-            unset($value["mailer"]);
+        if (isset($value['mailer'])) {
+            $this->mailer = $value['mailer'];
+            unset($value['mailer']);
         }
     
-        if (isset($value["email_prototype"])) {
-            $this->emailPrototype = new EmailPrototypeConfig($value["email_prototype"]);
-            unset($value["email_prototype"]);
+        if (isset($value['email_prototype'])) {
+            $this->emailPrototype = new \Symfony\Config\Monolog\HandlerConfig\EmailPrototypeConfig($value['email_prototype']);
+            unset($value['email_prototype']);
         }
     
-        if (isset($value["lazy"])) {
-            $this->lazy = $value["lazy"];
-            unset($value["lazy"]);
+        if (isset($value['lazy'])) {
+            $this->lazy = $value['lazy'];
+            unset($value['lazy']);
         }
     
-        if (isset($value["connection_string"])) {
-            $this->connectionString = $value["connection_string"];
-            unset($value["connection_string"]);
+        if (isset($value['connection_string'])) {
+            $this->connectionString = $value['connection_string'];
+            unset($value['connection_string']);
         }
     
-        if (isset($value["timeout"])) {
-            $this->timeout = $value["timeout"];
-            unset($value["timeout"]);
+        if (isset($value['timeout'])) {
+            $this->timeout = $value['timeout'];
+            unset($value['timeout']);
         }
     
-        if (isset($value["time"])) {
-            $this->time = $value["time"];
-            unset($value["time"]);
+        if (isset($value['time'])) {
+            $this->time = $value['time'];
+            unset($value['time']);
         }
     
-        if (isset($value["deduplication_level"])) {
-            $this->deduplicationLevel = $value["deduplication_level"];
-            unset($value["deduplication_level"]);
+        if (isset($value['deduplication_level'])) {
+            $this->deduplicationLevel = $value['deduplication_level'];
+            unset($value['deduplication_level']);
         }
     
-        if (isset($value["store"])) {
-            $this->store = $value["store"];
-            unset($value["store"]);
+        if (isset($value['store'])) {
+            $this->store = $value['store'];
+            unset($value['store']);
         }
     
-        if (isset($value["connection_timeout"])) {
-            $this->connectionTimeout = $value["connection_timeout"];
-            unset($value["connection_timeout"]);
+        if (isset($value['connection_timeout'])) {
+            $this->connectionTimeout = $value['connection_timeout'];
+            unset($value['connection_timeout']);
         }
     
-        if (isset($value["persistent"])) {
-            $this->persistent = $value["persistent"];
-            unset($value["persistent"]);
+        if (isset($value['persistent'])) {
+            $this->persistent = $value['persistent'];
+            unset($value['persistent']);
         }
     
-        if (isset($value["dsn"])) {
-            $this->dsn = $value["dsn"];
-            unset($value["dsn"]);
+        if (isset($value['dsn'])) {
+            $this->dsn = $value['dsn'];
+            unset($value['dsn']);
         }
     
-        if (isset($value["hub_id"])) {
-            $this->hubId = $value["hub_id"];
-            unset($value["hub_id"]);
+        if (isset($value['hub_id'])) {
+            $this->hubId = $value['hub_id'];
+            unset($value['hub_id']);
         }
     
-        if (isset($value["client_id"])) {
-            $this->clientId = $value["client_id"];
-            unset($value["client_id"]);
+        if (isset($value['client_id'])) {
+            $this->clientId = $value['client_id'];
+            unset($value['client_id']);
         }
     
-        if (isset($value["auto_log_stacks"])) {
-            $this->autoLogStacks = $value["auto_log_stacks"];
-            unset($value["auto_log_stacks"]);
+        if (isset($value['auto_log_stacks'])) {
+            $this->autoLogStacks = $value['auto_log_stacks'];
+            unset($value['auto_log_stacks']);
         }
     
-        if (isset($value["release"])) {
-            $this->release = $value["release"];
-            unset($value["release"]);
+        if (isset($value['release'])) {
+            $this->release = $value['release'];
+            unset($value['release']);
         }
     
-        if (isset($value["environment"])) {
-            $this->environment = $value["environment"];
-            unset($value["environment"]);
+        if (isset($value['environment'])) {
+            $this->environment = $value['environment'];
+            unset($value['environment']);
         }
     
-        if (isset($value["message_type"])) {
-            $this->messageType = $value["message_type"];
-            unset($value["message_type"]);
+        if (isset($value['message_type'])) {
+            $this->messageType = $value['message_type'];
+            unset($value['message_type']);
         }
     
-        if (isset($value["tags"])) {
-            $this->tags = $value["tags"];
-            unset($value["tags"]);
+        if (isset($value['tags'])) {
+            $this->tags = $value['tags'];
+            unset($value['tags']);
         }
     
-        if (isset($value["console_formater_options"])) {
-            $this->consoleFormaterOptions = $value["console_formater_options"];
-            unset($value["console_formater_options"]);
+        if (isset($value['console_formater_options'])) {
+            $this->consoleFormaterOptions = $value['console_formater_options'];
+            unset($value['console_formater_options']);
         }
     
-        if (isset($value["console_formatter_options"])) {
-            $this->consoleFormatterOptions = $value["console_formatter_options"];
-            unset($value["console_formatter_options"]);
+        if (isset($value['console_formatter_options'])) {
+            $this->consoleFormatterOptions = $value['console_formatter_options'];
+            unset($value['console_formatter_options']);
         }
     
-        if (isset($value["verbosity_levels"])) {
-            $this->verbosityLevels = new VerbosityLevelsConfig($value["verbosity_levels"]);
-            unset($value["verbosity_levels"]);
+        if (isset($value['verbosity_levels'])) {
+            $this->verbosityLevels = new \Symfony\Config\Monolog\HandlerConfig\VerbosityLevelsConfig($value['verbosity_levels']);
+            unset($value['verbosity_levels']);
         }
     
-        if (isset($value["channels"])) {
-            $this->channels = new ChannelsConfig($value["channels"]);
-            unset($value["channels"]);
+        if (isset($value['channels'])) {
+            $this->channels = new \Symfony\Config\Monolog\HandlerConfig\ChannelsConfig($value['channels']);
+            unset($value['channels']);
         }
     
-        if (isset($value["formatter"])) {
-            $this->formatter = $value["formatter"];
-            unset($value["formatter"]);
+        if (isset($value['formatter'])) {
+            $this->formatter = $value['formatter'];
+            unset($value['formatter']);
         }
     
-        if (isset($value["nested"])) {
-            $this->nested = $value["nested"];
-            unset($value["nested"]);
+        if (isset($value['nested'])) {
+            $this->nested = $value['nested'];
+            unset($value['nested']);
         }
     
         if ($value !== []) {
@@ -1674,280 +1674,280 @@ class HandlerConfig
     {
         $output = [];
         if (null !== $this->type) {
-            $output["type"] = $this->type;
+            $output['type'] = $this->type;
         }
         if (null !== $this->id) {
-            $output["id"] = $this->id;
+            $output['id'] = $this->id;
         }
         if (null !== $this->priority) {
-            $output["priority"] = $this->priority;
+            $output['priority'] = $this->priority;
         }
         if (null !== $this->level) {
-            $output["level"] = $this->level;
+            $output['level'] = $this->level;
         }
         if (null !== $this->bubble) {
-            $output["bubble"] = $this->bubble;
+            $output['bubble'] = $this->bubble;
         }
         if (null !== $this->appName) {
-            $output["app_name"] = $this->appName;
+            $output['app_name'] = $this->appName;
         }
         if (null !== $this->includeStacktraces) {
-            $output["include_stacktraces"] = $this->includeStacktraces;
+            $output['include_stacktraces'] = $this->includeStacktraces;
         }
         if (null !== $this->processPsr3Messages) {
-            $output["process_psr_3_messages"] = $this->processPsr3Messages;
+            $output['process_psr_3_messages'] = $this->processPsr3Messages;
         }
         if (null !== $this->path) {
-            $output["path"] = $this->path;
+            $output['path'] = $this->path;
         }
         if (null !== $this->filePermission) {
-            $output["file_permission"] = $this->filePermission;
+            $output['file_permission'] = $this->filePermission;
         }
         if (null !== $this->useLocking) {
-            $output["use_locking"] = $this->useLocking;
+            $output['use_locking'] = $this->useLocking;
         }
         if (null !== $this->filenameFormat) {
-            $output["filename_format"] = $this->filenameFormat;
+            $output['filename_format'] = $this->filenameFormat;
         }
         if (null !== $this->dateFormat) {
-            $output["date_format"] = $this->dateFormat;
+            $output['date_format'] = $this->dateFormat;
         }
         if (null !== $this->ident) {
-            $output["ident"] = $this->ident;
+            $output['ident'] = $this->ident;
         }
         if (null !== $this->logopts) {
-            $output["logopts"] = $this->logopts;
+            $output['logopts'] = $this->logopts;
         }
         if (null !== $this->facility) {
-            $output["facility"] = $this->facility;
+            $output['facility'] = $this->facility;
         }
         if (null !== $this->maxFiles) {
-            $output["max_files"] = $this->maxFiles;
+            $output['max_files'] = $this->maxFiles;
         }
         if (null !== $this->actionLevel) {
-            $output["action_level"] = $this->actionLevel;
+            $output['action_level'] = $this->actionLevel;
         }
         if (null !== $this->activationStrategy) {
-            $output["activation_strategy"] = $this->activationStrategy;
+            $output['activation_strategy'] = $this->activationStrategy;
         }
         if (null !== $this->stopBuffering) {
-            $output["stop_buffering"] = $this->stopBuffering;
+            $output['stop_buffering'] = $this->stopBuffering;
         }
         if (null !== $this->passthruLevel) {
-            $output["passthru_level"] = $this->passthruLevel;
+            $output['passthru_level'] = $this->passthruLevel;
         }
         if (null !== $this->excluded404s) {
-            $output["excluded_404s"] = $this->excluded404s;
+            $output['excluded_404s'] = $this->excluded404s;
         }
         if (null !== $this->excludedHttpCodes) {
-            $output["excluded_http_codes"] = array_map(function($v) { return $v->toArray(); }, $this->excludedHttpCodes);
+            $output['excluded_http_codes'] = array_map(function($v) { return $v->toArray(); }, $this->excludedHttpCodes);
         }
         if (null !== $this->acceptedLevels) {
-            $output["accepted_levels"] = $this->acceptedLevels;
+            $output['accepted_levels'] = $this->acceptedLevels;
         }
         if (null !== $this->minLevel) {
-            $output["min_level"] = $this->minLevel;
+            $output['min_level'] = $this->minLevel;
         }
         if (null !== $this->maxLevel) {
-            $output["max_level"] = $this->maxLevel;
+            $output['max_level'] = $this->maxLevel;
         }
         if (null !== $this->bufferSize) {
-            $output["buffer_size"] = $this->bufferSize;
+            $output['buffer_size'] = $this->bufferSize;
         }
         if (null !== $this->flushOnOverflow) {
-            $output["flush_on_overflow"] = $this->flushOnOverflow;
+            $output['flush_on_overflow'] = $this->flushOnOverflow;
         }
         if (null !== $this->handler) {
-            $output["handler"] = $this->handler;
+            $output['handler'] = $this->handler;
         }
         if (null !== $this->url) {
-            $output["url"] = $this->url;
+            $output['url'] = $this->url;
         }
         if (null !== $this->exchange) {
-            $output["exchange"] = $this->exchange;
+            $output['exchange'] = $this->exchange;
         }
         if (null !== $this->exchangeName) {
-            $output["exchange_name"] = $this->exchangeName;
+            $output['exchange_name'] = $this->exchangeName;
         }
         if (null !== $this->room) {
-            $output["room"] = $this->room;
+            $output['room'] = $this->room;
         }
         if (null !== $this->messageFormat) {
-            $output["message_format"] = $this->messageFormat;
+            $output['message_format'] = $this->messageFormat;
         }
         if (null !== $this->apiVersion) {
-            $output["api_version"] = $this->apiVersion;
+            $output['api_version'] = $this->apiVersion;
         }
         if (null !== $this->channel) {
-            $output["channel"] = $this->channel;
+            $output['channel'] = $this->channel;
         }
         if (null !== $this->botName) {
-            $output["bot_name"] = $this->botName;
+            $output['bot_name'] = $this->botName;
         }
         if (null !== $this->useAttachment) {
-            $output["use_attachment"] = $this->useAttachment;
+            $output['use_attachment'] = $this->useAttachment;
         }
         if (null !== $this->useShortAttachment) {
-            $output["use_short_attachment"] = $this->useShortAttachment;
+            $output['use_short_attachment'] = $this->useShortAttachment;
         }
         if (null !== $this->includeExtra) {
-            $output["include_extra"] = $this->includeExtra;
+            $output['include_extra'] = $this->includeExtra;
         }
         if (null !== $this->iconEmoji) {
-            $output["icon_emoji"] = $this->iconEmoji;
+            $output['icon_emoji'] = $this->iconEmoji;
         }
         if (null !== $this->webhookUrl) {
-            $output["webhook_url"] = $this->webhookUrl;
+            $output['webhook_url'] = $this->webhookUrl;
         }
         if (null !== $this->team) {
-            $output["team"] = $this->team;
+            $output['team'] = $this->team;
         }
         if (null !== $this->notify) {
-            $output["notify"] = $this->notify;
+            $output['notify'] = $this->notify;
         }
         if (null !== $this->nickname) {
-            $output["nickname"] = $this->nickname;
+            $output['nickname'] = $this->nickname;
         }
         if (null !== $this->token) {
-            $output["token"] = $this->token;
+            $output['token'] = $this->token;
         }
         if (null !== $this->region) {
-            $output["region"] = $this->region;
+            $output['region'] = $this->region;
         }
         if (null !== $this->source) {
-            $output["source"] = $this->source;
+            $output['source'] = $this->source;
         }
         if (null !== $this->useSsl) {
-            $output["use_ssl"] = $this->useSsl;
+            $output['use_ssl'] = $this->useSsl;
         }
         if (null !== $this->user) {
-            $output["user"] = $this->user;
+            $output['user'] = $this->user;
         }
         if (null !== $this->title) {
-            $output["title"] = $this->title;
+            $output['title'] = $this->title;
         }
         if (null !== $this->host) {
-            $output["host"] = $this->host;
+            $output['host'] = $this->host;
         }
         if (null !== $this->port) {
-            $output["port"] = $this->port;
+            $output['port'] = $this->port;
         }
         if (null !== $this->publisher) {
-            $output["publisher"] = $this->publisher->toArray();
+            $output['publisher'] = $this->publisher->toArray();
         }
         if (null !== $this->mongo) {
-            $output["mongo"] = $this->mongo->toArray();
+            $output['mongo'] = $this->mongo->toArray();
         }
         if (null !== $this->elasticsearch) {
-            $output["elasticsearch"] = $this->elasticsearch->toArray();
+            $output['elasticsearch'] = $this->elasticsearch->toArray();
         }
         if (null !== $this->index) {
-            $output["index"] = $this->index;
+            $output['index'] = $this->index;
         }
         if (null !== $this->documentType) {
-            $output["document_type"] = $this->documentType;
+            $output['document_type'] = $this->documentType;
         }
         if (null !== $this->ignoreError) {
-            $output["ignore_error"] = $this->ignoreError;
+            $output['ignore_error'] = $this->ignoreError;
         }
         if (null !== $this->redis) {
-            $output["redis"] = $this->redis->toArray();
+            $output['redis'] = $this->redis->toArray();
         }
         if (null !== $this->predis) {
-            $output["predis"] = $this->predis->toArray();
+            $output['predis'] = $this->predis->toArray();
         }
         if (null !== $this->config) {
-            $output["config"] = $this->config;
+            $output['config'] = $this->config;
         }
         if (null !== $this->members) {
-            $output["members"] = $this->members;
+            $output['members'] = $this->members;
         }
         if (null !== $this->fromEmail) {
-            $output["from_email"] = $this->fromEmail;
+            $output['from_email'] = $this->fromEmail;
         }
         if (null !== $this->toEmail) {
-            $output["to_email"] = $this->toEmail;
+            $output['to_email'] = $this->toEmail;
         }
         if (null !== $this->subject) {
-            $output["subject"] = $this->subject;
+            $output['subject'] = $this->subject;
         }
         if (null !== $this->contentType) {
-            $output["content_type"] = $this->contentType;
+            $output['content_type'] = $this->contentType;
         }
         if (null !== $this->headers) {
-            $output["headers"] = $this->headers;
+            $output['headers'] = $this->headers;
         }
         if (null !== $this->mailer) {
-            $output["mailer"] = $this->mailer;
+            $output['mailer'] = $this->mailer;
         }
         if (null !== $this->emailPrototype) {
-            $output["email_prototype"] = $this->emailPrototype->toArray();
+            $output['email_prototype'] = $this->emailPrototype->toArray();
         }
         if (null !== $this->lazy) {
-            $output["lazy"] = $this->lazy;
+            $output['lazy'] = $this->lazy;
         }
         if (null !== $this->connectionString) {
-            $output["connection_string"] = $this->connectionString;
+            $output['connection_string'] = $this->connectionString;
         }
         if (null !== $this->timeout) {
-            $output["timeout"] = $this->timeout;
+            $output['timeout'] = $this->timeout;
         }
         if (null !== $this->time) {
-            $output["time"] = $this->time;
+            $output['time'] = $this->time;
         }
         if (null !== $this->deduplicationLevel) {
-            $output["deduplication_level"] = $this->deduplicationLevel;
+            $output['deduplication_level'] = $this->deduplicationLevel;
         }
         if (null !== $this->store) {
-            $output["store"] = $this->store;
+            $output['store'] = $this->store;
         }
         if (null !== $this->connectionTimeout) {
-            $output["connection_timeout"] = $this->connectionTimeout;
+            $output['connection_timeout'] = $this->connectionTimeout;
         }
         if (null !== $this->persistent) {
-            $output["persistent"] = $this->persistent;
+            $output['persistent'] = $this->persistent;
         }
         if (null !== $this->dsn) {
-            $output["dsn"] = $this->dsn;
+            $output['dsn'] = $this->dsn;
         }
         if (null !== $this->hubId) {
-            $output["hub_id"] = $this->hubId;
+            $output['hub_id'] = $this->hubId;
         }
         if (null !== $this->clientId) {
-            $output["client_id"] = $this->clientId;
+            $output['client_id'] = $this->clientId;
         }
         if (null !== $this->autoLogStacks) {
-            $output["auto_log_stacks"] = $this->autoLogStacks;
+            $output['auto_log_stacks'] = $this->autoLogStacks;
         }
         if (null !== $this->release) {
-            $output["release"] = $this->release;
+            $output['release'] = $this->release;
         }
         if (null !== $this->environment) {
-            $output["environment"] = $this->environment;
+            $output['environment'] = $this->environment;
         }
         if (null !== $this->messageType) {
-            $output["message_type"] = $this->messageType;
+            $output['message_type'] = $this->messageType;
         }
         if (null !== $this->tags) {
-            $output["tags"] = $this->tags;
+            $output['tags'] = $this->tags;
         }
         if (null !== $this->consoleFormaterOptions) {
-            $output["console_formater_options"] = $this->consoleFormaterOptions;
+            $output['console_formater_options'] = $this->consoleFormaterOptions;
         }
         if (null !== $this->consoleFormatterOptions) {
-            $output["console_formatter_options"] = $this->consoleFormatterOptions;
+            $output['console_formatter_options'] = $this->consoleFormatterOptions;
         }
         if (null !== $this->verbosityLevels) {
-            $output["verbosity_levels"] = $this->verbosityLevels->toArray();
+            $output['verbosity_levels'] = $this->verbosityLevels->toArray();
         }
         if (null !== $this->channels) {
-            $output["channels"] = $this->channels->toArray();
+            $output['channels'] = $this->channels->toArray();
         }
         if (null !== $this->formatter) {
-            $output["formatter"] = $this->formatter;
+            $output['formatter'] = $this->formatter;
         }
         if (null !== $this->nested) {
-            $output["nested"] = $this->nested;
+            $output['nested'] = $this->nested;
         }
     
         return $output;

@@ -211,79 +211,79 @@ class RememberMeConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["secret"])) {
-            $this->secret = $value["secret"];
-            unset($value["secret"]);
+        if (isset($value['secret'])) {
+            $this->secret = $value['secret'];
+            unset($value['secret']);
         }
     
-        if (isset($value["service"])) {
-            $this->service = $value["service"];
-            unset($value["service"]);
+        if (isset($value['service'])) {
+            $this->service = $value['service'];
+            unset($value['service']);
         }
     
-        if (isset($value["user_providers"])) {
-            $this->userProviders = $value["user_providers"];
-            unset($value["user_providers"]);
+        if (isset($value['user_providers'])) {
+            $this->userProviders = $value['user_providers'];
+            unset($value['user_providers']);
         }
     
-        if (isset($value["catch_exceptions"])) {
-            $this->catchExceptions = $value["catch_exceptions"];
-            unset($value["catch_exceptions"]);
+        if (isset($value['catch_exceptions'])) {
+            $this->catchExceptions = $value['catch_exceptions'];
+            unset($value['catch_exceptions']);
         }
     
-        if (isset($value["signature_properties"])) {
-            $this->signatureProperties = $value["signature_properties"];
-            unset($value["signature_properties"]);
+        if (isset($value['signature_properties'])) {
+            $this->signatureProperties = $value['signature_properties'];
+            unset($value['signature_properties']);
         }
     
-        if (isset($value["token_provider"])) {
-            $this->tokenProvider = new TokenProviderConfig($value["token_provider"]);
-            unset($value["token_provider"]);
+        if (isset($value['token_provider'])) {
+            $this->tokenProvider = new \Symfony\Config\Security\FirewallConfig\RememberMe\TokenProviderConfig($value['token_provider']);
+            unset($value['token_provider']);
         }
     
-        if (isset($value["name"])) {
-            $this->name = $value["name"];
-            unset($value["name"]);
+        if (isset($value['name'])) {
+            $this->name = $value['name'];
+            unset($value['name']);
         }
     
-        if (isset($value["lifetime"])) {
-            $this->lifetime = $value["lifetime"];
-            unset($value["lifetime"]);
+        if (isset($value['lifetime'])) {
+            $this->lifetime = $value['lifetime'];
+            unset($value['lifetime']);
         }
     
-        if (isset($value["path"])) {
-            $this->path = $value["path"];
-            unset($value["path"]);
+        if (isset($value['path'])) {
+            $this->path = $value['path'];
+            unset($value['path']);
         }
     
-        if (isset($value["domain"])) {
-            $this->domain = $value["domain"];
-            unset($value["domain"]);
+        if (isset($value['domain'])) {
+            $this->domain = $value['domain'];
+            unset($value['domain']);
         }
     
-        if (isset($value["secure"])) {
-            $this->secure = $value["secure"];
-            unset($value["secure"]);
+        if (isset($value['secure'])) {
+            $this->secure = $value['secure'];
+            unset($value['secure']);
         }
     
-        if (isset($value["httponly"])) {
-            $this->httponly = $value["httponly"];
-            unset($value["httponly"]);
+        if (isset($value['httponly'])) {
+            $this->httponly = $value['httponly'];
+            unset($value['httponly']);
         }
     
-        if (isset($value["samesite"])) {
-            $this->samesite = $value["samesite"];
-            unset($value["samesite"]);
+        if (isset($value['samesite'])) {
+            $this->samesite = $value['samesite'];
+            unset($value['samesite']);
         }
     
-        if (isset($value["always_remember_me"])) {
-            $this->alwaysRememberMe = $value["always_remember_me"];
-            unset($value["always_remember_me"]);
+        if (isset($value['always_remember_me'])) {
+            $this->alwaysRememberMe = $value['always_remember_me'];
+            unset($value['always_remember_me']);
         }
     
-        if (isset($value["remember_me_parameter"])) {
-            $this->rememberMeParameter = $value["remember_me_parameter"];
-            unset($value["remember_me_parameter"]);
+        if (isset($value['remember_me_parameter'])) {
+            $this->rememberMeParameter = $value['remember_me_parameter'];
+            unset($value['remember_me_parameter']);
         }
     
         if ($value !== []) {
@@ -296,49 +296,49 @@ class RememberMeConfig
     {
         $output = [];
         if (null !== $this->secret) {
-            $output["secret"] = $this->secret;
+            $output['secret'] = $this->secret;
         }
         if (null !== $this->service) {
-            $output["service"] = $this->service;
+            $output['service'] = $this->service;
         }
         if (null !== $this->userProviders) {
-            $output["user_providers"] = $this->userProviders;
+            $output['user_providers'] = $this->userProviders;
         }
         if (null !== $this->catchExceptions) {
-            $output["catch_exceptions"] = $this->catchExceptions;
+            $output['catch_exceptions'] = $this->catchExceptions;
         }
         if (null !== $this->signatureProperties) {
-            $output["signature_properties"] = $this->signatureProperties;
+            $output['signature_properties'] = $this->signatureProperties;
         }
         if (null !== $this->tokenProvider) {
-            $output["token_provider"] = $this->tokenProvider->toArray();
+            $output['token_provider'] = $this->tokenProvider->toArray();
         }
         if (null !== $this->name) {
-            $output["name"] = $this->name;
+            $output['name'] = $this->name;
         }
         if (null !== $this->lifetime) {
-            $output["lifetime"] = $this->lifetime;
+            $output['lifetime'] = $this->lifetime;
         }
         if (null !== $this->path) {
-            $output["path"] = $this->path;
+            $output['path'] = $this->path;
         }
         if (null !== $this->domain) {
-            $output["domain"] = $this->domain;
+            $output['domain'] = $this->domain;
         }
         if (null !== $this->secure) {
-            $output["secure"] = $this->secure;
+            $output['secure'] = $this->secure;
         }
         if (null !== $this->httponly) {
-            $output["httponly"] = $this->httponly;
+            $output['httponly'] = $this->httponly;
         }
         if (null !== $this->samesite) {
-            $output["samesite"] = $this->samesite;
+            $output['samesite'] = $this->samesite;
         }
         if (null !== $this->alwaysRememberMe) {
-            $output["always_remember_me"] = $this->alwaysRememberMe;
+            $output['always_remember_me'] = $this->alwaysRememberMe;
         }
         if (null !== $this->rememberMeParameter) {
-            $output["remember_me_parameter"] = $this->rememberMeParameter;
+            $output['remember_me_parameter'] = $this->rememberMeParameter;
         }
     
         return $output;

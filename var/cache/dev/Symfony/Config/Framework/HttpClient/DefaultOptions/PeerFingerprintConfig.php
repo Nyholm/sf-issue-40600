@@ -57,19 +57,19 @@ class PeerFingerprintConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["sha1"])) {
-            $this->sha1 = $value["sha1"];
-            unset($value["sha1"]);
+        if (isset($value['sha1'])) {
+            $this->sha1 = $value['sha1'];
+            unset($value['sha1']);
         }
     
-        if (isset($value["pin-sha256"])) {
-            $this->pinsha256 = $value["pin-sha256"];
-            unset($value["pin-sha256"]);
+        if (isset($value['pin-sha256'])) {
+            $this->pinsha256 = $value['pin-sha256'];
+            unset($value['pin-sha256']);
         }
     
-        if (isset($value["md5"])) {
-            $this->md5 = $value["md5"];
-            unset($value["md5"]);
+        if (isset($value['md5'])) {
+            $this->md5 = $value['md5'];
+            unset($value['md5']);
         }
     
         if ($value !== []) {
@@ -82,13 +82,13 @@ class PeerFingerprintConfig
     {
         $output = [];
         if (null !== $this->sha1) {
-            $output["sha1"] = $this->sha1;
+            $output['sha1'] = $this->sha1;
         }
         if (null !== $this->pinsha256) {
-            $output["pin-sha256"] = $this->pinsha256;
+            $output['pin-sha256'] = $this->pinsha256;
         }
         if (null !== $this->md5) {
-            $output["md5"] = $this->md5;
+            $output['md5'] = $this->md5;
         }
     
         return $output;

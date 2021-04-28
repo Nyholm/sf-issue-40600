@@ -121,44 +121,44 @@ class AssetsConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["version_strategy"])) {
-            $this->versionStrategy = $value["version_strategy"];
-            unset($value["version_strategy"]);
+        if (isset($value['version_strategy'])) {
+            $this->versionStrategy = $value['version_strategy'];
+            unset($value['version_strategy']);
         }
     
-        if (isset($value["version"])) {
-            $this->version = $value["version"];
-            unset($value["version"]);
+        if (isset($value['version'])) {
+            $this->version = $value['version'];
+            unset($value['version']);
         }
     
-        if (isset($value["version_format"])) {
-            $this->versionFormat = $value["version_format"];
-            unset($value["version_format"]);
+        if (isset($value['version_format'])) {
+            $this->versionFormat = $value['version_format'];
+            unset($value['version_format']);
         }
     
-        if (isset($value["json_manifest_path"])) {
-            $this->jsonManifestPath = $value["json_manifest_path"];
-            unset($value["json_manifest_path"]);
+        if (isset($value['json_manifest_path'])) {
+            $this->jsonManifestPath = $value['json_manifest_path'];
+            unset($value['json_manifest_path']);
         }
     
-        if (isset($value["base_path"])) {
-            $this->basePath = $value["base_path"];
-            unset($value["base_path"]);
+        if (isset($value['base_path'])) {
+            $this->basePath = $value['base_path'];
+            unset($value['base_path']);
         }
     
-        if (isset($value["base_urls"])) {
-            $this->baseUrls = $value["base_urls"];
-            unset($value["base_urls"]);
+        if (isset($value['base_urls'])) {
+            $this->baseUrls = $value['base_urls'];
+            unset($value['base_urls']);
         }
     
-        if (isset($value["packages"])) {
-            $this->packages = array_map(function($v) { return new PackageConfig($v); }, $value["packages"]);;
-            unset($value["packages"]);
+        if (isset($value['packages'])) {
+            $this->packages = array_map(function($v) { return new \Symfony\Config\Framework\Assets\PackageConfig($v); }, $value['packages']);
+            unset($value['packages']);
         }
     
         if ($value !== []) {
@@ -171,28 +171,28 @@ class AssetsConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->versionStrategy) {
-            $output["version_strategy"] = $this->versionStrategy;
+            $output['version_strategy'] = $this->versionStrategy;
         }
         if (null !== $this->version) {
-            $output["version"] = $this->version;
+            $output['version'] = $this->version;
         }
         if (null !== $this->versionFormat) {
-            $output["version_format"] = $this->versionFormat;
+            $output['version_format'] = $this->versionFormat;
         }
         if (null !== $this->jsonManifestPath) {
-            $output["json_manifest_path"] = $this->jsonManifestPath;
+            $output['json_manifest_path'] = $this->jsonManifestPath;
         }
         if (null !== $this->basePath) {
-            $output["base_path"] = $this->basePath;
+            $output['base_path'] = $this->basePath;
         }
         if (null !== $this->baseUrls) {
-            $output["base_urls"] = $this->baseUrls;
+            $output['base_urls'] = $this->baseUrls;
         }
         if (null !== $this->packages) {
-            $output["packages"] = array_map(function($v) { return $v->toArray(); }, $this->packages);
+            $output['packages'] = array_map(function($v) { return $v->toArray(); }, $this->packages);
         }
     
         return $output;

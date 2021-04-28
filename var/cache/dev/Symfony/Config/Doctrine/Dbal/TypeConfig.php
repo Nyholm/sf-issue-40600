@@ -45,14 +45,14 @@ class TypeConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["class"])) {
-            $this->class = $value["class"];
-            unset($value["class"]);
+        if (isset($value['class'])) {
+            $this->class = $value['class'];
+            unset($value['class']);
         }
     
-        if (isset($value["commented"])) {
-            $this->commented = $value["commented"];
-            unset($value["commented"]);
+        if (isset($value['commented'])) {
+            $this->commented = $value['commented'];
+            unset($value['commented']);
         }
     
         if ($value !== []) {
@@ -65,10 +65,10 @@ class TypeConfig
     {
         $output = [];
         if (null !== $this->class) {
-            $output["class"] = $this->class;
+            $output['class'] = $this->class;
         }
         if (null !== $this->commented) {
-            $output["commented"] = $this->commented;
+            $output['commented'] = $this->commented;
         }
     
         return $output;

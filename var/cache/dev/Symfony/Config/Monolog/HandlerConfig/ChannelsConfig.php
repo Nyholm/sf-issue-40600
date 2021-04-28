@@ -43,14 +43,14 @@ class ChannelsConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["type"])) {
-            $this->type = $value["type"];
-            unset($value["type"]);
+        if (isset($value['type'])) {
+            $this->type = $value['type'];
+            unset($value['type']);
         }
     
-        if (isset($value["elements"])) {
-            $this->elements = $value["elements"];
-            unset($value["elements"]);
+        if (isset($value['elements'])) {
+            $this->elements = $value['elements'];
+            unset($value['elements']);
         }
     
         if ($value !== []) {
@@ -63,10 +63,10 @@ class ChannelsConfig
     {
         $output = [];
         if (null !== $this->type) {
-            $output["type"] = $this->type;
+            $output['type'] = $this->type;
         }
         if (null !== $this->elements) {
-            $output["elements"] = $this->elements;
+            $output['elements'] = $this->elements;
         }
     
         return $output;

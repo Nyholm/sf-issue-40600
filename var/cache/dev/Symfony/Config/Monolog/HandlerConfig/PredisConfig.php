@@ -44,14 +44,14 @@ class PredisConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["id"])) {
-            $this->id = $value["id"];
-            unset($value["id"]);
+        if (isset($value['id'])) {
+            $this->id = $value['id'];
+            unset($value['id']);
         }
     
-        if (isset($value["host"])) {
-            $this->host = $value["host"];
-            unset($value["host"]);
+        if (isset($value['host'])) {
+            $this->host = $value['host'];
+            unset($value['host']);
         }
     
         if ($value !== []) {
@@ -64,10 +64,10 @@ class PredisConfig
     {
         $output = [];
         if (null !== $this->id) {
-            $output["id"] = $this->id;
+            $output['id'] = $this->id;
         }
         if (null !== $this->host) {
-            $output["host"] = $this->host;
+            $output['host'] = $this->host;
         }
     
         return $output;

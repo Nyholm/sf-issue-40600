@@ -43,14 +43,14 @@ class MiddlewareConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["id"])) {
-            $this->id = $value["id"];
-            unset($value["id"]);
+        if (isset($value['id'])) {
+            $this->id = $value['id'];
+            unset($value['id']);
         }
     
-        if (isset($value["arguments"])) {
-            $this->arguments = $value["arguments"];
-            unset($value["arguments"]);
+        if (isset($value['arguments'])) {
+            $this->arguments = $value['arguments'];
+            unset($value['arguments']);
         }
     
         if ($value !== []) {
@@ -63,10 +63,10 @@ class MiddlewareConfig
     {
         $output = [];
         if (null !== $this->id) {
-            $output["id"] = $this->id;
+            $output['id'] = $this->id;
         }
         if (null !== $this->arguments) {
-            $output["arguments"] = $this->arguments;
+            $output['arguments'] = $this->arguments;
         }
     
         return $output;

@@ -109,39 +109,39 @@ class MongoConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["id"])) {
-            $this->id = $value["id"];
-            unset($value["id"]);
+        if (isset($value['id'])) {
+            $this->id = $value['id'];
+            unset($value['id']);
         }
     
-        if (isset($value["host"])) {
-            $this->host = $value["host"];
-            unset($value["host"]);
+        if (isset($value['host'])) {
+            $this->host = $value['host'];
+            unset($value['host']);
         }
     
-        if (isset($value["port"])) {
-            $this->port = $value["port"];
-            unset($value["port"]);
+        if (isset($value['port'])) {
+            $this->port = $value['port'];
+            unset($value['port']);
         }
     
-        if (isset($value["user"])) {
-            $this->user = $value["user"];
-            unset($value["user"]);
+        if (isset($value['user'])) {
+            $this->user = $value['user'];
+            unset($value['user']);
         }
     
-        if (isset($value["pass"])) {
-            $this->pass = $value["pass"];
-            unset($value["pass"]);
+        if (isset($value['pass'])) {
+            $this->pass = $value['pass'];
+            unset($value['pass']);
         }
     
-        if (isset($value["database"])) {
-            $this->database = $value["database"];
-            unset($value["database"]);
+        if (isset($value['database'])) {
+            $this->database = $value['database'];
+            unset($value['database']);
         }
     
-        if (isset($value["collection"])) {
-            $this->collection = $value["collection"];
-            unset($value["collection"]);
+        if (isset($value['collection'])) {
+            $this->collection = $value['collection'];
+            unset($value['collection']);
         }
     
         if ($value !== []) {
@@ -154,25 +154,25 @@ class MongoConfig
     {
         $output = [];
         if (null !== $this->id) {
-            $output["id"] = $this->id;
+            $output['id'] = $this->id;
         }
         if (null !== $this->host) {
-            $output["host"] = $this->host;
+            $output['host'] = $this->host;
         }
         if (null !== $this->port) {
-            $output["port"] = $this->port;
+            $output['port'] = $this->port;
         }
         if (null !== $this->user) {
-            $output["user"] = $this->user;
+            $output['user'] = $this->user;
         }
         if (null !== $this->pass) {
-            $output["pass"] = $this->pass;
+            $output['pass'] = $this->pass;
         }
         if (null !== $this->database) {
-            $output["database"] = $this->database;
+            $output['database'] = $this->database;
         }
         if (null !== $this->collection) {
-            $output["collection"] = $this->collection;
+            $output['collection'] = $this->collection;
         }
     
         return $output;

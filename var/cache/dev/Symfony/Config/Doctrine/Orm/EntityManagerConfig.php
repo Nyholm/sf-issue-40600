@@ -240,89 +240,89 @@ class EntityManagerConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["query_cache_driver"])) {
-            $this->queryCacheDriver = new QueryCacheDriverConfig($value["query_cache_driver"]);
-            unset($value["query_cache_driver"]);
+        if (isset($value['query_cache_driver'])) {
+            $this->queryCacheDriver = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\QueryCacheDriverConfig($value['query_cache_driver']);
+            unset($value['query_cache_driver']);
         }
     
-        if (isset($value["metadata_cache_driver"])) {
-            $this->metadataCacheDriver = new MetadataCacheDriverConfig($value["metadata_cache_driver"]);
-            unset($value["metadata_cache_driver"]);
+        if (isset($value['metadata_cache_driver'])) {
+            $this->metadataCacheDriver = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\MetadataCacheDriverConfig($value['metadata_cache_driver']);
+            unset($value['metadata_cache_driver']);
         }
     
-        if (isset($value["result_cache_driver"])) {
-            $this->resultCacheDriver = new ResultCacheDriverConfig($value["result_cache_driver"]);
-            unset($value["result_cache_driver"]);
+        if (isset($value['result_cache_driver'])) {
+            $this->resultCacheDriver = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\ResultCacheDriverConfig($value['result_cache_driver']);
+            unset($value['result_cache_driver']);
         }
     
-        if (isset($value["entity_listeners"])) {
-            $this->entityListeners = new EntityListenersConfig($value["entity_listeners"]);
-            unset($value["entity_listeners"]);
+        if (isset($value['entity_listeners'])) {
+            $this->entityListeners = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListenersConfig($value['entity_listeners']);
+            unset($value['entity_listeners']);
         }
     
-        if (isset($value["connection"])) {
-            $this->connection = $value["connection"];
-            unset($value["connection"]);
+        if (isset($value['connection'])) {
+            $this->connection = $value['connection'];
+            unset($value['connection']);
         }
     
-        if (isset($value["class_metadata_factory_name"])) {
-            $this->classMetadataFactoryName = $value["class_metadata_factory_name"];
-            unset($value["class_metadata_factory_name"]);
+        if (isset($value['class_metadata_factory_name'])) {
+            $this->classMetadataFactoryName = $value['class_metadata_factory_name'];
+            unset($value['class_metadata_factory_name']);
         }
     
-        if (isset($value["default_repository_class"])) {
-            $this->defaultRepositoryClass = $value["default_repository_class"];
-            unset($value["default_repository_class"]);
+        if (isset($value['default_repository_class'])) {
+            $this->defaultRepositoryClass = $value['default_repository_class'];
+            unset($value['default_repository_class']);
         }
     
-        if (isset($value["auto_mapping"])) {
-            $this->autoMapping = $value["auto_mapping"];
-            unset($value["auto_mapping"]);
+        if (isset($value['auto_mapping'])) {
+            $this->autoMapping = $value['auto_mapping'];
+            unset($value['auto_mapping']);
         }
     
-        if (isset($value["naming_strategy"])) {
-            $this->namingStrategy = $value["naming_strategy"];
-            unset($value["naming_strategy"]);
+        if (isset($value['naming_strategy'])) {
+            $this->namingStrategy = $value['naming_strategy'];
+            unset($value['naming_strategy']);
         }
     
-        if (isset($value["quote_strategy"])) {
-            $this->quoteStrategy = $value["quote_strategy"];
-            unset($value["quote_strategy"]);
+        if (isset($value['quote_strategy'])) {
+            $this->quoteStrategy = $value['quote_strategy'];
+            unset($value['quote_strategy']);
         }
     
-        if (isset($value["entity_listener_resolver"])) {
-            $this->entityListenerResolver = $value["entity_listener_resolver"];
-            unset($value["entity_listener_resolver"]);
+        if (isset($value['entity_listener_resolver'])) {
+            $this->entityListenerResolver = $value['entity_listener_resolver'];
+            unset($value['entity_listener_resolver']);
         }
     
-        if (isset($value["repository_factory"])) {
-            $this->repositoryFactory = $value["repository_factory"];
-            unset($value["repository_factory"]);
+        if (isset($value['repository_factory'])) {
+            $this->repositoryFactory = $value['repository_factory'];
+            unset($value['repository_factory']);
         }
     
-        if (isset($value["second_level_cache"])) {
-            $this->secondLevelCache = new SecondLevelCacheConfig($value["second_level_cache"]);
-            unset($value["second_level_cache"]);
+        if (isset($value['second_level_cache'])) {
+            $this->secondLevelCache = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCacheConfig($value['second_level_cache']);
+            unset($value['second_level_cache']);
         }
     
-        if (isset($value["hydrators"])) {
-            $this->hydrators = $value["hydrators"];
-            unset($value["hydrators"]);
+        if (isset($value['hydrators'])) {
+            $this->hydrators = $value['hydrators'];
+            unset($value['hydrators']);
         }
     
-        if (isset($value["mappings"])) {
-            $this->mappings = array_map(function($v) { return new MappingConfig($v); }, $value["mappings"]);;
-            unset($value["mappings"]);
+        if (isset($value['mappings'])) {
+            $this->mappings = array_map(function($v) { return new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\MappingConfig($v); }, $value['mappings']);
+            unset($value['mappings']);
         }
     
-        if (isset($value["dql"])) {
-            $this->dql = new DqlConfig($value["dql"]);
-            unset($value["dql"]);
+        if (isset($value['dql'])) {
+            $this->dql = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\DqlConfig($value['dql']);
+            unset($value['dql']);
         }
     
-        if (isset($value["filters"])) {
-            $this->filters = array_map(function($v) { return new FilterConfig($v); }, $value["filters"]);;
-            unset($value["filters"]);
+        if (isset($value['filters'])) {
+            $this->filters = array_map(function($v) { return new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\FilterConfig($v); }, $value['filters']);
+            unset($value['filters']);
         }
     
         if ($value !== []) {
@@ -335,55 +335,55 @@ class EntityManagerConfig
     {
         $output = [];
         if (null !== $this->queryCacheDriver) {
-            $output["query_cache_driver"] = $this->queryCacheDriver->toArray();
+            $output['query_cache_driver'] = $this->queryCacheDriver->toArray();
         }
         if (null !== $this->metadataCacheDriver) {
-            $output["metadata_cache_driver"] = $this->metadataCacheDriver->toArray();
+            $output['metadata_cache_driver'] = $this->metadataCacheDriver->toArray();
         }
         if (null !== $this->resultCacheDriver) {
-            $output["result_cache_driver"] = $this->resultCacheDriver->toArray();
+            $output['result_cache_driver'] = $this->resultCacheDriver->toArray();
         }
         if (null !== $this->entityListeners) {
-            $output["entity_listeners"] = $this->entityListeners->toArray();
+            $output['entity_listeners'] = $this->entityListeners->toArray();
         }
         if (null !== $this->connection) {
-            $output["connection"] = $this->connection;
+            $output['connection'] = $this->connection;
         }
         if (null !== $this->classMetadataFactoryName) {
-            $output["class_metadata_factory_name"] = $this->classMetadataFactoryName;
+            $output['class_metadata_factory_name'] = $this->classMetadataFactoryName;
         }
         if (null !== $this->defaultRepositoryClass) {
-            $output["default_repository_class"] = $this->defaultRepositoryClass;
+            $output['default_repository_class'] = $this->defaultRepositoryClass;
         }
         if (null !== $this->autoMapping) {
-            $output["auto_mapping"] = $this->autoMapping;
+            $output['auto_mapping'] = $this->autoMapping;
         }
         if (null !== $this->namingStrategy) {
-            $output["naming_strategy"] = $this->namingStrategy;
+            $output['naming_strategy'] = $this->namingStrategy;
         }
         if (null !== $this->quoteStrategy) {
-            $output["quote_strategy"] = $this->quoteStrategy;
+            $output['quote_strategy'] = $this->quoteStrategy;
         }
         if (null !== $this->entityListenerResolver) {
-            $output["entity_listener_resolver"] = $this->entityListenerResolver;
+            $output['entity_listener_resolver'] = $this->entityListenerResolver;
         }
         if (null !== $this->repositoryFactory) {
-            $output["repository_factory"] = $this->repositoryFactory;
+            $output['repository_factory'] = $this->repositoryFactory;
         }
         if (null !== $this->secondLevelCache) {
-            $output["second_level_cache"] = $this->secondLevelCache->toArray();
+            $output['second_level_cache'] = $this->secondLevelCache->toArray();
         }
         if (null !== $this->hydrators) {
-            $output["hydrators"] = $this->hydrators;
+            $output['hydrators'] = $this->hydrators;
         }
         if (null !== $this->mappings) {
-            $output["mappings"] = array_map(function($v) { return $v->toArray(); }, $this->mappings);
+            $output['mappings'] = array_map(function($v) { return $v->toArray(); }, $this->mappings);
         }
         if (null !== $this->dql) {
-            $output["dql"] = $this->dql->toArray();
+            $output['dql'] = $this->dql->toArray();
         }
         if (null !== $this->filters) {
-            $output["filters"] = array_map(function($v) { return $v->toArray(); }, $this->filters);
+            $output['filters'] = array_map(function($v) { return $v->toArray(); }, $this->filters);
         }
     
         return $output;

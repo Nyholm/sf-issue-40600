@@ -133,49 +133,49 @@ class LdapConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["service"])) {
-            $this->service = $value["service"];
-            unset($value["service"]);
+        if (isset($value['service'])) {
+            $this->service = $value['service'];
+            unset($value['service']);
         }
     
-        if (isset($value["base_dn"])) {
-            $this->baseDn = $value["base_dn"];
-            unset($value["base_dn"]);
+        if (isset($value['base_dn'])) {
+            $this->baseDn = $value['base_dn'];
+            unset($value['base_dn']);
         }
     
-        if (isset($value["search_dn"])) {
-            $this->searchDn = $value["search_dn"];
-            unset($value["search_dn"]);
+        if (isset($value['search_dn'])) {
+            $this->searchDn = $value['search_dn'];
+            unset($value['search_dn']);
         }
     
-        if (isset($value["search_password"])) {
-            $this->searchPassword = $value["search_password"];
-            unset($value["search_password"]);
+        if (isset($value['search_password'])) {
+            $this->searchPassword = $value['search_password'];
+            unset($value['search_password']);
         }
     
-        if (isset($value["extra_fields"])) {
-            $this->extraFields = $value["extra_fields"];
-            unset($value["extra_fields"]);
+        if (isset($value['extra_fields'])) {
+            $this->extraFields = $value['extra_fields'];
+            unset($value['extra_fields']);
         }
     
-        if (isset($value["default_roles"])) {
-            $this->defaultRoles = $value["default_roles"];
-            unset($value["default_roles"]);
+        if (isset($value['default_roles'])) {
+            $this->defaultRoles = $value['default_roles'];
+            unset($value['default_roles']);
         }
     
-        if (isset($value["uid_key"])) {
-            $this->uidKey = $value["uid_key"];
-            unset($value["uid_key"]);
+        if (isset($value['uid_key'])) {
+            $this->uidKey = $value['uid_key'];
+            unset($value['uid_key']);
         }
     
-        if (isset($value["filter"])) {
-            $this->filter = $value["filter"];
-            unset($value["filter"]);
+        if (isset($value['filter'])) {
+            $this->filter = $value['filter'];
+            unset($value['filter']);
         }
     
-        if (isset($value["password_attribute"])) {
-            $this->passwordAttribute = $value["password_attribute"];
-            unset($value["password_attribute"]);
+        if (isset($value['password_attribute'])) {
+            $this->passwordAttribute = $value['password_attribute'];
+            unset($value['password_attribute']);
         }
     
         if ($value !== []) {
@@ -188,31 +188,31 @@ class LdapConfig
     {
         $output = [];
         if (null !== $this->service) {
-            $output["service"] = $this->service;
+            $output['service'] = $this->service;
         }
         if (null !== $this->baseDn) {
-            $output["base_dn"] = $this->baseDn;
+            $output['base_dn'] = $this->baseDn;
         }
         if (null !== $this->searchDn) {
-            $output["search_dn"] = $this->searchDn;
+            $output['search_dn'] = $this->searchDn;
         }
         if (null !== $this->searchPassword) {
-            $output["search_password"] = $this->searchPassword;
+            $output['search_password'] = $this->searchPassword;
         }
         if (null !== $this->extraFields) {
-            $output["extra_fields"] = $this->extraFields;
+            $output['extra_fields'] = $this->extraFields;
         }
         if (null !== $this->defaultRoles) {
-            $output["default_roles"] = $this->defaultRoles;
+            $output['default_roles'] = $this->defaultRoles;
         }
         if (null !== $this->uidKey) {
-            $output["uid_key"] = $this->uidKey;
+            $output['uid_key'] = $this->uidKey;
         }
         if (null !== $this->filter) {
-            $output["filter"] = $this->filter;
+            $output['filter'] = $this->filter;
         }
         if (null !== $this->passwordAttribute) {
-            $output["password_attribute"] = $this->passwordAttribute;
+            $output['password_attribute'] = $this->passwordAttribute;
         }
     
         return $output;

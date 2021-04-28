@@ -58,19 +58,19 @@ class EntityConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["class"])) {
-            $this->class = $value["class"];
-            unset($value["class"]);
+        if (isset($value['class'])) {
+            $this->class = $value['class'];
+            unset($value['class']);
         }
     
-        if (isset($value["property"])) {
-            $this->property = $value["property"];
-            unset($value["property"]);
+        if (isset($value['property'])) {
+            $this->property = $value['property'];
+            unset($value['property']);
         }
     
-        if (isset($value["manager_name"])) {
-            $this->managerName = $value["manager_name"];
-            unset($value["manager_name"]);
+        if (isset($value['manager_name'])) {
+            $this->managerName = $value['manager_name'];
+            unset($value['manager_name']);
         }
     
         if ($value !== []) {
@@ -83,13 +83,13 @@ class EntityConfig
     {
         $output = [];
         if (null !== $this->class) {
-            $output["class"] = $this->class;
+            $output['class'] = $this->class;
         }
         if (null !== $this->property) {
-            $output["property"] = $this->property;
+            $output['property'] = $this->property;
         }
         if (null !== $this->managerName) {
-            $output["manager_name"] = $this->managerName;
+            $output['manager_name'] = $this->managerName;
         }
     
         return $output;

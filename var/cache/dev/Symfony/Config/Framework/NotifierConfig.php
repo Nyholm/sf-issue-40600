@@ -87,34 +87,34 @@ class NotifierConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["chatter_transports"])) {
-            $this->chatterTransports = $value["chatter_transports"];
-            unset($value["chatter_transports"]);
+        if (isset($value['chatter_transports'])) {
+            $this->chatterTransports = $value['chatter_transports'];
+            unset($value['chatter_transports']);
         }
     
-        if (isset($value["texter_transports"])) {
-            $this->texterTransports = $value["texter_transports"];
-            unset($value["texter_transports"]);
+        if (isset($value['texter_transports'])) {
+            $this->texterTransports = $value['texter_transports'];
+            unset($value['texter_transports']);
         }
     
-        if (isset($value["notification_on_failed_messages"])) {
-            $this->notificationOnFailedMessages = $value["notification_on_failed_messages"];
-            unset($value["notification_on_failed_messages"]);
+        if (isset($value['notification_on_failed_messages'])) {
+            $this->notificationOnFailedMessages = $value['notification_on_failed_messages'];
+            unset($value['notification_on_failed_messages']);
         }
     
-        if (isset($value["channel_policy"])) {
-            $this->channelPolicy = $value["channel_policy"];
-            unset($value["channel_policy"]);
+        if (isset($value['channel_policy'])) {
+            $this->channelPolicy = $value['channel_policy'];
+            unset($value['channel_policy']);
         }
     
-        if (isset($value["admin_recipients"])) {
-            $this->adminRecipients = array_map(function($v) { return new AdminRecipientConfig($v); }, $value["admin_recipients"]);;
-            unset($value["admin_recipients"]);
+        if (isset($value['admin_recipients'])) {
+            $this->adminRecipients = array_map(function($v) { return new \Symfony\Config\Framework\Notifier\AdminRecipientConfig($v); }, $value['admin_recipients']);
+            unset($value['admin_recipients']);
         }
     
         if ($value !== []) {
@@ -127,22 +127,22 @@ class NotifierConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->chatterTransports) {
-            $output["chatter_transports"] = $this->chatterTransports;
+            $output['chatter_transports'] = $this->chatterTransports;
         }
         if (null !== $this->texterTransports) {
-            $output["texter_transports"] = $this->texterTransports;
+            $output['texter_transports'] = $this->texterTransports;
         }
         if (null !== $this->notificationOnFailedMessages) {
-            $output["notification_on_failed_messages"] = $this->notificationOnFailedMessages;
+            $output['notification_on_failed_messages'] = $this->notificationOnFailedMessages;
         }
         if (null !== $this->channelPolicy) {
-            $output["channel_policy"] = $this->channelPolicy;
+            $output['channel_policy'] = $this->channelPolicy;
         }
         if (null !== $this->adminRecipients) {
-            $output["admin_recipients"] = array_map(function($v) { return $v->toArray(); }, $this->adminRecipients);
+            $output['admin_recipients'] = array_map(function($v) { return $v->toArray(); }, $this->adminRecipients);
         }
     
         return $output;

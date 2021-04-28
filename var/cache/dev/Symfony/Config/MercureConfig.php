@@ -79,24 +79,24 @@ class MercureConfig implements \Symfony\Component\Config\Builder\ConfigBuilderIn
     public function __construct(array $value = [])
     {
     
-        if (isset($value["hubs"])) {
-            $this->hubs = array_map(function($v) { return new HubConfig($v); }, $value["hubs"]);;
-            unset($value["hubs"]);
+        if (isset($value['hubs'])) {
+            $this->hubs = array_map(function($v) { return new \Symfony\Config\Mercure\HubConfig($v); }, $value['hubs']);
+            unset($value['hubs']);
         }
     
-        if (isset($value["default_hub"])) {
-            $this->defaultHub = $value["default_hub"];
-            unset($value["default_hub"]);
+        if (isset($value['default_hub'])) {
+            $this->defaultHub = $value['default_hub'];
+            unset($value['default_hub']);
         }
     
-        if (isset($value["default_cookie_lifetime"])) {
-            $this->defaultCookieLifetime = $value["default_cookie_lifetime"];
-            unset($value["default_cookie_lifetime"]);
+        if (isset($value['default_cookie_lifetime'])) {
+            $this->defaultCookieLifetime = $value['default_cookie_lifetime'];
+            unset($value['default_cookie_lifetime']);
         }
     
-        if (isset($value["enable_profiler"])) {
-            $this->enableProfiler = $value["enable_profiler"];
-            unset($value["enable_profiler"]);
+        if (isset($value['enable_profiler'])) {
+            $this->enableProfiler = $value['enable_profiler'];
+            unset($value['enable_profiler']);
         }
     
         if ($value !== []) {
@@ -109,16 +109,16 @@ class MercureConfig implements \Symfony\Component\Config\Builder\ConfigBuilderIn
     {
         $output = [];
         if (null !== $this->hubs) {
-            $output["hubs"] = array_map(function($v) { return $v->toArray(); }, $this->hubs);
+            $output['hubs'] = array_map(function($v) { return $v->toArray(); }, $this->hubs);
         }
         if (null !== $this->defaultHub) {
-            $output["default_hub"] = $this->defaultHub;
+            $output['default_hub'] = $this->defaultHub;
         }
         if (null !== $this->defaultCookieLifetime) {
-            $output["default_cookie_lifetime"] = $this->defaultCookieLifetime;
+            $output['default_cookie_lifetime'] = $this->defaultCookieLifetime;
         }
         if (null !== $this->enableProfiler) {
-            $output["enable_profiler"] = $this->enableProfiler;
+            $output['enable_profiler'] = $this->enableProfiler;
         }
     
         return $output;

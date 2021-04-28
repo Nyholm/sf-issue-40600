@@ -115,39 +115,39 @@ class LimiterConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["lock_factory"])) {
-            $this->lockFactory = $value["lock_factory"];
-            unset($value["lock_factory"]);
+        if (isset($value['lock_factory'])) {
+            $this->lockFactory = $value['lock_factory'];
+            unset($value['lock_factory']);
         }
     
-        if (isset($value["cache_pool"])) {
-            $this->cachePool = $value["cache_pool"];
-            unset($value["cache_pool"]);
+        if (isset($value['cache_pool'])) {
+            $this->cachePool = $value['cache_pool'];
+            unset($value['cache_pool']);
         }
     
-        if (isset($value["storage_service"])) {
-            $this->storageService = $value["storage_service"];
-            unset($value["storage_service"]);
+        if (isset($value['storage_service'])) {
+            $this->storageService = $value['storage_service'];
+            unset($value['storage_service']);
         }
     
-        if (isset($value["policy"])) {
-            $this->policy = $value["policy"];
-            unset($value["policy"]);
+        if (isset($value['policy'])) {
+            $this->policy = $value['policy'];
+            unset($value['policy']);
         }
     
-        if (isset($value["limit"])) {
-            $this->limit = $value["limit"];
-            unset($value["limit"]);
+        if (isset($value['limit'])) {
+            $this->limit = $value['limit'];
+            unset($value['limit']);
         }
     
-        if (isset($value["interval"])) {
-            $this->interval = $value["interval"];
-            unset($value["interval"]);
+        if (isset($value['interval'])) {
+            $this->interval = $value['interval'];
+            unset($value['interval']);
         }
     
-        if (isset($value["rate"])) {
-            $this->rate = new RateConfig($value["rate"]);
-            unset($value["rate"]);
+        if (isset($value['rate'])) {
+            $this->rate = new \Symfony\Config\Framework\RateLimiter\LimiterConfig\RateConfig($value['rate']);
+            unset($value['rate']);
         }
     
         if ($value !== []) {
@@ -160,25 +160,25 @@ class LimiterConfig
     {
         $output = [];
         if (null !== $this->lockFactory) {
-            $output["lock_factory"] = $this->lockFactory;
+            $output['lock_factory'] = $this->lockFactory;
         }
         if (null !== $this->cachePool) {
-            $output["cache_pool"] = $this->cachePool;
+            $output['cache_pool'] = $this->cachePool;
         }
         if (null !== $this->storageService) {
-            $output["storage_service"] = $this->storageService;
+            $output['storage_service'] = $this->storageService;
         }
         if (null !== $this->policy) {
-            $output["policy"] = $this->policy;
+            $output['policy'] = $this->policy;
         }
         if (null !== $this->limit) {
-            $output["limit"] = $this->limit;
+            $output['limit'] = $this->limit;
         }
         if (null !== $this->interval) {
-            $output["interval"] = $this->interval;
+            $output['interval'] = $this->interval;
         }
         if (null !== $this->rate) {
-            $output["rate"] = $this->rate->toArray();
+            $output['rate'] = $this->rate->toArray();
         }
     
         return $output;

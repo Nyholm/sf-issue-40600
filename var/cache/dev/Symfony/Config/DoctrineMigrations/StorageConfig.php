@@ -30,9 +30,9 @@ class StorageConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["table_storage"])) {
-            $this->tableStorage = new TableStorageConfig($value["table_storage"]);
-            unset($value["table_storage"]);
+        if (isset($value['table_storage'])) {
+            $this->tableStorage = new \Symfony\Config\DoctrineMigrations\Storage\TableStorageConfig($value['table_storage']);
+            unset($value['table_storage']);
         }
     
         if ($value !== []) {
@@ -45,7 +45,7 @@ class StorageConfig
     {
         $output = [];
         if (null !== $this->tableStorage) {
-            $output["table_storage"] = $this->tableStorage->toArray();
+            $output['table_storage'] = $this->tableStorage->toArray();
         }
     
         return $output;

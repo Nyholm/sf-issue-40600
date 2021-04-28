@@ -44,14 +44,14 @@ class EventConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["type"])) {
-            $this->type = $value["type"];
-            unset($value["type"]);
+        if (isset($value['type'])) {
+            $this->type = $value['type'];
+            unset($value['type']);
         }
     
-        if (isset($value["method"])) {
-            $this->method = $value["method"];
-            unset($value["method"]);
+        if (isset($value['method'])) {
+            $this->method = $value['method'];
+            unset($value['method']);
         }
     
         if ($value !== []) {
@@ -64,10 +64,10 @@ class EventConfig
     {
         $output = [];
         if (null !== $this->type) {
-            $output["type"] = $this->type;
+            $output['type'] = $this->type;
         }
         if (null !== $this->method) {
-            $output["method"] = $this->method;
+            $output['method'] = $this->method;
         }
     
         return $output;

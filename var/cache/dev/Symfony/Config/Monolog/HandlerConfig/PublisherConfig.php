@@ -70,24 +70,24 @@ class PublisherConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["id"])) {
-            $this->id = $value["id"];
-            unset($value["id"]);
+        if (isset($value['id'])) {
+            $this->id = $value['id'];
+            unset($value['id']);
         }
     
-        if (isset($value["hostname"])) {
-            $this->hostname = $value["hostname"];
-            unset($value["hostname"]);
+        if (isset($value['hostname'])) {
+            $this->hostname = $value['hostname'];
+            unset($value['hostname']);
         }
     
-        if (isset($value["port"])) {
-            $this->port = $value["port"];
-            unset($value["port"]);
+        if (isset($value['port'])) {
+            $this->port = $value['port'];
+            unset($value['port']);
         }
     
-        if (isset($value["chunk_size"])) {
-            $this->chunkSize = $value["chunk_size"];
-            unset($value["chunk_size"]);
+        if (isset($value['chunk_size'])) {
+            $this->chunkSize = $value['chunk_size'];
+            unset($value['chunk_size']);
         }
     
         if ($value !== []) {
@@ -100,16 +100,16 @@ class PublisherConfig
     {
         $output = [];
         if (null !== $this->id) {
-            $output["id"] = $this->id;
+            $output['id'] = $this->id;
         }
         if (null !== $this->hostname) {
-            $output["hostname"] = $this->hostname;
+            $output['hostname'] = $this->hostname;
         }
         if (null !== $this->port) {
-            $output["port"] = $this->port;
+            $output['port'] = $this->port;
         }
         if (null !== $this->chunkSize) {
-            $output["chunk_size"] = $this->chunkSize;
+            $output['chunk_size'] = $this->chunkSize;
         }
     
         return $output;

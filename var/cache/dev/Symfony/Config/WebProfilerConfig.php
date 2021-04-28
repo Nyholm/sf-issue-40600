@@ -63,19 +63,19 @@ class WebProfilerConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     public function __construct(array $value = [])
     {
     
-        if (isset($value["toolbar"])) {
-            $this->toolbar = $value["toolbar"];
-            unset($value["toolbar"]);
+        if (isset($value['toolbar'])) {
+            $this->toolbar = $value['toolbar'];
+            unset($value['toolbar']);
         }
     
-        if (isset($value["intercept_redirects"])) {
-            $this->interceptRedirects = $value["intercept_redirects"];
-            unset($value["intercept_redirects"]);
+        if (isset($value['intercept_redirects'])) {
+            $this->interceptRedirects = $value['intercept_redirects'];
+            unset($value['intercept_redirects']);
         }
     
-        if (isset($value["excluded_ajax_paths"])) {
-            $this->excludedAjaxPaths = $value["excluded_ajax_paths"];
-            unset($value["excluded_ajax_paths"]);
+        if (isset($value['excluded_ajax_paths'])) {
+            $this->excludedAjaxPaths = $value['excluded_ajax_paths'];
+            unset($value['excluded_ajax_paths']);
         }
     
         if ($value !== []) {
@@ -88,13 +88,13 @@ class WebProfilerConfig implements \Symfony\Component\Config\Builder\ConfigBuild
     {
         $output = [];
         if (null !== $this->toolbar) {
-            $output["toolbar"] = $this->toolbar;
+            $output['toolbar'] = $this->toolbar;
         }
         if (null !== $this->interceptRedirects) {
-            $output["intercept_redirects"] = $this->interceptRedirects;
+            $output['intercept_redirects'] = $this->interceptRedirects;
         }
         if (null !== $this->excludedAjaxPaths) {
-            $output["excluded_ajax_paths"] = $this->excludedAjaxPaths;
+            $output['excluded_ajax_paths'] = $this->excludedAjaxPaths;
         }
     
         return $output;

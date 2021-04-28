@@ -31,9 +31,9 @@ class HeaderConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["value"])) {
-            $this->value = $value["value"];
-            unset($value["value"]);
+        if (isset($value['value'])) {
+            $this->value = $value['value'];
+            unset($value['value']);
         }
     
         if ($value !== []) {
@@ -46,7 +46,7 @@ class HeaderConfig
     {
         $output = [];
         if (null !== $this->value) {
-            $output["value"] = $this->value;
+            $output['value'] = $this->value;
         }
     
         return $output;

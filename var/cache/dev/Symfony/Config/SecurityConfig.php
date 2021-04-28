@@ -192,69 +192,69 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     public function __construct(array $value = [])
     {
     
-        if (isset($value["access_denied_url"])) {
-            $this->accessDeniedUrl = $value["access_denied_url"];
-            unset($value["access_denied_url"]);
+        if (isset($value['access_denied_url'])) {
+            $this->accessDeniedUrl = $value['access_denied_url'];
+            unset($value['access_denied_url']);
         }
     
-        if (isset($value["session_fixation_strategy"])) {
-            $this->sessionFixationStrategy = $value["session_fixation_strategy"];
-            unset($value["session_fixation_strategy"]);
+        if (isset($value['session_fixation_strategy'])) {
+            $this->sessionFixationStrategy = $value['session_fixation_strategy'];
+            unset($value['session_fixation_strategy']);
         }
     
-        if (isset($value["hide_user_not_found"])) {
-            $this->hideUserNotFound = $value["hide_user_not_found"];
-            unset($value["hide_user_not_found"]);
+        if (isset($value['hide_user_not_found'])) {
+            $this->hideUserNotFound = $value['hide_user_not_found'];
+            unset($value['hide_user_not_found']);
         }
     
-        if (isset($value["always_authenticate_before_granting"])) {
-            $this->alwaysAuthenticateBeforeGranting = $value["always_authenticate_before_granting"];
-            unset($value["always_authenticate_before_granting"]);
+        if (isset($value['always_authenticate_before_granting'])) {
+            $this->alwaysAuthenticateBeforeGranting = $value['always_authenticate_before_granting'];
+            unset($value['always_authenticate_before_granting']);
         }
     
-        if (isset($value["erase_credentials"])) {
-            $this->eraseCredentials = $value["erase_credentials"];
-            unset($value["erase_credentials"]);
+        if (isset($value['erase_credentials'])) {
+            $this->eraseCredentials = $value['erase_credentials'];
+            unset($value['erase_credentials']);
         }
     
-        if (isset($value["enable_authenticator_manager"])) {
-            $this->enableAuthenticatorManager = $value["enable_authenticator_manager"];
-            unset($value["enable_authenticator_manager"]);
+        if (isset($value['enable_authenticator_manager'])) {
+            $this->enableAuthenticatorManager = $value['enable_authenticator_manager'];
+            unset($value['enable_authenticator_manager']);
         }
     
-        if (isset($value["access_decision_manager"])) {
-            $this->accessDecisionManager = new AccessDecisionManagerConfig($value["access_decision_manager"]);
-            unset($value["access_decision_manager"]);
+        if (isset($value['access_decision_manager'])) {
+            $this->accessDecisionManager = new \Symfony\Config\Security\AccessDecisionManagerConfig($value['access_decision_manager']);
+            unset($value['access_decision_manager']);
         }
     
-        if (isset($value["encoders"])) {
-            $this->encoders = array_map(function($v) { return new EncoderConfig($v); }, $value["encoders"]);;
-            unset($value["encoders"]);
+        if (isset($value['encoders'])) {
+            $this->encoders = array_map(function($v) { return new \Symfony\Config\Security\EncoderConfig($v); }, $value['encoders']);
+            unset($value['encoders']);
         }
     
-        if (isset($value["password_hashers"])) {
-            $this->passwordHashers = array_map(function($v) { return new PasswordHasherConfig($v); }, $value["password_hashers"]);;
-            unset($value["password_hashers"]);
+        if (isset($value['password_hashers'])) {
+            $this->passwordHashers = array_map(function($v) { return new \Symfony\Config\Security\PasswordHasherConfig($v); }, $value['password_hashers']);
+            unset($value['password_hashers']);
         }
     
-        if (isset($value["providers"])) {
-            $this->providers = array_map(function($v) { return new ProviderConfig($v); }, $value["providers"]);;
-            unset($value["providers"]);
+        if (isset($value['providers'])) {
+            $this->providers = array_map(function($v) { return new \Symfony\Config\Security\ProviderConfig($v); }, $value['providers']);
+            unset($value['providers']);
         }
     
-        if (isset($value["firewalls"])) {
-            $this->firewalls = array_map(function($v) { return new FirewallConfig($v); }, $value["firewalls"]);;
-            unset($value["firewalls"]);
+        if (isset($value['firewalls'])) {
+            $this->firewalls = array_map(function($v) { return new \Symfony\Config\Security\FirewallConfig($v); }, $value['firewalls']);
+            unset($value['firewalls']);
         }
     
-        if (isset($value["access_control"])) {
-            $this->accessControl = array_map(function($v) { return new AccessControlConfig($v); }, $value["access_control"]);;
-            unset($value["access_control"]);
+        if (isset($value['access_control'])) {
+            $this->accessControl = array_map(function($v) { return new \Symfony\Config\Security\AccessControlConfig($v); }, $value['access_control']);
+            unset($value['access_control']);
         }
     
-        if (isset($value["role_hierarchy"])) {
-            $this->roleHierarchy = $value["role_hierarchy"];
-            unset($value["role_hierarchy"]);
+        if (isset($value['role_hierarchy'])) {
+            $this->roleHierarchy = $value['role_hierarchy'];
+            unset($value['role_hierarchy']);
         }
     
         if ($value !== []) {
@@ -267,43 +267,43 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     {
         $output = [];
         if (null !== $this->accessDeniedUrl) {
-            $output["access_denied_url"] = $this->accessDeniedUrl;
+            $output['access_denied_url'] = $this->accessDeniedUrl;
         }
         if (null !== $this->sessionFixationStrategy) {
-            $output["session_fixation_strategy"] = $this->sessionFixationStrategy;
+            $output['session_fixation_strategy'] = $this->sessionFixationStrategy;
         }
         if (null !== $this->hideUserNotFound) {
-            $output["hide_user_not_found"] = $this->hideUserNotFound;
+            $output['hide_user_not_found'] = $this->hideUserNotFound;
         }
         if (null !== $this->alwaysAuthenticateBeforeGranting) {
-            $output["always_authenticate_before_granting"] = $this->alwaysAuthenticateBeforeGranting;
+            $output['always_authenticate_before_granting'] = $this->alwaysAuthenticateBeforeGranting;
         }
         if (null !== $this->eraseCredentials) {
-            $output["erase_credentials"] = $this->eraseCredentials;
+            $output['erase_credentials'] = $this->eraseCredentials;
         }
         if (null !== $this->enableAuthenticatorManager) {
-            $output["enable_authenticator_manager"] = $this->enableAuthenticatorManager;
+            $output['enable_authenticator_manager'] = $this->enableAuthenticatorManager;
         }
         if (null !== $this->accessDecisionManager) {
-            $output["access_decision_manager"] = $this->accessDecisionManager->toArray();
+            $output['access_decision_manager'] = $this->accessDecisionManager->toArray();
         }
         if (null !== $this->encoders) {
-            $output["encoders"] = array_map(function($v) { return $v->toArray(); }, $this->encoders);
+            $output['encoders'] = array_map(function($v) { return $v->toArray(); }, $this->encoders);
         }
         if (null !== $this->passwordHashers) {
-            $output["password_hashers"] = array_map(function($v) { return $v->toArray(); }, $this->passwordHashers);
+            $output['password_hashers'] = array_map(function($v) { return $v->toArray(); }, $this->passwordHashers);
         }
         if (null !== $this->providers) {
-            $output["providers"] = array_map(function($v) { return $v->toArray(); }, $this->providers);
+            $output['providers'] = array_map(function($v) { return $v->toArray(); }, $this->providers);
         }
         if (null !== $this->firewalls) {
-            $output["firewalls"] = array_map(function($v) { return $v->toArray(); }, $this->firewalls);
+            $output['firewalls'] = array_map(function($v) { return $v->toArray(); }, $this->firewalls);
         }
         if (null !== $this->accessControl) {
-            $output["access_control"] = array_map(function($v) { return $v->toArray(); }, $this->accessControl);
+            $output['access_control'] = array_map(function($v) { return $v->toArray(); }, $this->accessControl);
         }
         if (null !== $this->roleHierarchy) {
-            $output["role_hierarchy"] = $this->roleHierarchy;
+            $output['role_hierarchy'] = $this->roleHierarchy;
         }
     
         return $output;

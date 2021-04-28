@@ -531,199 +531,199 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     public function __construct(array $value = [])
     {
     
-        if (isset($value["secret"])) {
-            $this->secret = $value["secret"];
-            unset($value["secret"]);
+        if (isset($value['secret'])) {
+            $this->secret = $value['secret'];
+            unset($value['secret']);
         }
     
-        if (isset($value["http_method_override"])) {
-            $this->httpMethodOverride = $value["http_method_override"];
-            unset($value["http_method_override"]);
+        if (isset($value['http_method_override'])) {
+            $this->httpMethodOverride = $value['http_method_override'];
+            unset($value['http_method_override']);
         }
     
-        if (isset($value["ide"])) {
-            $this->ide = $value["ide"];
-            unset($value["ide"]);
+        if (isset($value['ide'])) {
+            $this->ide = $value['ide'];
+            unset($value['ide']);
         }
     
-        if (isset($value["test"])) {
-            $this->test = $value["test"];
-            unset($value["test"]);
+        if (isset($value['test'])) {
+            $this->test = $value['test'];
+            unset($value['test']);
         }
     
-        if (isset($value["default_locale"])) {
-            $this->defaultLocale = $value["default_locale"];
-            unset($value["default_locale"]);
+        if (isset($value['default_locale'])) {
+            $this->defaultLocale = $value['default_locale'];
+            unset($value['default_locale']);
         }
     
-        if (isset($value["trusted_hosts"])) {
-            $this->trustedHosts = $value["trusted_hosts"];
-            unset($value["trusted_hosts"]);
+        if (isset($value['trusted_hosts'])) {
+            $this->trustedHosts = $value['trusted_hosts'];
+            unset($value['trusted_hosts']);
         }
     
-        if (isset($value["trusted_proxies"])) {
-            $this->trustedProxies = $value["trusted_proxies"];
-            unset($value["trusted_proxies"]);
+        if (isset($value['trusted_proxies'])) {
+            $this->trustedProxies = $value['trusted_proxies'];
+            unset($value['trusted_proxies']);
         }
     
-        if (isset($value["trusted_headers"])) {
-            $this->trustedHeaders = $value["trusted_headers"];
-            unset($value["trusted_headers"]);
+        if (isset($value['trusted_headers'])) {
+            $this->trustedHeaders = $value['trusted_headers'];
+            unset($value['trusted_headers']);
         }
     
-        if (isset($value["error_controller"])) {
-            $this->errorController = $value["error_controller"];
-            unset($value["error_controller"]);
+        if (isset($value['error_controller'])) {
+            $this->errorController = $value['error_controller'];
+            unset($value['error_controller']);
         }
     
-        if (isset($value["csrf_protection"])) {
-            $this->csrfProtection = new CsrfProtectionConfig($value["csrf_protection"]);
-            unset($value["csrf_protection"]);
+        if (isset($value['csrf_protection'])) {
+            $this->csrfProtection = new \Symfony\Config\Framework\CsrfProtectionConfig($value['csrf_protection']);
+            unset($value['csrf_protection']);
         }
     
-        if (isset($value["form"])) {
-            $this->form = new FormConfig($value["form"]);
-            unset($value["form"]);
+        if (isset($value['form'])) {
+            $this->form = new \Symfony\Config\Framework\FormConfig($value['form']);
+            unset($value['form']);
         }
     
-        if (isset($value["http_cache"])) {
-            $this->httpCache = new HttpCacheConfig($value["http_cache"]);
-            unset($value["http_cache"]);
+        if (isset($value['http_cache'])) {
+            $this->httpCache = new \Symfony\Config\Framework\HttpCacheConfig($value['http_cache']);
+            unset($value['http_cache']);
         }
     
-        if (isset($value["esi"])) {
-            $this->esi = new EsiConfig($value["esi"]);
-            unset($value["esi"]);
+        if (isset($value['esi'])) {
+            $this->esi = new \Symfony\Config\Framework\EsiConfig($value['esi']);
+            unset($value['esi']);
         }
     
-        if (isset($value["ssi"])) {
-            $this->ssi = new SsiConfig($value["ssi"]);
-            unset($value["ssi"]);
+        if (isset($value['ssi'])) {
+            $this->ssi = new \Symfony\Config\Framework\SsiConfig($value['ssi']);
+            unset($value['ssi']);
         }
     
-        if (isset($value["fragments"])) {
-            $this->fragments = new FragmentsConfig($value["fragments"]);
-            unset($value["fragments"]);
+        if (isset($value['fragments'])) {
+            $this->fragments = new \Symfony\Config\Framework\FragmentsConfig($value['fragments']);
+            unset($value['fragments']);
         }
     
-        if (isset($value["profiler"])) {
-            $this->profiler = new ProfilerConfig($value["profiler"]);
-            unset($value["profiler"]);
+        if (isset($value['profiler'])) {
+            $this->profiler = new \Symfony\Config\Framework\ProfilerConfig($value['profiler']);
+            unset($value['profiler']);
         }
     
-        if (isset($value["workflows"])) {
-            $this->workflows = new WorkflowsConfig($value["workflows"]);
-            unset($value["workflows"]);
+        if (isset($value['workflows'])) {
+            $this->workflows = new \Symfony\Config\Framework\WorkflowsConfig($value['workflows']);
+            unset($value['workflows']);
         }
     
-        if (isset($value["router"])) {
-            $this->router = new RouterConfig($value["router"]);
-            unset($value["router"]);
+        if (isset($value['router'])) {
+            $this->router = new \Symfony\Config\Framework\RouterConfig($value['router']);
+            unset($value['router']);
         }
     
-        if (isset($value["session"])) {
-            $this->session = new SessionConfig($value["session"]);
-            unset($value["session"]);
+        if (isset($value['session'])) {
+            $this->session = new \Symfony\Config\Framework\SessionConfig($value['session']);
+            unset($value['session']);
         }
     
-        if (isset($value["request"])) {
-            $this->request = new RequestConfig($value["request"]);
-            unset($value["request"]);
+        if (isset($value['request'])) {
+            $this->request = new \Symfony\Config\Framework\RequestConfig($value['request']);
+            unset($value['request']);
         }
     
-        if (isset($value["assets"])) {
-            $this->assets = new AssetsConfig($value["assets"]);
-            unset($value["assets"]);
+        if (isset($value['assets'])) {
+            $this->assets = new \Symfony\Config\Framework\AssetsConfig($value['assets']);
+            unset($value['assets']);
         }
     
-        if (isset($value["translator"])) {
-            $this->translator = new TranslatorConfig($value["translator"]);
-            unset($value["translator"]);
+        if (isset($value['translator'])) {
+            $this->translator = new \Symfony\Config\Framework\TranslatorConfig($value['translator']);
+            unset($value['translator']);
         }
     
-        if (isset($value["validation"])) {
-            $this->validation = new ValidationConfig($value["validation"]);
-            unset($value["validation"]);
+        if (isset($value['validation'])) {
+            $this->validation = new \Symfony\Config\Framework\ValidationConfig($value['validation']);
+            unset($value['validation']);
         }
     
-        if (isset($value["annotations"])) {
-            $this->annotations = new AnnotationsConfig($value["annotations"]);
-            unset($value["annotations"]);
+        if (isset($value['annotations'])) {
+            $this->annotations = new \Symfony\Config\Framework\AnnotationsConfig($value['annotations']);
+            unset($value['annotations']);
         }
     
-        if (isset($value["serializer"])) {
-            $this->serializer = new SerializerConfig($value["serializer"]);
-            unset($value["serializer"]);
+        if (isset($value['serializer'])) {
+            $this->serializer = new \Symfony\Config\Framework\SerializerConfig($value['serializer']);
+            unset($value['serializer']);
         }
     
-        if (isset($value["property_access"])) {
-            $this->propertyAccess = new PropertyAccessConfig($value["property_access"]);
-            unset($value["property_access"]);
+        if (isset($value['property_access'])) {
+            $this->propertyAccess = new \Symfony\Config\Framework\PropertyAccessConfig($value['property_access']);
+            unset($value['property_access']);
         }
     
-        if (isset($value["property_info"])) {
-            $this->propertyInfo = new PropertyInfoConfig($value["property_info"]);
-            unset($value["property_info"]);
+        if (isset($value['property_info'])) {
+            $this->propertyInfo = new \Symfony\Config\Framework\PropertyInfoConfig($value['property_info']);
+            unset($value['property_info']);
         }
     
-        if (isset($value["cache"])) {
-            $this->cache = new CacheConfig($value["cache"]);
-            unset($value["cache"]);
+        if (isset($value['cache'])) {
+            $this->cache = new \Symfony\Config\Framework\CacheConfig($value['cache']);
+            unset($value['cache']);
         }
     
-        if (isset($value["php_errors"])) {
-            $this->phpErrors = new PhpErrorsConfig($value["php_errors"]);
-            unset($value["php_errors"]);
+        if (isset($value['php_errors'])) {
+            $this->phpErrors = new \Symfony\Config\Framework\PhpErrorsConfig($value['php_errors']);
+            unset($value['php_errors']);
         }
     
-        if (isset($value["web_link"])) {
-            $this->webLink = new WebLinkConfig($value["web_link"]);
-            unset($value["web_link"]);
+        if (isset($value['web_link'])) {
+            $this->webLink = new \Symfony\Config\Framework\WebLinkConfig($value['web_link']);
+            unset($value['web_link']);
         }
     
-        if (isset($value["lock"])) {
-            $this->lock = new LockConfig($value["lock"]);
-            unset($value["lock"]);
+        if (isset($value['lock'])) {
+            $this->lock = new \Symfony\Config\Framework\LockConfig($value['lock']);
+            unset($value['lock']);
         }
     
-        if (isset($value["messenger"])) {
-            $this->messenger = new MessengerConfig($value["messenger"]);
-            unset($value["messenger"]);
+        if (isset($value['messenger'])) {
+            $this->messenger = new \Symfony\Config\Framework\MessengerConfig($value['messenger']);
+            unset($value['messenger']);
         }
     
-        if (isset($value["disallow_search_engine_index"])) {
-            $this->disallowSearchEngineIndex = $value["disallow_search_engine_index"];
-            unset($value["disallow_search_engine_index"]);
+        if (isset($value['disallow_search_engine_index'])) {
+            $this->disallowSearchEngineIndex = $value['disallow_search_engine_index'];
+            unset($value['disallow_search_engine_index']);
         }
     
-        if (isset($value["http_client"])) {
-            $this->httpClient = new HttpClientConfig($value["http_client"]);
-            unset($value["http_client"]);
+        if (isset($value['http_client'])) {
+            $this->httpClient = new \Symfony\Config\Framework\HttpClientConfig($value['http_client']);
+            unset($value['http_client']);
         }
     
-        if (isset($value["mailer"])) {
-            $this->mailer = new MailerConfig($value["mailer"]);
-            unset($value["mailer"]);
+        if (isset($value['mailer'])) {
+            $this->mailer = new \Symfony\Config\Framework\MailerConfig($value['mailer']);
+            unset($value['mailer']);
         }
     
-        if (isset($value["secrets"])) {
-            $this->secrets = new SecretsConfig($value["secrets"]);
-            unset($value["secrets"]);
+        if (isset($value['secrets'])) {
+            $this->secrets = new \Symfony\Config\Framework\SecretsConfig($value['secrets']);
+            unset($value['secrets']);
         }
     
-        if (isset($value["notifier"])) {
-            $this->notifier = new NotifierConfig($value["notifier"]);
-            unset($value["notifier"]);
+        if (isset($value['notifier'])) {
+            $this->notifier = new \Symfony\Config\Framework\NotifierConfig($value['notifier']);
+            unset($value['notifier']);
         }
     
-        if (isset($value["rate_limiter"])) {
-            $this->rateLimiter = new RateLimiterConfig($value["rate_limiter"]);
-            unset($value["rate_limiter"]);
+        if (isset($value['rate_limiter'])) {
+            $this->rateLimiter = new \Symfony\Config\Framework\RateLimiterConfig($value['rate_limiter']);
+            unset($value['rate_limiter']);
         }
     
-        if (isset($value["uid"])) {
-            $this->uid = new UidConfig($value["uid"]);
-            unset($value["uid"]);
+        if (isset($value['uid'])) {
+            $this->uid = new \Symfony\Config\Framework\UidConfig($value['uid']);
+            unset($value['uid']);
         }
     
         if ($value !== []) {
@@ -736,121 +736,121 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     {
         $output = [];
         if (null !== $this->secret) {
-            $output["secret"] = $this->secret;
+            $output['secret'] = $this->secret;
         }
         if (null !== $this->httpMethodOverride) {
-            $output["http_method_override"] = $this->httpMethodOverride;
+            $output['http_method_override'] = $this->httpMethodOverride;
         }
         if (null !== $this->ide) {
-            $output["ide"] = $this->ide;
+            $output['ide'] = $this->ide;
         }
         if (null !== $this->test) {
-            $output["test"] = $this->test;
+            $output['test'] = $this->test;
         }
         if (null !== $this->defaultLocale) {
-            $output["default_locale"] = $this->defaultLocale;
+            $output['default_locale'] = $this->defaultLocale;
         }
         if (null !== $this->trustedHosts) {
-            $output["trusted_hosts"] = $this->trustedHosts;
+            $output['trusted_hosts'] = $this->trustedHosts;
         }
         if (null !== $this->trustedProxies) {
-            $output["trusted_proxies"] = $this->trustedProxies;
+            $output['trusted_proxies'] = $this->trustedProxies;
         }
         if (null !== $this->trustedHeaders) {
-            $output["trusted_headers"] = $this->trustedHeaders;
+            $output['trusted_headers'] = $this->trustedHeaders;
         }
         if (null !== $this->errorController) {
-            $output["error_controller"] = $this->errorController;
+            $output['error_controller'] = $this->errorController;
         }
         if (null !== $this->csrfProtection) {
-            $output["csrf_protection"] = $this->csrfProtection->toArray();
+            $output['csrf_protection'] = $this->csrfProtection->toArray();
         }
         if (null !== $this->form) {
-            $output["form"] = $this->form->toArray();
+            $output['form'] = $this->form->toArray();
         }
         if (null !== $this->httpCache) {
-            $output["http_cache"] = $this->httpCache->toArray();
+            $output['http_cache'] = $this->httpCache->toArray();
         }
         if (null !== $this->esi) {
-            $output["esi"] = $this->esi->toArray();
+            $output['esi'] = $this->esi->toArray();
         }
         if (null !== $this->ssi) {
-            $output["ssi"] = $this->ssi->toArray();
+            $output['ssi'] = $this->ssi->toArray();
         }
         if (null !== $this->fragments) {
-            $output["fragments"] = $this->fragments->toArray();
+            $output['fragments'] = $this->fragments->toArray();
         }
         if (null !== $this->profiler) {
-            $output["profiler"] = $this->profiler->toArray();
+            $output['profiler'] = $this->profiler->toArray();
         }
         if (null !== $this->workflows) {
-            $output["workflows"] = $this->workflows->toArray();
+            $output['workflows'] = $this->workflows->toArray();
         }
         if (null !== $this->router) {
-            $output["router"] = $this->router->toArray();
+            $output['router'] = $this->router->toArray();
         }
         if (null !== $this->session) {
-            $output["session"] = $this->session->toArray();
+            $output['session'] = $this->session->toArray();
         }
         if (null !== $this->request) {
-            $output["request"] = $this->request->toArray();
+            $output['request'] = $this->request->toArray();
         }
         if (null !== $this->assets) {
-            $output["assets"] = $this->assets->toArray();
+            $output['assets'] = $this->assets->toArray();
         }
         if (null !== $this->translator) {
-            $output["translator"] = $this->translator->toArray();
+            $output['translator'] = $this->translator->toArray();
         }
         if (null !== $this->validation) {
-            $output["validation"] = $this->validation->toArray();
+            $output['validation'] = $this->validation->toArray();
         }
         if (null !== $this->annotations) {
-            $output["annotations"] = $this->annotations->toArray();
+            $output['annotations'] = $this->annotations->toArray();
         }
         if (null !== $this->serializer) {
-            $output["serializer"] = $this->serializer->toArray();
+            $output['serializer'] = $this->serializer->toArray();
         }
         if (null !== $this->propertyAccess) {
-            $output["property_access"] = $this->propertyAccess->toArray();
+            $output['property_access'] = $this->propertyAccess->toArray();
         }
         if (null !== $this->propertyInfo) {
-            $output["property_info"] = $this->propertyInfo->toArray();
+            $output['property_info'] = $this->propertyInfo->toArray();
         }
         if (null !== $this->cache) {
-            $output["cache"] = $this->cache->toArray();
+            $output['cache'] = $this->cache->toArray();
         }
         if (null !== $this->phpErrors) {
-            $output["php_errors"] = $this->phpErrors->toArray();
+            $output['php_errors'] = $this->phpErrors->toArray();
         }
         if (null !== $this->webLink) {
-            $output["web_link"] = $this->webLink->toArray();
+            $output['web_link'] = $this->webLink->toArray();
         }
         if (null !== $this->lock) {
-            $output["lock"] = $this->lock->toArray();
+            $output['lock'] = $this->lock->toArray();
         }
         if (null !== $this->messenger) {
-            $output["messenger"] = $this->messenger->toArray();
+            $output['messenger'] = $this->messenger->toArray();
         }
         if (null !== $this->disallowSearchEngineIndex) {
-            $output["disallow_search_engine_index"] = $this->disallowSearchEngineIndex;
+            $output['disallow_search_engine_index'] = $this->disallowSearchEngineIndex;
         }
         if (null !== $this->httpClient) {
-            $output["http_client"] = $this->httpClient->toArray();
+            $output['http_client'] = $this->httpClient->toArray();
         }
         if (null !== $this->mailer) {
-            $output["mailer"] = $this->mailer->toArray();
+            $output['mailer'] = $this->mailer->toArray();
         }
         if (null !== $this->secrets) {
-            $output["secrets"] = $this->secrets->toArray();
+            $output['secrets'] = $this->secrets->toArray();
         }
         if (null !== $this->notifier) {
-            $output["notifier"] = $this->notifier->toArray();
+            $output['notifier'] = $this->notifier->toArray();
         }
         if (null !== $this->rateLimiter) {
-            $output["rate_limiter"] = $this->rateLimiter->toArray();
+            $output['rate_limiter'] = $this->rateLimiter->toArray();
         }
         if (null !== $this->uid) {
-            $output["uid"] = $this->uid->toArray();
+            $output['uid'] = $this->uid->toArray();
         }
     
         return $output;

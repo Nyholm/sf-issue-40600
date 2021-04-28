@@ -30,9 +30,9 @@ class MappingConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["paths"])) {
-            $this->paths = $value["paths"];
-            unset($value["paths"]);
+        if (isset($value['paths'])) {
+            $this->paths = $value['paths'];
+            unset($value['paths']);
         }
     
         if ($value !== []) {
@@ -45,7 +45,7 @@ class MappingConfig
     {
         $output = [];
         if (null !== $this->paths) {
-            $output["paths"] = $this->paths;
+            $output['paths'] = $this->paths;
         }
     
         return $output;

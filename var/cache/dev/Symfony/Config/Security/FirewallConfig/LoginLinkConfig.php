@@ -246,89 +246,89 @@ class LoginLinkConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["check_route"])) {
-            $this->checkRoute = $value["check_route"];
-            unset($value["check_route"]);
+        if (isset($value['check_route'])) {
+            $this->checkRoute = $value['check_route'];
+            unset($value['check_route']);
         }
     
-        if (isset($value["check_post_only"])) {
-            $this->checkPostOnly = $value["check_post_only"];
-            unset($value["check_post_only"]);
+        if (isset($value['check_post_only'])) {
+            $this->checkPostOnly = $value['check_post_only'];
+            unset($value['check_post_only']);
         }
     
-        if (isset($value["signature_properties"])) {
-            $this->signatureProperties = $value["signature_properties"];
-            unset($value["signature_properties"]);
+        if (isset($value['signature_properties'])) {
+            $this->signatureProperties = $value['signature_properties'];
+            unset($value['signature_properties']);
         }
     
-        if (isset($value["lifetime"])) {
-            $this->lifetime = $value["lifetime"];
-            unset($value["lifetime"]);
+        if (isset($value['lifetime'])) {
+            $this->lifetime = $value['lifetime'];
+            unset($value['lifetime']);
         }
     
-        if (isset($value["max_uses"])) {
-            $this->maxUses = $value["max_uses"];
-            unset($value["max_uses"]);
+        if (isset($value['max_uses'])) {
+            $this->maxUses = $value['max_uses'];
+            unset($value['max_uses']);
         }
     
-        if (isset($value["used_link_cache"])) {
-            $this->usedLinkCache = $value["used_link_cache"];
-            unset($value["used_link_cache"]);
+        if (isset($value['used_link_cache'])) {
+            $this->usedLinkCache = $value['used_link_cache'];
+            unset($value['used_link_cache']);
         }
     
-        if (isset($value["success_handler"])) {
-            $this->successHandler = $value["success_handler"];
-            unset($value["success_handler"]);
+        if (isset($value['success_handler'])) {
+            $this->successHandler = $value['success_handler'];
+            unset($value['success_handler']);
         }
     
-        if (isset($value["failure_handler"])) {
-            $this->failureHandler = $value["failure_handler"];
-            unset($value["failure_handler"]);
+        if (isset($value['failure_handler'])) {
+            $this->failureHandler = $value['failure_handler'];
+            unset($value['failure_handler']);
         }
     
-        if (isset($value["provider"])) {
-            $this->provider = $value["provider"];
-            unset($value["provider"]);
+        if (isset($value['provider'])) {
+            $this->provider = $value['provider'];
+            unset($value['provider']);
         }
     
-        if (isset($value["always_use_default_target_path"])) {
-            $this->alwaysUseDefaultTargetPath = $value["always_use_default_target_path"];
-            unset($value["always_use_default_target_path"]);
+        if (isset($value['always_use_default_target_path'])) {
+            $this->alwaysUseDefaultTargetPath = $value['always_use_default_target_path'];
+            unset($value['always_use_default_target_path']);
         }
     
-        if (isset($value["default_target_path"])) {
-            $this->defaultTargetPath = $value["default_target_path"];
-            unset($value["default_target_path"]);
+        if (isset($value['default_target_path'])) {
+            $this->defaultTargetPath = $value['default_target_path'];
+            unset($value['default_target_path']);
         }
     
-        if (isset($value["login_path"])) {
-            $this->loginPath = $value["login_path"];
-            unset($value["login_path"]);
+        if (isset($value['login_path'])) {
+            $this->loginPath = $value['login_path'];
+            unset($value['login_path']);
         }
     
-        if (isset($value["target_path_parameter"])) {
-            $this->targetPathParameter = $value["target_path_parameter"];
-            unset($value["target_path_parameter"]);
+        if (isset($value['target_path_parameter'])) {
+            $this->targetPathParameter = $value['target_path_parameter'];
+            unset($value['target_path_parameter']);
         }
     
-        if (isset($value["use_referer"])) {
-            $this->useReferer = $value["use_referer"];
-            unset($value["use_referer"]);
+        if (isset($value['use_referer'])) {
+            $this->useReferer = $value['use_referer'];
+            unset($value['use_referer']);
         }
     
-        if (isset($value["failure_path"])) {
-            $this->failurePath = $value["failure_path"];
-            unset($value["failure_path"]);
+        if (isset($value['failure_path'])) {
+            $this->failurePath = $value['failure_path'];
+            unset($value['failure_path']);
         }
     
-        if (isset($value["failure_forward"])) {
-            $this->failureForward = $value["failure_forward"];
-            unset($value["failure_forward"]);
+        if (isset($value['failure_forward'])) {
+            $this->failureForward = $value['failure_forward'];
+            unset($value['failure_forward']);
         }
     
-        if (isset($value["failure_path_parameter"])) {
-            $this->failurePathParameter = $value["failure_path_parameter"];
-            unset($value["failure_path_parameter"]);
+        if (isset($value['failure_path_parameter'])) {
+            $this->failurePathParameter = $value['failure_path_parameter'];
+            unset($value['failure_path_parameter']);
         }
     
         if ($value !== []) {
@@ -341,55 +341,55 @@ class LoginLinkConfig
     {
         $output = [];
         if (null !== $this->checkRoute) {
-            $output["check_route"] = $this->checkRoute;
+            $output['check_route'] = $this->checkRoute;
         }
         if (null !== $this->checkPostOnly) {
-            $output["check_post_only"] = $this->checkPostOnly;
+            $output['check_post_only'] = $this->checkPostOnly;
         }
         if (null !== $this->signatureProperties) {
-            $output["signature_properties"] = $this->signatureProperties;
+            $output['signature_properties'] = $this->signatureProperties;
         }
         if (null !== $this->lifetime) {
-            $output["lifetime"] = $this->lifetime;
+            $output['lifetime'] = $this->lifetime;
         }
         if (null !== $this->maxUses) {
-            $output["max_uses"] = $this->maxUses;
+            $output['max_uses'] = $this->maxUses;
         }
         if (null !== $this->usedLinkCache) {
-            $output["used_link_cache"] = $this->usedLinkCache;
+            $output['used_link_cache'] = $this->usedLinkCache;
         }
         if (null !== $this->successHandler) {
-            $output["success_handler"] = $this->successHandler;
+            $output['success_handler'] = $this->successHandler;
         }
         if (null !== $this->failureHandler) {
-            $output["failure_handler"] = $this->failureHandler;
+            $output['failure_handler'] = $this->failureHandler;
         }
         if (null !== $this->provider) {
-            $output["provider"] = $this->provider;
+            $output['provider'] = $this->provider;
         }
         if (null !== $this->alwaysUseDefaultTargetPath) {
-            $output["always_use_default_target_path"] = $this->alwaysUseDefaultTargetPath;
+            $output['always_use_default_target_path'] = $this->alwaysUseDefaultTargetPath;
         }
         if (null !== $this->defaultTargetPath) {
-            $output["default_target_path"] = $this->defaultTargetPath;
+            $output['default_target_path'] = $this->defaultTargetPath;
         }
         if (null !== $this->loginPath) {
-            $output["login_path"] = $this->loginPath;
+            $output['login_path'] = $this->loginPath;
         }
         if (null !== $this->targetPathParameter) {
-            $output["target_path_parameter"] = $this->targetPathParameter;
+            $output['target_path_parameter'] = $this->targetPathParameter;
         }
         if (null !== $this->useReferer) {
-            $output["use_referer"] = $this->useReferer;
+            $output['use_referer'] = $this->useReferer;
         }
         if (null !== $this->failurePath) {
-            $output["failure_path"] = $this->failurePath;
+            $output['failure_path'] = $this->failurePath;
         }
         if (null !== $this->failureForward) {
-            $output["failure_forward"] = $this->failureForward;
+            $output['failure_forward'] = $this->failureForward;
         }
         if (null !== $this->failurePathParameter) {
-            $output["failure_path_parameter"] = $this->failurePathParameter;
+            $output['failure_path_parameter'] = $this->failurePathParameter;
         }
     
         return $output;

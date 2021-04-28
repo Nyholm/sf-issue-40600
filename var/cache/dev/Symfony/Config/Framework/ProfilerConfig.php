@@ -97,34 +97,34 @@ class ProfilerConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["collect"])) {
-            $this->collect = $value["collect"];
-            unset($value["collect"]);
+        if (isset($value['collect'])) {
+            $this->collect = $value['collect'];
+            unset($value['collect']);
         }
     
-        if (isset($value["only_exceptions"])) {
-            $this->onlyExceptions = $value["only_exceptions"];
-            unset($value["only_exceptions"]);
+        if (isset($value['only_exceptions'])) {
+            $this->onlyExceptions = $value['only_exceptions'];
+            unset($value['only_exceptions']);
         }
     
-        if (isset($value["only_main_requests"])) {
-            $this->onlyMainRequests = $value["only_main_requests"];
-            unset($value["only_main_requests"]);
+        if (isset($value['only_main_requests'])) {
+            $this->onlyMainRequests = $value['only_main_requests'];
+            unset($value['only_main_requests']);
         }
     
-        if (isset($value["only_master_requests"])) {
-            $this->onlyMasterRequests = $value["only_master_requests"];
-            unset($value["only_master_requests"]);
+        if (isset($value['only_master_requests'])) {
+            $this->onlyMasterRequests = $value['only_master_requests'];
+            unset($value['only_master_requests']);
         }
     
-        if (isset($value["dsn"])) {
-            $this->dsn = $value["dsn"];
-            unset($value["dsn"]);
+        if (isset($value['dsn'])) {
+            $this->dsn = $value['dsn'];
+            unset($value['dsn']);
         }
     
         if ($value !== []) {
@@ -137,22 +137,22 @@ class ProfilerConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->collect) {
-            $output["collect"] = $this->collect;
+            $output['collect'] = $this->collect;
         }
         if (null !== $this->onlyExceptions) {
-            $output["only_exceptions"] = $this->onlyExceptions;
+            $output['only_exceptions'] = $this->onlyExceptions;
         }
         if (null !== $this->onlyMainRequests) {
-            $output["only_main_requests"] = $this->onlyMainRequests;
+            $output['only_main_requests'] = $this->onlyMainRequests;
         }
         if (null !== $this->onlyMasterRequests) {
-            $output["only_master_requests"] = $this->onlyMasterRequests;
+            $output['only_master_requests'] = $this->onlyMasterRequests;
         }
         if (null !== $this->dsn) {
-            $output["dsn"] = $this->dsn;
+            $output['dsn'] = $this->dsn;
         }
     
         return $output;

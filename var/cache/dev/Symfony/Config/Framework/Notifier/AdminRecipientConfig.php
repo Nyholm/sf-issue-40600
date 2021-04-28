@@ -43,14 +43,14 @@ class AdminRecipientConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["email"])) {
-            $this->email = $value["email"];
-            unset($value["email"]);
+        if (isset($value['email'])) {
+            $this->email = $value['email'];
+            unset($value['email']);
         }
     
-        if (isset($value["phone"])) {
-            $this->phone = $value["phone"];
-            unset($value["phone"]);
+        if (isset($value['phone'])) {
+            $this->phone = $value['phone'];
+            unset($value['phone']);
         }
     
         if ($value !== []) {
@@ -63,10 +63,10 @@ class AdminRecipientConfig
     {
         $output = [];
         if (null !== $this->email) {
-            $output["email"] = $this->email;
+            $output['email'] = $this->email;
         }
         if (null !== $this->phone) {
-            $output["phone"] = $this->phone;
+            $output['phone'] = $this->phone;
         }
     
         return $output;

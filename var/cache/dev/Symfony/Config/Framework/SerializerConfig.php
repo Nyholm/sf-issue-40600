@@ -96,34 +96,34 @@ class SerializerConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["enable_annotations"])) {
-            $this->enableAnnotations = $value["enable_annotations"];
-            unset($value["enable_annotations"]);
+        if (isset($value['enable_annotations'])) {
+            $this->enableAnnotations = $value['enable_annotations'];
+            unset($value['enable_annotations']);
         }
     
-        if (isset($value["name_converter"])) {
-            $this->nameConverter = $value["name_converter"];
-            unset($value["name_converter"]);
+        if (isset($value['name_converter'])) {
+            $this->nameConverter = $value['name_converter'];
+            unset($value['name_converter']);
         }
     
-        if (isset($value["circular_reference_handler"])) {
-            $this->circularReferenceHandler = $value["circular_reference_handler"];
-            unset($value["circular_reference_handler"]);
+        if (isset($value['circular_reference_handler'])) {
+            $this->circularReferenceHandler = $value['circular_reference_handler'];
+            unset($value['circular_reference_handler']);
         }
     
-        if (isset($value["max_depth_handler"])) {
-            $this->maxDepthHandler = $value["max_depth_handler"];
-            unset($value["max_depth_handler"]);
+        if (isset($value['max_depth_handler'])) {
+            $this->maxDepthHandler = $value['max_depth_handler'];
+            unset($value['max_depth_handler']);
         }
     
-        if (isset($value["mapping"])) {
-            $this->mapping = new MappingConfig($value["mapping"]);
-            unset($value["mapping"]);
+        if (isset($value['mapping'])) {
+            $this->mapping = new \Symfony\Config\Framework\Serializer\MappingConfig($value['mapping']);
+            unset($value['mapping']);
         }
     
         if ($value !== []) {
@@ -136,22 +136,22 @@ class SerializerConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->enableAnnotations) {
-            $output["enable_annotations"] = $this->enableAnnotations;
+            $output['enable_annotations'] = $this->enableAnnotations;
         }
         if (null !== $this->nameConverter) {
-            $output["name_converter"] = $this->nameConverter;
+            $output['name_converter'] = $this->nameConverter;
         }
         if (null !== $this->circularReferenceHandler) {
-            $output["circular_reference_handler"] = $this->circularReferenceHandler;
+            $output['circular_reference_handler'] = $this->circularReferenceHandler;
         }
         if (null !== $this->maxDepthHandler) {
-            $output["max_depth_handler"] = $this->maxDepthHandler;
+            $output['max_depth_handler'] = $this->maxDepthHandler;
         }
         if (null !== $this->mapping) {
-            $output["mapping"] = $this->mapping->toArray();
+            $output['mapping'] = $this->mapping->toArray();
         }
     
         return $output;

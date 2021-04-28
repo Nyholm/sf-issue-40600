@@ -114,39 +114,39 @@ class TwigExtraConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     public function __construct(array $value = [])
     {
     
-        if (isset($value["cache"])) {
-            $this->cache = new CacheConfig($value["cache"]);
-            unset($value["cache"]);
+        if (isset($value['cache'])) {
+            $this->cache = new \Symfony\Config\TwigExtra\CacheConfig($value['cache']);
+            unset($value['cache']);
         }
     
-        if (isset($value["html"])) {
-            $this->html = new HtmlConfig($value["html"]);
-            unset($value["html"]);
+        if (isset($value['html'])) {
+            $this->html = new \Symfony\Config\TwigExtra\HtmlConfig($value['html']);
+            unset($value['html']);
         }
     
-        if (isset($value["markdown"])) {
-            $this->markdown = new MarkdownConfig($value["markdown"]);
-            unset($value["markdown"]);
+        if (isset($value['markdown'])) {
+            $this->markdown = new \Symfony\Config\TwigExtra\MarkdownConfig($value['markdown']);
+            unset($value['markdown']);
         }
     
-        if (isset($value["intl"])) {
-            $this->intl = new IntlConfig($value["intl"]);
-            unset($value["intl"]);
+        if (isset($value['intl'])) {
+            $this->intl = new \Symfony\Config\TwigExtra\IntlConfig($value['intl']);
+            unset($value['intl']);
         }
     
-        if (isset($value["cssinliner"])) {
-            $this->cssinliner = new CssinlinerConfig($value["cssinliner"]);
-            unset($value["cssinliner"]);
+        if (isset($value['cssinliner'])) {
+            $this->cssinliner = new \Symfony\Config\TwigExtra\CssinlinerConfig($value['cssinliner']);
+            unset($value['cssinliner']);
         }
     
-        if (isset($value["inky"])) {
-            $this->inky = new InkyConfig($value["inky"]);
-            unset($value["inky"]);
+        if (isset($value['inky'])) {
+            $this->inky = new \Symfony\Config\TwigExtra\InkyConfig($value['inky']);
+            unset($value['inky']);
         }
     
-        if (isset($value["string"])) {
-            $this->string = new StringConfig($value["string"]);
-            unset($value["string"]);
+        if (isset($value['string'])) {
+            $this->string = new \Symfony\Config\TwigExtra\StringConfig($value['string']);
+            unset($value['string']);
         }
     
         if ($value !== []) {
@@ -159,25 +159,25 @@ class TwigExtraConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     {
         $output = [];
         if (null !== $this->cache) {
-            $output["cache"] = $this->cache->toArray();
+            $output['cache'] = $this->cache->toArray();
         }
         if (null !== $this->html) {
-            $output["html"] = $this->html->toArray();
+            $output['html'] = $this->html->toArray();
         }
         if (null !== $this->markdown) {
-            $output["markdown"] = $this->markdown->toArray();
+            $output['markdown'] = $this->markdown->toArray();
         }
         if (null !== $this->intl) {
-            $output["intl"] = $this->intl->toArray();
+            $output['intl'] = $this->intl->toArray();
         }
         if (null !== $this->cssinliner) {
-            $output["cssinliner"] = $this->cssinliner->toArray();
+            $output['cssinliner'] = $this->cssinliner->toArray();
         }
         if (null !== $this->inky) {
-            $output["inky"] = $this->inky->toArray();
+            $output['inky'] = $this->inky->toArray();
         }
         if (null !== $this->string) {
-            $output["string"] = $this->string->toArray();
+            $output['string'] = $this->string->toArray();
         }
     
         return $output;

@@ -113,39 +113,39 @@ class JwtConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["value"])) {
-            $this->value = $value["value"];
-            unset($value["value"]);
+        if (isset($value['value'])) {
+            $this->value = $value['value'];
+            unset($value['value']);
         }
     
-        if (isset($value["provider"])) {
-            $this->provider = $value["provider"];
-            unset($value["provider"]);
+        if (isset($value['provider'])) {
+            $this->provider = $value['provider'];
+            unset($value['provider']);
         }
     
-        if (isset($value["factory"])) {
-            $this->factory = $value["factory"];
-            unset($value["factory"]);
+        if (isset($value['factory'])) {
+            $this->factory = $value['factory'];
+            unset($value['factory']);
         }
     
-        if (isset($value["publish"])) {
-            $this->publish = $value["publish"];
-            unset($value["publish"]);
+        if (isset($value['publish'])) {
+            $this->publish = $value['publish'];
+            unset($value['publish']);
         }
     
-        if (isset($value["subscribe"])) {
-            $this->subscribe = $value["subscribe"];
-            unset($value["subscribe"]);
+        if (isset($value['subscribe'])) {
+            $this->subscribe = $value['subscribe'];
+            unset($value['subscribe']);
         }
     
-        if (isset($value["secret"])) {
-            $this->secret = $value["secret"];
-            unset($value["secret"]);
+        if (isset($value['secret'])) {
+            $this->secret = $value['secret'];
+            unset($value['secret']);
         }
     
-        if (isset($value["algorithm"])) {
-            $this->algorithm = $value["algorithm"];
-            unset($value["algorithm"]);
+        if (isset($value['algorithm'])) {
+            $this->algorithm = $value['algorithm'];
+            unset($value['algorithm']);
         }
     
         if ($value !== []) {
@@ -158,25 +158,25 @@ class JwtConfig
     {
         $output = [];
         if (null !== $this->value) {
-            $output["value"] = $this->value;
+            $output['value'] = $this->value;
         }
         if (null !== $this->provider) {
-            $output["provider"] = $this->provider;
+            $output['provider'] = $this->provider;
         }
         if (null !== $this->factory) {
-            $output["factory"] = $this->factory;
+            $output['factory'] = $this->factory;
         }
         if (null !== $this->publish) {
-            $output["publish"] = $this->publish;
+            $output['publish'] = $this->publish;
         }
         if (null !== $this->subscribe) {
-            $output["subscribe"] = $this->subscribe;
+            $output['subscribe'] = $this->subscribe;
         }
         if (null !== $this->secret) {
-            $output["secret"] = $this->secret;
+            $output['secret'] = $this->secret;
         }
         if (null !== $this->algorithm) {
-            $output["algorithm"] = $this->algorithm;
+            $output['algorithm'] = $this->algorithm;
         }
     
         return $output;

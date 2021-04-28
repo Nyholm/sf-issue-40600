@@ -70,24 +70,24 @@ class AnnotationsConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["cache"])) {
-            $this->cache = $value["cache"];
-            unset($value["cache"]);
+        if (isset($value['cache'])) {
+            $this->cache = $value['cache'];
+            unset($value['cache']);
         }
     
-        if (isset($value["file_cache_dir"])) {
-            $this->fileCacheDir = $value["file_cache_dir"];
-            unset($value["file_cache_dir"]);
+        if (isset($value['file_cache_dir'])) {
+            $this->fileCacheDir = $value['file_cache_dir'];
+            unset($value['file_cache_dir']);
         }
     
-        if (isset($value["debug"])) {
-            $this->debug = $value["debug"];
-            unset($value["debug"]);
+        if (isset($value['debug'])) {
+            $this->debug = $value['debug'];
+            unset($value['debug']);
         }
     
         if ($value !== []) {
@@ -100,16 +100,16 @@ class AnnotationsConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->cache) {
-            $output["cache"] = $this->cache;
+            $output['cache'] = $this->cache;
         }
         if (null !== $this->fileCacheDir) {
-            $output["file_cache_dir"] = $this->fileCacheDir;
+            $output['file_cache_dir'] = $this->fileCacheDir;
         }
         if (null !== $this->debug) {
-            $output["debug"] = $this->debug;
+            $output['debug'] = $this->debug;
         }
     
         return $output;

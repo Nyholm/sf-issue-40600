@@ -30,9 +30,9 @@ class ChainConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["providers"])) {
-            $this->providers = $value["providers"];
-            unset($value["providers"]);
+        if (isset($value['providers'])) {
+            $this->providers = $value['providers'];
+            unset($value['providers']);
         }
     
         if ($value !== []) {
@@ -45,7 +45,7 @@ class ChainConfig
     {
         $output = [];
         if (null !== $this->providers) {
-            $output["providers"] = $this->providers;
+            $output['providers'] = $this->providers;
         }
     
         return $output;

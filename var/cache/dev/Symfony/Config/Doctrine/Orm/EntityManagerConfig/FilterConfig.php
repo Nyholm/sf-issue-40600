@@ -56,19 +56,19 @@ class FilterConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["class"])) {
-            $this->class = $value["class"];
-            unset($value["class"]);
+        if (isset($value['class'])) {
+            $this->class = $value['class'];
+            unset($value['class']);
         }
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["parameters"])) {
-            $this->parameters = $value["parameters"];
-            unset($value["parameters"]);
+        if (isset($value['parameters'])) {
+            $this->parameters = $value['parameters'];
+            unset($value['parameters']);
         }
     
         if ($value !== []) {
@@ -81,13 +81,13 @@ class FilterConfig
     {
         $output = [];
         if (null !== $this->class) {
-            $output["class"] = $this->class;
+            $output['class'] = $this->class;
         }
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->parameters) {
-            $output["parameters"] = $this->parameters;
+            $output['parameters'] = $this->parameters;
         }
     
         return $output;

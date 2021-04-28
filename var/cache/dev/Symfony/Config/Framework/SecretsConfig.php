@@ -70,24 +70,24 @@ class SecretsConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["vault_directory"])) {
-            $this->vaultDirectory = $value["vault_directory"];
-            unset($value["vault_directory"]);
+        if (isset($value['vault_directory'])) {
+            $this->vaultDirectory = $value['vault_directory'];
+            unset($value['vault_directory']);
         }
     
-        if (isset($value["local_dotenv_file"])) {
-            $this->localDotenvFile = $value["local_dotenv_file"];
-            unset($value["local_dotenv_file"]);
+        if (isset($value['local_dotenv_file'])) {
+            $this->localDotenvFile = $value['local_dotenv_file'];
+            unset($value['local_dotenv_file']);
         }
     
-        if (isset($value["decryption_env_var"])) {
-            $this->decryptionEnvVar = $value["decryption_env_var"];
-            unset($value["decryption_env_var"]);
+        if (isset($value['decryption_env_var'])) {
+            $this->decryptionEnvVar = $value['decryption_env_var'];
+            unset($value['decryption_env_var']);
         }
     
         if ($value !== []) {
@@ -100,16 +100,16 @@ class SecretsConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->vaultDirectory) {
-            $output["vault_directory"] = $this->vaultDirectory;
+            $output['vault_directory'] = $this->vaultDirectory;
         }
         if (null !== $this->localDotenvFile) {
-            $output["local_dotenv_file"] = $this->localDotenvFile;
+            $output['local_dotenv_file'] = $this->localDotenvFile;
         }
         if (null !== $this->decryptionEnvVar) {
-            $output["decryption_env_var"] = $this->decryptionEnvVar;
+            $output['decryption_env_var'] = $this->decryptionEnvVar;
         }
     
         return $output;

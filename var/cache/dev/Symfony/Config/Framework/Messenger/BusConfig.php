@@ -38,14 +38,14 @@ class BusConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["default_middleware"])) {
-            $this->defaultMiddleware = $value["default_middleware"];
-            unset($value["default_middleware"]);
+        if (isset($value['default_middleware'])) {
+            $this->defaultMiddleware = $value['default_middleware'];
+            unset($value['default_middleware']);
         }
     
-        if (isset($value["middleware"])) {
-            $this->middleware = array_map(function($v) { return new MiddlewareConfig($v); }, $value["middleware"]);;
-            unset($value["middleware"]);
+        if (isset($value['middleware'])) {
+            $this->middleware = array_map(function($v) { return new \Symfony\Config\Framework\Messenger\BusConfig\MiddlewareConfig($v); }, $value['middleware']);
+            unset($value['middleware']);
         }
     
         if ($value !== []) {
@@ -58,10 +58,10 @@ class BusConfig
     {
         $output = [];
         if (null !== $this->defaultMiddleware) {
-            $output["default_middleware"] = $this->defaultMiddleware;
+            $output['default_middleware'] = $this->defaultMiddleware;
         }
         if (null !== $this->middleware) {
-            $output["middleware"] = array_map(function($v) { return $v->toArray(); }, $this->middleware);
+            $output['middleware'] = array_map(function($v) { return $v->toArray(); }, $this->middleware);
         }
     
         return $output;

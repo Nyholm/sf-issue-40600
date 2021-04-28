@@ -127,44 +127,44 @@ class RouterConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["resource"])) {
-            $this->resource = $value["resource"];
-            unset($value["resource"]);
+        if (isset($value['resource'])) {
+            $this->resource = $value['resource'];
+            unset($value['resource']);
         }
     
-        if (isset($value["type"])) {
-            $this->type = $value["type"];
-            unset($value["type"]);
+        if (isset($value['type'])) {
+            $this->type = $value['type'];
+            unset($value['type']);
         }
     
-        if (isset($value["default_uri"])) {
-            $this->defaultUri = $value["default_uri"];
-            unset($value["default_uri"]);
+        if (isset($value['default_uri'])) {
+            $this->defaultUri = $value['default_uri'];
+            unset($value['default_uri']);
         }
     
-        if (isset($value["http_port"])) {
-            $this->httpPort = $value["http_port"];
-            unset($value["http_port"]);
+        if (isset($value['http_port'])) {
+            $this->httpPort = $value['http_port'];
+            unset($value['http_port']);
         }
     
-        if (isset($value["https_port"])) {
-            $this->httpsPort = $value["https_port"];
-            unset($value["https_port"]);
+        if (isset($value['https_port'])) {
+            $this->httpsPort = $value['https_port'];
+            unset($value['https_port']);
         }
     
-        if (isset($value["strict_requirements"])) {
-            $this->strictRequirements = $value["strict_requirements"];
-            unset($value["strict_requirements"]);
+        if (isset($value['strict_requirements'])) {
+            $this->strictRequirements = $value['strict_requirements'];
+            unset($value['strict_requirements']);
         }
     
-        if (isset($value["utf8"])) {
-            $this->utf8 = $value["utf8"];
-            unset($value["utf8"]);
+        if (isset($value['utf8'])) {
+            $this->utf8 = $value['utf8'];
+            unset($value['utf8']);
         }
     
         if ($value !== []) {
@@ -177,28 +177,28 @@ class RouterConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->resource) {
-            $output["resource"] = $this->resource;
+            $output['resource'] = $this->resource;
         }
         if (null !== $this->type) {
-            $output["type"] = $this->type;
+            $output['type'] = $this->type;
         }
         if (null !== $this->defaultUri) {
-            $output["default_uri"] = $this->defaultUri;
+            $output['default_uri'] = $this->defaultUri;
         }
         if (null !== $this->httpPort) {
-            $output["http_port"] = $this->httpPort;
+            $output['http_port'] = $this->httpPort;
         }
         if (null !== $this->httpsPort) {
-            $output["https_port"] = $this->httpsPort;
+            $output['https_port'] = $this->httpsPort;
         }
         if (null !== $this->strictRequirements) {
-            $output["strict_requirements"] = $this->strictRequirements;
+            $output['strict_requirements'] = $this->strictRequirements;
         }
         if (null !== $this->utf8) {
-            $output["utf8"] = $this->utf8;
+            $output['utf8'] = $this->utf8;
         }
     
         return $output;

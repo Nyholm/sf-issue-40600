@@ -87,29 +87,29 @@ class RetryStrategyConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["service"])) {
-            $this->service = $value["service"];
-            unset($value["service"]);
+        if (isset($value['service'])) {
+            $this->service = $value['service'];
+            unset($value['service']);
         }
     
-        if (isset($value["max_retries"])) {
-            $this->maxRetries = $value["max_retries"];
-            unset($value["max_retries"]);
+        if (isset($value['max_retries'])) {
+            $this->maxRetries = $value['max_retries'];
+            unset($value['max_retries']);
         }
     
-        if (isset($value["delay"])) {
-            $this->delay = $value["delay"];
-            unset($value["delay"]);
+        if (isset($value['delay'])) {
+            $this->delay = $value['delay'];
+            unset($value['delay']);
         }
     
-        if (isset($value["multiplier"])) {
-            $this->multiplier = $value["multiplier"];
-            unset($value["multiplier"]);
+        if (isset($value['multiplier'])) {
+            $this->multiplier = $value['multiplier'];
+            unset($value['multiplier']);
         }
     
-        if (isset($value["max_delay"])) {
-            $this->maxDelay = $value["max_delay"];
-            unset($value["max_delay"]);
+        if (isset($value['max_delay'])) {
+            $this->maxDelay = $value['max_delay'];
+            unset($value['max_delay']);
         }
     
         if ($value !== []) {
@@ -122,19 +122,19 @@ class RetryStrategyConfig
     {
         $output = [];
         if (null !== $this->service) {
-            $output["service"] = $this->service;
+            $output['service'] = $this->service;
         }
         if (null !== $this->maxRetries) {
-            $output["max_retries"] = $this->maxRetries;
+            $output['max_retries'] = $this->maxRetries;
         }
         if (null !== $this->delay) {
-            $output["delay"] = $this->delay;
+            $output['delay'] = $this->delay;
         }
         if (null !== $this->multiplier) {
-            $output["multiplier"] = $this->multiplier;
+            $output['multiplier'] = $this->multiplier;
         }
         if (null !== $this->maxDelay) {
-            $output["max_delay"] = $this->maxDelay;
+            $output['max_delay'] = $this->maxDelay;
         }
     
         return $output;

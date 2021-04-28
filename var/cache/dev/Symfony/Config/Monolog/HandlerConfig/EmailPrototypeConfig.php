@@ -44,14 +44,14 @@ class EmailPrototypeConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["id"])) {
-            $this->id = $value["id"];
-            unset($value["id"]);
+        if (isset($value['id'])) {
+            $this->id = $value['id'];
+            unset($value['id']);
         }
     
-        if (isset($value["method"])) {
-            $this->method = $value["method"];
-            unset($value["method"]);
+        if (isset($value['method'])) {
+            $this->method = $value['method'];
+            unset($value['method']);
         }
     
         if ($value !== []) {
@@ -64,10 +64,10 @@ class EmailPrototypeConfig
     {
         $output = [];
         if (null !== $this->id) {
-            $output["id"] = $this->id;
+            $output['id'] = $this->id;
         }
         if (null !== $this->method) {
-            $output["method"] = $this->method;
+            $output['method'] = $this->method;
         }
     
         return $output;

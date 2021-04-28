@@ -57,19 +57,19 @@ class SwitchUserConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["provider"])) {
-            $this->provider = $value["provider"];
-            unset($value["provider"]);
+        if (isset($value['provider'])) {
+            $this->provider = $value['provider'];
+            unset($value['provider']);
         }
     
-        if (isset($value["parameter"])) {
-            $this->parameter = $value["parameter"];
-            unset($value["parameter"]);
+        if (isset($value['parameter'])) {
+            $this->parameter = $value['parameter'];
+            unset($value['parameter']);
         }
     
-        if (isset($value["role"])) {
-            $this->role = $value["role"];
-            unset($value["role"]);
+        if (isset($value['role'])) {
+            $this->role = $value['role'];
+            unset($value['role']);
         }
     
         if ($value !== []) {
@@ -82,13 +82,13 @@ class SwitchUserConfig
     {
         $output = [];
         if (null !== $this->provider) {
-            $output["provider"] = $this->provider;
+            $output['provider'] = $this->provider;
         }
         if (null !== $this->parameter) {
-            $output["parameter"] = $this->parameter;
+            $output['parameter'] = $this->parameter;
         }
         if (null !== $this->role) {
-            $output["role"] = $this->role;
+            $output['role'] = $this->role;
         }
     
         return $output;

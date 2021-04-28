@@ -96,34 +96,34 @@ class ElasticsearchConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["id"])) {
-            $this->id = $value["id"];
-            unset($value["id"]);
+        if (isset($value['id'])) {
+            $this->id = $value['id'];
+            unset($value['id']);
         }
     
-        if (isset($value["host"])) {
-            $this->host = $value["host"];
-            unset($value["host"]);
+        if (isset($value['host'])) {
+            $this->host = $value['host'];
+            unset($value['host']);
         }
     
-        if (isset($value["port"])) {
-            $this->port = $value["port"];
-            unset($value["port"]);
+        if (isset($value['port'])) {
+            $this->port = $value['port'];
+            unset($value['port']);
         }
     
-        if (isset($value["transport"])) {
-            $this->transport = $value["transport"];
-            unset($value["transport"]);
+        if (isset($value['transport'])) {
+            $this->transport = $value['transport'];
+            unset($value['transport']);
         }
     
-        if (isset($value["user"])) {
-            $this->user = $value["user"];
-            unset($value["user"]);
+        if (isset($value['user'])) {
+            $this->user = $value['user'];
+            unset($value['user']);
         }
     
-        if (isset($value["password"])) {
-            $this->password = $value["password"];
-            unset($value["password"]);
+        if (isset($value['password'])) {
+            $this->password = $value['password'];
+            unset($value['password']);
         }
     
         if ($value !== []) {
@@ -136,22 +136,22 @@ class ElasticsearchConfig
     {
         $output = [];
         if (null !== $this->id) {
-            $output["id"] = $this->id;
+            $output['id'] = $this->id;
         }
         if (null !== $this->host) {
-            $output["host"] = $this->host;
+            $output['host'] = $this->host;
         }
         if (null !== $this->port) {
-            $output["port"] = $this->port;
+            $output['port'] = $this->port;
         }
         if (null !== $this->transport) {
-            $output["transport"] = $this->transport;
+            $output['transport'] = $this->transport;
         }
         if (null !== $this->user) {
-            $output["user"] = $this->user;
+            $output['user'] = $this->user;
         }
         if (null !== $this->password) {
-            $output["password"] = $this->password;
+            $output['password'] = $this->password;
         }
     
         return $output;

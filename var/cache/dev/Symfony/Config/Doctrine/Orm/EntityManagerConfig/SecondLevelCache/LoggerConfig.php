@@ -44,14 +44,14 @@ class LoggerConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["name"])) {
-            $this->name = $value["name"];
-            unset($value["name"]);
+        if (isset($value['name'])) {
+            $this->name = $value['name'];
+            unset($value['name']);
         }
     
-        if (isset($value["service"])) {
-            $this->service = $value["service"];
-            unset($value["service"]);
+        if (isset($value['service'])) {
+            $this->service = $value['service'];
+            unset($value['service']);
         }
     
         if ($value !== []) {
@@ -64,10 +64,10 @@ class LoggerConfig
     {
         $output = [];
         if (null !== $this->name) {
-            $output["name"] = $this->name;
+            $output['name'] = $this->name;
         }
         if (null !== $this->service) {
-            $output["service"] = $this->service;
+            $output['service'] = $this->service;
         }
     
         return $output;

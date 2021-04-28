@@ -147,54 +147,54 @@ class TranslatorConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["fallbacks"])) {
-            $this->fallbacks = $value["fallbacks"];
-            unset($value["fallbacks"]);
+        if (isset($value['fallbacks'])) {
+            $this->fallbacks = $value['fallbacks'];
+            unset($value['fallbacks']);
         }
     
-        if (isset($value["logging"])) {
-            $this->logging = $value["logging"];
-            unset($value["logging"]);
+        if (isset($value['logging'])) {
+            $this->logging = $value['logging'];
+            unset($value['logging']);
         }
     
-        if (isset($value["formatter"])) {
-            $this->formatter = $value["formatter"];
-            unset($value["formatter"]);
+        if (isset($value['formatter'])) {
+            $this->formatter = $value['formatter'];
+            unset($value['formatter']);
         }
     
-        if (isset($value["cache_dir"])) {
-            $this->cacheDir = $value["cache_dir"];
-            unset($value["cache_dir"]);
+        if (isset($value['cache_dir'])) {
+            $this->cacheDir = $value['cache_dir'];
+            unset($value['cache_dir']);
         }
     
-        if (isset($value["default_path"])) {
-            $this->defaultPath = $value["default_path"];
-            unset($value["default_path"]);
+        if (isset($value['default_path'])) {
+            $this->defaultPath = $value['default_path'];
+            unset($value['default_path']);
         }
     
-        if (isset($value["paths"])) {
-            $this->paths = $value["paths"];
-            unset($value["paths"]);
+        if (isset($value['paths'])) {
+            $this->paths = $value['paths'];
+            unset($value['paths']);
         }
     
-        if (isset($value["enabled_locales"])) {
-            $this->enabledLocales = $value["enabled_locales"];
-            unset($value["enabled_locales"]);
+        if (isset($value['enabled_locales'])) {
+            $this->enabledLocales = $value['enabled_locales'];
+            unset($value['enabled_locales']);
         }
     
-        if (isset($value["pseudo_localization"])) {
-            $this->pseudoLocalization = new PseudoLocalizationConfig($value["pseudo_localization"]);
-            unset($value["pseudo_localization"]);
+        if (isset($value['pseudo_localization'])) {
+            $this->pseudoLocalization = new \Symfony\Config\Framework\Translator\PseudoLocalizationConfig($value['pseudo_localization']);
+            unset($value['pseudo_localization']);
         }
     
-        if (isset($value["providers"])) {
-            $this->providers = array_map(function($v) { return new ProviderConfig($v); }, $value["providers"]);;
-            unset($value["providers"]);
+        if (isset($value['providers'])) {
+            $this->providers = array_map(function($v) { return new \Symfony\Config\Framework\Translator\ProviderConfig($v); }, $value['providers']);
+            unset($value['providers']);
         }
     
         if ($value !== []) {
@@ -207,34 +207,34 @@ class TranslatorConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->fallbacks) {
-            $output["fallbacks"] = $this->fallbacks;
+            $output['fallbacks'] = $this->fallbacks;
         }
         if (null !== $this->logging) {
-            $output["logging"] = $this->logging;
+            $output['logging'] = $this->logging;
         }
         if (null !== $this->formatter) {
-            $output["formatter"] = $this->formatter;
+            $output['formatter'] = $this->formatter;
         }
         if (null !== $this->cacheDir) {
-            $output["cache_dir"] = $this->cacheDir;
+            $output['cache_dir'] = $this->cacheDir;
         }
         if (null !== $this->defaultPath) {
-            $output["default_path"] = $this->defaultPath;
+            $output['default_path'] = $this->defaultPath;
         }
         if (null !== $this->paths) {
-            $output["paths"] = $this->paths;
+            $output['paths'] = $this->paths;
         }
         if (null !== $this->enabledLocales) {
-            $output["enabled_locales"] = $this->enabledLocales;
+            $output['enabled_locales'] = $this->enabledLocales;
         }
         if (null !== $this->pseudoLocalization) {
-            $output["pseudo_localization"] = $this->pseudoLocalization->toArray();
+            $output['pseudo_localization'] = $this->pseudoLocalization->toArray();
         }
         if (null !== $this->providers) {
-            $output["providers"] = array_map(function($v) { return $v->toArray(); }, $this->providers);
+            $output['providers'] = array_map(function($v) { return $v->toArray(); }, $this->providers);
         }
     
         return $output;

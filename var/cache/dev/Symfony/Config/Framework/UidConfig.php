@@ -96,34 +96,34 @@ class UidConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["default_uuid_version"])) {
-            $this->defaultUuidVersion = $value["default_uuid_version"];
-            unset($value["default_uuid_version"]);
+        if (isset($value['default_uuid_version'])) {
+            $this->defaultUuidVersion = $value['default_uuid_version'];
+            unset($value['default_uuid_version']);
         }
     
-        if (isset($value["name_based_uuid_version"])) {
-            $this->nameBasedUuidVersion = $value["name_based_uuid_version"];
-            unset($value["name_based_uuid_version"]);
+        if (isset($value['name_based_uuid_version'])) {
+            $this->nameBasedUuidVersion = $value['name_based_uuid_version'];
+            unset($value['name_based_uuid_version']);
         }
     
-        if (isset($value["name_based_uuid_namespace"])) {
-            $this->nameBasedUuidNamespace = $value["name_based_uuid_namespace"];
-            unset($value["name_based_uuid_namespace"]);
+        if (isset($value['name_based_uuid_namespace'])) {
+            $this->nameBasedUuidNamespace = $value['name_based_uuid_namespace'];
+            unset($value['name_based_uuid_namespace']);
         }
     
-        if (isset($value["time_based_uuid_version"])) {
-            $this->timeBasedUuidVersion = $value["time_based_uuid_version"];
-            unset($value["time_based_uuid_version"]);
+        if (isset($value['time_based_uuid_version'])) {
+            $this->timeBasedUuidVersion = $value['time_based_uuid_version'];
+            unset($value['time_based_uuid_version']);
         }
     
-        if (isset($value["time_based_uuid_node"])) {
-            $this->timeBasedUuidNode = $value["time_based_uuid_node"];
-            unset($value["time_based_uuid_node"]);
+        if (isset($value['time_based_uuid_node'])) {
+            $this->timeBasedUuidNode = $value['time_based_uuid_node'];
+            unset($value['time_based_uuid_node']);
         }
     
         if ($value !== []) {
@@ -136,22 +136,22 @@ class UidConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->defaultUuidVersion) {
-            $output["default_uuid_version"] = $this->defaultUuidVersion;
+            $output['default_uuid_version'] = $this->defaultUuidVersion;
         }
         if (null !== $this->nameBasedUuidVersion) {
-            $output["name_based_uuid_version"] = $this->nameBasedUuidVersion;
+            $output['name_based_uuid_version'] = $this->nameBasedUuidVersion;
         }
         if (null !== $this->nameBasedUuidNamespace) {
-            $output["name_based_uuid_namespace"] = $this->nameBasedUuidNamespace;
+            $output['name_based_uuid_namespace'] = $this->nameBasedUuidNamespace;
         }
         if (null !== $this->timeBasedUuidVersion) {
-            $output["time_based_uuid_version"] = $this->timeBasedUuidVersion;
+            $output['time_based_uuid_version'] = $this->timeBasedUuidVersion;
         }
         if (null !== $this->timeBasedUuidNode) {
-            $output["time_based_uuid_node"] = $this->timeBasedUuidNode;
+            $output['time_based_uuid_node'] = $this->timeBasedUuidNode;
         }
     
         return $output;

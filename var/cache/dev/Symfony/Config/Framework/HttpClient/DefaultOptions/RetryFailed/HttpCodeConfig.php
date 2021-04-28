@@ -43,14 +43,14 @@ class HttpCodeConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["code"])) {
-            $this->code = $value["code"];
-            unset($value["code"]);
+        if (isset($value['code'])) {
+            $this->code = $value['code'];
+            unset($value['code']);
         }
     
-        if (isset($value["methods"])) {
-            $this->methods = $value["methods"];
-            unset($value["methods"]);
+        if (isset($value['methods'])) {
+            $this->methods = $value['methods'];
+            unset($value['methods']);
         }
     
         if ($value !== []) {
@@ -63,10 +63,10 @@ class HttpCodeConfig
     {
         $output = [];
         if (null !== $this->code) {
-            $output["code"] = $this->code;
+            $output['code'] = $this->code;
         }
         if (null !== $this->methods) {
-            $output["methods"] = $this->methods;
+            $output['methods'] = $this->methods;
         }
     
         return $output;

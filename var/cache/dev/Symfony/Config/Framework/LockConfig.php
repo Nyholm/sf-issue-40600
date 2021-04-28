@@ -43,14 +43,14 @@ class LockConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["resources"])) {
-            $this->resources = $value["resources"];
-            unset($value["resources"]);
+        if (isset($value['resources'])) {
+            $this->resources = $value['resources'];
+            unset($value['resources']);
         }
     
         if ($value !== []) {
@@ -63,10 +63,10 @@ class LockConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->resources) {
-            $output["resources"] = $this->resources;
+            $output['resources'] = $this->resources;
         }
     
         return $output;

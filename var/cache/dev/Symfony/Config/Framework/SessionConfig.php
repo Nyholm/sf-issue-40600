@@ -266,99 +266,99 @@ class SessionConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["storage_id"])) {
-            $this->storageId = $value["storage_id"];
-            unset($value["storage_id"]);
+        if (isset($value['storage_id'])) {
+            $this->storageId = $value['storage_id'];
+            unset($value['storage_id']);
         }
     
-        if (isset($value["storage_factory_id"])) {
-            $this->storageFactoryId = $value["storage_factory_id"];
-            unset($value["storage_factory_id"]);
+        if (isset($value['storage_factory_id'])) {
+            $this->storageFactoryId = $value['storage_factory_id'];
+            unset($value['storage_factory_id']);
         }
     
-        if (isset($value["handler_id"])) {
-            $this->handlerId = $value["handler_id"];
-            unset($value["handler_id"]);
+        if (isset($value['handler_id'])) {
+            $this->handlerId = $value['handler_id'];
+            unset($value['handler_id']);
         }
     
-        if (isset($value["name"])) {
-            $this->name = $value["name"];
-            unset($value["name"]);
+        if (isset($value['name'])) {
+            $this->name = $value['name'];
+            unset($value['name']);
         }
     
-        if (isset($value["cookie_lifetime"])) {
-            $this->cookieLifetime = $value["cookie_lifetime"];
-            unset($value["cookie_lifetime"]);
+        if (isset($value['cookie_lifetime'])) {
+            $this->cookieLifetime = $value['cookie_lifetime'];
+            unset($value['cookie_lifetime']);
         }
     
-        if (isset($value["cookie_path"])) {
-            $this->cookiePath = $value["cookie_path"];
-            unset($value["cookie_path"]);
+        if (isset($value['cookie_path'])) {
+            $this->cookiePath = $value['cookie_path'];
+            unset($value['cookie_path']);
         }
     
-        if (isset($value["cookie_domain"])) {
-            $this->cookieDomain = $value["cookie_domain"];
-            unset($value["cookie_domain"]);
+        if (isset($value['cookie_domain'])) {
+            $this->cookieDomain = $value['cookie_domain'];
+            unset($value['cookie_domain']);
         }
     
-        if (isset($value["cookie_secure"])) {
-            $this->cookieSecure = $value["cookie_secure"];
-            unset($value["cookie_secure"]);
+        if (isset($value['cookie_secure'])) {
+            $this->cookieSecure = $value['cookie_secure'];
+            unset($value['cookie_secure']);
         }
     
-        if (isset($value["cookie_httponly"])) {
-            $this->cookieHttponly = $value["cookie_httponly"];
-            unset($value["cookie_httponly"]);
+        if (isset($value['cookie_httponly'])) {
+            $this->cookieHttponly = $value['cookie_httponly'];
+            unset($value['cookie_httponly']);
         }
     
-        if (isset($value["cookie_samesite"])) {
-            $this->cookieSamesite = $value["cookie_samesite"];
-            unset($value["cookie_samesite"]);
+        if (isset($value['cookie_samesite'])) {
+            $this->cookieSamesite = $value['cookie_samesite'];
+            unset($value['cookie_samesite']);
         }
     
-        if (isset($value["use_cookies"])) {
-            $this->useCookies = $value["use_cookies"];
-            unset($value["use_cookies"]);
+        if (isset($value['use_cookies'])) {
+            $this->useCookies = $value['use_cookies'];
+            unset($value['use_cookies']);
         }
     
-        if (isset($value["gc_divisor"])) {
-            $this->gcDivisor = $value["gc_divisor"];
-            unset($value["gc_divisor"]);
+        if (isset($value['gc_divisor'])) {
+            $this->gcDivisor = $value['gc_divisor'];
+            unset($value['gc_divisor']);
         }
     
-        if (isset($value["gc_probability"])) {
-            $this->gcProbability = $value["gc_probability"];
-            unset($value["gc_probability"]);
+        if (isset($value['gc_probability'])) {
+            $this->gcProbability = $value['gc_probability'];
+            unset($value['gc_probability']);
         }
     
-        if (isset($value["gc_maxlifetime"])) {
-            $this->gcMaxlifetime = $value["gc_maxlifetime"];
-            unset($value["gc_maxlifetime"]);
+        if (isset($value['gc_maxlifetime'])) {
+            $this->gcMaxlifetime = $value['gc_maxlifetime'];
+            unset($value['gc_maxlifetime']);
         }
     
-        if (isset($value["save_path"])) {
-            $this->savePath = $value["save_path"];
-            unset($value["save_path"]);
+        if (isset($value['save_path'])) {
+            $this->savePath = $value['save_path'];
+            unset($value['save_path']);
         }
     
-        if (isset($value["metadata_update_threshold"])) {
-            $this->metadataUpdateThreshold = $value["metadata_update_threshold"];
-            unset($value["metadata_update_threshold"]);
+        if (isset($value['metadata_update_threshold'])) {
+            $this->metadataUpdateThreshold = $value['metadata_update_threshold'];
+            unset($value['metadata_update_threshold']);
         }
     
-        if (isset($value["sid_length"])) {
-            $this->sidLength = $value["sid_length"];
-            unset($value["sid_length"]);
+        if (isset($value['sid_length'])) {
+            $this->sidLength = $value['sid_length'];
+            unset($value['sid_length']);
         }
     
-        if (isset($value["sid_bits_per_character"])) {
-            $this->sidBitsPerCharacter = $value["sid_bits_per_character"];
-            unset($value["sid_bits_per_character"]);
+        if (isset($value['sid_bits_per_character'])) {
+            $this->sidBitsPerCharacter = $value['sid_bits_per_character'];
+            unset($value['sid_bits_per_character']);
         }
     
         if ($value !== []) {
@@ -371,61 +371,61 @@ class SessionConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->storageId) {
-            $output["storage_id"] = $this->storageId;
+            $output['storage_id'] = $this->storageId;
         }
         if (null !== $this->storageFactoryId) {
-            $output["storage_factory_id"] = $this->storageFactoryId;
+            $output['storage_factory_id'] = $this->storageFactoryId;
         }
         if (null !== $this->handlerId) {
-            $output["handler_id"] = $this->handlerId;
+            $output['handler_id'] = $this->handlerId;
         }
         if (null !== $this->name) {
-            $output["name"] = $this->name;
+            $output['name'] = $this->name;
         }
         if (null !== $this->cookieLifetime) {
-            $output["cookie_lifetime"] = $this->cookieLifetime;
+            $output['cookie_lifetime'] = $this->cookieLifetime;
         }
         if (null !== $this->cookiePath) {
-            $output["cookie_path"] = $this->cookiePath;
+            $output['cookie_path'] = $this->cookiePath;
         }
         if (null !== $this->cookieDomain) {
-            $output["cookie_domain"] = $this->cookieDomain;
+            $output['cookie_domain'] = $this->cookieDomain;
         }
         if (null !== $this->cookieSecure) {
-            $output["cookie_secure"] = $this->cookieSecure;
+            $output['cookie_secure'] = $this->cookieSecure;
         }
         if (null !== $this->cookieHttponly) {
-            $output["cookie_httponly"] = $this->cookieHttponly;
+            $output['cookie_httponly'] = $this->cookieHttponly;
         }
         if (null !== $this->cookieSamesite) {
-            $output["cookie_samesite"] = $this->cookieSamesite;
+            $output['cookie_samesite'] = $this->cookieSamesite;
         }
         if (null !== $this->useCookies) {
-            $output["use_cookies"] = $this->useCookies;
+            $output['use_cookies'] = $this->useCookies;
         }
         if (null !== $this->gcDivisor) {
-            $output["gc_divisor"] = $this->gcDivisor;
+            $output['gc_divisor'] = $this->gcDivisor;
         }
         if (null !== $this->gcProbability) {
-            $output["gc_probability"] = $this->gcProbability;
+            $output['gc_probability'] = $this->gcProbability;
         }
         if (null !== $this->gcMaxlifetime) {
-            $output["gc_maxlifetime"] = $this->gcMaxlifetime;
+            $output['gc_maxlifetime'] = $this->gcMaxlifetime;
         }
         if (null !== $this->savePath) {
-            $output["save_path"] = $this->savePath;
+            $output['save_path'] = $this->savePath;
         }
         if (null !== $this->metadataUpdateThreshold) {
-            $output["metadata_update_threshold"] = $this->metadataUpdateThreshold;
+            $output['metadata_update_threshold'] = $this->metadataUpdateThreshold;
         }
         if (null !== $this->sidLength) {
-            $output["sid_length"] = $this->sidLength;
+            $output['sid_length'] = $this->sidLength;
         }
         if (null !== $this->sidBitsPerCharacter) {
-            $output["sid_bits_per_character"] = $this->sidBitsPerCharacter;
+            $output['sid_bits_per_character'] = $this->sidBitsPerCharacter;
         }
     
         return $output;

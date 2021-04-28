@@ -31,9 +31,9 @@ class MemoryConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["users"])) {
-            $this->users = array_map(function($v) { return new UserConfig($v); }, $value["users"]);;
-            unset($value["users"]);
+        if (isset($value['users'])) {
+            $this->users = array_map(function($v) { return new \Symfony\Config\Security\ProviderConfig\Memory\UserConfig($v); }, $value['users']);
+            unset($value['users']);
         }
     
         if ($value !== []) {
@@ -46,7 +46,7 @@ class MemoryConfig
     {
         $output = [];
         if (null !== $this->users) {
-            $output["users"] = array_map(function($v) { return $v->toArray(); }, $this->users);
+            $output['users'] = array_map(function($v) { return $v->toArray(); }, $this->users);
         }
     
         return $output;

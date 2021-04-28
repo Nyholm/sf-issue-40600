@@ -44,14 +44,14 @@ class SymfonySerializerConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["format"])) {
-            $this->format = $value["format"];
-            unset($value["format"]);
+        if (isset($value['format'])) {
+            $this->format = $value['format'];
+            unset($value['format']);
         }
     
-        if (isset($value["context"])) {
-            $this->context = $value["context"];
-            unset($value["context"]);
+        if (isset($value['context'])) {
+            $this->context = $value['context'];
+            unset($value['context']);
         }
     
         if ($value !== []) {
@@ -64,10 +64,10 @@ class SymfonySerializerConfig
     {
         $output = [];
         if (null !== $this->format) {
-            $output["format"] = $this->format;
+            $output['format'] = $this->format;
         }
         if (null !== $this->context) {
-            $output["context"] = $this->context;
+            $output['context'] = $this->context;
         }
     
         return $output;

@@ -96,34 +96,34 @@ class MappingConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["mapping"])) {
-            $this->mapping = $value["mapping"];
-            unset($value["mapping"]);
+        if (isset($value['mapping'])) {
+            $this->mapping = $value['mapping'];
+            unset($value['mapping']);
         }
     
-        if (isset($value["type"])) {
-            $this->type = $value["type"];
-            unset($value["type"]);
+        if (isset($value['type'])) {
+            $this->type = $value['type'];
+            unset($value['type']);
         }
     
-        if (isset($value["dir"])) {
-            $this->dir = $value["dir"];
-            unset($value["dir"]);
+        if (isset($value['dir'])) {
+            $this->dir = $value['dir'];
+            unset($value['dir']);
         }
     
-        if (isset($value["alias"])) {
-            $this->alias = $value["alias"];
-            unset($value["alias"]);
+        if (isset($value['alias'])) {
+            $this->alias = $value['alias'];
+            unset($value['alias']);
         }
     
-        if (isset($value["prefix"])) {
-            $this->prefix = $value["prefix"];
-            unset($value["prefix"]);
+        if (isset($value['prefix'])) {
+            $this->prefix = $value['prefix'];
+            unset($value['prefix']);
         }
     
-        if (isset($value["is_bundle"])) {
-            $this->isBundle = $value["is_bundle"];
-            unset($value["is_bundle"]);
+        if (isset($value['is_bundle'])) {
+            $this->isBundle = $value['is_bundle'];
+            unset($value['is_bundle']);
         }
     
         if ($value !== []) {
@@ -136,22 +136,22 @@ class MappingConfig
     {
         $output = [];
         if (null !== $this->mapping) {
-            $output["mapping"] = $this->mapping;
+            $output['mapping'] = $this->mapping;
         }
         if (null !== $this->type) {
-            $output["type"] = $this->type;
+            $output['type'] = $this->type;
         }
         if (null !== $this->dir) {
-            $output["dir"] = $this->dir;
+            $output['dir'] = $this->dir;
         }
         if (null !== $this->alias) {
-            $output["alias"] = $this->alias;
+            $output['alias'] = $this->alias;
         }
         if (null !== $this->prefix) {
-            $output["prefix"] = $this->prefix;
+            $output['prefix'] = $this->prefix;
         }
         if (null !== $this->isBundle) {
-            $output["is_bundle"] = $this->isBundle;
+            $output['is_bundle'] = $this->isBundle;
         }
     
         return $output;

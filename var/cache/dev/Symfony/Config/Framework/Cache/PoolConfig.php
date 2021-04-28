@@ -112,39 +112,39 @@ class PoolConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["adapters"])) {
-            $this->adapters = $value["adapters"];
-            unset($value["adapters"]);
+        if (isset($value['adapters'])) {
+            $this->adapters = $value['adapters'];
+            unset($value['adapters']);
         }
     
-        if (isset($value["tags"])) {
-            $this->tags = $value["tags"];
-            unset($value["tags"]);
+        if (isset($value['tags'])) {
+            $this->tags = $value['tags'];
+            unset($value['tags']);
         }
     
-        if (isset($value["public"])) {
-            $this->public = $value["public"];
-            unset($value["public"]);
+        if (isset($value['public'])) {
+            $this->public = $value['public'];
+            unset($value['public']);
         }
     
-        if (isset($value["default_lifetime"])) {
-            $this->defaultLifetime = $value["default_lifetime"];
-            unset($value["default_lifetime"]);
+        if (isset($value['default_lifetime'])) {
+            $this->defaultLifetime = $value['default_lifetime'];
+            unset($value['default_lifetime']);
         }
     
-        if (isset($value["provider"])) {
-            $this->provider = $value["provider"];
-            unset($value["provider"]);
+        if (isset($value['provider'])) {
+            $this->provider = $value['provider'];
+            unset($value['provider']);
         }
     
-        if (isset($value["early_expiration_message_bus"])) {
-            $this->earlyExpirationMessageBus = $value["early_expiration_message_bus"];
-            unset($value["early_expiration_message_bus"]);
+        if (isset($value['early_expiration_message_bus'])) {
+            $this->earlyExpirationMessageBus = $value['early_expiration_message_bus'];
+            unset($value['early_expiration_message_bus']);
         }
     
-        if (isset($value["clearer"])) {
-            $this->clearer = $value["clearer"];
-            unset($value["clearer"]);
+        if (isset($value['clearer'])) {
+            $this->clearer = $value['clearer'];
+            unset($value['clearer']);
         }
     
         if ($value !== []) {
@@ -157,25 +157,25 @@ class PoolConfig
     {
         $output = [];
         if (null !== $this->adapters) {
-            $output["adapters"] = $this->adapters;
+            $output['adapters'] = $this->adapters;
         }
         if (null !== $this->tags) {
-            $output["tags"] = $this->tags;
+            $output['tags'] = $this->tags;
         }
         if (null !== $this->public) {
-            $output["public"] = $this->public;
+            $output['public'] = $this->public;
         }
         if (null !== $this->defaultLifetime) {
-            $output["default_lifetime"] = $this->defaultLifetime;
+            $output['default_lifetime'] = $this->defaultLifetime;
         }
         if (null !== $this->provider) {
-            $output["provider"] = $this->provider;
+            $output['provider'] = $this->provider;
         }
         if (null !== $this->earlyExpirationMessageBus) {
-            $output["early_expiration_message_bus"] = $this->earlyExpirationMessageBus;
+            $output['early_expiration_message_bus'] = $this->earlyExpirationMessageBus;
         }
         if (null !== $this->clearer) {
-            $output["clearer"] = $this->clearer;
+            $output['clearer'] = $this->clearer;
         }
     
         return $output;

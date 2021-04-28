@@ -183,64 +183,64 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     public function __construct(array $value = [])
     {
     
-        if (isset($value["migrations_paths"])) {
-            $this->migrationsPaths = $value["migrations_paths"];
-            unset($value["migrations_paths"]);
+        if (isset($value['migrations_paths'])) {
+            $this->migrationsPaths = $value['migrations_paths'];
+            unset($value['migrations_paths']);
         }
     
-        if (isset($value["services"])) {
-            $this->services = $value["services"];
-            unset($value["services"]);
+        if (isset($value['services'])) {
+            $this->services = $value['services'];
+            unset($value['services']);
         }
     
-        if (isset($value["factories"])) {
-            $this->factories = $value["factories"];
-            unset($value["factories"]);
+        if (isset($value['factories'])) {
+            $this->factories = $value['factories'];
+            unset($value['factories']);
         }
     
-        if (isset($value["storage"])) {
-            $this->storage = new StorageConfig($value["storage"]);
-            unset($value["storage"]);
+        if (isset($value['storage'])) {
+            $this->storage = new \Symfony\Config\DoctrineMigrations\StorageConfig($value['storage']);
+            unset($value['storage']);
         }
     
-        if (isset($value["migrations"])) {
-            $this->migrations = $value["migrations"];
-            unset($value["migrations"]);
+        if (isset($value['migrations'])) {
+            $this->migrations = $value['migrations'];
+            unset($value['migrations']);
         }
     
-        if (isset($value["connection"])) {
-            $this->connection = $value["connection"];
-            unset($value["connection"]);
+        if (isset($value['connection'])) {
+            $this->connection = $value['connection'];
+            unset($value['connection']);
         }
     
-        if (isset($value["em"])) {
-            $this->em = $value["em"];
-            unset($value["em"]);
+        if (isset($value['em'])) {
+            $this->em = $value['em'];
+            unset($value['em']);
         }
     
-        if (isset($value["all_or_nothing"])) {
-            $this->allOrNothing = $value["all_or_nothing"];
-            unset($value["all_or_nothing"]);
+        if (isset($value['all_or_nothing'])) {
+            $this->allOrNothing = $value['all_or_nothing'];
+            unset($value['all_or_nothing']);
         }
     
-        if (isset($value["check_database_platform"])) {
-            $this->checkDatabasePlatform = $value["check_database_platform"];
-            unset($value["check_database_platform"]);
+        if (isset($value['check_database_platform'])) {
+            $this->checkDatabasePlatform = $value['check_database_platform'];
+            unset($value['check_database_platform']);
         }
     
-        if (isset($value["custom_template"])) {
-            $this->customTemplate = $value["custom_template"];
-            unset($value["custom_template"]);
+        if (isset($value['custom_template'])) {
+            $this->customTemplate = $value['custom_template'];
+            unset($value['custom_template']);
         }
     
-        if (isset($value["organize_migrations"])) {
-            $this->organizeMigrations = $value["organize_migrations"];
-            unset($value["organize_migrations"]);
+        if (isset($value['organize_migrations'])) {
+            $this->organizeMigrations = $value['organize_migrations'];
+            unset($value['organize_migrations']);
         }
     
-        if (isset($value["enable_profiler"])) {
-            $this->enableProfiler = $value["enable_profiler"];
-            unset($value["enable_profiler"]);
+        if (isset($value['enable_profiler'])) {
+            $this->enableProfiler = $value['enable_profiler'];
+            unset($value['enable_profiler']);
         }
     
         if ($value !== []) {
@@ -253,40 +253,40 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     {
         $output = [];
         if (null !== $this->migrationsPaths) {
-            $output["migrations_paths"] = $this->migrationsPaths;
+            $output['migrations_paths'] = $this->migrationsPaths;
         }
         if (null !== $this->services) {
-            $output["services"] = $this->services;
+            $output['services'] = $this->services;
         }
         if (null !== $this->factories) {
-            $output["factories"] = $this->factories;
+            $output['factories'] = $this->factories;
         }
         if (null !== $this->storage) {
-            $output["storage"] = $this->storage->toArray();
+            $output['storage'] = $this->storage->toArray();
         }
         if (null !== $this->migrations) {
-            $output["migrations"] = $this->migrations;
+            $output['migrations'] = $this->migrations;
         }
         if (null !== $this->connection) {
-            $output["connection"] = $this->connection;
+            $output['connection'] = $this->connection;
         }
         if (null !== $this->em) {
-            $output["em"] = $this->em;
+            $output['em'] = $this->em;
         }
         if (null !== $this->allOrNothing) {
-            $output["all_or_nothing"] = $this->allOrNothing;
+            $output['all_or_nothing'] = $this->allOrNothing;
         }
         if (null !== $this->checkDatabasePlatform) {
-            $output["check_database_platform"] = $this->checkDatabasePlatform;
+            $output['check_database_platform'] = $this->checkDatabasePlatform;
         }
         if (null !== $this->customTemplate) {
-            $output["custom_template"] = $this->customTemplate;
+            $output['custom_template'] = $this->customTemplate;
         }
         if (null !== $this->organizeMigrations) {
-            $output["organize_migrations"] = $this->organizeMigrations;
+            $output['organize_migrations'] = $this->organizeMigrations;
         }
         if (null !== $this->enableProfiler) {
-            $output["enable_profiler"] = $this->enableProfiler;
+            $output['enable_profiler'] = $this->enableProfiler;
         }
     
         return $output;

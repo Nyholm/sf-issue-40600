@@ -43,14 +43,14 @@ class RequestConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["formats"])) {
-            $this->formats = $value["formats"];
-            unset($value["formats"]);
+        if (isset($value['formats'])) {
+            $this->formats = $value['formats'];
+            unset($value['formats']);
         }
     
         if ($value !== []) {
@@ -63,10 +63,10 @@ class RequestConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->formats) {
-            $output["formats"] = $this->formats;
+            $output['formats'] = $this->formats;
         }
     
         return $output;

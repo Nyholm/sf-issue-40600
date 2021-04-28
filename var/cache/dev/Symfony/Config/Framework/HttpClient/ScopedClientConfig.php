@@ -360,129 +360,129 @@ class ScopedClientConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["scope"])) {
-            $this->scope = $value["scope"];
-            unset($value["scope"]);
+        if (isset($value['scope'])) {
+            $this->scope = $value['scope'];
+            unset($value['scope']);
         }
     
-        if (isset($value["base_uri"])) {
-            $this->baseUri = $value["base_uri"];
-            unset($value["base_uri"]);
+        if (isset($value['base_uri'])) {
+            $this->baseUri = $value['base_uri'];
+            unset($value['base_uri']);
         }
     
-        if (isset($value["auth_basic"])) {
-            $this->authBasic = $value["auth_basic"];
-            unset($value["auth_basic"]);
+        if (isset($value['auth_basic'])) {
+            $this->authBasic = $value['auth_basic'];
+            unset($value['auth_basic']);
         }
     
-        if (isset($value["auth_bearer"])) {
-            $this->authBearer = $value["auth_bearer"];
-            unset($value["auth_bearer"]);
+        if (isset($value['auth_bearer'])) {
+            $this->authBearer = $value['auth_bearer'];
+            unset($value['auth_bearer']);
         }
     
-        if (isset($value["auth_ntlm"])) {
-            $this->authNtlm = $value["auth_ntlm"];
-            unset($value["auth_ntlm"]);
+        if (isset($value['auth_ntlm'])) {
+            $this->authNtlm = $value['auth_ntlm'];
+            unset($value['auth_ntlm']);
         }
     
-        if (isset($value["query"])) {
-            $this->query = $value["query"];
-            unset($value["query"]);
+        if (isset($value['query'])) {
+            $this->query = $value['query'];
+            unset($value['query']);
         }
     
-        if (isset($value["headers"])) {
-            $this->headers = $value["headers"];
-            unset($value["headers"]);
+        if (isset($value['headers'])) {
+            $this->headers = $value['headers'];
+            unset($value['headers']);
         }
     
-        if (isset($value["max_redirects"])) {
-            $this->maxRedirects = $value["max_redirects"];
-            unset($value["max_redirects"]);
+        if (isset($value['max_redirects'])) {
+            $this->maxRedirects = $value['max_redirects'];
+            unset($value['max_redirects']);
         }
     
-        if (isset($value["http_version"])) {
-            $this->httpVersion = $value["http_version"];
-            unset($value["http_version"]);
+        if (isset($value['http_version'])) {
+            $this->httpVersion = $value['http_version'];
+            unset($value['http_version']);
         }
     
-        if (isset($value["resolve"])) {
-            $this->resolve = $value["resolve"];
-            unset($value["resolve"]);
+        if (isset($value['resolve'])) {
+            $this->resolve = $value['resolve'];
+            unset($value['resolve']);
         }
     
-        if (isset($value["proxy"])) {
-            $this->proxy = $value["proxy"];
-            unset($value["proxy"]);
+        if (isset($value['proxy'])) {
+            $this->proxy = $value['proxy'];
+            unset($value['proxy']);
         }
     
-        if (isset($value["no_proxy"])) {
-            $this->noProxy = $value["no_proxy"];
-            unset($value["no_proxy"]);
+        if (isset($value['no_proxy'])) {
+            $this->noProxy = $value['no_proxy'];
+            unset($value['no_proxy']);
         }
     
-        if (isset($value["timeout"])) {
-            $this->timeout = $value["timeout"];
-            unset($value["timeout"]);
+        if (isset($value['timeout'])) {
+            $this->timeout = $value['timeout'];
+            unset($value['timeout']);
         }
     
-        if (isset($value["max_duration"])) {
-            $this->maxDuration = $value["max_duration"];
-            unset($value["max_duration"]);
+        if (isset($value['max_duration'])) {
+            $this->maxDuration = $value['max_duration'];
+            unset($value['max_duration']);
         }
     
-        if (isset($value["bindto"])) {
-            $this->bindto = $value["bindto"];
-            unset($value["bindto"]);
+        if (isset($value['bindto'])) {
+            $this->bindto = $value['bindto'];
+            unset($value['bindto']);
         }
     
-        if (isset($value["verify_peer"])) {
-            $this->verifyPeer = $value["verify_peer"];
-            unset($value["verify_peer"]);
+        if (isset($value['verify_peer'])) {
+            $this->verifyPeer = $value['verify_peer'];
+            unset($value['verify_peer']);
         }
     
-        if (isset($value["verify_host"])) {
-            $this->verifyHost = $value["verify_host"];
-            unset($value["verify_host"]);
+        if (isset($value['verify_host'])) {
+            $this->verifyHost = $value['verify_host'];
+            unset($value['verify_host']);
         }
     
-        if (isset($value["cafile"])) {
-            $this->cafile = $value["cafile"];
-            unset($value["cafile"]);
+        if (isset($value['cafile'])) {
+            $this->cafile = $value['cafile'];
+            unset($value['cafile']);
         }
     
-        if (isset($value["capath"])) {
-            $this->capath = $value["capath"];
-            unset($value["capath"]);
+        if (isset($value['capath'])) {
+            $this->capath = $value['capath'];
+            unset($value['capath']);
         }
     
-        if (isset($value["local_cert"])) {
-            $this->localCert = $value["local_cert"];
-            unset($value["local_cert"]);
+        if (isset($value['local_cert'])) {
+            $this->localCert = $value['local_cert'];
+            unset($value['local_cert']);
         }
     
-        if (isset($value["local_pk"])) {
-            $this->localPk = $value["local_pk"];
-            unset($value["local_pk"]);
+        if (isset($value['local_pk'])) {
+            $this->localPk = $value['local_pk'];
+            unset($value['local_pk']);
         }
     
-        if (isset($value["passphrase"])) {
-            $this->passphrase = $value["passphrase"];
-            unset($value["passphrase"]);
+        if (isset($value['passphrase'])) {
+            $this->passphrase = $value['passphrase'];
+            unset($value['passphrase']);
         }
     
-        if (isset($value["ciphers"])) {
-            $this->ciphers = $value["ciphers"];
-            unset($value["ciphers"]);
+        if (isset($value['ciphers'])) {
+            $this->ciphers = $value['ciphers'];
+            unset($value['ciphers']);
         }
     
-        if (isset($value["peer_fingerprint"])) {
-            $this->peerFingerprint = new PeerFingerprintConfig($value["peer_fingerprint"]);
-            unset($value["peer_fingerprint"]);
+        if (isset($value['peer_fingerprint'])) {
+            $this->peerFingerprint = new \Symfony\Config\Framework\HttpClient\ScopedClientConfig\PeerFingerprintConfig($value['peer_fingerprint']);
+            unset($value['peer_fingerprint']);
         }
     
-        if (isset($value["retry_failed"])) {
-            $this->retryFailed = new RetryFailedConfig($value["retry_failed"]);
-            unset($value["retry_failed"]);
+        if (isset($value['retry_failed'])) {
+            $this->retryFailed = new \Symfony\Config\Framework\HttpClient\ScopedClientConfig\RetryFailedConfig($value['retry_failed']);
+            unset($value['retry_failed']);
         }
     
         if ($value !== []) {
@@ -495,79 +495,79 @@ class ScopedClientConfig
     {
         $output = [];
         if (null !== $this->scope) {
-            $output["scope"] = $this->scope;
+            $output['scope'] = $this->scope;
         }
         if (null !== $this->baseUri) {
-            $output["base_uri"] = $this->baseUri;
+            $output['base_uri'] = $this->baseUri;
         }
         if (null !== $this->authBasic) {
-            $output["auth_basic"] = $this->authBasic;
+            $output['auth_basic'] = $this->authBasic;
         }
         if (null !== $this->authBearer) {
-            $output["auth_bearer"] = $this->authBearer;
+            $output['auth_bearer'] = $this->authBearer;
         }
         if (null !== $this->authNtlm) {
-            $output["auth_ntlm"] = $this->authNtlm;
+            $output['auth_ntlm'] = $this->authNtlm;
         }
         if (null !== $this->query) {
-            $output["query"] = $this->query;
+            $output['query'] = $this->query;
         }
         if (null !== $this->headers) {
-            $output["headers"] = $this->headers;
+            $output['headers'] = $this->headers;
         }
         if (null !== $this->maxRedirects) {
-            $output["max_redirects"] = $this->maxRedirects;
+            $output['max_redirects'] = $this->maxRedirects;
         }
         if (null !== $this->httpVersion) {
-            $output["http_version"] = $this->httpVersion;
+            $output['http_version'] = $this->httpVersion;
         }
         if (null !== $this->resolve) {
-            $output["resolve"] = $this->resolve;
+            $output['resolve'] = $this->resolve;
         }
         if (null !== $this->proxy) {
-            $output["proxy"] = $this->proxy;
+            $output['proxy'] = $this->proxy;
         }
         if (null !== $this->noProxy) {
-            $output["no_proxy"] = $this->noProxy;
+            $output['no_proxy'] = $this->noProxy;
         }
         if (null !== $this->timeout) {
-            $output["timeout"] = $this->timeout;
+            $output['timeout'] = $this->timeout;
         }
         if (null !== $this->maxDuration) {
-            $output["max_duration"] = $this->maxDuration;
+            $output['max_duration'] = $this->maxDuration;
         }
         if (null !== $this->bindto) {
-            $output["bindto"] = $this->bindto;
+            $output['bindto'] = $this->bindto;
         }
         if (null !== $this->verifyPeer) {
-            $output["verify_peer"] = $this->verifyPeer;
+            $output['verify_peer'] = $this->verifyPeer;
         }
         if (null !== $this->verifyHost) {
-            $output["verify_host"] = $this->verifyHost;
+            $output['verify_host'] = $this->verifyHost;
         }
         if (null !== $this->cafile) {
-            $output["cafile"] = $this->cafile;
+            $output['cafile'] = $this->cafile;
         }
         if (null !== $this->capath) {
-            $output["capath"] = $this->capath;
+            $output['capath'] = $this->capath;
         }
         if (null !== $this->localCert) {
-            $output["local_cert"] = $this->localCert;
+            $output['local_cert'] = $this->localCert;
         }
         if (null !== $this->localPk) {
-            $output["local_pk"] = $this->localPk;
+            $output['local_pk'] = $this->localPk;
         }
         if (null !== $this->passphrase) {
-            $output["passphrase"] = $this->passphrase;
+            $output['passphrase'] = $this->passphrase;
         }
         if (null !== $this->ciphers) {
-            $output["ciphers"] = $this->ciphers;
+            $output['ciphers'] = $this->ciphers;
         }
         if (null !== $this->peerFingerprint) {
-            $output["peer_fingerprint"] = $this->peerFingerprint->toArray();
+            $output['peer_fingerprint'] = $this->peerFingerprint->toArray();
         }
         if (null !== $this->retryFailed) {
-            $output["retry_failed"] = $this->retryFailed->toArray();
+            $output['retry_failed'] = $this->retryFailed->toArray();
         }
     
         return $output;

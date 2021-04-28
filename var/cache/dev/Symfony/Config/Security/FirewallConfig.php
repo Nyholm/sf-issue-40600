@@ -407,154 +407,154 @@ class FirewallConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["pattern"])) {
-            $this->pattern = $value["pattern"];
-            unset($value["pattern"]);
+        if (isset($value['pattern'])) {
+            $this->pattern = $value['pattern'];
+            unset($value['pattern']);
         }
     
-        if (isset($value["host"])) {
-            $this->host = $value["host"];
-            unset($value["host"]);
+        if (isset($value['host'])) {
+            $this->host = $value['host'];
+            unset($value['host']);
         }
     
-        if (isset($value["methods"])) {
-            $this->methods = $value["methods"];
-            unset($value["methods"]);
+        if (isset($value['methods'])) {
+            $this->methods = $value['methods'];
+            unset($value['methods']);
         }
     
-        if (isset($value["security"])) {
-            $this->security = $value["security"];
-            unset($value["security"]);
+        if (isset($value['security'])) {
+            $this->security = $value['security'];
+            unset($value['security']);
         }
     
-        if (isset($value["user_checker"])) {
-            $this->userChecker = $value["user_checker"];
-            unset($value["user_checker"]);
+        if (isset($value['user_checker'])) {
+            $this->userChecker = $value['user_checker'];
+            unset($value['user_checker']);
         }
     
-        if (isset($value["request_matcher"])) {
-            $this->requestMatcher = $value["request_matcher"];
-            unset($value["request_matcher"]);
+        if (isset($value['request_matcher'])) {
+            $this->requestMatcher = $value['request_matcher'];
+            unset($value['request_matcher']);
         }
     
-        if (isset($value["access_denied_url"])) {
-            $this->accessDeniedUrl = $value["access_denied_url"];
-            unset($value["access_denied_url"]);
+        if (isset($value['access_denied_url'])) {
+            $this->accessDeniedUrl = $value['access_denied_url'];
+            unset($value['access_denied_url']);
         }
     
-        if (isset($value["access_denied_handler"])) {
-            $this->accessDeniedHandler = $value["access_denied_handler"];
-            unset($value["access_denied_handler"]);
+        if (isset($value['access_denied_handler'])) {
+            $this->accessDeniedHandler = $value['access_denied_handler'];
+            unset($value['access_denied_handler']);
         }
     
-        if (isset($value["entry_point"])) {
-            $this->entryPoint = $value["entry_point"];
-            unset($value["entry_point"]);
+        if (isset($value['entry_point'])) {
+            $this->entryPoint = $value['entry_point'];
+            unset($value['entry_point']);
         }
     
-        if (isset($value["provider"])) {
-            $this->provider = $value["provider"];
-            unset($value["provider"]);
+        if (isset($value['provider'])) {
+            $this->provider = $value['provider'];
+            unset($value['provider']);
         }
     
-        if (isset($value["stateless"])) {
-            $this->stateless = $value["stateless"];
-            unset($value["stateless"]);
+        if (isset($value['stateless'])) {
+            $this->stateless = $value['stateless'];
+            unset($value['stateless']);
         }
     
-        if (isset($value["lazy"])) {
-            $this->lazy = $value["lazy"];
-            unset($value["lazy"]);
+        if (isset($value['lazy'])) {
+            $this->lazy = $value['lazy'];
+            unset($value['lazy']);
         }
     
-        if (isset($value["context"])) {
-            $this->context = $value["context"];
-            unset($value["context"]);
+        if (isset($value['context'])) {
+            $this->context = $value['context'];
+            unset($value['context']);
         }
     
-        if (isset($value["logout"])) {
-            $this->logout = new LogoutConfig($value["logout"]);
-            unset($value["logout"]);
+        if (isset($value['logout'])) {
+            $this->logout = new \Symfony\Config\Security\FirewallConfig\LogoutConfig($value['logout']);
+            unset($value['logout']);
         }
     
-        if (isset($value["switch_user"])) {
-            $this->switchUser = new SwitchUserConfig($value["switch_user"]);
-            unset($value["switch_user"]);
+        if (isset($value['switch_user'])) {
+            $this->switchUser = new \Symfony\Config\Security\FirewallConfig\SwitchUserConfig($value['switch_user']);
+            unset($value['switch_user']);
         }
     
-        if (isset($value["required_badges"])) {
-            $this->requiredBadges = $value["required_badges"];
-            unset($value["required_badges"]);
+        if (isset($value['required_badges'])) {
+            $this->requiredBadges = $value['required_badges'];
+            unset($value['required_badges']);
         }
     
-        if (isset($value["x509"])) {
-            $this->x509 = new X509Config($value["x509"]);
-            unset($value["x509"]);
+        if (isset($value['x509'])) {
+            $this->x509 = new \Symfony\Config\Security\FirewallConfig\X509Config($value['x509']);
+            unset($value['x509']);
         }
     
-        if (isset($value["remote_user"])) {
-            $this->remoteUser = new RemoteUserConfig($value["remote_user"]);
-            unset($value["remote_user"]);
+        if (isset($value['remote_user'])) {
+            $this->remoteUser = new \Symfony\Config\Security\FirewallConfig\RemoteUserConfig($value['remote_user']);
+            unset($value['remote_user']);
         }
     
-        if (isset($value["guard"])) {
-            $this->guard = new GuardConfig($value["guard"]);
-            unset($value["guard"]);
+        if (isset($value['guard'])) {
+            $this->guard = new \Symfony\Config\Security\FirewallConfig\GuardConfig($value['guard']);
+            unset($value['guard']);
         }
     
-        if (isset($value["custom_authenticators"])) {
-            $this->customAuthenticators = $value["custom_authenticators"];
-            unset($value["custom_authenticators"]);
+        if (isset($value['custom_authenticators'])) {
+            $this->customAuthenticators = $value['custom_authenticators'];
+            unset($value['custom_authenticators']);
         }
     
-        if (isset($value["login_throttling"])) {
-            $this->loginThrottling = new LoginThrottlingConfig($value["login_throttling"]);
-            unset($value["login_throttling"]);
+        if (isset($value['login_throttling'])) {
+            $this->loginThrottling = new \Symfony\Config\Security\FirewallConfig\LoginThrottlingConfig($value['login_throttling']);
+            unset($value['login_throttling']);
         }
     
-        if (isset($value["form_login"])) {
-            $this->formLogin = new FormLoginConfig($value["form_login"]);
-            unset($value["form_login"]);
+        if (isset($value['form_login'])) {
+            $this->formLogin = new \Symfony\Config\Security\FirewallConfig\FormLoginConfig($value['form_login']);
+            unset($value['form_login']);
         }
     
-        if (isset($value["form_login_ldap"])) {
-            $this->formLoginLdap = new FormLoginLdapConfig($value["form_login_ldap"]);
-            unset($value["form_login_ldap"]);
+        if (isset($value['form_login_ldap'])) {
+            $this->formLoginLdap = new \Symfony\Config\Security\FirewallConfig\FormLoginLdapConfig($value['form_login_ldap']);
+            unset($value['form_login_ldap']);
         }
     
-        if (isset($value["json_login"])) {
-            $this->jsonLogin = new JsonLoginConfig($value["json_login"]);
-            unset($value["json_login"]);
+        if (isset($value['json_login'])) {
+            $this->jsonLogin = new \Symfony\Config\Security\FirewallConfig\JsonLoginConfig($value['json_login']);
+            unset($value['json_login']);
         }
     
-        if (isset($value["json_login_ldap"])) {
-            $this->jsonLoginLdap = new JsonLoginLdapConfig($value["json_login_ldap"]);
-            unset($value["json_login_ldap"]);
+        if (isset($value['json_login_ldap'])) {
+            $this->jsonLoginLdap = new \Symfony\Config\Security\FirewallConfig\JsonLoginLdapConfig($value['json_login_ldap']);
+            unset($value['json_login_ldap']);
         }
     
-        if (isset($value["login_link"])) {
-            $this->loginLink = new LoginLinkConfig($value["login_link"]);
-            unset($value["login_link"]);
+        if (isset($value['login_link'])) {
+            $this->loginLink = new \Symfony\Config\Security\FirewallConfig\LoginLinkConfig($value['login_link']);
+            unset($value['login_link']);
         }
     
-        if (isset($value["http_basic"])) {
-            $this->httpBasic = new HttpBasicConfig($value["http_basic"]);
-            unset($value["http_basic"]);
+        if (isset($value['http_basic'])) {
+            $this->httpBasic = new \Symfony\Config\Security\FirewallConfig\HttpBasicConfig($value['http_basic']);
+            unset($value['http_basic']);
         }
     
-        if (isset($value["http_basic_ldap"])) {
-            $this->httpBasicLdap = new HttpBasicLdapConfig($value["http_basic_ldap"]);
-            unset($value["http_basic_ldap"]);
+        if (isset($value['http_basic_ldap'])) {
+            $this->httpBasicLdap = new \Symfony\Config\Security\FirewallConfig\HttpBasicLdapConfig($value['http_basic_ldap']);
+            unset($value['http_basic_ldap']);
         }
     
-        if (isset($value["remember_me"])) {
-            $this->rememberMe = new RememberMeConfig($value["remember_me"]);
-            unset($value["remember_me"]);
+        if (isset($value['remember_me'])) {
+            $this->rememberMe = new \Symfony\Config\Security\FirewallConfig\RememberMeConfig($value['remember_me']);
+            unset($value['remember_me']);
         }
     
-        if (isset($value["anonymous"])) {
-            $this->anonymous = new AnonymousConfig($value["anonymous"]);
-            unset($value["anonymous"]);
+        if (isset($value['anonymous'])) {
+            $this->anonymous = new \Symfony\Config\Security\FirewallConfig\AnonymousConfig($value['anonymous']);
+            unset($value['anonymous']);
         }
     
         if ($value !== []) {
@@ -567,94 +567,94 @@ class FirewallConfig
     {
         $output = [];
         if (null !== $this->pattern) {
-            $output["pattern"] = $this->pattern;
+            $output['pattern'] = $this->pattern;
         }
         if (null !== $this->host) {
-            $output["host"] = $this->host;
+            $output['host'] = $this->host;
         }
         if (null !== $this->methods) {
-            $output["methods"] = $this->methods;
+            $output['methods'] = $this->methods;
         }
         if (null !== $this->security) {
-            $output["security"] = $this->security;
+            $output['security'] = $this->security;
         }
         if (null !== $this->userChecker) {
-            $output["user_checker"] = $this->userChecker;
+            $output['user_checker'] = $this->userChecker;
         }
         if (null !== $this->requestMatcher) {
-            $output["request_matcher"] = $this->requestMatcher;
+            $output['request_matcher'] = $this->requestMatcher;
         }
         if (null !== $this->accessDeniedUrl) {
-            $output["access_denied_url"] = $this->accessDeniedUrl;
+            $output['access_denied_url'] = $this->accessDeniedUrl;
         }
         if (null !== $this->accessDeniedHandler) {
-            $output["access_denied_handler"] = $this->accessDeniedHandler;
+            $output['access_denied_handler'] = $this->accessDeniedHandler;
         }
         if (null !== $this->entryPoint) {
-            $output["entry_point"] = $this->entryPoint;
+            $output['entry_point'] = $this->entryPoint;
         }
         if (null !== $this->provider) {
-            $output["provider"] = $this->provider;
+            $output['provider'] = $this->provider;
         }
         if (null !== $this->stateless) {
-            $output["stateless"] = $this->stateless;
+            $output['stateless'] = $this->stateless;
         }
         if (null !== $this->lazy) {
-            $output["lazy"] = $this->lazy;
+            $output['lazy'] = $this->lazy;
         }
         if (null !== $this->context) {
-            $output["context"] = $this->context;
+            $output['context'] = $this->context;
         }
         if (null !== $this->logout) {
-            $output["logout"] = $this->logout->toArray();
+            $output['logout'] = $this->logout->toArray();
         }
         if (null !== $this->switchUser) {
-            $output["switch_user"] = $this->switchUser->toArray();
+            $output['switch_user'] = $this->switchUser->toArray();
         }
         if (null !== $this->requiredBadges) {
-            $output["required_badges"] = $this->requiredBadges;
+            $output['required_badges'] = $this->requiredBadges;
         }
         if (null !== $this->x509) {
-            $output["x509"] = $this->x509->toArray();
+            $output['x509'] = $this->x509->toArray();
         }
         if (null !== $this->remoteUser) {
-            $output["remote_user"] = $this->remoteUser->toArray();
+            $output['remote_user'] = $this->remoteUser->toArray();
         }
         if (null !== $this->guard) {
-            $output["guard"] = $this->guard->toArray();
+            $output['guard'] = $this->guard->toArray();
         }
         if (null !== $this->customAuthenticators) {
-            $output["custom_authenticators"] = $this->customAuthenticators;
+            $output['custom_authenticators'] = $this->customAuthenticators;
         }
         if (null !== $this->loginThrottling) {
-            $output["login_throttling"] = $this->loginThrottling->toArray();
+            $output['login_throttling'] = $this->loginThrottling->toArray();
         }
         if (null !== $this->formLogin) {
-            $output["form_login"] = $this->formLogin->toArray();
+            $output['form_login'] = $this->formLogin->toArray();
         }
         if (null !== $this->formLoginLdap) {
-            $output["form_login_ldap"] = $this->formLoginLdap->toArray();
+            $output['form_login_ldap'] = $this->formLoginLdap->toArray();
         }
         if (null !== $this->jsonLogin) {
-            $output["json_login"] = $this->jsonLogin->toArray();
+            $output['json_login'] = $this->jsonLogin->toArray();
         }
         if (null !== $this->jsonLoginLdap) {
-            $output["json_login_ldap"] = $this->jsonLoginLdap->toArray();
+            $output['json_login_ldap'] = $this->jsonLoginLdap->toArray();
         }
         if (null !== $this->loginLink) {
-            $output["login_link"] = $this->loginLink->toArray();
+            $output['login_link'] = $this->loginLink->toArray();
         }
         if (null !== $this->httpBasic) {
-            $output["http_basic"] = $this->httpBasic->toArray();
+            $output['http_basic'] = $this->httpBasic->toArray();
         }
         if (null !== $this->httpBasicLdap) {
-            $output["http_basic_ldap"] = $this->httpBasicLdap->toArray();
+            $output['http_basic_ldap'] = $this->httpBasicLdap->toArray();
         }
         if (null !== $this->rememberMe) {
-            $output["remember_me"] = $this->rememberMe->toArray();
+            $output['remember_me'] = $this->rememberMe->toArray();
         }
         if (null !== $this->anonymous) {
-            $output["anonymous"] = $this->anonymous->toArray();
+            $output['anonymous'] = $this->anonymous->toArray();
         }
     
         return $output;

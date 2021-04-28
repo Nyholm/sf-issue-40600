@@ -128,44 +128,44 @@ class RetryFailedConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["retry_strategy"])) {
-            $this->retryStrategy = $value["retry_strategy"];
-            unset($value["retry_strategy"]);
+        if (isset($value['retry_strategy'])) {
+            $this->retryStrategy = $value['retry_strategy'];
+            unset($value['retry_strategy']);
         }
     
-        if (isset($value["http_codes"])) {
-            $this->httpCodes = array_map(function($v) { return new HttpCodeConfig($v); }, $value["http_codes"]);;
-            unset($value["http_codes"]);
+        if (isset($value['http_codes'])) {
+            $this->httpCodes = array_map(function($v) { return new \Symfony\Config\Framework\HttpClient\DefaultOptions\RetryFailed\HttpCodeConfig($v); }, $value['http_codes']);
+            unset($value['http_codes']);
         }
     
-        if (isset($value["max_retries"])) {
-            $this->maxRetries = $value["max_retries"];
-            unset($value["max_retries"]);
+        if (isset($value['max_retries'])) {
+            $this->maxRetries = $value['max_retries'];
+            unset($value['max_retries']);
         }
     
-        if (isset($value["delay"])) {
-            $this->delay = $value["delay"];
-            unset($value["delay"]);
+        if (isset($value['delay'])) {
+            $this->delay = $value['delay'];
+            unset($value['delay']);
         }
     
-        if (isset($value["multiplier"])) {
-            $this->multiplier = $value["multiplier"];
-            unset($value["multiplier"]);
+        if (isset($value['multiplier'])) {
+            $this->multiplier = $value['multiplier'];
+            unset($value['multiplier']);
         }
     
-        if (isset($value["max_delay"])) {
-            $this->maxDelay = $value["max_delay"];
-            unset($value["max_delay"]);
+        if (isset($value['max_delay'])) {
+            $this->maxDelay = $value['max_delay'];
+            unset($value['max_delay']);
         }
     
-        if (isset($value["jitter"])) {
-            $this->jitter = $value["jitter"];
-            unset($value["jitter"]);
+        if (isset($value['jitter'])) {
+            $this->jitter = $value['jitter'];
+            unset($value['jitter']);
         }
     
         if ($value !== []) {
@@ -178,28 +178,28 @@ class RetryFailedConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->retryStrategy) {
-            $output["retry_strategy"] = $this->retryStrategy;
+            $output['retry_strategy'] = $this->retryStrategy;
         }
         if (null !== $this->httpCodes) {
-            $output["http_codes"] = array_map(function($v) { return $v->toArray(); }, $this->httpCodes);
+            $output['http_codes'] = array_map(function($v) { return $v->toArray(); }, $this->httpCodes);
         }
         if (null !== $this->maxRetries) {
-            $output["max_retries"] = $this->maxRetries;
+            $output['max_retries'] = $this->maxRetries;
         }
         if (null !== $this->delay) {
-            $output["delay"] = $this->delay;
+            $output['delay'] = $this->delay;
         }
         if (null !== $this->multiplier) {
-            $output["multiplier"] = $this->multiplier;
+            $output['multiplier'] = $this->multiplier;
         }
         if (null !== $this->maxDelay) {
-            $output["max_delay"] = $this->maxDelay;
+            $output['max_delay'] = $this->maxDelay;
         }
         if (null !== $this->jitter) {
-            $output["jitter"] = $this->jitter;
+            $output['jitter'] = $this->jitter;
         }
     
         return $output;

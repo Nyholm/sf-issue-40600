@@ -24,9 +24,9 @@ class ListenerConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["events"])) {
-            $this->events = array_map(function($v) { return new EventConfig($v); }, $value["events"]);;
-            unset($value["events"]);
+        if (isset($value['events'])) {
+            $this->events = array_map(function($v) { return new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListeners\EntityConfig\ListenerConfig\EventConfig($v); }, $value['events']);
+            unset($value['events']);
         }
     
         if ($value !== []) {
@@ -39,7 +39,7 @@ class ListenerConfig
     {
         $output = [];
         if (null !== $this->events) {
-            $output["events"] = array_map(function($v) { return $v->toArray(); }, $this->events);
+            $output['events'] = array_map(function($v) { return $v->toArray(); }, $this->events);
         }
     
         return $output;

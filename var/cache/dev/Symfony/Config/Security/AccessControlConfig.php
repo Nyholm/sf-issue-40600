@@ -121,44 +121,44 @@ class AccessControlConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["requires_channel"])) {
-            $this->requiresChannel = $value["requires_channel"];
-            unset($value["requires_channel"]);
+        if (isset($value['requires_channel'])) {
+            $this->requiresChannel = $value['requires_channel'];
+            unset($value['requires_channel']);
         }
     
-        if (isset($value["path"])) {
-            $this->path = $value["path"];
-            unset($value["path"]);
+        if (isset($value['path'])) {
+            $this->path = $value['path'];
+            unset($value['path']);
         }
     
-        if (isset($value["host"])) {
-            $this->host = $value["host"];
-            unset($value["host"]);
+        if (isset($value['host'])) {
+            $this->host = $value['host'];
+            unset($value['host']);
         }
     
-        if (isset($value["port"])) {
-            $this->port = $value["port"];
-            unset($value["port"]);
+        if (isset($value['port'])) {
+            $this->port = $value['port'];
+            unset($value['port']);
         }
     
-        if (isset($value["ips"])) {
-            $this->ips = $value["ips"];
-            unset($value["ips"]);
+        if (isset($value['ips'])) {
+            $this->ips = $value['ips'];
+            unset($value['ips']);
         }
     
-        if (isset($value["methods"])) {
-            $this->methods = $value["methods"];
-            unset($value["methods"]);
+        if (isset($value['methods'])) {
+            $this->methods = $value['methods'];
+            unset($value['methods']);
         }
     
-        if (isset($value["allow_if"])) {
-            $this->allowIf = $value["allow_if"];
-            unset($value["allow_if"]);
+        if (isset($value['allow_if'])) {
+            $this->allowIf = $value['allow_if'];
+            unset($value['allow_if']);
         }
     
-        if (isset($value["roles"])) {
-            $this->roles = $value["roles"];
-            unset($value["roles"]);
+        if (isset($value['roles'])) {
+            $this->roles = $value['roles'];
+            unset($value['roles']);
         }
     
         if ($value !== []) {
@@ -171,28 +171,28 @@ class AccessControlConfig
     {
         $output = [];
         if (null !== $this->requiresChannel) {
-            $output["requires_channel"] = $this->requiresChannel;
+            $output['requires_channel'] = $this->requiresChannel;
         }
         if (null !== $this->path) {
-            $output["path"] = $this->path;
+            $output['path'] = $this->path;
         }
         if (null !== $this->host) {
-            $output["host"] = $this->host;
+            $output['host'] = $this->host;
         }
         if (null !== $this->port) {
-            $output["port"] = $this->port;
+            $output['port'] = $this->port;
         }
         if (null !== $this->ips) {
-            $output["ips"] = $this->ips;
+            $output['ips'] = $this->ips;
         }
         if (null !== $this->methods) {
-            $output["methods"] = $this->methods;
+            $output['methods'] = $this->methods;
         }
         if (null !== $this->allowIf) {
-            $output["allow_if"] = $this->allowIf;
+            $output['allow_if'] = $this->allowIf;
         }
         if (null !== $this->roles) {
-            $output["roles"] = $this->roles;
+            $output['roles'] = $this->roles;
         }
     
         return $output;

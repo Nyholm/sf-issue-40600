@@ -96,29 +96,29 @@ class DebugConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInte
     public function __construct(array $value = [])
     {
     
-        if (isset($value["max_items"])) {
-            $this->maxItems = $value["max_items"];
-            unset($value["max_items"]);
+        if (isset($value['max_items'])) {
+            $this->maxItems = $value['max_items'];
+            unset($value['max_items']);
         }
     
-        if (isset($value["min_depth"])) {
-            $this->minDepth = $value["min_depth"];
-            unset($value["min_depth"]);
+        if (isset($value['min_depth'])) {
+            $this->minDepth = $value['min_depth'];
+            unset($value['min_depth']);
         }
     
-        if (isset($value["max_string_length"])) {
-            $this->maxStringLength = $value["max_string_length"];
-            unset($value["max_string_length"]);
+        if (isset($value['max_string_length'])) {
+            $this->maxStringLength = $value['max_string_length'];
+            unset($value['max_string_length']);
         }
     
-        if (isset($value["dump_destination"])) {
-            $this->dumpDestination = $value["dump_destination"];
-            unset($value["dump_destination"]);
+        if (isset($value['dump_destination'])) {
+            $this->dumpDestination = $value['dump_destination'];
+            unset($value['dump_destination']);
         }
     
-        if (isset($value["theme"])) {
-            $this->theme = $value["theme"];
-            unset($value["theme"]);
+        if (isset($value['theme'])) {
+            $this->theme = $value['theme'];
+            unset($value['theme']);
         }
     
         if ($value !== []) {
@@ -131,19 +131,19 @@ class DebugConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInte
     {
         $output = [];
         if (null !== $this->maxItems) {
-            $output["max_items"] = $this->maxItems;
+            $output['max_items'] = $this->maxItems;
         }
         if (null !== $this->minDepth) {
-            $output["min_depth"] = $this->minDepth;
+            $output['min_depth'] = $this->minDepth;
         }
         if (null !== $this->maxStringLength) {
-            $output["max_string_length"] = $this->maxStringLength;
+            $output['max_string_length'] = $this->maxStringLength;
         }
         if (null !== $this->dumpDestination) {
-            $output["dump_destination"] = $this->dumpDestination;
+            $output['dump_destination'] = $this->dumpDestination;
         }
         if (null !== $this->theme) {
-            $output["theme"] = $this->theme;
+            $output['theme'] = $this->theme;
         }
     
         return $output;

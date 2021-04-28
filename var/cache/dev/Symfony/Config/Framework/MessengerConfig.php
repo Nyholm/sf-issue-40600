@@ -113,39 +113,39 @@ class MessengerConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["routing"])) {
-            $this->routing = array_map(function($v) { return new RoutingConfig($v); }, $value["routing"]);;
-            unset($value["routing"]);
+        if (isset($value['routing'])) {
+            $this->routing = array_map(function($v) { return new \Symfony\Config\Framework\Messenger\RoutingConfig($v); }, $value['routing']);
+            unset($value['routing']);
         }
     
-        if (isset($value["serializer"])) {
-            $this->serializer = new SerializerConfig($value["serializer"]);
-            unset($value["serializer"]);
+        if (isset($value['serializer'])) {
+            $this->serializer = new \Symfony\Config\Framework\Messenger\SerializerConfig($value['serializer']);
+            unset($value['serializer']);
         }
     
-        if (isset($value["transports"])) {
-            $this->transports = array_map(function($v) { return new TransportConfig($v); }, $value["transports"]);;
-            unset($value["transports"]);
+        if (isset($value['transports'])) {
+            $this->transports = array_map(function($v) { return new \Symfony\Config\Framework\Messenger\TransportConfig($v); }, $value['transports']);
+            unset($value['transports']);
         }
     
-        if (isset($value["failure_transport"])) {
-            $this->failureTransport = $value["failure_transport"];
-            unset($value["failure_transport"]);
+        if (isset($value['failure_transport'])) {
+            $this->failureTransport = $value['failure_transport'];
+            unset($value['failure_transport']);
         }
     
-        if (isset($value["default_bus"])) {
-            $this->defaultBus = $value["default_bus"];
-            unset($value["default_bus"]);
+        if (isset($value['default_bus'])) {
+            $this->defaultBus = $value['default_bus'];
+            unset($value['default_bus']);
         }
     
-        if (isset($value["buses"])) {
-            $this->buses = array_map(function($v) { return new BusConfig($v); }, $value["buses"]);;
-            unset($value["buses"]);
+        if (isset($value['buses'])) {
+            $this->buses = array_map(function($v) { return new \Symfony\Config\Framework\Messenger\BusConfig($v); }, $value['buses']);
+            unset($value['buses']);
         }
     
         if ($value !== []) {
@@ -158,25 +158,25 @@ class MessengerConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->routing) {
-            $output["routing"] = array_map(function($v) { return $v->toArray(); }, $this->routing);
+            $output['routing'] = array_map(function($v) { return $v->toArray(); }, $this->routing);
         }
         if (null !== $this->serializer) {
-            $output["serializer"] = $this->serializer->toArray();
+            $output['serializer'] = $this->serializer->toArray();
         }
         if (null !== $this->transports) {
-            $output["transports"] = array_map(function($v) { return $v->toArray(); }, $this->transports);
+            $output['transports'] = array_map(function($v) { return $v->toArray(); }, $this->transports);
         }
         if (null !== $this->failureTransport) {
-            $output["failure_transport"] = $this->failureTransport;
+            $output['failure_transport'] = $this->failureTransport;
         }
         if (null !== $this->defaultBus) {
-            $output["default_bus"] = $this->defaultBus;
+            $output['default_bus'] = $this->defaultBus;
         }
         if (null !== $this->buses) {
-            $output["buses"] = array_map(function($v) { return $v->toArray(); }, $this->buses);
+            $output['buses'] = array_map(function($v) { return $v->toArray(); }, $this->buses);
         }
     
         return $output;

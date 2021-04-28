@@ -45,14 +45,14 @@ class SerializerConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["default_serializer"])) {
-            $this->defaultSerializer = $value["default_serializer"];
-            unset($value["default_serializer"]);
+        if (isset($value['default_serializer'])) {
+            $this->defaultSerializer = $value['default_serializer'];
+            unset($value['default_serializer']);
         }
     
-        if (isset($value["symfony_serializer"])) {
-            $this->symfonySerializer = new SymfonySerializerConfig($value["symfony_serializer"]);
-            unset($value["symfony_serializer"]);
+        if (isset($value['symfony_serializer'])) {
+            $this->symfonySerializer = new \Symfony\Config\Framework\Messenger\Serializer\SymfonySerializerConfig($value['symfony_serializer']);
+            unset($value['symfony_serializer']);
         }
     
         if ($value !== []) {
@@ -65,10 +65,10 @@ class SerializerConfig
     {
         $output = [];
         if (null !== $this->defaultSerializer) {
-            $output["default_serializer"] = $this->defaultSerializer;
+            $output['default_serializer'] = $this->defaultSerializer;
         }
         if (null !== $this->symfonySerializer) {
-            $output["symfony_serializer"] = $this->symfonySerializer->toArray();
+            $output['symfony_serializer'] = $this->symfonySerializer->toArray();
         }
     
         return $output;

@@ -72,24 +72,24 @@ class LoginThrottlingConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["limiter"])) {
-            $this->limiter = $value["limiter"];
-            unset($value["limiter"]);
+        if (isset($value['limiter'])) {
+            $this->limiter = $value['limiter'];
+            unset($value['limiter']);
         }
     
-        if (isset($value["max_attempts"])) {
-            $this->maxAttempts = $value["max_attempts"];
-            unset($value["max_attempts"]);
+        if (isset($value['max_attempts'])) {
+            $this->maxAttempts = $value['max_attempts'];
+            unset($value['max_attempts']);
         }
     
-        if (isset($value["interval"])) {
-            $this->interval = $value["interval"];
-            unset($value["interval"]);
+        if (isset($value['interval'])) {
+            $this->interval = $value['interval'];
+            unset($value['interval']);
         }
     
-        if (isset($value["lock_factory"])) {
-            $this->lockFactory = $value["lock_factory"];
-            unset($value["lock_factory"]);
+        if (isset($value['lock_factory'])) {
+            $this->lockFactory = $value['lock_factory'];
+            unset($value['lock_factory']);
         }
     
         if ($value !== []) {
@@ -102,16 +102,16 @@ class LoginThrottlingConfig
     {
         $output = [];
         if (null !== $this->limiter) {
-            $output["limiter"] = $this->limiter;
+            $output['limiter'] = $this->limiter;
         }
         if (null !== $this->maxAttempts) {
-            $output["max_attempts"] = $this->maxAttempts;
+            $output['max_attempts'] = $this->maxAttempts;
         }
         if (null !== $this->interval) {
-            $output["interval"] = $this->interval;
+            $output['interval'] = $this->interval;
         }
         if (null !== $this->lockFactory) {
-            $output["lock_factory"] = $this->lockFactory;
+            $output['lock_factory'] = $this->lockFactory;
         }
     
         return $output;

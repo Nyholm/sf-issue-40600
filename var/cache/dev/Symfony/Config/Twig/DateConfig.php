@@ -58,19 +58,19 @@ class DateConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["format"])) {
-            $this->format = $value["format"];
-            unset($value["format"]);
+        if (isset($value['format'])) {
+            $this->format = $value['format'];
+            unset($value['format']);
         }
     
-        if (isset($value["interval_format"])) {
-            $this->intervalFormat = $value["interval_format"];
-            unset($value["interval_format"]);
+        if (isset($value['interval_format'])) {
+            $this->intervalFormat = $value['interval_format'];
+            unset($value['interval_format']);
         }
     
-        if (isset($value["timezone"])) {
-            $this->timezone = $value["timezone"];
-            unset($value["timezone"]);
+        if (isset($value['timezone'])) {
+            $this->timezone = $value['timezone'];
+            unset($value['timezone']);
         }
     
         if ($value !== []) {
@@ -83,13 +83,13 @@ class DateConfig
     {
         $output = [];
         if (null !== $this->format) {
-            $output["format"] = $this->format;
+            $output['format'] = $this->format;
         }
         if (null !== $this->intervalFormat) {
-            $output["interval_format"] = $this->intervalFormat;
+            $output['interval_format'] = $this->intervalFormat;
         }
         if (null !== $this->timezone) {
-            $output["timezone"] = $this->timezone;
+            $output['timezone'] = $this->timezone;
         }
     
         return $output;

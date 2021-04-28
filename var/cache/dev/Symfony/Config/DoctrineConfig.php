@@ -49,14 +49,14 @@ class DoctrineConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     public function __construct(array $value = [])
     {
     
-        if (isset($value["dbal"])) {
-            $this->dbal = new DbalConfig($value["dbal"]);
-            unset($value["dbal"]);
+        if (isset($value['dbal'])) {
+            $this->dbal = new \Symfony\Config\Doctrine\DbalConfig($value['dbal']);
+            unset($value['dbal']);
         }
     
-        if (isset($value["orm"])) {
-            $this->orm = new OrmConfig($value["orm"]);
-            unset($value["orm"]);
+        if (isset($value['orm'])) {
+            $this->orm = new \Symfony\Config\Doctrine\OrmConfig($value['orm']);
+            unset($value['orm']);
         }
     
         if ($value !== []) {
@@ -69,10 +69,10 @@ class DoctrineConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     {
         $output = [];
         if (null !== $this->dbal) {
-            $output["dbal"] = $this->dbal->toArray();
+            $output['dbal'] = $this->dbal->toArray();
         }
         if (null !== $this->orm) {
-            $output["orm"] = $this->orm->toArray();
+            $output['orm'] = $this->orm->toArray();
         }
     
         return $output;

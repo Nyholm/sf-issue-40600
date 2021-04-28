@@ -63,19 +63,19 @@ class MonologConfig implements \Symfony\Component\Config\Builder\ConfigBuilderIn
     public function __construct(array $value = [])
     {
     
-        if (isset($value["use_microseconds"])) {
-            $this->useMicroseconds = $value["use_microseconds"];
-            unset($value["use_microseconds"]);
+        if (isset($value['use_microseconds'])) {
+            $this->useMicroseconds = $value['use_microseconds'];
+            unset($value['use_microseconds']);
         }
     
-        if (isset($value["channels"])) {
-            $this->channels = $value["channels"];
-            unset($value["channels"]);
+        if (isset($value['channels'])) {
+            $this->channels = $value['channels'];
+            unset($value['channels']);
         }
     
-        if (isset($value["handlers"])) {
-            $this->handlers = array_map(function($v) { return new HandlerConfig($v); }, $value["handlers"]);;
-            unset($value["handlers"]);
+        if (isset($value['handlers'])) {
+            $this->handlers = array_map(function($v) { return new \Symfony\Config\Monolog\HandlerConfig($v); }, $value['handlers']);
+            unset($value['handlers']);
         }
     
         if ($value !== []) {
@@ -88,13 +88,13 @@ class MonologConfig implements \Symfony\Component\Config\Builder\ConfigBuilderIn
     {
         $output = [];
         if (null !== $this->useMicroseconds) {
-            $output["use_microseconds"] = $this->useMicroseconds;
+            $output['use_microseconds'] = $this->useMicroseconds;
         }
         if (null !== $this->channels) {
-            $output["channels"] = $this->channels;
+            $output['channels'] = $this->channels;
         }
         if (null !== $this->handlers) {
-            $output["handlers"] = array_map(function($v) { return $v->toArray(); }, $this->handlers);
+            $output['handlers'] = array_map(function($v) { return $v->toArray(); }, $this->handlers);
         }
     
         return $output;

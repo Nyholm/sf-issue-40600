@@ -83,29 +83,29 @@ class ProviderConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["id"])) {
-            $this->id = $value["id"];
-            unset($value["id"]);
+        if (isset($value['id'])) {
+            $this->id = $value['id'];
+            unset($value['id']);
         }
     
-        if (isset($value["chain"])) {
-            $this->chain = new ChainConfig($value["chain"]);
-            unset($value["chain"]);
+        if (isset($value['chain'])) {
+            $this->chain = new \Symfony\Config\Security\ProviderConfig\ChainConfig($value['chain']);
+            unset($value['chain']);
         }
     
-        if (isset($value["memory"])) {
-            $this->memory = new MemoryConfig($value["memory"]);
-            unset($value["memory"]);
+        if (isset($value['memory'])) {
+            $this->memory = new \Symfony\Config\Security\ProviderConfig\MemoryConfig($value['memory']);
+            unset($value['memory']);
         }
     
-        if (isset($value["ldap"])) {
-            $this->ldap = new LdapConfig($value["ldap"]);
-            unset($value["ldap"]);
+        if (isset($value['ldap'])) {
+            $this->ldap = new \Symfony\Config\Security\ProviderConfig\LdapConfig($value['ldap']);
+            unset($value['ldap']);
         }
     
-        if (isset($value["entity"])) {
-            $this->entity = new EntityConfig($value["entity"]);
-            unset($value["entity"]);
+        if (isset($value['entity'])) {
+            $this->entity = new \Symfony\Config\Security\ProviderConfig\EntityConfig($value['entity']);
+            unset($value['entity']);
         }
     
         if ($value !== []) {
@@ -118,19 +118,19 @@ class ProviderConfig
     {
         $output = [];
         if (null !== $this->id) {
-            $output["id"] = $this->id;
+            $output['id'] = $this->id;
         }
         if (null !== $this->chain) {
-            $output["chain"] = $this->chain->toArray();
+            $output['chain'] = $this->chain->toArray();
         }
         if (null !== $this->memory) {
-            $output["memory"] = $this->memory->toArray();
+            $output['memory'] = $this->memory->toArray();
         }
         if (null !== $this->ldap) {
-            $output["ldap"] = $this->ldap->toArray();
+            $output['ldap'] = $this->ldap->toArray();
         }
         if (null !== $this->entity) {
-            $output["entity"] = $this->entity->toArray();
+            $output['entity'] = $this->entity->toArray();
         }
     
         return $output;

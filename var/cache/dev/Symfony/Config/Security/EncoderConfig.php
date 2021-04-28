@@ -161,59 +161,59 @@ class EncoderConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["algorithm"])) {
-            $this->algorithm = $value["algorithm"];
-            unset($value["algorithm"]);
+        if (isset($value['algorithm'])) {
+            $this->algorithm = $value['algorithm'];
+            unset($value['algorithm']);
         }
     
-        if (isset($value["migrate_from"])) {
-            $this->migrateFrom = $value["migrate_from"];
-            unset($value["migrate_from"]);
+        if (isset($value['migrate_from'])) {
+            $this->migrateFrom = $value['migrate_from'];
+            unset($value['migrate_from']);
         }
     
-        if (isset($value["hash_algorithm"])) {
-            $this->hashAlgorithm = $value["hash_algorithm"];
-            unset($value["hash_algorithm"]);
+        if (isset($value['hash_algorithm'])) {
+            $this->hashAlgorithm = $value['hash_algorithm'];
+            unset($value['hash_algorithm']);
         }
     
-        if (isset($value["key_length"])) {
-            $this->keyLength = $value["key_length"];
-            unset($value["key_length"]);
+        if (isset($value['key_length'])) {
+            $this->keyLength = $value['key_length'];
+            unset($value['key_length']);
         }
     
-        if (isset($value["ignore_case"])) {
-            $this->ignoreCase = $value["ignore_case"];
-            unset($value["ignore_case"]);
+        if (isset($value['ignore_case'])) {
+            $this->ignoreCase = $value['ignore_case'];
+            unset($value['ignore_case']);
         }
     
-        if (isset($value["encode_as_base64"])) {
-            $this->encodeAsBase64 = $value["encode_as_base64"];
-            unset($value["encode_as_base64"]);
+        if (isset($value['encode_as_base64'])) {
+            $this->encodeAsBase64 = $value['encode_as_base64'];
+            unset($value['encode_as_base64']);
         }
     
-        if (isset($value["iterations"])) {
-            $this->iterations = $value["iterations"];
-            unset($value["iterations"]);
+        if (isset($value['iterations'])) {
+            $this->iterations = $value['iterations'];
+            unset($value['iterations']);
         }
     
-        if (isset($value["cost"])) {
-            $this->cost = $value["cost"];
-            unset($value["cost"]);
+        if (isset($value['cost'])) {
+            $this->cost = $value['cost'];
+            unset($value['cost']);
         }
     
-        if (isset($value["memory_cost"])) {
-            $this->memoryCost = $value["memory_cost"];
-            unset($value["memory_cost"]);
+        if (isset($value['memory_cost'])) {
+            $this->memoryCost = $value['memory_cost'];
+            unset($value['memory_cost']);
         }
     
-        if (isset($value["time_cost"])) {
-            $this->timeCost = $value["time_cost"];
-            unset($value["time_cost"]);
+        if (isset($value['time_cost'])) {
+            $this->timeCost = $value['time_cost'];
+            unset($value['time_cost']);
         }
     
-        if (isset($value["id"])) {
-            $this->id = $value["id"];
-            unset($value["id"]);
+        if (isset($value['id'])) {
+            $this->id = $value['id'];
+            unset($value['id']);
         }
     
         if ($value !== []) {
@@ -226,37 +226,37 @@ class EncoderConfig
     {
         $output = [];
         if (null !== $this->algorithm) {
-            $output["algorithm"] = $this->algorithm;
+            $output['algorithm'] = $this->algorithm;
         }
         if (null !== $this->migrateFrom) {
-            $output["migrate_from"] = $this->migrateFrom;
+            $output['migrate_from'] = $this->migrateFrom;
         }
         if (null !== $this->hashAlgorithm) {
-            $output["hash_algorithm"] = $this->hashAlgorithm;
+            $output['hash_algorithm'] = $this->hashAlgorithm;
         }
         if (null !== $this->keyLength) {
-            $output["key_length"] = $this->keyLength;
+            $output['key_length'] = $this->keyLength;
         }
         if (null !== $this->ignoreCase) {
-            $output["ignore_case"] = $this->ignoreCase;
+            $output['ignore_case'] = $this->ignoreCase;
         }
         if (null !== $this->encodeAsBase64) {
-            $output["encode_as_base64"] = $this->encodeAsBase64;
+            $output['encode_as_base64'] = $this->encodeAsBase64;
         }
         if (null !== $this->iterations) {
-            $output["iterations"] = $this->iterations;
+            $output['iterations'] = $this->iterations;
         }
         if (null !== $this->cost) {
-            $output["cost"] = $this->cost;
+            $output['cost'] = $this->cost;
         }
         if (null !== $this->memoryCost) {
-            $output["memory_cost"] = $this->memoryCost;
+            $output['memory_cost'] = $this->memoryCost;
         }
         if (null !== $this->timeCost) {
-            $output["time_cost"] = $this->timeCost;
+            $output['time_cost'] = $this->timeCost;
         }
         if (null !== $this->id) {
-            $output["id"] = $this->id;
+            $output['id'] = $this->id;
         }
     
         return $output;

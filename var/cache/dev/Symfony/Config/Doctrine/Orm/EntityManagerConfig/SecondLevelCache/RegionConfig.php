@@ -109,39 +109,39 @@ class RegionConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["cache_driver"])) {
-            $this->cacheDriver = new CacheDriverConfig($value["cache_driver"]);
-            unset($value["cache_driver"]);
+        if (isset($value['cache_driver'])) {
+            $this->cacheDriver = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\RegionConfig\CacheDriverConfig($value['cache_driver']);
+            unset($value['cache_driver']);
         }
     
-        if (isset($value["lock_path"])) {
-            $this->lockPath = $value["lock_path"];
-            unset($value["lock_path"]);
+        if (isset($value['lock_path'])) {
+            $this->lockPath = $value['lock_path'];
+            unset($value['lock_path']);
         }
     
-        if (isset($value["lock_lifetime"])) {
-            $this->lockLifetime = $value["lock_lifetime"];
-            unset($value["lock_lifetime"]);
+        if (isset($value['lock_lifetime'])) {
+            $this->lockLifetime = $value['lock_lifetime'];
+            unset($value['lock_lifetime']);
         }
     
-        if (isset($value["type"])) {
-            $this->type = $value["type"];
-            unset($value["type"]);
+        if (isset($value['type'])) {
+            $this->type = $value['type'];
+            unset($value['type']);
         }
     
-        if (isset($value["lifetime"])) {
-            $this->lifetime = $value["lifetime"];
-            unset($value["lifetime"]);
+        if (isset($value['lifetime'])) {
+            $this->lifetime = $value['lifetime'];
+            unset($value['lifetime']);
         }
     
-        if (isset($value["service"])) {
-            $this->service = $value["service"];
-            unset($value["service"]);
+        if (isset($value['service'])) {
+            $this->service = $value['service'];
+            unset($value['service']);
         }
     
-        if (isset($value["name"])) {
-            $this->name = $value["name"];
-            unset($value["name"]);
+        if (isset($value['name'])) {
+            $this->name = $value['name'];
+            unset($value['name']);
         }
     
         if ($value !== []) {
@@ -154,25 +154,25 @@ class RegionConfig
     {
         $output = [];
         if (null !== $this->cacheDriver) {
-            $output["cache_driver"] = $this->cacheDriver->toArray();
+            $output['cache_driver'] = $this->cacheDriver->toArray();
         }
         if (null !== $this->lockPath) {
-            $output["lock_path"] = $this->lockPath;
+            $output['lock_path'] = $this->lockPath;
         }
         if (null !== $this->lockLifetime) {
-            $output["lock_lifetime"] = $this->lockLifetime;
+            $output['lock_lifetime'] = $this->lockLifetime;
         }
         if (null !== $this->type) {
-            $output["type"] = $this->type;
+            $output['type'] = $this->type;
         }
         if (null !== $this->lifetime) {
-            $output["lifetime"] = $this->lifetime;
+            $output['lifetime'] = $this->lifetime;
         }
         if (null !== $this->service) {
-            $output["service"] = $this->service;
+            $output['service'] = $this->service;
         }
         if (null !== $this->name) {
-            $output["name"] = $this->name;
+            $output['name'] = $this->name;
         }
     
         return $output;

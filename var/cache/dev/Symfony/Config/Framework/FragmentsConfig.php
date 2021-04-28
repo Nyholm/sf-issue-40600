@@ -57,19 +57,19 @@ class FragmentsConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["hinclude_default_template"])) {
-            $this->hincludeDefaultTemplate = $value["hinclude_default_template"];
-            unset($value["hinclude_default_template"]);
+        if (isset($value['hinclude_default_template'])) {
+            $this->hincludeDefaultTemplate = $value['hinclude_default_template'];
+            unset($value['hinclude_default_template']);
         }
     
-        if (isset($value["path"])) {
-            $this->path = $value["path"];
-            unset($value["path"]);
+        if (isset($value['path'])) {
+            $this->path = $value['path'];
+            unset($value['path']);
         }
     
         if ($value !== []) {
@@ -82,13 +82,13 @@ class FragmentsConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->hincludeDefaultTemplate) {
-            $output["hinclude_default_template"] = $this->hincludeDefaultTemplate;
+            $output['hinclude_default_template'] = $this->hincludeDefaultTemplate;
         }
         if (null !== $this->path) {
-            $output["path"] = $this->path;
+            $output['path'] = $this->path;
         }
     
         return $output;

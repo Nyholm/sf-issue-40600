@@ -30,9 +30,9 @@ class RoutingConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["senders"])) {
-            $this->senders = $value["senders"];
-            unset($value["senders"]);
+        if (isset($value['senders'])) {
+            $this->senders = $value['senders'];
+            unset($value['senders']);
         }
     
         if ($value !== []) {
@@ -45,7 +45,7 @@ class RoutingConfig
     {
         $output = [];
         if (null !== $this->senders) {
-            $output["senders"] = $this->senders;
+            $output['senders'] = $this->senders;
         }
     
         return $output;

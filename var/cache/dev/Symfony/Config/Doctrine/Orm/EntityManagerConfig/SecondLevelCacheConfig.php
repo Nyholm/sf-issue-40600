@@ -124,44 +124,44 @@ class SecondLevelCacheConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["region_cache_driver"])) {
-            $this->regionCacheDriver = new RegionCacheDriverConfig($value["region_cache_driver"]);
-            unset($value["region_cache_driver"]);
+        if (isset($value['region_cache_driver'])) {
+            $this->regionCacheDriver = new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\RegionCacheDriverConfig($value['region_cache_driver']);
+            unset($value['region_cache_driver']);
         }
     
-        if (isset($value["region_lock_lifetime"])) {
-            $this->regionLockLifetime = $value["region_lock_lifetime"];
-            unset($value["region_lock_lifetime"]);
+        if (isset($value['region_lock_lifetime'])) {
+            $this->regionLockLifetime = $value['region_lock_lifetime'];
+            unset($value['region_lock_lifetime']);
         }
     
-        if (isset($value["log_enabled"])) {
-            $this->logEnabled = $value["log_enabled"];
-            unset($value["log_enabled"]);
+        if (isset($value['log_enabled'])) {
+            $this->logEnabled = $value['log_enabled'];
+            unset($value['log_enabled']);
         }
     
-        if (isset($value["region_lifetime"])) {
-            $this->regionLifetime = $value["region_lifetime"];
-            unset($value["region_lifetime"]);
+        if (isset($value['region_lifetime'])) {
+            $this->regionLifetime = $value['region_lifetime'];
+            unset($value['region_lifetime']);
         }
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["factory"])) {
-            $this->factory = $value["factory"];
-            unset($value["factory"]);
+        if (isset($value['factory'])) {
+            $this->factory = $value['factory'];
+            unset($value['factory']);
         }
     
-        if (isset($value["regions"])) {
-            $this->regions = array_map(function($v) { return new RegionConfig($v); }, $value["regions"]);;
-            unset($value["regions"]);
+        if (isset($value['regions'])) {
+            $this->regions = array_map(function($v) { return new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\RegionConfig($v); }, $value['regions']);
+            unset($value['regions']);
         }
     
-        if (isset($value["loggers"])) {
-            $this->loggers = array_map(function($v) { return new LoggerConfig($v); }, $value["loggers"]);;
-            unset($value["loggers"]);
+        if (isset($value['loggers'])) {
+            $this->loggers = array_map(function($v) { return new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\SecondLevelCache\LoggerConfig($v); }, $value['loggers']);
+            unset($value['loggers']);
         }
     
         if ($value !== []) {
@@ -174,28 +174,28 @@ class SecondLevelCacheConfig
     {
         $output = [];
         if (null !== $this->regionCacheDriver) {
-            $output["region_cache_driver"] = $this->regionCacheDriver->toArray();
+            $output['region_cache_driver'] = $this->regionCacheDriver->toArray();
         }
         if (null !== $this->regionLockLifetime) {
-            $output["region_lock_lifetime"] = $this->regionLockLifetime;
+            $output['region_lock_lifetime'] = $this->regionLockLifetime;
         }
         if (null !== $this->logEnabled) {
-            $output["log_enabled"] = $this->logEnabled;
+            $output['log_enabled'] = $this->logEnabled;
         }
         if (null !== $this->regionLifetime) {
-            $output["region_lifetime"] = $this->regionLifetime;
+            $output['region_lifetime'] = $this->regionLifetime;
         }
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->factory) {
-            $output["factory"] = $this->factory;
+            $output['factory'] = $this->factory;
         }
         if (null !== $this->regions) {
-            $output["regions"] = array_map(function($v) { return $v->toArray(); }, $this->regions);
+            $output['regions'] = array_map(function($v) { return $v->toArray(); }, $this->regions);
         }
         if (null !== $this->loggers) {
-            $output["loggers"] = array_map(function($v) { return $v->toArray(); }, $this->loggers);
+            $output['loggers'] = array_map(function($v) { return $v->toArray(); }, $this->loggers);
         }
     
         return $output;

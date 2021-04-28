@@ -45,14 +45,14 @@ class AnonymousConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["lazy"])) {
-            $this->lazy = $value["lazy"];
-            unset($value["lazy"]);
+        if (isset($value['lazy'])) {
+            $this->lazy = $value['lazy'];
+            unset($value['lazy']);
         }
     
-        if (isset($value["secret"])) {
-            $this->secret = $value["secret"];
-            unset($value["secret"]);
+        if (isset($value['secret'])) {
+            $this->secret = $value['secret'];
+            unset($value['secret']);
         }
     
         if ($value !== []) {
@@ -65,10 +65,10 @@ class AnonymousConfig
     {
         $output = [];
         if (null !== $this->lazy) {
-            $output["lazy"] = $this->lazy;
+            $output['lazy'] = $this->lazy;
         }
         if (null !== $this->secret) {
-            $output["secret"] = $this->secret;
+            $output['secret'] = $this->secret;
         }
     
         return $output;

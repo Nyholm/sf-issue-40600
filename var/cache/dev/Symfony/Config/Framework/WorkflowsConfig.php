@@ -45,14 +45,14 @@ class WorkflowsConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["workflows"])) {
-            $this->workflows = array_map(function($v) { return new WorkflowsConfig($v); }, $value["workflows"]);;
-            unset($value["workflows"]);
+        if (isset($value['workflows'])) {
+            $this->workflows = array_map(function($v) { return new \Symfony\Config\Framework\Workflows\WorkflowsConfig($v); }, $value['workflows']);
+            unset($value['workflows']);
         }
     
         if ($value !== []) {
@@ -65,10 +65,10 @@ class WorkflowsConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->workflows) {
-            $output["workflows"] = array_map(function($v) { return $v->toArray(); }, $this->workflows);
+            $output['workflows'] = array_map(function($v) { return $v->toArray(); }, $this->workflows);
         }
     
         return $output;

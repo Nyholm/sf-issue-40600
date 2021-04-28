@@ -45,14 +45,14 @@ class TokenProviderConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["service"])) {
-            $this->service = $value["service"];
-            unset($value["service"]);
+        if (isset($value['service'])) {
+            $this->service = $value['service'];
+            unset($value['service']);
         }
     
-        if (isset($value["doctrine"])) {
-            $this->doctrine = new DoctrineConfig($value["doctrine"]);
-            unset($value["doctrine"]);
+        if (isset($value['doctrine'])) {
+            $this->doctrine = new \Symfony\Config\Security\FirewallConfig\RememberMe\TokenProvider\DoctrineConfig($value['doctrine']);
+            unset($value['doctrine']);
         }
     
         if ($value !== []) {
@@ -65,10 +65,10 @@ class TokenProviderConfig
     {
         $output = [];
         if (null !== $this->service) {
-            $output["service"] = $this->service;
+            $output['service'] = $this->service;
         }
         if (null !== $this->doctrine) {
-            $output["doctrine"] = $this->doctrine->toArray();
+            $output['doctrine'] = $this->doctrine->toArray();
         }
     
         return $output;

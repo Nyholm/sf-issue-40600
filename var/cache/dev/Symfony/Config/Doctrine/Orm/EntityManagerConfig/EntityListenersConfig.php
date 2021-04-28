@@ -31,9 +31,9 @@ class EntityListenersConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["entities"])) {
-            $this->entities = array_map(function($v) { return new EntityConfig($v); }, $value["entities"]);;
-            unset($value["entities"]);
+        if (isset($value['entities'])) {
+            $this->entities = array_map(function($v) { return new \Symfony\Config\Doctrine\Orm\EntityManagerConfig\EntityListeners\EntityConfig($v); }, $value['entities']);
+            unset($value['entities']);
         }
     
         if ($value !== []) {
@@ -46,7 +46,7 @@ class EntityListenersConfig
     {
         $output = [];
         if (null !== $this->entities) {
-            $output["entities"] = array_map(function($v) { return $v->toArray(); }, $this->entities);
+            $output['entities'] = array_map(function($v) { return $v->toArray(); }, $this->entities);
         }
     
         return $output;

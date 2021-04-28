@@ -57,19 +57,19 @@ class FormConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["csrf_protection"])) {
-            $this->csrfProtection = new CsrfProtectionConfig($value["csrf_protection"]);
-            unset($value["csrf_protection"]);
+        if (isset($value['csrf_protection'])) {
+            $this->csrfProtection = new \Symfony\Config\Framework\Form\CsrfProtectionConfig($value['csrf_protection']);
+            unset($value['csrf_protection']);
         }
     
-        if (isset($value["legacy_error_messages"])) {
-            $this->legacyErrorMessages = $value["legacy_error_messages"];
-            unset($value["legacy_error_messages"]);
+        if (isset($value['legacy_error_messages'])) {
+            $this->legacyErrorMessages = $value['legacy_error_messages'];
+            unset($value['legacy_error_messages']);
         }
     
         if ($value !== []) {
@@ -82,13 +82,13 @@ class FormConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->csrfProtection) {
-            $output["csrf_protection"] = $this->csrfProtection->toArray();
+            $output['csrf_protection'] = $this->csrfProtection->toArray();
         }
         if (null !== $this->legacyErrorMessages) {
-            $output["legacy_error_messages"] = $this->legacyErrorMessages;
+            $output['legacy_error_messages'] = $this->legacyErrorMessages;
         }
     
         return $output;

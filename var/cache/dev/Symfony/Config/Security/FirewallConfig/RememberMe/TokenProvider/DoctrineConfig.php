@@ -44,14 +44,14 @@ class DoctrineConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["connection"])) {
-            $this->connection = $value["connection"];
-            unset($value["connection"]);
+        if (isset($value['connection'])) {
+            $this->connection = $value['connection'];
+            unset($value['connection']);
         }
     
         if ($value !== []) {
@@ -64,10 +64,10 @@ class DoctrineConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->connection) {
-            $output["connection"] = $this->connection;
+            $output['connection'] = $this->connection;
         }
     
         return $output;

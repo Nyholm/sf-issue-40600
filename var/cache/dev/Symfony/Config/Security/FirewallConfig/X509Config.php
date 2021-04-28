@@ -57,19 +57,19 @@ class X509Config
     public function __construct(array $value = [])
     {
     
-        if (isset($value["provider"])) {
-            $this->provider = $value["provider"];
-            unset($value["provider"]);
+        if (isset($value['provider'])) {
+            $this->provider = $value['provider'];
+            unset($value['provider']);
         }
     
-        if (isset($value["user"])) {
-            $this->user = $value["user"];
-            unset($value["user"]);
+        if (isset($value['user'])) {
+            $this->user = $value['user'];
+            unset($value['user']);
         }
     
-        if (isset($value["credentials"])) {
-            $this->credentials = $value["credentials"];
-            unset($value["credentials"]);
+        if (isset($value['credentials'])) {
+            $this->credentials = $value['credentials'];
+            unset($value['credentials']);
         }
     
         if ($value !== []) {
@@ -82,13 +82,13 @@ class X509Config
     {
         $output = [];
         if (null !== $this->provider) {
-            $output["provider"] = $this->provider;
+            $output['provider'] = $this->provider;
         }
         if (null !== $this->user) {
-            $output["user"] = $this->user;
+            $output['user'] = $this->user;
         }
         if (null !== $this->credentials) {
-            $output["credentials"] = $this->credentials;
+            $output['credentials'] = $this->credentials;
         }
     
         return $output;

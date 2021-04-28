@@ -43,14 +43,14 @@ class PlaceConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["name"])) {
-            $this->name = $value["name"];
-            unset($value["name"]);
+        if (isset($value['name'])) {
+            $this->name = $value['name'];
+            unset($value['name']);
         }
     
-        if (isset($value["metadata"])) {
-            $this->metadata = $value["metadata"];
-            unset($value["metadata"]);
+        if (isset($value['metadata'])) {
+            $this->metadata = $value['metadata'];
+            unset($value['metadata']);
         }
     
         if ($value !== []) {
@@ -63,10 +63,10 @@ class PlaceConfig
     {
         $output = [];
         if (null !== $this->name) {
-            $output["name"] = $this->name;
+            $output['name'] = $this->name;
         }
         if (null !== $this->metadata) {
-            $output["metadata"] = $this->metadata;
+            $output['metadata'] = $this->metadata;
         }
     
         return $output;

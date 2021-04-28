@@ -30,9 +30,9 @@ class AutoMappingConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["services"])) {
-            $this->services = $value["services"];
-            unset($value["services"]);
+        if (isset($value['services'])) {
+            $this->services = $value['services'];
+            unset($value['services']);
         }
     
         if ($value !== []) {
@@ -45,7 +45,7 @@ class AutoMappingConfig
     {
         $output = [];
         if (null !== $this->services) {
-            $output["services"] = $this->services;
+            $output['services'] = $this->services;
         }
     
         return $output;

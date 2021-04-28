@@ -90,29 +90,29 @@ class HubConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["url"])) {
-            $this->url = $value["url"];
-            unset($value["url"]);
+        if (isset($value['url'])) {
+            $this->url = $value['url'];
+            unset($value['url']);
         }
     
-        if (isset($value["public_url"])) {
-            $this->publicUrl = $value["public_url"];
-            unset($value["public_url"]);
+        if (isset($value['public_url'])) {
+            $this->publicUrl = $value['public_url'];
+            unset($value['public_url']);
         }
     
-        if (isset($value["jwt"])) {
-            $this->jwt = new JwtConfig($value["jwt"]);
-            unset($value["jwt"]);
+        if (isset($value['jwt'])) {
+            $this->jwt = new \Symfony\Config\Mercure\HubConfig\JwtConfig($value['jwt']);
+            unset($value['jwt']);
         }
     
-        if (isset($value["jwt_provider"])) {
-            $this->jwtProvider = $value["jwt_provider"];
-            unset($value["jwt_provider"]);
+        if (isset($value['jwt_provider'])) {
+            $this->jwtProvider = $value['jwt_provider'];
+            unset($value['jwt_provider']);
         }
     
-        if (isset($value["bus"])) {
-            $this->bus = $value["bus"];
-            unset($value["bus"]);
+        if (isset($value['bus'])) {
+            $this->bus = $value['bus'];
+            unset($value['bus']);
         }
     
         if ($value !== []) {
@@ -125,19 +125,19 @@ class HubConfig
     {
         $output = [];
         if (null !== $this->url) {
-            $output["url"] = $this->url;
+            $output['url'] = $this->url;
         }
         if (null !== $this->publicUrl) {
-            $output["public_url"] = $this->publicUrl;
+            $output['public_url'] = $this->publicUrl;
         }
         if (null !== $this->jwt) {
-            $output["jwt"] = $this->jwt->toArray();
+            $output['jwt'] = $this->jwt->toArray();
         }
         if (null !== $this->jwtProvider) {
-            $output["jwt_provider"] = $this->jwtProvider;
+            $output['jwt_provider'] = $this->jwtProvider;
         }
         if (null !== $this->bus) {
-            $output["bus"] = $this->bus;
+            $output['bus'] = $this->bus;
         }
     
         return $output;

@@ -57,19 +57,19 @@ class MarkingStoreConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["type"])) {
-            $this->type = $value["type"];
-            unset($value["type"]);
+        if (isset($value['type'])) {
+            $this->type = $value['type'];
+            unset($value['type']);
         }
     
-        if (isset($value["property"])) {
-            $this->property = $value["property"];
-            unset($value["property"]);
+        if (isset($value['property'])) {
+            $this->property = $value['property'];
+            unset($value['property']);
         }
     
-        if (isset($value["service"])) {
-            $this->service = $value["service"];
-            unset($value["service"]);
+        if (isset($value['service'])) {
+            $this->service = $value['service'];
+            unset($value['service']);
         }
     
         if ($value !== []) {
@@ -82,13 +82,13 @@ class MarkingStoreConfig
     {
         $output = [];
         if (null !== $this->type) {
-            $output["type"] = $this->type;
+            $output['type'] = $this->type;
         }
         if (null !== $this->property) {
-            $output["property"] = $this->property;
+            $output['property'] = $this->property;
         }
         if (null !== $this->service) {
-            $output["service"] = $this->service;
+            $output['service'] = $this->service;
         }
     
         return $output;

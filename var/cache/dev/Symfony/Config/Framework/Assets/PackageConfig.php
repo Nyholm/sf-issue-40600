@@ -94,34 +94,34 @@ class PackageConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["version_strategy"])) {
-            $this->versionStrategy = $value["version_strategy"];
-            unset($value["version_strategy"]);
+        if (isset($value['version_strategy'])) {
+            $this->versionStrategy = $value['version_strategy'];
+            unset($value['version_strategy']);
         }
     
-        if (isset($value["version"])) {
-            $this->version = $value["version"];
-            unset($value["version"]);
+        if (isset($value['version'])) {
+            $this->version = $value['version'];
+            unset($value['version']);
         }
     
-        if (isset($value["version_format"])) {
-            $this->versionFormat = $value["version_format"];
-            unset($value["version_format"]);
+        if (isset($value['version_format'])) {
+            $this->versionFormat = $value['version_format'];
+            unset($value['version_format']);
         }
     
-        if (isset($value["json_manifest_path"])) {
-            $this->jsonManifestPath = $value["json_manifest_path"];
-            unset($value["json_manifest_path"]);
+        if (isset($value['json_manifest_path'])) {
+            $this->jsonManifestPath = $value['json_manifest_path'];
+            unset($value['json_manifest_path']);
         }
     
-        if (isset($value["base_path"])) {
-            $this->basePath = $value["base_path"];
-            unset($value["base_path"]);
+        if (isset($value['base_path'])) {
+            $this->basePath = $value['base_path'];
+            unset($value['base_path']);
         }
     
-        if (isset($value["base_urls"])) {
-            $this->baseUrls = $value["base_urls"];
-            unset($value["base_urls"]);
+        if (isset($value['base_urls'])) {
+            $this->baseUrls = $value['base_urls'];
+            unset($value['base_urls']);
         }
     
         if ($value !== []) {
@@ -134,22 +134,22 @@ class PackageConfig
     {
         $output = [];
         if (null !== $this->versionStrategy) {
-            $output["version_strategy"] = $this->versionStrategy;
+            $output['version_strategy'] = $this->versionStrategy;
         }
         if (null !== $this->version) {
-            $output["version"] = $this->version;
+            $output['version'] = $this->version;
         }
         if (null !== $this->versionFormat) {
-            $output["version_format"] = $this->versionFormat;
+            $output['version_format'] = $this->versionFormat;
         }
         if (null !== $this->jsonManifestPath) {
-            $output["json_manifest_path"] = $this->jsonManifestPath;
+            $output['json_manifest_path'] = $this->jsonManifestPath;
         }
         if (null !== $this->basePath) {
-            $output["base_path"] = $this->basePath;
+            $output['base_path'] = $this->basePath;
         }
         if (null !== $this->baseUrls) {
-            $output["base_urls"] = $this->baseUrls;
+            $output['base_urls'] = $this->baseUrls;
         }
     
         return $output;

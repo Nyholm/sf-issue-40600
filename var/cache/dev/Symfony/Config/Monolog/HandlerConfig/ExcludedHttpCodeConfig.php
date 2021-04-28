@@ -43,14 +43,14 @@ class ExcludedHttpCodeConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["code"])) {
-            $this->code = $value["code"];
-            unset($value["code"]);
+        if (isset($value['code'])) {
+            $this->code = $value['code'];
+            unset($value['code']);
         }
     
-        if (isset($value["urls"])) {
-            $this->urls = $value["urls"];
-            unset($value["urls"]);
+        if (isset($value['urls'])) {
+            $this->urls = $value['urls'];
+            unset($value['urls']);
         }
     
         if ($value !== []) {
@@ -63,10 +63,10 @@ class ExcludedHttpCodeConfig
     {
         $output = [];
         if (null !== $this->code) {
-            $output["code"] = $this->code;
+            $output['code'] = $this->code;
         }
         if (null !== $this->urls) {
-            $output["urls"] = $this->urls;
+            $output['urls'] = $this->urls;
         }
     
         return $output;

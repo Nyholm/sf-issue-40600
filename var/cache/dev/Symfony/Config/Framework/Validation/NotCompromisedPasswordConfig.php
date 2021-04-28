@@ -46,14 +46,14 @@ class NotCompromisedPasswordConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["endpoint"])) {
-            $this->endpoint = $value["endpoint"];
-            unset($value["endpoint"]);
+        if (isset($value['endpoint'])) {
+            $this->endpoint = $value['endpoint'];
+            unset($value['endpoint']);
         }
     
         if ($value !== []) {
@@ -66,10 +66,10 @@ class NotCompromisedPasswordConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->endpoint) {
-            $output["endpoint"] = $this->endpoint;
+            $output['endpoint'] = $this->endpoint;
         }
     
         return $output;

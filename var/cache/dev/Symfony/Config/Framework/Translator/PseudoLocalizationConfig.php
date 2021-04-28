@@ -95,34 +95,34 @@ class PseudoLocalizationConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["enabled"])) {
-            $this->enabled = $value["enabled"];
-            unset($value["enabled"]);
+        if (isset($value['enabled'])) {
+            $this->enabled = $value['enabled'];
+            unset($value['enabled']);
         }
     
-        if (isset($value["accents"])) {
-            $this->accents = $value["accents"];
-            unset($value["accents"]);
+        if (isset($value['accents'])) {
+            $this->accents = $value['accents'];
+            unset($value['accents']);
         }
     
-        if (isset($value["expansion_factor"])) {
-            $this->expansionFactor = $value["expansion_factor"];
-            unset($value["expansion_factor"]);
+        if (isset($value['expansion_factor'])) {
+            $this->expansionFactor = $value['expansion_factor'];
+            unset($value['expansion_factor']);
         }
     
-        if (isset($value["brackets"])) {
-            $this->brackets = $value["brackets"];
-            unset($value["brackets"]);
+        if (isset($value['brackets'])) {
+            $this->brackets = $value['brackets'];
+            unset($value['brackets']);
         }
     
-        if (isset($value["parse_html"])) {
-            $this->parseHtml = $value["parse_html"];
-            unset($value["parse_html"]);
+        if (isset($value['parse_html'])) {
+            $this->parseHtml = $value['parse_html'];
+            unset($value['parse_html']);
         }
     
-        if (isset($value["localizable_html_attributes"])) {
-            $this->localizableHtmlAttributes = $value["localizable_html_attributes"];
-            unset($value["localizable_html_attributes"]);
+        if (isset($value['localizable_html_attributes'])) {
+            $this->localizableHtmlAttributes = $value['localizable_html_attributes'];
+            unset($value['localizable_html_attributes']);
         }
     
         if ($value !== []) {
@@ -135,22 +135,22 @@ class PseudoLocalizationConfig
     {
         $output = [];
         if (null !== $this->enabled) {
-            $output["enabled"] = $this->enabled;
+            $output['enabled'] = $this->enabled;
         }
         if (null !== $this->accents) {
-            $output["accents"] = $this->accents;
+            $output['accents'] = $this->accents;
         }
         if (null !== $this->expansionFactor) {
-            $output["expansion_factor"] = $this->expansionFactor;
+            $output['expansion_factor'] = $this->expansionFactor;
         }
         if (null !== $this->brackets) {
-            $output["brackets"] = $this->brackets;
+            $output['brackets'] = $this->brackets;
         }
         if (null !== $this->parseHtml) {
-            $output["parse_html"] = $this->parseHtml;
+            $output['parse_html'] = $this->parseHtml;
         }
         if (null !== $this->localizableHtmlAttributes) {
-            $output["localizable_html_attributes"] = $this->localizableHtmlAttributes;
+            $output['localizable_html_attributes'] = $this->localizableHtmlAttributes;
         }
     
         return $output;

@@ -419,149 +419,149 @@ class SlaveConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["url"])) {
-            $this->url = $value["url"];
-            unset($value["url"]);
+        if (isset($value['url'])) {
+            $this->url = $value['url'];
+            unset($value['url']);
         }
     
-        if (isset($value["dbname"])) {
-            $this->dbname = $value["dbname"];
-            unset($value["dbname"]);
+        if (isset($value['dbname'])) {
+            $this->dbname = $value['dbname'];
+            unset($value['dbname']);
         }
     
-        if (isset($value["host"])) {
-            $this->host = $value["host"];
-            unset($value["host"]);
+        if (isset($value['host'])) {
+            $this->host = $value['host'];
+            unset($value['host']);
         }
     
-        if (isset($value["port"])) {
-            $this->port = $value["port"];
-            unset($value["port"]);
+        if (isset($value['port'])) {
+            $this->port = $value['port'];
+            unset($value['port']);
         }
     
-        if (isset($value["user"])) {
-            $this->user = $value["user"];
-            unset($value["user"]);
+        if (isset($value['user'])) {
+            $this->user = $value['user'];
+            unset($value['user']);
         }
     
-        if (isset($value["password"])) {
-            $this->password = $value["password"];
-            unset($value["password"]);
+        if (isset($value['password'])) {
+            $this->password = $value['password'];
+            unset($value['password']);
         }
     
-        if (isset($value["override_url"])) {
-            $this->overrideUrl = $value["override_url"];
-            unset($value["override_url"]);
+        if (isset($value['override_url'])) {
+            $this->overrideUrl = $value['override_url'];
+            unset($value['override_url']);
         }
     
-        if (isset($value["application_name"])) {
-            $this->applicationName = $value["application_name"];
-            unset($value["application_name"]);
+        if (isset($value['application_name'])) {
+            $this->applicationName = $value['application_name'];
+            unset($value['application_name']);
         }
     
-        if (isset($value["charset"])) {
-            $this->charset = $value["charset"];
-            unset($value["charset"]);
+        if (isset($value['charset'])) {
+            $this->charset = $value['charset'];
+            unset($value['charset']);
         }
     
-        if (isset($value["path"])) {
-            $this->path = $value["path"];
-            unset($value["path"]);
+        if (isset($value['path'])) {
+            $this->path = $value['path'];
+            unset($value['path']);
         }
     
-        if (isset($value["memory"])) {
-            $this->memory = $value["memory"];
-            unset($value["memory"]);
+        if (isset($value['memory'])) {
+            $this->memory = $value['memory'];
+            unset($value['memory']);
         }
     
-        if (isset($value["unix_socket"])) {
-            $this->unixSocket = $value["unix_socket"];
-            unset($value["unix_socket"]);
+        if (isset($value['unix_socket'])) {
+            $this->unixSocket = $value['unix_socket'];
+            unset($value['unix_socket']);
         }
     
-        if (isset($value["persistent"])) {
-            $this->persistent = $value["persistent"];
-            unset($value["persistent"]);
+        if (isset($value['persistent'])) {
+            $this->persistent = $value['persistent'];
+            unset($value['persistent']);
         }
     
-        if (isset($value["protocol"])) {
-            $this->protocol = $value["protocol"];
-            unset($value["protocol"]);
+        if (isset($value['protocol'])) {
+            $this->protocol = $value['protocol'];
+            unset($value['protocol']);
         }
     
-        if (isset($value["service"])) {
-            $this->service = $value["service"];
-            unset($value["service"]);
+        if (isset($value['service'])) {
+            $this->service = $value['service'];
+            unset($value['service']);
         }
     
-        if (isset($value["servicename"])) {
-            $this->servicename = $value["servicename"];
-            unset($value["servicename"]);
+        if (isset($value['servicename'])) {
+            $this->servicename = $value['servicename'];
+            unset($value['servicename']);
         }
     
-        if (isset($value["sessionMode"])) {
-            $this->sessionMode = $value["sessionMode"];
-            unset($value["sessionMode"]);
+        if (isset($value['sessionMode'])) {
+            $this->sessionMode = $value['sessionMode'];
+            unset($value['sessionMode']);
         }
     
-        if (isset($value["server"])) {
-            $this->server = $value["server"];
-            unset($value["server"]);
+        if (isset($value['server'])) {
+            $this->server = $value['server'];
+            unset($value['server']);
         }
     
-        if (isset($value["default_dbname"])) {
-            $this->defaultDbname = $value["default_dbname"];
-            unset($value["default_dbname"]);
+        if (isset($value['default_dbname'])) {
+            $this->defaultDbname = $value['default_dbname'];
+            unset($value['default_dbname']);
         }
     
-        if (isset($value["sslmode"])) {
-            $this->sslmode = $value["sslmode"];
-            unset($value["sslmode"]);
+        if (isset($value['sslmode'])) {
+            $this->sslmode = $value['sslmode'];
+            unset($value['sslmode']);
         }
     
-        if (isset($value["sslrootcert"])) {
-            $this->sslrootcert = $value["sslrootcert"];
-            unset($value["sslrootcert"]);
+        if (isset($value['sslrootcert'])) {
+            $this->sslrootcert = $value['sslrootcert'];
+            unset($value['sslrootcert']);
         }
     
-        if (isset($value["sslcert"])) {
-            $this->sslcert = $value["sslcert"];
-            unset($value["sslcert"]);
+        if (isset($value['sslcert'])) {
+            $this->sslcert = $value['sslcert'];
+            unset($value['sslcert']);
         }
     
-        if (isset($value["sslkey"])) {
-            $this->sslkey = $value["sslkey"];
-            unset($value["sslkey"]);
+        if (isset($value['sslkey'])) {
+            $this->sslkey = $value['sslkey'];
+            unset($value['sslkey']);
         }
     
-        if (isset($value["sslcrl"])) {
-            $this->sslcrl = $value["sslcrl"];
-            unset($value["sslcrl"]);
+        if (isset($value['sslcrl'])) {
+            $this->sslcrl = $value['sslcrl'];
+            unset($value['sslcrl']);
         }
     
-        if (isset($value["pooled"])) {
-            $this->pooled = $value["pooled"];
-            unset($value["pooled"]);
+        if (isset($value['pooled'])) {
+            $this->pooled = $value['pooled'];
+            unset($value['pooled']);
         }
     
-        if (isset($value["MultipleActiveResultSets"])) {
-            $this->multipleActiveResultSets = $value["MultipleActiveResultSets"];
-            unset($value["MultipleActiveResultSets"]);
+        if (isset($value['MultipleActiveResultSets'])) {
+            $this->multipleActiveResultSets = $value['MultipleActiveResultSets'];
+            unset($value['MultipleActiveResultSets']);
         }
     
-        if (isset($value["use_savepoints"])) {
-            $this->useSavepoints = $value["use_savepoints"];
-            unset($value["use_savepoints"]);
+        if (isset($value['use_savepoints'])) {
+            $this->useSavepoints = $value['use_savepoints'];
+            unset($value['use_savepoints']);
         }
     
-        if (isset($value["instancename"])) {
-            $this->instancename = $value["instancename"];
-            unset($value["instancename"]);
+        if (isset($value['instancename'])) {
+            $this->instancename = $value['instancename'];
+            unset($value['instancename']);
         }
     
-        if (isset($value["connectstring"])) {
-            $this->connectstring = $value["connectstring"];
-            unset($value["connectstring"]);
+        if (isset($value['connectstring'])) {
+            $this->connectstring = $value['connectstring'];
+            unset($value['connectstring']);
         }
     
         if ($value !== []) {
@@ -574,91 +574,91 @@ class SlaveConfig
     {
         $output = [];
         if (null !== $this->url) {
-            $output["url"] = $this->url;
+            $output['url'] = $this->url;
         }
         if (null !== $this->dbname) {
-            $output["dbname"] = $this->dbname;
+            $output['dbname'] = $this->dbname;
         }
         if (null !== $this->host) {
-            $output["host"] = $this->host;
+            $output['host'] = $this->host;
         }
         if (null !== $this->port) {
-            $output["port"] = $this->port;
+            $output['port'] = $this->port;
         }
         if (null !== $this->user) {
-            $output["user"] = $this->user;
+            $output['user'] = $this->user;
         }
         if (null !== $this->password) {
-            $output["password"] = $this->password;
+            $output['password'] = $this->password;
         }
         if (null !== $this->overrideUrl) {
-            $output["override_url"] = $this->overrideUrl;
+            $output['override_url'] = $this->overrideUrl;
         }
         if (null !== $this->applicationName) {
-            $output["application_name"] = $this->applicationName;
+            $output['application_name'] = $this->applicationName;
         }
         if (null !== $this->charset) {
-            $output["charset"] = $this->charset;
+            $output['charset'] = $this->charset;
         }
         if (null !== $this->path) {
-            $output["path"] = $this->path;
+            $output['path'] = $this->path;
         }
         if (null !== $this->memory) {
-            $output["memory"] = $this->memory;
+            $output['memory'] = $this->memory;
         }
         if (null !== $this->unixSocket) {
-            $output["unix_socket"] = $this->unixSocket;
+            $output['unix_socket'] = $this->unixSocket;
         }
         if (null !== $this->persistent) {
-            $output["persistent"] = $this->persistent;
+            $output['persistent'] = $this->persistent;
         }
         if (null !== $this->protocol) {
-            $output["protocol"] = $this->protocol;
+            $output['protocol'] = $this->protocol;
         }
         if (null !== $this->service) {
-            $output["service"] = $this->service;
+            $output['service'] = $this->service;
         }
         if (null !== $this->servicename) {
-            $output["servicename"] = $this->servicename;
+            $output['servicename'] = $this->servicename;
         }
         if (null !== $this->sessionMode) {
-            $output["sessionMode"] = $this->sessionMode;
+            $output['sessionMode'] = $this->sessionMode;
         }
         if (null !== $this->server) {
-            $output["server"] = $this->server;
+            $output['server'] = $this->server;
         }
         if (null !== $this->defaultDbname) {
-            $output["default_dbname"] = $this->defaultDbname;
+            $output['default_dbname'] = $this->defaultDbname;
         }
         if (null !== $this->sslmode) {
-            $output["sslmode"] = $this->sslmode;
+            $output['sslmode'] = $this->sslmode;
         }
         if (null !== $this->sslrootcert) {
-            $output["sslrootcert"] = $this->sslrootcert;
+            $output['sslrootcert'] = $this->sslrootcert;
         }
         if (null !== $this->sslcert) {
-            $output["sslcert"] = $this->sslcert;
+            $output['sslcert'] = $this->sslcert;
         }
         if (null !== $this->sslkey) {
-            $output["sslkey"] = $this->sslkey;
+            $output['sslkey'] = $this->sslkey;
         }
         if (null !== $this->sslcrl) {
-            $output["sslcrl"] = $this->sslcrl;
+            $output['sslcrl'] = $this->sslcrl;
         }
         if (null !== $this->pooled) {
-            $output["pooled"] = $this->pooled;
+            $output['pooled'] = $this->pooled;
         }
         if (null !== $this->multipleActiveResultSets) {
-            $output["MultipleActiveResultSets"] = $this->multipleActiveResultSets;
+            $output['MultipleActiveResultSets'] = $this->multipleActiveResultSets;
         }
         if (null !== $this->useSavepoints) {
-            $output["use_savepoints"] = $this->useSavepoints;
+            $output['use_savepoints'] = $this->useSavepoints;
         }
         if (null !== $this->instancename) {
-            $output["instancename"] = $this->instancename;
+            $output['instancename'] = $this->instancename;
         }
         if (null !== $this->connectstring) {
-            $output["connectstring"] = $this->connectstring;
+            $output['connectstring'] = $this->connectstring;
         }
     
         return $output;

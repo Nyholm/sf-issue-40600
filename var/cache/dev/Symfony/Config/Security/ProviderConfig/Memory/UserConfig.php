@@ -43,14 +43,14 @@ class UserConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["password"])) {
-            $this->password = $value["password"];
-            unset($value["password"]);
+        if (isset($value['password'])) {
+            $this->password = $value['password'];
+            unset($value['password']);
         }
     
-        if (isset($value["roles"])) {
-            $this->roles = $value["roles"];
-            unset($value["roles"]);
+        if (isset($value['roles'])) {
+            $this->roles = $value['roles'];
+            unset($value['roles']);
         }
     
         if ($value !== []) {
@@ -63,10 +63,10 @@ class UserConfig
     {
         $output = [];
         if (null !== $this->password) {
-            $output["password"] = $this->password;
+            $output['password'] = $this->password;
         }
         if (null !== $this->roles) {
-            $output["roles"] = $this->roles;
+            $output['roles'] = $this->roles;
         }
     
         return $output;

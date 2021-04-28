@@ -58,19 +58,19 @@ class GuardConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["provider"])) {
-            $this->provider = $value["provider"];
-            unset($value["provider"]);
+        if (isset($value['provider'])) {
+            $this->provider = $value['provider'];
+            unset($value['provider']);
         }
     
-        if (isset($value["entry_point"])) {
-            $this->entryPoint = $value["entry_point"];
-            unset($value["entry_point"]);
+        if (isset($value['entry_point'])) {
+            $this->entryPoint = $value['entry_point'];
+            unset($value['entry_point']);
         }
     
-        if (isset($value["authenticators"])) {
-            $this->authenticators = $value["authenticators"];
-            unset($value["authenticators"]);
+        if (isset($value['authenticators'])) {
+            $this->authenticators = $value['authenticators'];
+            unset($value['authenticators']);
         }
     
         if ($value !== []) {
@@ -83,13 +83,13 @@ class GuardConfig
     {
         $output = [];
         if (null !== $this->provider) {
-            $output["provider"] = $this->provider;
+            $output['provider'] = $this->provider;
         }
         if (null !== $this->entryPoint) {
-            $output["entry_point"] = $this->entryPoint;
+            $output['entry_point'] = $this->entryPoint;
         }
         if (null !== $this->authenticators) {
-            $output["authenticators"] = $this->authenticators;
+            $output['authenticators'] = $this->authenticators;
         }
     
         return $output;

@@ -70,24 +70,24 @@ class AccessDecisionManagerConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["strategy"])) {
-            $this->strategy = $value["strategy"];
-            unset($value["strategy"]);
+        if (isset($value['strategy'])) {
+            $this->strategy = $value['strategy'];
+            unset($value['strategy']);
         }
     
-        if (isset($value["service"])) {
-            $this->service = $value["service"];
-            unset($value["service"]);
+        if (isset($value['service'])) {
+            $this->service = $value['service'];
+            unset($value['service']);
         }
     
-        if (isset($value["allow_if_all_abstain"])) {
-            $this->allowIfAllAbstain = $value["allow_if_all_abstain"];
-            unset($value["allow_if_all_abstain"]);
+        if (isset($value['allow_if_all_abstain'])) {
+            $this->allowIfAllAbstain = $value['allow_if_all_abstain'];
+            unset($value['allow_if_all_abstain']);
         }
     
-        if (isset($value["allow_if_equal_granted_denied"])) {
-            $this->allowIfEqualGrantedDenied = $value["allow_if_equal_granted_denied"];
-            unset($value["allow_if_equal_granted_denied"]);
+        if (isset($value['allow_if_equal_granted_denied'])) {
+            $this->allowIfEqualGrantedDenied = $value['allow_if_equal_granted_denied'];
+            unset($value['allow_if_equal_granted_denied']);
         }
     
         if ($value !== []) {
@@ -100,16 +100,16 @@ class AccessDecisionManagerConfig
     {
         $output = [];
         if (null !== $this->strategy) {
-            $output["strategy"] = $this->strategy;
+            $output['strategy'] = $this->strategy;
         }
         if (null !== $this->service) {
-            $output["service"] = $this->service;
+            $output['service'] = $this->service;
         }
         if (null !== $this->allowIfAllAbstain) {
-            $output["allow_if_all_abstain"] = $this->allowIfAllAbstain;
+            $output['allow_if_all_abstain'] = $this->allowIfAllAbstain;
         }
         if (null !== $this->allowIfEqualGrantedDenied) {
-            $output["allow_if_equal_granted_denied"] = $this->allowIfEqualGrantedDenied;
+            $output['allow_if_equal_granted_denied'] = $this->allowIfEqualGrantedDenied;
         }
     
         return $output;

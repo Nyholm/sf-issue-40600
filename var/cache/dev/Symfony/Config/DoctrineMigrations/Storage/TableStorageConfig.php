@@ -83,29 +83,29 @@ class TableStorageConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["table_name"])) {
-            $this->tableName = $value["table_name"];
-            unset($value["table_name"]);
+        if (isset($value['table_name'])) {
+            $this->tableName = $value['table_name'];
+            unset($value['table_name']);
         }
     
-        if (isset($value["version_column_name"])) {
-            $this->versionColumnName = $value["version_column_name"];
-            unset($value["version_column_name"]);
+        if (isset($value['version_column_name'])) {
+            $this->versionColumnName = $value['version_column_name'];
+            unset($value['version_column_name']);
         }
     
-        if (isset($value["version_column_length"])) {
-            $this->versionColumnLength = $value["version_column_length"];
-            unset($value["version_column_length"]);
+        if (isset($value['version_column_length'])) {
+            $this->versionColumnLength = $value['version_column_length'];
+            unset($value['version_column_length']);
         }
     
-        if (isset($value["executed_at_column_name"])) {
-            $this->executedAtColumnName = $value["executed_at_column_name"];
-            unset($value["executed_at_column_name"]);
+        if (isset($value['executed_at_column_name'])) {
+            $this->executedAtColumnName = $value['executed_at_column_name'];
+            unset($value['executed_at_column_name']);
         }
     
-        if (isset($value["execution_time_column_name"])) {
-            $this->executionTimeColumnName = $value["execution_time_column_name"];
-            unset($value["execution_time_column_name"]);
+        if (isset($value['execution_time_column_name'])) {
+            $this->executionTimeColumnName = $value['execution_time_column_name'];
+            unset($value['execution_time_column_name']);
         }
     
         if ($value !== []) {
@@ -118,19 +118,19 @@ class TableStorageConfig
     {
         $output = [];
         if (null !== $this->tableName) {
-            $output["table_name"] = $this->tableName;
+            $output['table_name'] = $this->tableName;
         }
         if (null !== $this->versionColumnName) {
-            $output["version_column_name"] = $this->versionColumnName;
+            $output['version_column_name'] = $this->versionColumnName;
         }
         if (null !== $this->versionColumnLength) {
-            $output["version_column_length"] = $this->versionColumnLength;
+            $output['version_column_length'] = $this->versionColumnLength;
         }
         if (null !== $this->executedAtColumnName) {
-            $output["executed_at_column_name"] = $this->executedAtColumnName;
+            $output['executed_at_column_name'] = $this->executedAtColumnName;
         }
         if (null !== $this->executionTimeColumnName) {
-            $output["execution_time_column_name"] = $this->executionTimeColumnName;
+            $output['execution_time_column_name'] = $this->executionTimeColumnName;
         }
     
         return $output;

@@ -57,19 +57,19 @@ class NumberFormatConfig
     public function __construct(array $value = [])
     {
     
-        if (isset($value["decimals"])) {
-            $this->decimals = $value["decimals"];
-            unset($value["decimals"]);
+        if (isset($value['decimals'])) {
+            $this->decimals = $value['decimals'];
+            unset($value['decimals']);
         }
     
-        if (isset($value["decimal_point"])) {
-            $this->decimalPoint = $value["decimal_point"];
-            unset($value["decimal_point"]);
+        if (isset($value['decimal_point'])) {
+            $this->decimalPoint = $value['decimal_point'];
+            unset($value['decimal_point']);
         }
     
-        if (isset($value["thousands_separator"])) {
-            $this->thousandsSeparator = $value["thousands_separator"];
-            unset($value["thousands_separator"]);
+        if (isset($value['thousands_separator'])) {
+            $this->thousandsSeparator = $value['thousands_separator'];
+            unset($value['thousands_separator']);
         }
     
         if ($value !== []) {
@@ -82,13 +82,13 @@ class NumberFormatConfig
     {
         $output = [];
         if (null !== $this->decimals) {
-            $output["decimals"] = $this->decimals;
+            $output['decimals'] = $this->decimals;
         }
         if (null !== $this->decimalPoint) {
-            $output["decimal_point"] = $this->decimalPoint;
+            $output['decimal_point'] = $this->decimalPoint;
         }
         if (null !== $this->thousandsSeparator) {
-            $output["thousands_separator"] = $this->thousandsSeparator;
+            $output['thousands_separator'] = $this->thousandsSeparator;
         }
     
         return $output;
